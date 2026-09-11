@@ -1,1 +1,1 @@
-{"name": "Upgrade", "group": "Debt", "type": "debt", "amount": 5395.47, "dueDay": 12, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026. No payment seen in August - may be irregular or paused; verify."}
+{"name": "Upgrade", "group": "Debt", "type": "debt", "amount": 826.88, "dueDay": 12, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 0.16 and as high as 10790.77)."}

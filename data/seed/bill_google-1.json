@@ -1,1 +1,1 @@
-{"name": "Google 1", "group": "Monthly Bills", "type": "bill", "amount": 2.99, "dueDay": 28, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026."}
+{"name": "Google 1", "group": "Monthly Bills", "type": "bill", "amount": 2.49, "dueDay": 28, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026."}

@@ -1,1 +1,1 @@
-{"name": "Paypal pay in 4", "group": "Debt", "type": "debt", "amount": 310.58, "dueDay": 15, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026. No payment seen in August - may be irregular or paused; verify."}
+{"name": "Paypal pay in 4", "group": "Debt", "type": "debt", "amount": 193.67, "dueDay": 15, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 28.48 and as high as 310.58)."}

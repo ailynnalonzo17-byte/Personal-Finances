@@ -1,1 +1,1 @@
-{"name": "CC - Ollo", "group": "Debt", "type": "debt", "amount": 419.12, "dueDay": 12, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026. No payment seen in August - may be irregular or paused; verify."}
+{"name": "CC - Ollo", "group": "Debt", "type": "debt", "amount": 78.0, "dueDay": 7, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 27.00 and as high as 419.12)."}

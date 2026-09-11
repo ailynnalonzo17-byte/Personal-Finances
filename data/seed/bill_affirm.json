@@ -1,1 +1,1 @@
-{"name": "Affirm", "group": "Debt", "type": "debt", "amount": 885.98, "dueDay": 18, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026."}
+{"name": "Affirm", "group": "Debt", "type": "debt", "amount": 345.18, "dueDay": 18, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 116.03 and as high as 885.98)."}

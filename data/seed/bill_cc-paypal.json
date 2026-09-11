@@ -1,1 +1,1 @@
-{"name": "CC - paypal", "group": "Debt", "type": "debt", "amount": 2.0, "dueDay": 21, "account": "checking", "active": true, "note": "Estimated from your Chase statement, May-Aug 2026. One-time payment likely in history - verify amount."}
+{"name": "CC - paypal", "group": "Debt", "type": "debt", "amount": 313.5, "dueDay": 20, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 2.00 and as high as 8768.01)."}

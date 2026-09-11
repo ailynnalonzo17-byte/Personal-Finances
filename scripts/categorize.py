@@ -51,7 +51,7 @@ RULES = [
     (r"CITI CARD ONLINE PAYMENT", "CC - Citibank", "Debt", "H", ""),
     (r"CAPITAL ONE\s+MOBILE PMT|CAPITAL ONE\s+CRCARDPMT", "CC - Capital 1", "Debt", "H", ""),
     (r"PAYPAL\s+INST XFER\s+PPCR", "CC - paypal", "Debt", "H", ""),
-    (r"PAYMENT TO CHASE CARD", "CC - cashback MC", "Debt", "R", "Payment to a Chase card ending 1755 - guessed this is the cashback Mastercard, please confirm"),
+    (r"PAYMENT TO CHASE CARD", "Others", "Expenses", "R", "Payment to a Chase card ending 1755 - not your PayPal Cashback Mastercard (that's confirmed separately), still don't know which card this is - please tell me"),
     (r"PAYPAL \*PYPL PAYIN4", "Paypal pay in 4", "Debt", "H", ""),
     (r"MISSION LANE", "CC - Mission Lane", "Debt", "H", ""),
     (r"CITIZENS PAY", "CC - Citizen bank", "Debt", "H", ""),
