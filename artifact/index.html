@@ -240,7 +240,7 @@
 
   <div class="panel">
     <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-      <div><h2>Running balance</h2><div class="sub" id="registerSub">Every transaction for this account, oldest to newest, with the balance right after each one</div></div>
+      <div><h2>Running balance</h2><div class="sub" id="registerSub">Every transaction for this account, newest first, with the balance right after each one</div></div>
       <select id="registerAcct">
         <option value="checking">Checking</option>
         <option value="savings">Savings</option>
@@ -810,33 +810,36 @@ function renderRegister(){
   const acc = state.accounts[acctId];
   const start = acc ? (acc.startingBalance||0) : 0;
 
-  const entries = allEntries().filter(e=> e.account===acctId).slice().reverse(); // oldest first
+  const chronological = allEntries().filter(e=> e.account===acctId).slice().reverse(); // oldest first, to compute running balance
   document.getElementById("registerSub").textContent =
-    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, oldest to newest, with the balance right after each one`;
+    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, newest first, with the balance right after each one`;
 
   let running = start;
-  const rows = [`<tr>
+  const computed = chronological.map(e=>{
+    running += e.amount;
+    return {...e, balance: running};
+  });
+  const ending = running;
+
+  const startRow = `<tr>
       <td>${acc && acc.startingDate ? acc.startingDate : "—"}</td>
       <td style="font-style:italic; color:var(--ink-faint);">Starting balance</td>
       <td></td><td class="amt num"></td>
-      <td class="amt num ${running<0?'bal-neg':''}">${money(running)}</td>
-    </tr>`];
-  entries.forEach(e=>{
-    running += e.amount;
-    rows.push(`<tr>
+      <td class="amt num ${start<0?'bal-neg':''}">${money(start)}</td>
+    </tr>`;
+  const txRows = computed.slice().reverse().map(e=> `<tr>
       <td>${e.date}</td>
       <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}</td>
       <td>${e.category}</td>
       <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
-      <td class="amt num ${running<0?'bal-neg':''}" style="font-weight:600;">${money(running)}</td>
-    </tr>`);
-  });
-  document.getElementById("registerBody").innerHTML = rows.join("");
-  document.getElementById("registerCount").textContent =
-    `${entries.length} transaction${entries.length===1?"":"s"} · ends at ${money(running)}`;
+      <td class="amt num ${e.balance<0?'bal-neg':''}" style="font-weight:600;">${money(e.balance)}</td>
+    </tr>`); // newest first
 
-  const scroller = document.getElementById("registerScroll");
-  scroller.scrollTop = scroller.scrollHeight; // jump to the latest (bottom)
+  document.getElementById("registerBody").innerHTML = txRows.join("") + startRow;
+  document.getElementById("registerCount").textContent =
+    `${computed.length} transaction${computed.length===1?"":"s"} · currently ${money(ending)}`;
+
+  document.getElementById("registerScroll").scrollTop = 0; // newest is at the top
 }
 
 /* ---------------- add transaction ---------------- */
