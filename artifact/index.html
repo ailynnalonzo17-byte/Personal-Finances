@@ -871,9 +871,11 @@ async function onAdd(ev){
       id: (crypto.randomUUID ? crypto.randomUUID() : "e"+Date.now()+Math.random().toString(16).slice(2)),
       date, description:desc, amount:amt, category, group, confidence:"H", note:"", source:"Manual entry"
     };
-    existing.entries = [...(existing.entries||[]), entry];
-    await ref.set(existing);
-    state.transactions[docId] = existing;
+    // existing came from snap.data(), which is frozen - build a new object rather than
+    // mutating it, or the write silently saves back the unchanged original.
+    const next = {...existing, entries: [...(existing.entries||[]), entry]};
+    await ref.set(next);
+    state.transactions[docId] = next;
     renderAll();
     msg.textContent = "Added.";
     document.getElementById("f-desc").value = "";
