@@ -173,6 +173,21 @@
   .budget-check{width:14px; height:14px; accent-color:var(--accent);}
   .budget-totals td{font-weight:700; border-top:2px solid var(--border); border-bottom:none; padding-top:7px;}
 
+  /* ---------- category-by-month pivot ---------- */
+  .pivot-wrap{overflow-x:auto;}
+  table.pivot-table{border-collapse:collapse; width:100%; font-size:12.5px; white-space:nowrap;}
+  .pivot-table th{padding:7px 12px; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint);
+    text-align:right; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--surface);}
+  .pivot-table th:first-child{text-align:left; position:sticky; left:0; z-index:2; background:var(--surface);}
+  .pivot-table th.grand{color:var(--accent);}
+  .pivot-table td{padding:6px 12px; text-align:right; border-bottom:1px solid var(--border); font-family:"IBM Plex Mono",monospace;}
+  .pivot-table td:first-child{text-align:left; font-family:"IBM Plex Sans",sans-serif; color:var(--ink-dim);
+    position:sticky; left:0; background:var(--surface); white-space:normal; max-width:160px;}
+  .pivot-table td.grand{font-weight:600; color:var(--accent);}
+  .pivot-table td.zero{color:var(--ink-faint);}
+  .pivot-table tr.group-row td{background:var(--surface-2); font-weight:700; color:var(--ink); font-size:11px;
+    text-transform:uppercase; letter-spacing:.04em; position:static;}
+
   /* ---------- transactions table ---------- */
   .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;}
   .filters input,.filters select{width:auto; min-width:120px;}
@@ -295,6 +310,14 @@
       <div><h2>Budget by category</h2><div class="sub" id="budgetSub">Every category, one month at a time</div></div>
     </div>
     <div class="budget-cols" id="budgetCols"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Category by month</h2>
+    <div class="sub">Every category with any activity, month by month. Categories with nothing in any month are left out.</div>
+    <div class="pivot-wrap">
+      <table class="pivot-table" id="pivotTable"></table>
+    </div>
   </div>
 
   <div class="panel">
@@ -576,7 +599,8 @@ function renderBudgetGrid(){
   entries.forEach(e=>{ actualByCat[e.category] = (actualByCat[e.category]||0) + Math.abs(e.amount); });
 
   document.getElementById("budgetCols").innerHTML = BUDGET_COLS.map(col=>{
-    const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c);
+    const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c)
+      .filter(cat => (actualByCat[cat]||0) !== 0); // hide categories with nothing this period
     let totalBudget = 0, totalActual = 0;
     const rows = cats.map(cat=>{
       const id = slug(cat);
@@ -638,6 +662,44 @@ function renderBudgetGrid(){
       state.checked[key] = {checked: cb.checked};
     });
   });
+}
+
+/* ---------------- render: category-by-month pivot ---------------- */
+function renderPivot(){
+  const months = availableMonths(); // ascending, e.g. ["2026-03", ..., "2026-09"]
+  const entries = allEntries();
+
+  // total[category][month] = sum of abs(amount); total[category].grand = sum over all months
+  const byCat = {};
+  entries.forEach(e=>{
+    if(!byCat[e.category]) byCat[e.category] = {grand:0};
+    const v = Math.abs(e.amount);
+    byCat[e.category][e.date.slice(0,7)] = (byCat[e.category][e.date.slice(0,7)]||0) + v;
+    byCat[e.category].grand += v;
+  });
+
+  const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
+  let head = `<thead><tr><th>Category</th>${months.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+
+  let bodyRows = "";
+  const groups = ["Income","Monthly Bills","Expenses","Debt","Transfer"];
+  groups.forEach(g=>{
+    const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
+      .filter(cat => byCat[cat] && byCat[cat].grand > 0)
+      .sort();
+    if(cats.length===0) return;
+    bodyRows += `<tr class="group-row"><td colspan="${months.length+2}">${g}</td></tr>`;
+    cats.forEach(cat=>{
+      const row = byCat[cat];
+      const cells = months.map(m=>{
+        const v = row[m]||0;
+        return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
+      }).join("");
+      bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
+    });
+  });
+
+  document.getElementById("pivotTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${months.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
 }
 
 /* ---------------- render: bills & projection ---------------- */
@@ -918,6 +980,7 @@ function renderAll(){
   renderSummary();
   renderCatBars();
   renderBudgetGrid();
+  renderPivot();
   renderBills();
   renderProjection();
   renderTransactions();
