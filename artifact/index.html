@@ -150,6 +150,29 @@
   .catbar-fill{height:100%; border-radius:5px;}
   .catbar-val{font-weight:600; text-align:right; min-width:64px;}
 
+  /* ---------- budget grid ---------- */
+  .budget-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:start;}
+  @media (max-width:900px){ .budget-cols{grid-template-columns:1fr;} }
+  .budget-col{border:1px solid var(--border); border-radius:10px; overflow:hidden;}
+  .budget-col-head{padding:9px 14px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-align:center;}
+  .budget-col.bills .budget-col-head{background:var(--accent-soft); color:var(--accent-ink);}
+  .budget-col.expenses .budget-col-head{background:var(--expense-soft); color:var(--expense);}
+  .budget-col.debt .budget-col-head{background:var(--debt-soft); color:var(--debt);}
+  .budget-table{width:100%; border-collapse:collapse; font-size:12px;}
+  .budget-table th{padding:6px 8px; font-size:10px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint);
+    text-align:right; border-bottom:1px solid var(--border);}
+  .budget-table th:first-child,.budget-table td:first-child{text-align:left;}
+  .budget-table td{padding:5px 8px; border-bottom:1px solid var(--border); vertical-align:middle;}
+  .budget-table tr:last-child td{border-bottom:none;}
+  .budget-table tr.has-actual td{font-weight:500;}
+  .budget-table td.name{color:var(--ink-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:120px;}
+  .budget-table td.num{text-align:right; font-family:"IBM Plex Mono",monospace;}
+  .budget-table td.due{text-align:center; color:var(--ink-faint); font-size:11px;}
+  .budget-table td.left-neg{color:var(--critical);}
+  .budget-input{width:64px; text-align:right; padding:3px 5px; font-size:11.5px; border-radius:5px;}
+  .budget-check{width:14px; height:14px; accent-color:var(--accent);}
+  .budget-totals td{font-weight:700; border-top:2px solid var(--border); border-bottom:none; padding-top:7px;}
+
   /* ---------- transactions table ---------- */
   .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;}
   .filters input,.filters select{width:auto; min-width:120px;}
@@ -248,6 +271,13 @@
   </div>
 
   <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+      <div><h2>Budget by category</h2><div class="sub" id="budgetSub">Every category, one month at a time</div></div>
+    </div>
+    <div class="budget-cols" id="budgetCols"></div>
+  </div>
+
+  <div class="panel">
     <h2>Transactions</h2>
     <div class="sub">Every entry across every account. Click a category to fix a guess.</div>
     <div class="filters">
@@ -279,7 +309,8 @@ const money = n => (n<0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US",{mini
 const todayISO = () => new Date().toISOString().slice(0,10);
 
 let db = null;
-let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{} };
+let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{} };
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 
 function catOptionsHTML(selected){
@@ -353,6 +384,18 @@ function subscribe(){
   unsubs.push(db.collection("credit_cards").onSnapshot(snap=>{
     state.creditCards = {};
     snap.docs.forEach(d=> state.creditCards[d.id] = d.data());
+    renderAll();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("budgets").onSnapshot(snap=>{
+    state.budgets = {};
+    snap.docs.forEach(d=> state.budgets[d.id] = d.data());
+    renderAll();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("bills_checked").onSnapshot(snap=>{
+    state.checked = {};
+    snap.docs.forEach(d=> state.checked[d.id] = d.data());
     renderAll();
   }, err=> setSync(false, "Connection lost")));
 }
@@ -490,6 +533,85 @@ function renderCatBars(){
       <div class="catbar-val num">${money(val)}</div>
     </div>`;
   }).join("") || `<div class="sub">Nothing recorded for this period yet.</div>`;
+}
+
+/* ---------------- render: budget by category ---------------- */
+const BUDGET_COLS = [
+  {group:"Monthly Bills", cls:"bills",    label:"Bills",    hasLeft:false, hasCheck:true,  hasDue:true},
+  {group:"Expenses",      cls:"expenses", label:"Expenses", hasLeft:true,  hasCheck:false, hasDue:false},
+  {group:"Debt",          cls:"debt",     label:"Debt",     hasLeft:false, hasCheck:true,  hasDue:true},
+];
+
+function renderBudgetGrid(){
+  const period = document.getElementById("periodSelect").value || "all";
+  document.getElementById("budgetSub").textContent = (period==="all" ? "All time" :
+    new Date(period+"-02").toLocaleString("en-US",{month:"long",year:"numeric"})) +
+    " · type a budget for any row, check off what's handled";
+
+  const entries = entriesForPeriod();
+  const actualByCat = {};
+  entries.forEach(e=>{ actualByCat[e.category] = (actualByCat[e.category]||0) + Math.abs(e.amount); });
+
+  document.getElementById("budgetCols").innerHTML = BUDGET_COLS.map(col=>{
+    const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c);
+    let totalBudget = 0, totalActual = 0;
+    const rows = cats.map(cat=>{
+      const id = slug(cat);
+      const budget = state.budgets[id]?.monthlyBudget;
+      const actual = actualByCat[cat] || 0;
+      totalBudget += budget || 0; totalActual += actual;
+      const dueDay = state.bills[id]?.dueDay;
+      const checkKey = `${id}__${period}`;
+      const isChecked = !!state.checked[checkKey]?.checked;
+      const left = (budget||0) - actual;
+      return `<tr class="${actual?'has-actual':''}">
+        ${col.hasCheck ? `<td><input type="checkbox" class="budget-check" data-checkkey="${checkKey}" ${isChecked?"checked":""}></td>` : ""}
+        <td class="name" title="${cat}">${cat}</td>
+        ${col.hasDue ? `<td class="due">${dueDay?dueDay+"th":"–"}</td>` : ""}
+        <td class="num"><input type="text" inputmode="decimal" class="budget-input" data-budgetcat="${id}"
+              value="${budget!=null?budget:''}" placeholder="–"></td>
+        <td class="num">${actual ? money(actual) : "–"}</td>
+        ${col.hasLeft ? `<td class="num ${left<0?'left-neg':''}">${budget!=null?money(left):"–"}</td>` : ""}
+      </tr>`;
+    }).join("");
+    return `<div class="budget-col ${col.cls}">
+      <div class="budget-col-head">${col.label}</div>
+      <table class="budget-table">
+        <thead><tr>
+          ${col.hasCheck?"<th></th>":""}
+          <th>Name</th>
+          ${col.hasDue?"<th>Due</th>":""}
+          <th>Budget</th><th>Actual</th>${col.hasLeft?"<th>Left</th>":""}
+        </tr></thead>
+        <tbody>${rows}
+          <tr class="budget-totals">
+            ${col.hasCheck?"<td></td>":""}
+            <td>Total</td>${col.hasDue?"<td></td>":""}
+            <td class="num">${money(totalBudget)}</td>
+            <td class="num">${money(totalActual)}</td>
+            ${col.hasLeft?`<td class="num ${totalBudget-totalActual<0?'left-neg':''}">${money(totalBudget-totalActual)}</td>`:""}
+          </tr>
+        </tbody>
+      </table>
+    </div>`;
+  }).join("");
+
+  document.querySelectorAll("[data-budgetcat]").forEach(inp=>{
+    inp.addEventListener("change", async ()=>{
+      const id = inp.dataset.budgetcat;
+      const val = parseFloat(inp.value);
+      if(inp.value.trim()!=="" && isNaN(val)) return;
+      const cat = MASTER_CATS.find(([,c])=>slug(c)===id);
+      await db.doc("budgets/"+id).set({
+        category: cat?cat[1]:id, group: cat?cat[0]:"", monthlyBudget: inp.value.trim()===""?null:val
+      });
+    });
+  });
+  document.querySelectorAll("[data-checkkey]").forEach(cb=>{
+    cb.addEventListener("change", async ()=>{
+      await db.doc("bills_checked/"+cb.dataset.checkkey).set({checked: cb.checked});
+    });
+  });
 }
 
 /* ---------------- render: bills & projection ---------------- */
@@ -720,6 +842,7 @@ function renderAll(){
   renderPeriodOptions();
   renderSummary();
   renderCatBars();
+  renderBudgetGrid();
   renderBills();
   renderProjection();
   renderTransactions();
