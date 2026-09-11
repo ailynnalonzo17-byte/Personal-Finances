@@ -140,13 +140,25 @@ def special_cases(desc, ttype, amount):
     if _PAYPAL_TRANSFER_RE.search(desc) and amount == 1828.00:
         return "Kristin - COO Income", "Income", "H", "Confirmed by you: lands on/before the 5th and 20th"
 
-    # Paper checks: you confirmed $500 ones are insurance; the one-off $7,500 you don't recall.
+    # Paper checks: you confirmed $500 ones are Gail's car payment (not insurance, per your
+    # correction), and specific $1,800/$2,000 ones are rent to two different landlords.
+    # The one-off $7,500 you don't recall.
     if _CHECK_RE.search(desc):
         if amount == -500.00:
-            return "Insurance", "Monthly Bills", "H", "Confirmed by you: insurance payment"
+            return "Misc - Gail", "Expenses", "H", "$500/month for Gail's car, confirmed by you"
+        if amount == -1800.00:
+            return "Rent", "Monthly Bills", "H", "Rent - California, confirmed by you"
+        if amount == -2000.00:
+            return "Rent", "Monthly Bills", "H", "Rent to Greg, confirmed by you"
         if amount == -7500.00:
             return "Others", "Expenses", "D", "You didn't recall what this $7,500 check was when I asked - update this if it comes back to you."
         return "Others", "Expenses", "R", "Paper check - payee not shown on the statement; please tell me who this was written to"
+
+    # Named Zelle recipients you've identified
+    if "8182015945" in desc:
+        return "Others", "Expenses", "H", "Universal Movers (moving company), confirmed by you"
+    if "7864124499" in desc:
+        return "For Car", "Expenses", "H", "Car movers, confirmed by you"
 
     return None
 
