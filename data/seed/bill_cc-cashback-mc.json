@@ -1,0 +1,10 @@
+{
+  "name": "CC - cashback MC",
+  "group": "Debt",
+  "type": "debt",
+  "amount": 40.00,
+  "dueDay": 17,
+  "account": "checking",
+  "active": true,
+  "note": "From your real PayPal Cashback Mastercard statement (Christopher, ...2682): minimum due $40.00 by 09/17/2026. Full balance is $191.92 if you'd rather pay it off. This replaces my earlier guess that this category was a Chase card."
+}

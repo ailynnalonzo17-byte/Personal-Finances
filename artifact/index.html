@@ -235,6 +235,12 @@
     </div>
   </div>
 
+  <div class="panel" id="ccPanel" style="display:none">
+    <h2>Credit cards on file</h2>
+    <div class="sub">Pulled straight from statements you've uploaded — real balances, not estimates.</div>
+    <div id="ccList"></div>
+  </div>
+
   <div class="panel">
     <h2>Spending by category</h2>
     <div class="sub" id="catSub">This period</div>
@@ -273,7 +279,7 @@ const money = n => (n<0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US",{mini
 const todayISO = () => new Date().toISOString().slice(0,10);
 
 let db = null;
-let state = { accounts:{}, transactions:{}, bills:{} };
+let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{} };
 let unsubs = [];
 
 function catOptionsHTML(selected){
@@ -341,6 +347,12 @@ function subscribe(){
   unsubs.push(db.collection("bills").onSnapshot(snap=>{
     state.bills = {};
     snap.docs.forEach(d=> state.bills[d.id] = d.data());
+    renderAll();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("credit_cards").onSnapshot(snap=>{
+    state.creditCards = {};
+    snap.docs.forEach(d=> state.creditCards[d.id] = d.data());
     renderAll();
   }, err=> setSync(false, "Connection lost")));
 }
@@ -678,9 +690,33 @@ async function onAdd(ev){
   btn.disabled = false; btn.textContent = "Add";
 }
 
+/* ---------------- render: credit cards ---------------- */
+function renderCreditCards(){
+  const panel = document.getElementById("ccPanel");
+  const cards = Object.entries(state.creditCards);
+  if(cards.length===0){ panel.style.display = "none"; return; }
+  panel.style.display = "block";
+  const today = new Date(); today.setHours(0,0,0,0);
+  document.getElementById("ccList").innerHTML = cards.map(([id,c])=>{
+    const due = new Date(c.dueDate+"T00:00:00");
+    const days = daysBetween(today, due);
+    let badgeClass = "ok"; if(days<=2) badgeClass="bad"; else if(days<=7) badgeClass="warn";
+    return `<div class="bill-row" style="grid-template-columns:1fr auto auto auto;">
+      <div>
+        <div class="bill-name">${c.name}${c.last4?` ···${c.last4}`:""} ${c.holder?`<span class="pill muted" style="margin-left:4px;">${c.holder}</span>`:""}</div>
+        <div class="bill-note">Balance ${money(c.balance)} of ${money(c.creditLimit)} limit · ${c.apr}% APR · statement dated ${c.statementDate}</div>
+      </div>
+      <div class="bill-amt num">${money(c.minPayment)} min</div>
+      <div class="due-badge pill ${badgeClass}">${fmtDate(due)} · ${days<=0?"due now":`in ${days}d`}</div>
+      <div></div>
+    </div>`;
+  }).join("");
+}
+
 /* ---------------- render all ---------------- */
 function renderAll(){
   renderAccounts();
+  renderCreditCards();
   renderPeriodOptions();
   renderSummary();
   renderCatBars();
