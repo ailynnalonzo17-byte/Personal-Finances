@@ -124,7 +124,7 @@ def account_block(ws, row, title, starting_balance, tx_sheet, has_data, note="")
     ws.cell(row=row, column=2).number_format = CURRENCY
     sum_row = row
     row += 1
-    ws.cell(row=row, column=1, value="= Balance this tracker computes").font = BOLD
+    ws.cell(row=row, column=1, value="Balance this tracker computes").font = BOLD
     ws.cell(row=row, column=2, value=f'=B{start_row}+B{sum_row}').number_format = CURRENCY
     ws.cell(row=row, column=2).font = BOLD
     computed_row = row
@@ -161,16 +161,16 @@ row += 1
 ws.cell(row=row, column=1, value="Cross-check: transfers Checking shows moving to/from other accounts").font = BOLD
 row += 1
 ws.cell(row=row, column=1, value="Checking -> Savings, this period")
-ws.cell(row=row, column=2, value='=-SUMIF(Checking!$H$5:$H$991,"Transfer - Checking to Savings",Checking!$D$5:$D$991)').number_format = CURRENCY
+ws.cell(row=row, column=2, value='=-SUMIF(Checking!$G$5:$G$991,"Transfer - Checking to Savings",Checking!$D$5:$D$991)').number_format = CURRENCY
 row += 1
 ws.cell(row=row, column=1, value="Savings -> Checking, this period")
-ws.cell(row=row, column=2, value='=SUMIF(Checking!$H$5:$H$991,"Transfer - Savings to Checking",Checking!$D$5:$D$991)').number_format = CURRENCY
+ws.cell(row=row, column=2, value='=SUMIF(Checking!$G$5:$G$991,"Transfer - Savings to Checking",Checking!$D$5:$D$991)').number_format = CURRENCY
 row += 1
 ws.cell(row=row, column=1, value="Checking -> PayPal, this period")
-ws.cell(row=row, column=2, value='=-SUMIF(Checking!$H$5:$H$991,"Transfer - Checking to PayPal",Checking!$D$5:$D$991)').number_format = CURRENCY
+ws.cell(row=row, column=2, value='=-SUMIF(Checking!$G$5:$G$991,"Transfer - Checking to PayPal",Checking!$D$5:$D$991)').number_format = CURRENCY
 row += 1
 ws.cell(row=row, column=1, value="PayPal -> Checking, this period")
-ws.cell(row=row, column=2, value='=SUMIF(Checking!$H$5:$H$991,"Transfer - PayPal to Checking",Checking!$D$5:$D$991)').number_format = CURRENCY
+ws.cell(row=row, column=2, value='=SUMIF(Checking!$G$5:$G$991,"Transfer - PayPal to Checking",Checking!$D$5:$D$991)').number_format = CURRENCY
 row += 1
 ws.cell(row=row, column=1, value="When you add Savings/PayPal statements, these two numbers should match what those accounts show for the same transfers.").font = SUB_FONT
 
@@ -192,11 +192,11 @@ for i, (g, c) in enumerate(cats):
     rr = hr + 1 + i
     ws.cell(row=rr, column=1, value=g).font = NORMAL
     ws.cell(row=rr, column=2, value=c).font = NORMAL
-    ws.cell(row=rr, column=3, value=f'=SUMIF(Checking!$H$5:$H$991,B{rr},Checking!$D$5:$D$991)').number_format = CURRENCY
-    ws.cell(row=rr, column=4, value=f'=SUMIF(Savings!$H$5:$H$304,B{rr},Savings!$D$5:$D$304)').number_format = CURRENCY
-    ws.cell(row=rr, column=5, value=f'=SUMIF(PayPal!$H$5:$H$304,B{rr},PayPal!$D$5:$D$304)').number_format = CURRENCY
+    ws.cell(row=rr, column=3, value=f'=SUMIF(Checking!$G$5:$G$991,B{rr},Checking!$D$5:$D$991)').number_format = CURRENCY
+    ws.cell(row=rr, column=4, value=f'=SUMIF(Savings!$G$5:$G$304,B{rr},Savings!$D$5:$D$304)').number_format = CURRENCY
+    ws.cell(row=rr, column=5, value=f'=SUMIF(PayPal!$G$5:$G$304,B{rr},PayPal!$D$5:$D$304)').number_format = CURRENCY
     ws.cell(row=rr, column=6, value=f'=C{rr}+D{rr}+E{rr}').number_format = CURRENCY
-    ws.cell(row=rr, column=7, value=f'=COUNTIF(Checking!$H$5:$H$991,B{rr})')
+    ws.cell(row=rr, column=7, value=f'=COUNTIF(Checking!$G$5:$G$991,B{rr})')
     fill = GROUP_FILL.get(g)
     for c_ in range(1, 8):
         cell = ws.cell(row=rr, column=c_)
