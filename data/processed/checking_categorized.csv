@@ -1,15 +1,15 @@
 Account,Date,Description,Amount,Type,ChaseBalance,Category,Group,Confidence,Note
-Checking ...0861,08/31/2026,CHECK 287,-500.0,CHECK_PAID,643.99,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,08/31/2026,CHECK 287,-500.0,CHECK_PAID,643.99,Insurance,Monthly Bills,H,Confirmed by you: insurance payment
 Checking ...0861,08/31/2026,TARGET T-0680 HENDERSON NV                   08/31,-31.46,DEBIT_CARD,1143.99,Shop - Others,Expenses,D,
 Checking ...0861,08/31/2026,TARGET T-0680 HENDERSON NV                   08/31,-37.59,DEBIT_CARD,1175.45,Shop - Others,Expenses,D,
-Checking ...0861,08/31/2026,Taptap Send New York NY                      08/31,-330.0,DEBIT_CARD,1213.04,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/31/2026,Taptap Send New York NY                      08/31,-330.0,DEBIT_CARD,1213.04,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094110624 WEB ID: 9049016352,-7.58,ACH_DEBIT,1543.04,Shop - Amazon,Expenses,H,
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094103452 WEB ID: 9049016352,-14.36,ACH_DEBIT,1550.62,Shop - Amazon,Expenses,H,
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094057250 WEB ID: 9049016352,-32.5,ACH_DEBIT,1564.98,Shop - Amazon,Expenses,H,
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094173468 WEB ID: 9049016352,-34.67,ACH_DEBIT,1597.48,Shop - Amazon,Expenses,H,
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094158962 WEB ID: 9049016352,-52.71,ACH_DEBIT,1632.15,Shop - Amazon,Expenses,H,
 Checking ...0861,08/31/2026,AMAZON MARKETPLA INTERNET   043000094138568 WEB ID: 9049016352,-58.4,ACH_DEBIT,1684.86,Shop - Amazon,Expenses,H,
-Checking ...0861,08/31/2026,Taptap Send New York NY                      08/31,-178.57,DEBIT_CARD,1743.26,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/31/2026,Taptap Send New York NY                      08/31,-178.57,DEBIT_CARD,1743.26,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/31/2026,IKEA LAS VEGAS RESTAUR LAS VEGAS NV  419841  08/30,-45.14,DEBIT_CARD,1921.83,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/31/2026,SQ *BK BAKERY LLC Las Vegas NV               08/30,-60.04,DEBIT_CARD,1966.97,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/31/2026,GIV*FIRST PRESBY 831-4227811 CA              08/30,-20.0,DEBIT_CARD,2027.01,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
@@ -35,7 +35,7 @@ Checking ...0861,08/28/2026,SP+AFF * AEROFLOWDYNA 855-423-3729 CA        08/28,-
 Checking ...0861,08/28/2026,SP+AFF * EUFY US 855-423-3729 CA             08/28,-88.24,DEBIT_CARD,2493.68,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
 Checking ...0861,08/28/2026,Online Transfer to  SAV ...5953 transaction#: 30494287738,-25.0,ACCT_XFER,2581.92,Transfer - Checking to Savings,Transfer,H,
 Checking ...0861,08/28/2026,AMAZON.COM SERVI INTERNET   043000093323126 WEB ID: 9049016352,-38.9,ACH_DEBIT,2606.92,Shop - Amazon,Expenses,H,
-Checking ...0861,08/28/2026,Taptap Send New York NY                      08/28,-32.41,DEBIT_CARD,2645.82,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/28/2026,Taptap Send New York NY                      08/28,-32.41,DEBIT_CARD,2645.82,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/28/2026,Zelle payment from Rose Ann Alonzo USAQ1EWTENUA,1700.0,PARTNERFI_TO_CHASE,2678.23,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,08/27/2026,CAPITAL ONE      CRCARDPMT  CA0D8729CD49526 WEB ID: 9541719318,-100.0,ACH_DEBIT,978.23,CC - Capital 1,Debt,H,
 Checking ...0861,08/27/2026,PAYPAL           PURCHASE   GOOGLE BYTEDANC WEB ID: PAYPALSI77,-9.19,ACH_DEBIT,1078.23,Others,Expenses,R,"Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"
@@ -47,10 +47,10 @@ Checking ...0861,08/26/2026,CHIC AND COZY CONSIGNME HENDERSON NV         08/25,-
 Checking ...0861,08/26/2026,CHIC AND COZY CONSIGNME HENDERSON NV         08/25,-346.78,DEBIT_CARD,1241.37,Shop - Others,Expenses,D,
 Checking ...0861,08/26/2026,COMCAST-XFINITY  CABLE SVCS                 PPD ID: 0000213249,13.97,ACH_CREDIT,1588.15,Comcast,Monthly Bills,H,
 Checking ...0861,08/26/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1000.0,ACH_CREDIT,1574.18,Transfer - PayPal to Checking,Transfer,H,
-Checking ...0861,08/25/2026,CHECK OR SUPPLY  ORDER                      PPD ID: 1410216800,-30.0,FEE_TRANSACTION,574.18,Others,Expenses,H,Bank fee
+Checking ...0861,08/25/2026,CHECK OR SUPPLY  ORDER                      PPD ID: 1410216800,-30.0,FEE_TRANSACTION,574.18,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,08/25/2026,PAYPAL           PURCHASE   GOOGLE YOUTUBE  WEB ID: PAYPALSI77,-14.71,ACH_DEBIT,604.18,YT Premium,Monthly Bills,H,
 Checking ...0861,08/25/2026,Online Payment 30543945066 To PACIFIC GAS & ELECTRIC (PG&E) 08/25,-165.5,BILLPAY,618.89,PGE,Monthly Bills,H,
-Checking ...0861,08/25/2026,Online Payment 30543871137 To ALA 0908 08/25,-706.36,LOAN_PMT,784.39,Others,Expenses,R,Recurring $706.36/month loan-type payment to 'ALA 0908' - please tell me what this is so I can give it the right category
+Checking ...0861,08/25/2026,Online Payment 30543871137 To ALA 0908 08/25,-706.36,LOAN_PMT,784.39,Auto Loan - Honda,Debt,H,Confirmed by you: Chase auto loan
 Checking ...0861,08/25/2026,PAYPAL           PURCHASE   GOOGLE YESOULFI WEB ID: PAYPALSI77,-13.99,ACH_DEBIT,1490.75,Yesoulfitness,Monthly Bills,H,
 Checking ...0861,08/25/2026,VERIZON WIRELESS PAYMENTS                   PPD ID: 4223344794,-408.35,MISC_DEBIT,1504.74,Verizon,Monthly Bills,H,
 Checking ...0861,08/25/2026,AMAZON MARKETPLA INTERNET   043000099391278 WEB ID: 9049016352,-31.92,ACH_DEBIT,1913.09,Shop - Amazon,Expenses,H,
@@ -59,7 +59,7 @@ Checking ...0861,08/25/2026,AMAZON.COM SERVI INTERNET   043000098650384 WEB ID: 
 Checking ...0861,08/25/2026,SP+AFF * WRXDAILY 855-423-3729 CA            08/25,-220.95,DEBIT_CARD,2235.75,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
 Checking ...0861,08/25/2026,SQ *NO. 1 BOBA TEA SOCI Henderson NV         08/24,-8.86,DEBIT_CARD,2456.70,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/25/2026,SQ *NO. 1 BOBA TEA SOCI Henderson NV         08/24,-27.47,DEBIT_CARD,2465.56,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,08/25/2026,Taptap Send New York NY                      08/24,-22.0,DEBIT_CARD,2493.03,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/25/2026,Taptap Send New York NY                      08/24,-22.0,DEBIT_CARD,2493.03,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/25/2026,TST*FOX SMOKEHOUSE BB Boulder City NV        08/23,-90.33,DEBIT_CARD,2515.03,Food - Eat Out,Expenses,D,
 Checking ...0861,08/25/2026,Zelle payment from Katrina T Perez USBPFXMsz6zJ,50.0,PARTNERFI_TO_CHASE,2605.36,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,08/24/2026,ATM WITHDRAWAL                       000184  08/24605 MARKS,-1000.0,ATM,2555.36,Others,Expenses,H,ATM cash withdrawal - cash spend is untracked after this point
@@ -95,7 +95,7 @@ Checking ...0861,08/20/2026,Ambercup8554962356 185-5496235 NC            08/20,-
 Checking ...0861,08/20/2026,Shoppawvia8555501268 185-5550126 NC          08/20,-15.74,DEBIT_CARD,4304.93,Shop - Others,Expenses,D,
 Checking ...0861,08/20/2026,Shoppawvia8555501268 Cary NC                 08/20,-39.61,DEBIT_CARD,4320.67,Shop - Others,Expenses,D,
 Checking ...0861,08/20/2026,MCDONALD'S F26499 LOST HILLS CA              08/19,-33.31,DEBIT_CARD,4360.28,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,08/20/2026,LBC SALINAS SALINAS CA                       08/18,-94.0,DEBIT_CARD,4393.59,Remittance - others,Expenses,R,LBC is a Filipino remittance/cargo courier - please confirm recipient
+Checking ...0861,08/20/2026,LBC SALINAS SALINAS CA                       08/18,-94.0,DEBIT_CARD,4393.59,Remittance - Aron,Expenses,H,"LBC is a Filipino remittance/cargo courier - assumed this is also for your son, like the Taptap Send/Sendwave ones"
 Checking ...0861,08/20/2026,Zelle payment from RHIAN ABIGAIL ALMO 30487939424,90.0,QUICKPAY_CREDIT,4487.59,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,08/20/2026,Online Transfer from SAV ...5953 transaction#: 30487469297,1586.0,ACCT_XFER,4397.59,Transfer - Savings to Checking,Transfer,H,
 Checking ...0861,08/20/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1986.32,ACH_CREDIT,2811.59,Transfer - PayPal to Checking,Transfer,H,
@@ -111,7 +111,7 @@ Checking ...0861,08/19/2026,STARBUCKS 8007827282 800-782-7282 WA         08/18,-
 Checking ...0861,08/19/2026,U-HAULONSITE EQUIPMENT SALINAS CA            08/18,-48.37,DEBIT_CARD,1736.84,For Car,Expenses,H,
 Checking ...0861,08/19/2026,USPS CHANGE OF ADDRES 800-238-3150 TN        08/18,-1.25,DEBIT_CARD,1785.21,Others,Expenses,D,Shipping/postal
 Checking ...0861,08/19/2026,LITTLE CAESARS #5054 800-722-3727 CA         08/17,-41.54,DEBIT_CARD,1786.46,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,08/19/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,1828.00,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,08/19/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,1828.00,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,08/18/2026,DOMESTIC INCOMING WIRE FEE,-15.0,FEE_TRANSACTION,0.00,Others,Expenses,H,Bank fee
 Checking ...0861,08/18/2026,Zelle payment to RHIAN ALMO 30465722280,-75.0,QUICKPAY_DEBIT,15.00,Others,Expenses,R,Zelle sent - please tell me who this person is so I can map them to a category
 Checking ...0861,08/18/2026,THE HOME DEPOT #1843 SALINAS CA      023706  08/18,-24.43,DEBIT_CARD,90.00,Others,Expenses,D,Home-improvement store - no matching category in your list
@@ -155,13 +155,13 @@ Checking ...0861,08/14/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: 
 Checking ...0861,08/14/2026,SP+AFF * AEROFLOWDYNA 855-423-3729 CA        08/14,-19.56,DEBIT_CARD,66.49,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
 Checking ...0861,08/14/2026,SP+AFF * EUFY US 855-423-3729 CA             08/14,-88.24,DEBIT_CARD,86.05,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
 Checking ...0861,08/14/2026,AFFIRM.COM PAYME AFFIRM.COM ST-E0N0T4O0N8H9 WEB ID: 1800948598,-53.97,ACH_DEBIT,174.29,Affirm,Debt,H,
-Checking ...0861,08/14/2026,Sendwave 844-9335122 MA                      08/14,-100.49,DEBIT_CARD,228.26,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/14/2026,Sendwave 844-9335122 MA                      08/14,-100.49,DEBIT_CARD,228.26,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/14/2026,WILLA A HISLE OD SALINAS CA                  08/13,-300.8,DEBIT_CARD,328.75,Others,Expenses,R,Unrecognized charge - please tell me what this is
 Checking ...0861,08/14/2026,ODP TRANSFER FROM SAVINGS ...5953,629.55,MISC_CREDIT,629.55,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,08/13/2026,LUCKY #747 SALINAS CA                        08/13,-63.08,DEBIT_CARD,0.00,Groceries - Others,Expenses,H,
 Checking ...0861,08/13/2026,SHELL SERVICE STATION SALINAS CA     815316  08/13,-82.06,DEBIT_CARD,63.08,Gas,Expenses,D,
 Checking ...0861,08/13/2026,PAYPAL           PURCHASE   APPLE.COM BILL  WEB ID: PAYPALSI77,-0.99,ACH_DEBIT,145.14,Others,Expenses,R,"Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"
-Checking ...0861,08/13/2026,Taptap Send New York NY                      08/13,-107.26,DEBIT_CARD,146.13,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/13/2026,Taptap Send New York NY                      08/13,-107.26,DEBIT_CARD,146.13,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/13/2026,TST*MISSION STREET BBQ Santa Cruz CA         08/12,-23.02,DEBIT_CARD,253.39,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/13/2026,CHEVRON 0091927 WATSONVILLE CA               08/12,-71.76,DEBIT_CARD,276.41,Gas,Expenses,D,
 Checking ...0861,08/13/2026,ODP TRANSFER FROM SAVINGS ...5953,348.17,MISC_CREDIT,348.17,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
@@ -174,9 +174,9 @@ Checking ...0861,08/12/2026,U-HAULMCBRIDES AUTO & S SALINAS CA           08/11,-
 Checking ...0861,08/12/2026,ODP TRANSFER FROM SAVINGS ...5953,271.04,MISC_CREDIT,271.04,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,08/11/2026,LIFE INS OF SW   XXXXXXXXXX                 PPD ID: 1954349000,-205.62,ACH_DEBIT,0.00,National Life Ins,Monthly Bills,H,
 Checking ...0861,08/11/2026,AFFIRM.COM PAYME AFFIRM.COM ST-T7M9Z4G0M5Y3 WEB ID: 1800948598,-23.62,ACH_DEBIT,205.62,Affirm,Debt,H,
-Checking ...0861,08/11/2026,WestlakeSvcs     8887399192 C26081004000959 WEB ID: 4871475048,-223.53,ACH_DEBIT,229.24,Auto Loan - Honda,Debt,R,"Westlake Financial payment - assumed Honda auto loan, please confirm"
-Checking ...0861,08/11/2026,WestlakeSvcs     8887399192 C26081004000960 WEB ID: 4871475048,-276.47,ACH_DEBIT,452.77,Auto Loan - Honda,Debt,R,"Westlake Financial payment - assumed Honda auto loan, please confirm"
-Checking ...0861,08/11/2026,Sendwave 844-9335122 MA                      08/11,-17.02,DEBIT_CARD,729.24,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/11/2026,WestlakeSvcs     8887399192 C26081004000959 WEB ID: 4871475048,-223.53,ACH_DEBIT,229.24,Others,Expenses,R,"You confirmed the Honda auto loan is the Chase/ALA 0908 payment, so this separate ~$223+$276/month Westlake Financial payment must be something else - a second loan, warranty, or GAP insurance? Please tell me what it is."
+Checking ...0861,08/11/2026,WestlakeSvcs     8887399192 C26081004000960 WEB ID: 4871475048,-276.47,ACH_DEBIT,452.77,Others,Expenses,R,"You confirmed the Honda auto loan is the Chase/ALA 0908 payment, so this separate ~$223+$276/month Westlake Financial payment must be something else - a second loan, warranty, or GAP insurance? Please tell me what it is."
+Checking ...0861,08/11/2026,Sendwave 844-9335122 MA                      08/11,-17.02,DEBIT_CARD,729.24,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/11/2026,KLARNA*WHEELTOP.US WWW.KLARNA.CO DE          08/11,-66.35,DEBIT_CARD,746.26,Klarna,Debt,H,
 Checking ...0861,08/11/2026,WAL-MART #5751 SALINAS CA                    08/10,-26.5,DEBIT_CARD,812.61,Groceries - Walmart,Expenses,H,
 Checking ...0861,08/11/2026,THE HOME DEPOT #1843 SALINAS CA      221289  08/10,-63.09,DEBIT_CARD,839.11,Others,Expenses,D,Home-improvement store - no matching category in your list
@@ -192,7 +192,7 @@ Checking ...0861,08/10/2026,GOHAN BUFFET SALINAS CA                      08/09,-
 Checking ...0861,08/10/2026,ELPOLLOLOCO ELPOLLOLOCO.O CA                 08/09,-64.45,DEBIT_CARD,628.68,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/10/2026,GOOGLE *HARNA Workout 855-836-3987 CA        08/09,-14.99,DEBIT_CARD,693.13,Harna fit,Monthly Bills,H,
 Checking ...0861,08/10/2026,GIV*FIRST PRESBY 831-4227811 CA              08/09,-20.0,DEBIT_CARD,708.12,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
-Checking ...0861,08/10/2026,Taptap Send New York NY                      08/09,-16.5,DEBIT_CARD,728.12,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/10/2026,Taptap Send New York NY                      08/09,-16.5,DEBIT_CARD,728.12,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/10/2026,SQ *MCKAYLA CATERING Salinas CA              08/08,-37.14,DEBIT_CARD,744.62,Food - Eat Out,Expenses,D,
 Checking ...0861,08/10/2026,SQ *IVANS BAKED POTATOE Salinas CA           08/08,-18.49,DEBIT_CARD,781.76,Food - Eat Out,Expenses,D,
 Checking ...0861,08/10/2026,TRADER JOE S #261 MARINA CA                  08/08,-15.07,DEBIT_CARD,800.25,Groceries - Others,Expenses,H,
@@ -209,24 +209,24 @@ Checking ...0861,08/10/2026,McDonalds 2428 SALINAS CA                    08/07,-
 Checking ...0861,08/10/2026,JOSE REYES REYES PUSH       T43491172-2     CCD ID: 1522304924,200.0,ACH_CREDIT,1100.63,Others - Income,Income,R,"Incoming payment, source unclear"
 Checking ...0861,08/10/2026,Zelle payment from RHIAN ABIGAIL ALMO 30348223178,500.0,QUICKPAY_CREDIT,900.63,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,08/07/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-50.0,ACH_DEBIT,400.63,Transfer - Checking to PayPal,Transfer,H,
-Checking ...0861,08/07/2026,Taptap Send New York NY                      08/07,-20.0,DEBIT_CARD,450.63,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/07/2026,Taptap Send New York NY                      08/07,-20.0,DEBIT_CARD,450.63,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/07/2026,Online Transfer to  SAV ...5953 transaction#: 30221706562,-25.0,ACCT_XFER,470.63,Transfer - Checking to Savings,Transfer,H,
 Checking ...0861,08/07/2026,ONEPAY CASHREWRD SYF PAYMNT 552315100369915 WEB ID: 9069872103,-451.55,ACH_DEBIT,495.63,CC - One Pay,Debt,H,
 Checking ...0861,08/07/2026,BARCLAYCARD US   CREDITCARD 1442524225      WEB ID: 2510407970,-1099.59,ACH_DEBIT,947.18,CC - Frontier card,Debt,R,"Barclaycard - assumed this is the Frontier Airlines card, please confirm"
 Checking ...0861,08/07/2026,WM SUPERCENTER #2458 SALINAS CA              08/06,-17.45,DEBIT_CARD,2046.77,Groceries - Walmart,Expenses,H,
 Checking ...0861,08/07/2026,SHELL SERVICE STATION SALINAS CA     653449  08/06,-90.89,DEBIT_CARD,2064.22,Gas,Expenses,D,
 Checking ...0861,08/07/2026,PANERA BREAD #606025 K SALINAS CA            08/06,-52.05,DEBIT_CARD,2155.11,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,08/06/2026,CHECK 286  08/06,-1800.0,CHECK_PAID,2207.16,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,08/06/2026,CHECK 286  08/06,-1800.0,CHECK_PAID,2207.16,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,08/06/2026,CALWATER SERVICE BILLPAY                    PPD ID: 0000000160,-40.84,ACH_DEBIT,4007.16,Cal Water,Monthly Bills,H,
-Checking ...0861,08/06/2026,Taptap Send New York NY                      08/06,-49.66,DEBIT_CARD,4048.00,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/06/2026,Taptap Send New York NY                      08/06,-49.66,DEBIT_CARD,4048.00,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/06/2026,FASTRAK CSC 415-486-8655 CA                  08/05,-25.0,DEBIT_CARD,4097.66,Gas,Expenses,D,
 Checking ...0861,08/05/2026,AMAZON MARKETPLA INTERNET   043000095498802 WEB ID: 9049016352,-31.53,ACH_DEBIT,4122.66,Shop - Amazon,Expenses,H,
 Checking ...0861,08/05/2026,CAPITAL ONE AUTO CARPAY     CP053D3049FF695 WEB ID: 9541719806,-1009.9,ACH_DEBIT,4154.19,Car payment,Monthly Bills,H,
 Checking ...0861,08/05/2026,AMAZON PRIME*UQ97P2K Amzn.com/bill WA        08/05,-16.3,DEBIT_CARD,5164.09,Amazon Prime,Monthly Bills,H,
-Checking ...0861,08/05/2026,Taptap Send New York NY                      08/05,-66.22,DEBIT_CARD,5180.39,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,08/05/2026,Taptap Send New York NY                      08/05,-66.22,DEBIT_CARD,5180.39,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,08/05/2026,IN-N-OUT SALINAS SALINAS CA                  08/04,-31.63,DEBIT_CARD,5246.61,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,08/04/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-32.07,ACH_DEBIT,5278.24,paypal tiktok,Expenses,H,
-Checking ...0861,08/04/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,5310.31,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,08/04/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,5310.31,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,08/03/2026,WAL-MART #5751 SALINAS CA                    08/03,-3.2,DEBIT_CARD,3482.31,Groceries - Walmart,Expenses,H,
 Checking ...0861,08/03/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-2.52,ACH_DEBIT,3485.51,paypal tiktok,Expenses,H,
 Checking ...0861,08/03/2026,PREMIER BANKCARD AUTOPAY    G     339357146 WEB ID: 2470535472,-6.31,ACH_DEBIT,3488.03,CC - FPB,Debt,H,
@@ -248,7 +248,7 @@ Checking ...0861,08/03/2026,Klarna*Klarna Columbus OH                    07/31,-
 Checking ...0861,08/03/2026,EXXON SALINAS MAIN INC SALINAS CA            07/31,-80.72,DEBIT_CARD,4128.75,Gas,Expenses,D,
 Checking ...0861,08/03/2026,KLARNA*KLARNA WWW.KLARNA.CO DE               07/31,-7.34,DEBIT_CARD,4209.47,Klarna,Debt,H,
 Checking ...0861,08/03/2026,IHOP #0660 SALINAS CA                        07/31,-58.09,DEBIT_CARD,4216.81,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,08/03/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,4274.90,Chris - Pension,Income,R,"Recurring ~$4,275 credit - assumed this is Chris' Teamsters pension, please confirm"
+Checking ...0861,08/03/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,4274.90,Chris - Pension,Income,H,Confirmed by you: Chris' pension
 Checking ...0861,07/31/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-40.4,ACH_DEBIT,0.00,paypal tiktok,Expenses,H,
 Checking ...0861,07/31/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-58.21,ACH_DEBIT,40.40,paypal tiktok,Expenses,H,
 Checking ...0861,07/31/2026,Zelle payment to ANGELIE JPM99cr8lavg,-20.0,CHASE_TO_PARTNERFI,98.61,Others,Expenses,R,Zelle sent - please tell me who this person is so I can map them to a category
@@ -262,7 +262,7 @@ Checking ...0861,07/31/2026,WILLA A HISLE OD SALINAS CA                  07/30,-
 Checking ...0861,07/31/2026,THE UPS STORE 7054 831-7899400 CA            07/30,-6.23,DEBIT_CARD,578.51,Others,Expenses,D,Shipping/postal
 Checking ...0861,07/31/2026,GOOGLE *Google One 855-836-3987 CA           07/30,-2.99,DEBIT_CARD,584.74,Google 1,Monthly Bills,H,
 Checking ...0861,07/31/2026,ODP TRANSFER FROM SAVINGS ...5953,587.73,MISC_CREDIT,587.73,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
-Checking ...0861,07/30/2026,CHECK 284,-500.0,CHECK_PAID,0.00,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,07/30/2026,CHECK 284,-500.0,CHECK_PAID,0.00,Insurance,Monthly Bills,H,Confirmed by you: insurance payment
 Checking ...0861,07/30/2026,STARBUCKS 8007827282 800-782-7282 WA         07/30,-10.0,DEBIT_CARD,500.00,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,07/30/2026,ODP TRANSFER FROM SAVINGS ...5953,510.0,MISC_CREDIT,510.00,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,07/29/2026,WM SUPERCENTER #5751 SALINAS CA              07/29,-29.43,DEBIT_CARD,0.00,Groceries - Walmart,Expenses,H,
@@ -285,7 +285,7 @@ Checking ...0861,07/27/2026,PAYPAL           PURCHASE   GOOGLE BYTEDANC WEB ID: 
 Checking ...0861,07/27/2026,PAYPAL           PURCHASE   GOOGLE YESOULFI WEB ID: PAYPALSI77,-13.99,ACH_DEBIT,1487.09,Yesoulfitness,Monthly Bills,H,
 Checking ...0861,07/27/2026,PAYPAL           PURCHASE   GOOGLE YOUTUBE  WEB ID: PAYPALSI77,-15.99,ACH_DEBIT,1501.08,YT Premium,Monthly Bills,H,
 Checking ...0861,07/27/2026,VERIZON WIRELESS PAYMENTS                   PPD ID: 4223344794,-390.62,MISC_DEBIT,1517.07,Verizon,Monthly Bills,H,
-Checking ...0861,07/27/2026,Taptap Send New York NY                      07/26,-196.07,DEBIT_CARD,1907.69,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,07/27/2026,Taptap Send New York NY                      07/26,-196.07,DEBIT_CARD,1907.69,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,07/27/2026,GIV*FIRST PRESBY 831-4227811 CA              07/26,-20.0,DEBIT_CARD,2103.76,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
 Checking ...0861,07/27/2026,CHEVRON 0305025 VALENCIA CA                  07/26,-62.2,DEBIT_CARD,2123.76,Gas,Expenses,D,
 Checking ...0861,07/27/2026,TST* JINCOOK - GLENDALE GLENDALE CA          07/26,-196.02,DEBIT_CARD,2185.96,Food - Eat Out,Expenses,D,
@@ -309,7 +309,7 @@ Checking ...0861,07/24/2026,MCDONALD'S F2428 SALINAS CA                  07/23,-
 Checking ...0861,07/23/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-48.28,ACH_DEBIT,669.71,paypal tiktok,Expenses,H,
 Checking ...0861,07/23/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-32.63,ACH_DEBIT,717.99,paypal tiktok,Expenses,H,
 Checking ...0861,07/23/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-44.86,ACH_DEBIT,750.62,paypal tiktok,Expenses,H,
-Checking ...0861,07/23/2026,Taptap Send New York NY                      07/23,-22.0,DEBIT_CARD,795.48,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,07/23/2026,Taptap Send New York NY                      07/23,-22.0,DEBIT_CARD,795.48,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,07/23/2026,GOOGLE *Life360 Famil 855-836-3987 CA        07/23,-13.79,DEBIT_CARD,817.48,Life 360,Monthly Bills,H,
 Checking ...0861,07/23/2026,SUDZ LLC SALINAS CA                          07/22,-6.25,DEBIT_CARD,831.27,Shop - Others,Expenses,D,
 Checking ...0861,07/23/2026,TST*MISSION STREET BBQ Santa Cruz CA         07/22,-22.78,DEBIT_CARD,837.52,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
@@ -320,7 +320,7 @@ Checking ...0861,07/22/2026,AMAZON MARKETPLA INTERNET   043000091283100 WEB ID: 
 Checking ...0861,07/22/2026,Primo Water Corporatio Vista CA              07/22,-3.1,DEBIT_CARD,1356.32,Water,Expenses,H,
 Checking ...0861,07/22/2026,Primo Water Corporatio Vista CA              07/22,-3.1,DEBIT_CARD,1359.42,Water,Expenses,H,
 Checking ...0861,07/22/2026,SHELL OIL 10010249000 GILROY CA              07/21,-75.45,DEBIT_CARD,1362.52,Gas,Expenses,D,
-Checking ...0861,07/22/2026,Taptap Send New York NY                      07/22,-29.5,DEBIT_CARD,1437.97,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,07/22/2026,Taptap Send New York NY                      07/22,-29.5,DEBIT_CARD,1437.97,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,07/22/2026,JOLLIBEE MILPITAS CA                         07/21,-38.49,DEBIT_CARD,1467.47,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,07/22/2026,COCA COLA SAN JOSE SAN JOSE CA               07/21,-8.0,DEBIT_CARD,1505.96,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,07/22/2026,Columbia 442 Milpitas CA                     07/22,-108.99,DEBIT_CARD,1513.96,Others,Expenses,R,Unrecognized charge - please tell me what this is
@@ -331,7 +331,7 @@ Checking ...0861,07/21/2026,SUBWAY 40507 SALINAS CA                      07/20,-
 Checking ...0861,07/21/2026,ABC*P 00993 PF SALINAS SALINAS CA            07/20,-58.0,DEBIT_CARD,1739.48,Food - Eat Out,Expenses,D,
 Checking ...0861,07/21/2026,DD *DOORDASH DIMSUMIN 855-431-0459 CA        07/21,-80.52,DEBIT_CARD,1797.48,Food - To go,Expenses,H,
 Checking ...0861,07/21/2026,Zelle payment from RHIAN ABIGAIL ALMO 30096874179,50.0,QUICKPAY_CREDIT,1878.00,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
-Checking ...0861,07/21/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,1828.00,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,07/21/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,1828.00,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,07/20/2026,AFFIRM.COM PAYME AFFIRM.COM ST-D1O6C6T1W5L9 WEB ID: 1800948598,-68.11,ACH_DEBIT,0.00,Affirm,Debt,H,
 Checking ...0861,07/20/2026,AFFIRM.COM PAYME AFFIRM.COM ST-R1Y0L5G3A6O6 WEB ID: 1800948598,-213.31,ACH_DEBIT,68.11,Affirm,Debt,H,
 Checking ...0861,07/20/2026,AMAZON MARKETPLA INTERNET   043000096650126 WEB ID: 9049016352,-35.12,ACH_DEBIT,281.42,Shop - Amazon,Expenses,H,
@@ -341,7 +341,7 @@ Checking ...0861,07/20/2026,MADONNA INN - BK SAN LUIS OBIS CA            07/20,-
 Checking ...0861,07/20/2026,MADONNA INN - MGS SAN LUIS OBIS CA   971101  07/19,-7.61,DEBIT_CARD,505.13,Vacation,Expenses,D,"Hotel/travel-city charge, looks like part of a trip"
 Checking ...0861,07/20/2026,GIV*FIRST PRESBY 831-4227811 CA              07/19,-20.0,DEBIT_CARD,512.74,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
 Checking ...0861,07/20/2026,TST*OLD CUSTOM HOUSE Avila Beach CA          07/18,-42.67,DEBIT_CARD,532.74,Food - Eat Out,Expenses,D,
-Checking ...0861,07/20/2026,Taptap Send New York NY                      07/18,-300.0,DEBIT_CARD,575.41,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,07/20/2026,Taptap Send New York NY                      07/18,-300.0,DEBIT_CARD,575.41,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,07/20/2026,Tommy Hilfiger Pismo Beach CA                07/18,-38.62,DEBIT_CARD,875.41,Shop - Others,Expenses,D,
 Checking ...0861,07/20/2026,TST*WOOLYS THE OYSTER Pismo Beach CA         07/18,-44.33,DEBIT_CARD,914.03,Food - Eat Out,Expenses,D,
 Checking ...0861,07/20/2026,BOARDWALK PLAZA PISMO BEACH CA               07/18,-101.68,DEBIT_CARD,958.36,Vacation,Expenses,D,"Hotel/travel-city charge, looks like part of a trip"
@@ -387,9 +387,9 @@ Checking ...0861,07/14/2026,WHATNOT WHATNOT.COM CA                       07/14,-
 Checking ...0861,07/14/2026,Klarna*TikTok Shop Columbus OH               07/13,-7.33,DEBIT_CARD,1840.19,Klarna,Debt,H,
 Checking ...0861,07/14/2026,ODP TRANSFER FROM SAVINGS ...5953,1443.43,MISC_CREDIT,1847.52,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,07/13/2026,PAYPAL           PURCHASE   APPLE.COM BILL  WEB ID: PAYPALSI77,-0.99,ACH_DEBIT,404.09,Others,Expenses,R,"Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"
-Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-1000.0,MISC_DEBIT,405.08,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
-Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-1000.0,MISC_DEBIT,1405.08,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
-Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-18000.0,MISC_DEBIT,2405.08,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
+Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-1000.0,MISC_DEBIT,405.08,Transfer - Checking to SoFi Savings,Transfer,H,Confirmed by you: SoFi savings account
+Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-1000.0,MISC_DEBIT,1405.08,Transfer - Checking to SoFi Savings,Transfer,H,Confirmed by you: SoFi savings account
+Checking ...0861,07/13/2026,SoFi Bank        TRANSFER   CPerez          WEB ID: 9039430511,-18000.0,MISC_DEBIT,2405.08,Transfer - Checking to SoFi Savings,Transfer,H,Confirmed by you: SoFi savings account
 Checking ...0861,07/13/2026,AMAZON MARKETPLA INTERNET   043000097602704 WEB ID: 9049016352,-10.86,ACH_DEBIT,20405.08,Shop - Amazon,Expenses,H,
 Checking ...0861,07/13/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-20.22,ACH_DEBIT,20415.94,paypal tiktok,Expenses,H,
 Checking ...0861,07/13/2026,ONEPAY CASHREWRD PAYMENT    552315100369915 WEB ID: 9130142001,-30.0,ACH_DEBIT,20436.16,CC - One Pay,Debt,H,
@@ -415,9 +415,9 @@ Checking ...0861,07/13/2026,BADA KITCHEN SEASIDE CA                      07/10,-
 Checking ...0861,07/13/2026,Zelle payment from KYLA MARIE TUAZON PEREZ 29966357341,21.03,QUICKPAY_CREDIT,23975.56,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,07/13/2026,REMOTE ONLINE DEPOSIT #          1,333.22,CHECK_DEPOSIT,23954.53,Others - Income,Income,R,Deposit/wire with unclear source
 Checking ...0861,07/10/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-50.0,ACH_DEBIT,23621.31,Transfer - Checking to PayPal,Transfer,H,
-Checking ...0861,07/10/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-223.53,ACH_DEBIT,23671.31,Auto Loan - Honda,Debt,R,"Same $ amounts as the Westlake payments below/above - looks like the same auto loan, formerly serviced by 'WF'. Please confirm"
-Checking ...0861,07/10/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-276.43,ACH_DEBIT,23894.84,Auto Loan - Honda,Debt,R,"Same $ amounts as the Westlake payments below/above - looks like the same auto loan, formerly serviced by 'WF'. Please confirm"
-Checking ...0861,07/10/2026,Online Payment 29959657091 To ALA 0908 07/10,-706.36,LOAN_PMT,24171.27,Others,Expenses,R,Recurring $706.36/month loan-type payment to 'ALA 0908' - please tell me what this is so I can give it the right category
+Checking ...0861,07/10/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-223.53,ACH_DEBIT,23671.31,Others,Expenses,R,"Same amounts as the Westlake Financial payment above/below (this account's servicer name changed from 'WF' to Westlake over time) - still unidentified, please tell me what this is."
+Checking ...0861,07/10/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-276.43,ACH_DEBIT,23894.84,Others,Expenses,R,"Same amounts as the Westlake Financial payment above/below (this account's servicer name changed from 'WF' to Westlake over time) - still unidentified, please tell me what this is."
+Checking ...0861,07/10/2026,Online Payment 29959657091 To ALA 0908 07/10,-706.36,LOAN_PMT,24171.27,Auto Loan - Honda,Debt,H,Confirmed by you: Chase auto loan
 Checking ...0861,07/10/2026,Online Transfer to  SAV ...5953 transaction#: 29867478630,-25.0,ACCT_XFER,24877.63,Transfer - Checking to Savings,Transfer,H,
 Checking ...0861,07/10/2026,NESPRESSO USA INC Wilmington DE              07/10,-39.2,DEBIT_CARD,24902.63,Shop - Others,Expenses,D,
 Checking ...0861,07/10/2026,STEVE'S FILIPINO ASIAN SALINAS CA            07/09,-55.24,DEBIT_CARD,24941.83,Groceries - Steves,Expenses,H,
@@ -427,8 +427,8 @@ Checking ...0861,07/10/2026,Online Transfer from SAV ...5953 transaction#: 29959
 Checking ...0861,07/09/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-13.49,ACH_DEBIT,22395.52,paypal tiktok,Expenses,H,
 Checking ...0861,07/09/2026,WAL-MART #5751 SALINAS CA                    07/09,-7.34,DEBIT_CARD,22409.01,Groceries - Walmart,Expenses,H,
 Checking ...0861,07/09/2026,THE MAHARLIKA ASIAN ST SALINAS CA    836627  07/09,-26.64,DEBIT_CARD,22416.35,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,07/09/2026,Taptap Send New York NY                      07/08,-18.0,DEBIT_CARD,22442.99,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
-Checking ...0861,07/09/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,10.72,MISC_CREDIT,22460.99,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
+Checking ...0861,07/09/2026,Taptap Send New York NY                      07/08,-18.0,DEBIT_CARD,22442.99,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
+Checking ...0861,07/09/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,10.72,MISC_CREDIT,22460.99,Transfer - SoFi Savings to Checking,Transfer,H,Confirmed by you: SoFi savings account
 Checking ...0861,07/08/2026,NOB HILL FOODS 607 SALINAS CA        155100  07/08,-17.84,DEBIT_CARD,22450.27,Groceries - Others,Expenses,H,
 Checking ...0861,07/08/2026,TARGET T-1062 SAND CITY CA                   07/08,-32.02,DEBIT_CARD,22468.11,Shop - Others,Expenses,D,
 Checking ...0861,07/08/2026,"PIERCE CO., LP SALINAS CA                    07/08 Purchase $5.01 Cash Back $10.00",-15.01,DEBIT_CARD,22500.13,Others,Expenses,R,Unclear what this business is
@@ -443,18 +443,18 @@ Checking ...0861,07/08/2026,Primo Water Corporatio Vista CA              07/07,-
 Checking ...0861,07/08/2026,Primo Water Corporatio Vista CA              07/07,-3.1,DEBIT_CARD,23511.08,Water,Expenses,H,
 Checking ...0861,07/08/2026,Zelle payment from RHIAN ABIGAIL ALMO 29923876546,25.0,QUICKPAY_CREDIT,23514.18,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,07/08/2026,JOSE REYES REYES PUSH       T42659917-2     CCD ID: 1522304924,800.0,ACH_CREDIT,23489.18,Others - Income,Income,R,"Incoming payment, source unclear"
-Checking ...0861,07/08/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,20065.29,ACH_CREDIT,22689.18,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
+Checking ...0861,07/08/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,20065.29,ACH_CREDIT,22689.18,Transfer - SoFi Savings to Checking,Transfer,H,Confirmed by you: SoFi savings account
 Checking ...0861,07/08/2026,WHATNOT SAN FRANCISCO CA                     07/07,27.19,DEBIT_CARD,2623.89,Shop - Whatnot,Expenses,H,
 Checking ...0861,07/08/2026,WHATNOT SAN FRANCISCO CA                     07/07,34.07,DEBIT_CARD,2596.70,Shop - Whatnot,Expenses,H,
 Checking ...0861,07/08/2026,WHATNOT SAN FRANCISCO CA                     07/07,39.07,DEBIT_CARD,2562.63,Shop - Whatnot,Expenses,H,
 Checking ...0861,07/08/2026,WHATNOT SAN FRANCISCO CA                     07/07,42.81,DEBIT_CARD,2523.56,Shop - Whatnot,Expenses,H,
 Checking ...0861,07/07/2026,Zelle payment to KYLE KROMER JPM99coopvat,-100.0,CHASE_TO_PARTNERFI,2480.75,Others,Expenses,R,Zelle sent - please tell me who this person is so I can map them to a category
 Checking ...0861,07/07/2026,Zelle payment to KYLE KROMER JPM99coo009q,-200.0,CHASE_TO_PARTNERFI,2580.75,Others,Expenses,R,Zelle sent - please tell me who this person is so I can map them to a category
-Checking ...0861,07/07/2026,CHECK 358  07/07,-2200.0,CHECK_PAID,2780.75,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,07/07/2026,CHECK 358  07/07,-2200.0,CHECK_PAID,2780.75,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,07/07/2026,CALWATER SERVICE BILLPAY                    PPD ID: 0000000160,-47.8,ACH_DEBIT,4980.75,Cal Water,Monthly Bills,H,
 Checking ...0861,07/07/2026,SAFEWAY #1110 SALINAS CA                     07/06,-79.96,DEBIT_CARD,5028.55,Groceries - Safeway,Expenses,H,
 Checking ...0861,07/07/2026,USPS CHANGE OF ADDRES 800-238-3150 TN        07/06,-1.25,DEBIT_CARD,5108.51,Others,Expenses,D,Shipping/postal
-Checking ...0861,07/06/2026,CHECK 357,-500.0,CHECK_PAID,5109.76,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,07/06/2026,CHECK 357,-500.0,CHECK_PAID,5109.76,Insurance,Monthly Bills,H,Confirmed by you: insurance payment
 Checking ...0861,07/06/2026,T.J. MAXX #1604 HOLLISTER CA                 07/06,-103.07,DEBIT_CARD,5609.76,Shop - Others,Expenses,D,
 Checking ...0861,07/06/2026,IN-N-OUT NEWHALL NEWHALL CA                  07/05,-41.43,DEBIT_CARD,5712.83,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,07/06/2026,EXXON NEWHALL PETROLEUM NEWHALL CA           07/05,-59.58,DEBIT_CARD,5754.26,Gas,Expenses,D,
@@ -471,7 +471,7 @@ Checking ...0861,07/06/2026,KLARNA* KLARNA KLARNA.COM OH                 07/03,-
 Checking ...0861,07/06/2026,Zelle payment from RHIAN ABIGAIL ALMO 29909071485,16.0,QUICKPAY_CREDIT,6224.12,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,07/06/2026,Zelle payment from RHIAN ABIGAIL ALMO 29909111541,20.0,QUICKPAY_CREDIT,6208.12,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,07/06/2026,Zelle payment from RHIAN ABIGAIL ALMO 29908534780,500.0,QUICKPAY_CREDIT,6188.12,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
-Checking ...0861,07/06/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,5688.12,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,07/06/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,5688.12,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,07/03/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-23.18,ACH_DEBIT,3860.12,paypal tiktok,Expenses,H,
 Checking ...0861,07/03/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-26.64,ACH_DEBIT,3883.30,paypal tiktok,Expenses,H,
 Checking ...0861,07/03/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-13.21,ACH_DEBIT,3909.94,paypal tiktok,Expenses,H,
@@ -485,11 +485,11 @@ Checking ...0861,07/02/2026,Zelle payment to Doris 2 JPM99co1v83q,-50.0,CHASE_TO
 Checking ...0861,07/01/2026,FOODMAXX #405 S SALINAS CA                   07/01,-10.92,DEBIT_CARD,4177.63,Groceries - Others,Expenses,H,
 Checking ...0861,07/01/2026,SHELL SERVICE STATION SALINAS CA     439094  07/01,-76.35,DEBIT_CARD,4188.55,Gas,Expenses,D,
 Checking ...0861,07/01/2026,SOFI PLUS SOFI.COM CA                        07/01,-10.0,DEBIT_CARD,4264.90,Others,Expenses,R,Unrecognized charge - please tell me what this is
-Checking ...0861,07/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,4274.90,Chris - Pension,Income,R,"Recurring ~$4,275 credit - assumed this is Chris' Teamsters pension, please confirm"
+Checking ...0861,07/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,4274.90,Chris - Pension,Income,H,Confirmed by you: Chris' pension
 Checking ...0861,06/30/2026,AMAZON MARKETPLA INTERNET   043000093203454 WEB ID: 9049016352,-65.24,ACH_DEBIT,0.00,Shop - Amazon,Expenses,H,
 Checking ...0861,06/30/2026,CITIZENS PAY     LINE OF CR 043000092693926 WEB ID: 9044036180,-254.75,ACH_DEBIT,65.24,CC - Citizen bank,Debt,H,
 Checking ...0861,06/30/2026,WASTE MANAGEMENT PAYMENT                    PPD ID: 9580653001,-158.36,ACH_DEBIT,319.99,Waste Management,Monthly Bills,H,
-Checking ...0861,06/30/2026,Taptap Send New York NY                      06/29,-197.69,DEBIT_CARD,478.35,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/30/2026,Taptap Send New York NY                      06/29,-197.69,DEBIT_CARD,478.35,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/30/2026,ODP TRANSFER FROM SAVINGS ...5953,676.04,MISC_CREDIT,676.04,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,06/29/2026,COMCAST-XFINITY  CABLE SVCS                 PPD ID: 0000213249,-139.72,ACH_DEBIT,0.00,Comcast,Monthly Bills,H,
 Checking ...0861,06/29/2026,SP+AFF * JDMuscle - 1 855-423-3729 CA        06/29,-30.15,DEBIT_CARD,139.72,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
@@ -503,10 +503,10 @@ Checking ...0861,06/29/2026,MCDONALD'S F2428 SALINAS CA                  06/28,-
 Checking ...0861,06/29/2026,CHEVRON 0091927 WATSONVILLE CA               06/28,-34.12,DEBIT_CARD,400.57,Gas,Expenses,D,
 Checking ...0861,06/29/2026,GIV*FIRST PRESBY 831-4227811 CA              06/28,-20.0,DEBIT_CARD,434.69,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
 Checking ...0861,06/29/2026,PAYPAL *PYPL PAYIN4 402-935-7733 CA          06/28,-71.63,DEBIT_CARD,454.69,Paypal pay in 4,Debt,H,
-Checking ...0861,06/29/2026,Online Payment 29788679514 To ALA 0908 06/29,-706.36,LOAN_PMT,526.32,Others,Expenses,R,Recurring $706.36/month loan-type payment to 'ALA 0908' - please tell me what this is so I can give it the right category
+Checking ...0861,06/29/2026,Online Payment 29788679514 To ALA 0908 06/29,-706.36,LOAN_PMT,526.32,Auto Loan - Honda,Debt,H,Confirmed by you: Chase auto loan
 Checking ...0861,06/29/2026,Primo Water Corporatio Vista CA              06/27,-3.1,DEBIT_CARD,1232.68,Water,Expenses,H,
 Checking ...0861,06/29/2026,Primo Water Corporatio Vista CA              06/27,-3.1,DEBIT_CARD,1235.78,Water,Expenses,H,
-Checking ...0861,06/29/2026,Taptap Send New York NY                      06/27,-33.0,DEBIT_CARD,1238.88,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/29/2026,Taptap Send New York NY                      06/27,-33.0,DEBIT_CARD,1238.88,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/29/2026,JOLLIBEE SAN JOSE CA                         06/26,-30.76,DEBIT_CARD,1271.88,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/29/2026,Zelle payment from Katrina T Perez USBDfchsindn,16.0,PARTNERFI_TO_CHASE,1302.64,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,06/29/2026,Online Transfer from SAV ...5953 transaction#: 29788679000,1000.0,ACCT_XFER,1286.64,Transfer - Savings to Checking,Transfer,H,
@@ -516,20 +516,20 @@ Checking ...0861,06/26/2026,SHELL SERVICE STATION GILROY CA      643915  06/26,-
 Checking ...0861,06/26/2026,MISSION LANE     EDI PYMNTS                 PPD ID: 2832674981,-25.0,ACH_DEBIT,111.70,CC - Mission Lane,Debt,H,
 Checking ...0861,06/26/2026,GOOGLE *Google One g.co/helppay# CA          06/26,-2.99,DEBIT_CARD,136.70,Google 1,Monthly Bills,H,
 Checking ...0861,06/26/2026,CHEVRON 0091927 WATSONVILLE CA               06/25,-4.48,DEBIT_CARD,139.69,Gas,Expenses,D,
-Checking ...0861,06/26/2026,Sendwave 844-9335122 MA                      06/26,-20.49,DEBIT_CARD,144.17,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/26/2026,Sendwave 844-9335122 MA                      06/26,-20.49,DEBIT_CARD,144.17,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/26/2026,Zelle payment from Katrina T Perez USBAAvmsi33k,50.0,PARTNERFI_TO_CHASE,164.66,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,06/26/2026,ODP TRANSFER FROM SAVINGS ...5953,114.66,MISC_CREDIT,114.66,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,06/25/2026,PAYPAL           PURCHASE   GOOGLE YOUTUBE  WEB ID: PAYPALSI77,-15.99,ACH_DEBIT,0.00,YT Premium,Monthly Bills,H,
 Checking ...0861,06/25/2026,PAYPAL           PURCHASE   GOOGLE YESOULFI WEB ID: PAYPALSI77,-13.99,ACH_DEBIT,15.99,Yesoulfitness,Monthly Bills,H,
 Checking ...0861,06/25/2026,VERIZON WIRELESS PAYMENTS                   PPD ID: 4223344794,-390.34,MISC_DEBIT,29.98,Verizon,Monthly Bills,H,
-Checking ...0861,06/25/2026,Taptap Send New York NY                      06/25,-49.58,DEBIT_CARD,420.32,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
-Checking ...0861,06/25/2026,Taptap Send New York NY                      06/25,-991.73,DEBIT_CARD,469.90,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/25/2026,Taptap Send New York NY                      06/25,-49.58,DEBIT_CARD,420.32,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
+Checking ...0861,06/25/2026,Taptap Send New York NY                      06/25,-991.73,DEBIT_CARD,469.90,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/25/2026,SUDZ LLC SALINAS CA                          06/24,-5.5,DEBIT_CARD,1461.63,Shop - Others,Expenses,D,
 Checking ...0861,06/25/2026,GOOGLE *Google One g.co/helppay# CA          06/25,-2.99,DEBIT_CARD,1467.13,Google 1,Monthly Bills,H,
 Checking ...0861,06/25/2026,TST*BETTY BURGER-APTOS Aptos CA              06/24,-19.92,DEBIT_CARD,1470.12,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/25/2026,CHEVRON 0091927 WATSONVILLE CA               06/24,-81.73,DEBIT_CARD,1490.04,Gas,Expenses,D,
 Checking ...0861,06/25/2026,ODP TRANSFER FROM SAVINGS ...5953,1571.77,MISC_CREDIT,1571.77,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
-Checking ...0861,06/24/2026,Sendwave 844-9335122 MA                      06/24,-200.49,DEBIT_CARD,0.00,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/24/2026,Sendwave 844-9335122 MA                      06/24,-200.49,DEBIT_CARD,0.00,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/24/2026,CHEVRON 0371739 BAKERSFIELD CA               06/24,-64.44,DEBIT_CARD,200.49,Gas,Expenses,D,
 Checking ...0861,06/24/2026,ALIEN FRESH JERKY BAKER CA                   06/23,-49.97,DEBIT_CARD,264.93,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/24/2026,Klarna*Fabletics  LL Columbus OH             06/24,-13.17,DEBIT_CARD,314.90,Klarna,Debt,H,
@@ -572,7 +572,7 @@ Checking ...0861,06/22/2026,CM9S 18845646428                             06/19,-
 Checking ...0861,06/22/2026,Primo Water Corporatio Vista CA              06/18,-3.1,DEBIT_CARD,4430.49,Water,Expenses,H,
 Checking ...0861,06/22/2026,Primo Water Corporatio Vista CA              06/18,-3.1,DEBIT_CARD,4433.59,Water,Expenses,H,
 Checking ...0861,06/22/2026,Zelle payment from KYLA MARIE TUAZON PEREZ 29274370427,100.0,QUICKPAY_CREDIT,4436.69,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
-Checking ...0861,06/22/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,4336.69,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,06/22/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,4336.69,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,06/22/2026,ODP TRANSFER FROM SAVINGS ...5953,2508.69,MISC_CREDIT,2508.69,Transfer - Savings to Checking,Transfer,H,Overdraft-protection auto-pull from savings
 Checking ...0861,06/18/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-24.46,ACH_DEBIT,0.00,paypal tiktok,Expenses,H,
 Checking ...0861,06/18/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-96.84,ACH_DEBIT,24.46,paypal tiktok,Expenses,H,
@@ -632,7 +632,7 @@ Checking ...0861,06/10/2026,AMAZON MARKETPLA INTERNET   043000098676818 WEB ID: 
 Checking ...0861,06/10/2026,AMAZON MARKETPLA INTERNET   043000098540510 WEB ID: 9049016352,-38.05,ACH_DEBIT,265.22,Shop - Amazon,Expenses,H,
 Checking ...0861,06/10/2026,TAPIOCA DELIGHT 141-54691986 CA              06/10,-32.0,DEBIT_CARD,303.27,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/10/2026,TAPIOCA DELIGHT 141-54691986 CA              06/10,-39.02,DEBIT_CARD,335.27,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,06/10/2026,Taptap Send New York NY                      06/10,-81.83,DEBIT_CARD,374.29,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/10/2026,Taptap Send New York NY                      06/10,-81.83,DEBIT_CARD,374.29,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/10/2026,DIAMOND DENTAL OF SALIN SALINAS CA           06/09,-175.0,DEBIT_CARD,456.12,Medical,Expenses,H,
 Checking ...0861,06/10/2026,TST*APTOS ST BBQ Aptos CA                    06/09,-43.53,DEBIT_CARD,631.12,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/10/2026,CHEVRON 0091927 WATSONVILLE CA               06/09,-30.01,DEBIT_CARD,674.65,Gas,Expenses,D,
@@ -645,7 +645,7 @@ Checking ...0861,06/09/2026,WHATNOT WHATNOT.COM CA                       06/08,-
 Checking ...0861,06/09/2026,DD *DOORDASH THECRABB DOORDASH.COM CA        06/09,-53.94,DEBIT_CARD,572.02,Food - To go,Expenses,H,
 Checking ...0861,06/08/2026,AFTERPAY 185-52896014 CA                     06/08,-10.74,DEBIT_CARD,625.96,Afterpay,Debt,H,
 Checking ...0861,06/08/2026,Netflix.com 408-5403700 CA                   06/08,-29.98,DEBIT_CARD,636.70,Netflix,Monthly Bills,H,
-Checking ...0861,06/08/2026,Taptap Send New York NY                      06/08,-163.39,DEBIT_CARD,666.68,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/08/2026,Taptap Send New York NY                      06/08,-163.39,DEBIT_CARD,666.68,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/08/2026,AMAZON MARKETPLA INTERNET   043000095795610 WEB ID: 9049016352,-8.69,ACH_DEBIT,830.07,Shop - Amazon,Expenses,H,
 Checking ...0861,06/08/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-10.97,ACH_DEBIT,838.76,paypal tiktok,Expenses,H,
 Checking ...0861,06/08/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-11.71,ACH_DEBIT,849.73,paypal tiktok,Expenses,H,
@@ -670,7 +670,7 @@ Checking ...0861,06/08/2026,WHATNOT WHATNOT.COM CA                       06/07,-
 Checking ...0861,06/08/2026,WHATNOT WHATNOT.COM CA                       06/07,-23.58,DEBIT_CARD,1992.98,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/08/2026,EXXON SALINAS MAIN INC SALINAS CA            06/07,-74.74,DEBIT_CARD,2016.56,Gas,Expenses,D,
 Checking ...0861,06/08/2026,SALINAS MAIN IN SALINAS CA                   06/07,-8.72,DEBIT_CARD,2091.30,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,06/08/2026,Sendwave 844-9335122 MA                      06/07,-25.16,DEBIT_CARD,2100.02,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/08/2026,Sendwave 844-9335122 MA                      06/07,-25.16,DEBIT_CARD,2100.02,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/08/2026,GIV*FIRST PRESBY 831-4227811 CA              06/07,-20.0,DEBIT_CARD,2125.18,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
 Checking ...0861,06/08/2026,PAYPAL *PYPL PAYIN4 402-935-7733 CA          06/07,-68.04,DEBIT_CARD,2145.18,Paypal pay in 4,Debt,H,
 Checking ...0861,06/08/2026,CINEMARK 449 RSTBAR Salinas CA               06/07,-32.6,DEBIT_CARD,2213.22,Movie,Expenses,H,
@@ -681,15 +681,15 @@ Checking ...0861,06/08/2026,WHATNOT WHATNOT.COM CA                       06/06,-
 Checking ...0861,06/08/2026,HABIT SALINAS 306 SALINAS CA                 06/05,-55.01,DEBIT_CARD,2380.12,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/08/2026,WHATNOT WHATNOT.COM CA                       06/05,-44.24,DEBIT_CARD,2435.13,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/05/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-50.0,ACH_DEBIT,2479.37,Transfer - Checking to PayPal,Transfer,H,
-Checking ...0861,06/05/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-223.53,ACH_DEBIT,2529.37,Auto Loan - Honda,Debt,R,"Same $ amounts as the Westlake payments below/above - looks like the same auto loan, formerly serviced by 'WF'. Please confirm"
-Checking ...0861,06/05/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-276.47,ACH_DEBIT,2752.90,Auto Loan - Honda,Debt,R,"Same $ amounts as the Westlake payments below/above - looks like the same auto loan, formerly serviced by 'WF'. Please confirm"
-Checking ...0861,06/05/2026,CHECK 356  06/05,-2200.0,CHECK_PAID,3029.37,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,06/05/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-223.53,ACH_DEBIT,2529.37,Others,Expenses,R,"Same amounts as the Westlake Financial payment above/below (this account's servicer name changed from 'WF' to Westlake over time) - still unidentified, please tell me what this is."
+Checking ...0861,06/05/2026,WF               PAYMENT    39145073        WEB ID: 1272814169,-276.47,ACH_DEBIT,2752.90,Others,Expenses,R,"Same amounts as the Westlake Financial payment above/below (this account's servicer name changed from 'WF' to Westlake over time) - still unidentified, please tell me what this is."
+Checking ...0861,06/05/2026,CHECK 356  06/05,-2200.0,CHECK_PAID,3029.37,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,06/05/2026,Online Transfer to  SAV ...5953 transaction#: 29400713677,-25.0,ACCT_XFER,5229.37,Transfer - Checking to Savings,Transfer,H,
 Checking ...0861,06/05/2026,AMAZON PRIME*WT8EG59 Amzn.com/bill WA        06/05,-16.3,DEBIT_CARD,5254.37,Amazon Prime,Monthly Bills,H,
 Checking ...0861,06/05/2026,THE UPS STORE 7054 831-7899400 CA            06/04,-16.01,DEBIT_CARD,5270.67,Others,Expenses,D,Shipping/postal
 Checking ...0861,06/05/2026,Primo Water Corporatio Vista CA              06/04,-3.1,DEBIT_CARD,5286.68,Water,Expenses,H,
 Checking ...0861,06/04/2026,HARBOR FREIGHT TOOLS U SALINAS CA            06/04,-23.88,DEBIT_CARD,5289.78,Others,Expenses,D,Home-improvement store - no matching category in your list
-Checking ...0861,06/04/2026,CHECK 355,-180.0,CHECK_PAID,5313.66,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,06/04/2026,CHECK 355,-180.0,CHECK_PAID,5313.66,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,06/04/2026,CALWATER SERVICE BILLPAY                    PPD ID: 0000000160,-45.96,ACH_DEBIT,5493.66,Cal Water,Monthly Bills,H,
 Checking ...0861,06/04/2026,WAL-MART #2458 SALINAS CA                    06/03,-38.75,DEBIT_CARD,5539.62,Groceries - Walmart,Expenses,H,
 Checking ...0861,06/04/2026,Primo Water Corporatio Vista CA              06/04,-3.1,DEBIT_CARD,5578.37,Water,Expenses,H,
@@ -704,14 +704,14 @@ Checking ...0861,06/03/2026,Online Transfer to SAV ...5953 transaction#: 2946945
 Checking ...0861,06/03/2026,FOSTERS FREEZE #1500 SALINAS CA              06/02,-8.47,DEBIT_CARD,44674.90,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/03/2026,CHIPOTLE 1864 SALINAS CA                     06/02,-34.48,DEBIT_CARD,44683.37,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/03/2026,WHATNOT WHATNOT.COM CA                       06/02,-55.12,DEBIT_CARD,44717.85,Shop - Whatnot,Expenses,H,
-Checking ...0861,06/03/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,44772.97,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,06/03/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,44772.97,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,06/02/2026,WAL-MART #5751 SALINAS CA                    06/02,-260.27,DEBIT_CARD,42944.97,Groceries - Walmart,Expenses,H,
 Checking ...0861,06/02/2026,WINGSTOP 2088 650-019-7954 CA                06/01,-41.89,DEBIT_CARD,43205.24,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,06/02/2026,Primo Water Corporatio Vista CA              06/02,-3.1,DEBIT_CARD,43247.13,Water,Expenses,H,
 Checking ...0861,06/02/2026,AFFIRM * PAY 1T774D99 855-423-3729 CA        06/01,-33.07,DEBIT_CARD,43250.23,Affirm,Debt,H,
-Checking ...0861,06/01/2026,CHECK 283,-500.0,CHECK_PAID,43283.30,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,06/01/2026,CHECK 283,-500.0,CHECK_PAID,43283.30,Insurance,Monthly Bills,H,Confirmed by you: insurance payment
 Checking ...0861,06/01/2026,EBAY COMMERCE INC. SAN JOSE CA               06/01,-28.11,DEBIT_CARD,43783.30,Shop - Others,Expenses,D,
-Checking ...0861,06/01/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,-20000.0,ACH_DEBIT,43811.41,Transfer - Checking to SoFi/Other,Transfer,R,Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is
+Checking ...0861,06/01/2026,SMBS Account     TRANSFER   CPerez          WEB ID: 9039430511,-20000.0,ACH_DEBIT,43811.41,Transfer - Checking to SoFi Savings,Transfer,H,Confirmed by you: SoFi savings account
 Checking ...0861,06/01/2026,SP+AFF * JDMuscle - 1 855-423-3729 CA        06/01,-30.14,DEBIT_CARD,63811.41,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
 Checking ...0861,06/01/2026,AFFIRM.COM PAYME AFFIRM.COM ST-S6G3X9R2E9K1 WEB ID: 1800948598,-33.27,ACH_DEBIT,63841.55,Affirm,Debt,H,
 Checking ...0861,06/01/2026,AMAZON MARKETPLA INTERNET   043000096031396 WEB ID: 9049016352,-20.65,ACH_DEBIT,63874.82,Shop - Amazon,Expenses,H,
@@ -729,7 +729,7 @@ Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/31,-
 Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/31,-15.69,DEBIT_CARD,64424.91,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/31,-24.67,DEBIT_CARD,64440.60,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/01/2026,GIV*FIRST PRESBY 831-4227811 CA              05/31,-20.0,DEBIT_CARD,64465.27,Others,Expenses,H,"Recurring $20 church/charitable giving - no matching category in your list, put under Others"
-Checking ...0861,06/01/2026,Sendwave 844-9335122 MA                      05/30,-304.99,DEBIT_CARD,64485.27,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,06/01/2026,Sendwave 844-9335122 MA                      05/30,-304.99,DEBIT_CARD,64485.27,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/30,-25.02,DEBIT_CARD,64790.26,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/30,-40.24,DEBIT_CARD,64815.28,Shop - Whatnot,Expenses,H,
 Checking ...0861,06/01/2026,WHATNOT WHATNOT.COM CA                       05/30,-35.47,DEBIT_CARD,64855.52,Shop - Whatnot,Expenses,H,
@@ -738,7 +738,7 @@ Checking ...0861,06/01/2026,PAYPAL *PYPL PAYIN4 402-935-7733 CA          05/30,-
 Checking ...0861,06/01/2026,STEVE'S FILIPINO ASIAN SALINAS CA            05/29,-27.49,DEBIT_CARD,64922.32,Groceries - Steves,Expenses,H,
 Checking ...0861,06/01/2026,KLARNA* KLARNA KLARNA.COM OH                 05/29,-22.44,DEBIT_CARD,64949.81,Klarna,Debt,H,
 Checking ...0861,06/01/2026,AMAZON MARKETPLA ADJUSTMENT                 PPD ID: 9049016352,69.94,ACH_CREDIT,64972.25,Shop - Amazon returns,Expenses,H,
-Checking ...0861,06/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,64902.31,Chris - Pension,Income,R,"Recurring ~$4,275 credit - assumed this is Chris' Teamsters pension, please confirm"
+Checking ...0861,06/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4274.9,ACH_CREDIT,64902.31,Chris - Pension,Income,H,Confirmed by you: Chris' pension
 Checking ...0861,05/29/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-50.0,ACH_DEBIT,60627.41,Transfer - Checking to PayPal,Transfer,H,
 Checking ...0861,05/29/2026,COMCAST-XFINITY  CABLE SVCS                 PPD ID: 0000213249,-139.72,ACH_DEBIT,60677.41,Comcast,Monthly Bills,H,
 Checking ...0861,05/29/2026,KLARNA* KLARNA KLARNA.COM OH                 05/29,-9.16,DEBIT_CARD,60817.13,Klarna,Debt,H,
@@ -833,9 +833,9 @@ Checking ...0861,05/20/2026,Zelle payment from HAROLD ALVARADO WFCT126NXR7F,270.
 Checking ...0861,05/19/2026,PAYPAL           PURCHASE   LIBERTYAUTO     WEB ID: PAYPALSI77,-172.18,ACH_DEBIT,61619.53,Others,Expenses,R,"Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"
 Checking ...0861,05/19/2026,SQ *POKE BAR Marina CA                       05/18,-26.57,DEBIT_CARD,61791.71,Food - Eat Out,Expenses,D,
 Checking ...0861,05/19/2026,REI #113 MARINA MARINA CA                    05/18,-291.5,DEBIT_CARD,61818.28,Shop - Others,Expenses,D,
-Checking ...0861,05/19/2026,Sendwave 844-9335122 MA                      05/18,-33.3,DEBIT_CARD,62109.78,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,05/19/2026,Sendwave 844-9335122 MA                      05/18,-33.3,DEBIT_CARD,62109.78,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,05/19/2026,Zelle payment from KYLA MARIE TUAZON PEREZ 28887721903,100.0,QUICKPAY_CREDIT,62143.08,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
-Checking ...0861,05/19/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,62043.08,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,05/19/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,62043.08,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,05/18/2026,AFFIRM * PAY LL1JZCYR 855-423-3729 CA        05/18,-33.07,DEBIT_CARD,60215.08,Affirm,Debt,H,
 Checking ...0861,05/18/2026,PAYPAL           PURCHASE   GOOGLE GOPRO    WEB ID: PAYPALSI77,-24.99,ACH_DEBIT,60248.15,Others,Expenses,R,"Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"
 Checking ...0861,05/18/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-28.51,ACH_DEBIT,60273.14,paypal tiktok,Expenses,H,
@@ -859,7 +859,7 @@ Checking ...0861,05/18/2026,PAYPAL *TEMU 302-480-6118 CA                 05/16,-
 Checking ...0861,05/18/2026,JOLLIBEE SAN JOSE CA                         05/13,-59.57,DEBIT_CARD,61722.37,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
 Checking ...0861,05/18/2026,Zelle payment from RHIAN ABIGAIL ALMO 29258057109,127.0,QUICKPAY_CREDIT,61781.94,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,05/18/2026,MYSUBARU SUBSCRIPTION 800-782-2783 NJ        05/17,198.09,DEBIT_CARD,61654.94,For Car,Expenses,H,
-Checking ...0861,05/15/2026,CHECK,-7500.0,CHECK_PAID,61456.85,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,05/15/2026,CHECK,-7500.0,CHECK_PAID,61456.85,Others,Expenses,D,"You didn't recall what this $7,500 check was when I asked - update this if it comes back to you."
 Checking ...0861,05/15/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-50.0,ACH_DEBIT,68956.85,Transfer - Checking to PayPal,Transfer,H,
 Checking ...0861,05/15/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77,-98.97,ACH_DEBIT,69006.85,paypal tiktok,Expenses,H,
 Checking ...0861,05/15/2026,Klarna* Klarna 151-7426184 DE                05/15,-22.45,DEBIT_CARD,69105.82,Klarna,Debt,H,
@@ -875,7 +875,7 @@ Checking ...0861,05/15/2026,TAQUERIA VALLARTA FELTON CA                  05/14,-
 Checking ...0861,05/15/2026,PAYPAL *PYPL PAYIN4 402-935-7733 CA          05/14,-31.25,DEBIT_CARD,69274.54,Paypal pay in 4,Debt,H,
 Checking ...0861,05/15/2026,MYSUBARU SUBSCRIPTION 800-782-2783 NJ        05/14,-198.82,DEBIT_CARD,69305.79,For Car,Expenses,H,
 Checking ...0861,05/15/2026,SG*V*app.madmuscles Dover NV                 05/14,0.99,DEBIT_CARD,69504.61,Food - Eat Out,Expenses,D,
-Checking ...0861,05/14/2026,CHECK 354,-2000.0,CHECK_PAID,69503.62,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,05/14/2026,CHECK 354,-2000.0,CHECK_PAID,69503.62,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who this was written to
 Checking ...0861,05/14/2026,AMAZON MARKETPLA INTERNET   043000097529326 WEB ID: 9049016352,-6.96,ACH_DEBIT,71503.62,Shop - Amazon,Expenses,H,
 Checking ...0861,05/14/2026,AMAZON MARKETPLA INTERNET   043000097373138 WEB ID: 9049016352,-9.78,ACH_DEBIT,71510.58,Shop - Amazon,Expenses,H,
 Checking ...0861,05/14/2026,AMAZON MARKETPLA INTERNET   043000097349400 WEB ID: 9049016352,-10.86,ACH_DEBIT,71520.36,Shop - Amazon,Expenses,H,
@@ -937,7 +937,7 @@ Checking ...0861,05/08/2026,KHAO SAN THAI SALINAS CA                     05/07,-
 Checking ...0861,05/08/2026,PAYPAL *ALIPAYUSINC 402-935-7733 CA          05/08,-20.56,DEBIT_CARD,2669.45,paypal - Alipay,Debt,H,
 Checking ...0861,05/08/2026,Zelle payment from RHIAN ABIGAIL ALMO 29148483142,16.0,QUICKPAY_CREDIT,2690.01,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
 Checking ...0861,05/07/2026,TAQUERIA VALLARTA FELTON CA                  05/07,-31.96,DEBIT_CARD,2674.01,Food - Eat Out,Expenses,D,Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was
-Checking ...0861,05/07/2026,Sendwave 844-9335122 MA                      05/07,-18.48,DEBIT_CARD,2705.97,Remittance - others,Expenses,R,"Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"
+Checking ...0861,05/07/2026,Sendwave 844-9335122 MA                      05/07,-18.48,DEBIT_CARD,2705.97,Remittance - Aron,Expenses,H,Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition.
 Checking ...0861,05/07/2026,CALWATER SERVICE BILLPAY                    PPD ID: 0000000160,-45.53,ACH_DEBIT,2724.45,Cal Water,Monthly Bills,H,
 Checking ...0861,05/07/2026,AMAZON MARKETPLA INTERNET   043000098680270 WEB ID: 9049016352,-75.35,ACH_DEBIT,2769.98,Shop - Amazon,Expenses,H,
 Checking ...0861,05/07/2026,Credit One Bank  Payment    54888125        WEB ID: WEB000004,-50.0,ACH_DEBIT,2845.33,CC - Credit 1,Debt,H,
@@ -957,9 +957,9 @@ Checking ...0861,05/05/2026,CAPITAL ONE AUTO CARPAY     CP0E59AA93D607B WEB ID: 
 Checking ...0861,05/05/2026,AMAZON PRIME*HD0210C Amzn.com/bill WA        05/05,-16.3,DEBIT_CARD,4618.07,Amazon Prime,Monthly Bills,H,
 Checking ...0861,05/05/2026,Zelle payment to IVORY JANINE MORALES JPM99cfta4bw,-2000.0,CHASE_TO_PARTNERFI,4634.37,Others,Expenses,R,Zelle sent - please tell me who this person is so I can map them to a category
 Checking ...0861,05/05/2026,Zelle payment from MARIA BRAVO NAV0K5PMR8LK,40.0,PARTNERFI_TO_CHASE,6634.37,Others - Income,Income,R,Zelle received - please tell me who this person is so I can map them to a category
-Checking ...0861,05/05/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,6594.37,Transfer - PayPal to Checking,Transfer,H,
+Checking ...0861,05/05/2026,PAYPAL           TRANSFER                   PPD ID: PAYPALSD11,1828.0,ACH_CREDIT,6594.37,Kristin - COO Income,Income,H,Confirmed by you: lands on/before the 5th and 20th
 Checking ...0861,05/05/2026,REMOTE ONLINE DEPOSIT #          1,11.05,CHECK_DEPOSIT,4766.37,Others - Income,Income,R,Deposit/wire with unclear source
-Checking ...0861,05/04/2026,CHECK 353,-500.0,CHECK_PAID,4755.32,Others,Expenses,R,Paper check - payee not shown on the statement; please tell me who checks were written to
+Checking ...0861,05/04/2026,CHECK 353,-500.0,CHECK_PAID,4755.32,Insurance,Monthly Bills,H,Confirmed by you: insurance payment
 Checking ...0861,05/04/2026,PAYPAL           TRANSFER   ADD TO BALANCE  WEB ID: PAYPALSD22,-2000.0,ACH_DEBIT,5255.32,Transfer - Checking to PayPal,Transfer,H,
 Checking ...0861,05/04/2026,LACOSTE #478 GILROY 83 GILROY CA             05/04,-138.84,DEBIT_CARD,7255.32,Shop - Others,Expenses,D,
 Checking ...0861,05/04/2026,SP+AFF * AOOACALIPERC 855-423-3729 CA        05/04,-53.55,DEBIT_CARD,7394.16,Shop - Others,Expenses,R,Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store
@@ -985,4 +985,4 @@ Checking ...0861,05/01/2026,PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: 
 Checking ...0861,05/01/2026,Online Transfer to  SAV ...5953 transaction#: 28947894321,-25.0,ACCT_XFER,6252.43,Transfer - Checking to Savings,Transfer,H,
 Checking ...0861,05/01/2026,AMAZON MARKETPLA INTERNET   043000091828766 WEB ID: 9049016352,-15.49,ACH_DEBIT,6277.43,Shop - Amazon,Expenses,H,
 Checking ...0861,05/01/2026,THE UPS STORE 7054 831-7899400 CA            04/30,-29.91,DEBIT_CARD,6292.92,Others,Expenses,D,Shipping/postal
-Checking ...0861,05/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4279.18,ACH_CREDIT,6322.83,Chris - Pension,Income,R,"Recurring ~$4,275 credit - assumed this is Chris' Teamsters pension, please confirm"
+Checking ...0861,05/01/2026,TEAMSTERS        PAYMENTS                   PPD ID: 3046100016,4279.18,ACH_CREDIT,6322.83,Chris - Pension,Income,H,Confirmed by you: Chris' pension

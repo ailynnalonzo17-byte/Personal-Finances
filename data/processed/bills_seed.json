@@ -1,0 +1,352 @@
+[
+  {
+    "name": "Affirm",
+    "group": "Debt",
+    "lastMonthTotal": 885.98,
+    "avgMonthly": 568.11,
+    "dueDay": 18,
+    "txCount": 24,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Afterpay",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 16.11,
+    "dueDay": 11,
+    "txCount": 3,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "Auto Loan - Honda",
+    "group": "Debt",
+    "lastMonthTotal": 706.36,
+    "avgMonthly": 706.36,
+    "dueDay": 25,
+    "txCount": 3,
+    "monthsSeen": 3,
+    "flag": ""
+  },
+  {
+    "name": "CC - Aspire",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 477.8,
+    "dueDay": 12,
+    "txCount": 2,
+    "monthsSeen": 1,
+    "flag": ""
+  },
+  {
+    "name": "CC - Capital 1",
+    "group": "Debt",
+    "lastMonthTotal": 100.0,
+    "avgMonthly": 843.48,
+    "dueDay": 27,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": "ONE-TIME PAYMENT LIKELY IN HISTORY - VERIFY AMOUNT"
+  },
+  {
+    "name": "CC - Citibank",
+    "group": "Debt",
+    "lastMonthTotal": 3139.48,
+    "avgMonthly": 1819.83,
+    "dueDay": 17,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "CC - Citizen bank",
+    "group": "Debt",
+    "lastMonthTotal": 8.66,
+    "avgMonthly": 516.73,
+    "dueDay": 29,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": "ONE-TIME PAYMENT LIKELY IN HISTORY - VERIFY AMOUNT"
+  },
+  {
+    "name": "CC - Credit 1",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 98.25,
+    "dueDay": 12,
+    "txCount": 5,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "CC - FPB",
+    "group": "Debt",
+    "lastMonthTotal": 6.31,
+    "avgMonthly": 6.31,
+    "dueDay": 3,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "CC - Mission Lane",
+    "group": "Debt",
+    "lastMonthTotal": 2.31,
+    "avgMonthly": 38.01,
+    "dueDay": 27,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": "ONE-TIME PAYMENT LIKELY IN HISTORY - VERIFY AMOUNT"
+  },
+  {
+    "name": "CC - Ollo",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 419.12,
+    "dueDay": 12,
+    "txCount": 2,
+    "monthsSeen": 1,
+    "flag": ""
+  },
+  {
+    "name": "CC - One Pay",
+    "group": "Debt",
+    "lastMonthTotal": 451.55,
+    "avgMonthly": 381.79,
+    "dueDay": 11,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "CC - paypal",
+    "group": "Debt",
+    "lastMonthTotal": 2.0,
+    "avgMonthly": 2465.51,
+    "dueDay": 21,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": "ONE-TIME PAYMENT LIKELY IN HISTORY - VERIFY AMOUNT"
+  },
+  {
+    "name": "Klarna",
+    "group": "Debt",
+    "lastMonthTotal": 126.38,
+    "avgMonthly": 152.79,
+    "dueDay": 12,
+    "txCount": 25,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Paypal pay in 4",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 310.58,
+    "dueDay": 15,
+    "txCount": 10,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "Upgrade",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 5395.47,
+    "dueDay": 12,
+    "txCount": 4,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "paypal - Alipay",
+    "group": "Debt",
+    "lastMonthTotal": 0,
+    "avgMonthly": 23.81,
+    "dueDay": 8,
+    "txCount": 2,
+    "monthsSeen": 1,
+    "flag": ""
+  },
+  {
+    "name": "Amazon Prime",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 16.3,
+    "avgMonthly": 16.3,
+    "dueDay": 5,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Atty Chua",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 200.0,
+    "avgMonthly": 250.0,
+    "dueDay": 17,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Cal Water",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 40.84,
+    "avgMonthly": 45.03,
+    "dueDay": 7,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Car insurance",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 0,
+    "avgMonthly": 506.75,
+    "dueDay": 22,
+    "txCount": 2,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "Car payment",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 1009.9,
+    "avgMonthly": 784.9,
+    "dueDay": 8,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Comcast",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 13.97,
+    "avgMonthly": 108.28,
+    "dueDay": 29,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": "ONE-TIME PAYMENT LIKELY IN HISTORY - VERIFY AMOUNT"
+  },
+  {
+    "name": "Google 1",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 2.99,
+    "avgMonthly": 3.49,
+    "dueDay": 28,
+    "txCount": 5,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Harna fit",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 14.99,
+    "avgMonthly": 24.48,
+    "dueDay": 11,
+    "txCount": 3,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "Insurance",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 500.0,
+    "avgMonthly": 743.16,
+    "dueDay": 15,
+    "txCount": 6,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Life 360",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 13.79,
+    "avgMonthly": 17.54,
+    "dueDay": 24,
+    "txCount": 5,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "National Life Ins",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 205.62,
+    "avgMonthly": 205.62,
+    "dueDay": 11,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Netflix",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 29.98,
+    "avgMonthly": 29.98,
+    "dueDay": 8,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "PGE",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 165.5,
+    "avgMonthly": 216.95,
+    "dueDay": 22,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Planet Fitness",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 0,
+    "avgMonthly": 24.99,
+    "dueDay": 17,
+    "txCount": 3,
+    "monthsSeen": 3,
+    "flag": ""
+  },
+  {
+    "name": "Verizon",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 408.35,
+    "avgMonthly": 394.91,
+    "dueDay": 26,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Waste Management",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 82.4,
+    "avgMonthly": 120.38,
+    "dueDay": 19,
+    "txCount": 3,
+    "monthsSeen": 2,
+    "flag": ""
+  },
+  {
+    "name": "YT Premium",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 14.71,
+    "avgMonthly": 15.67,
+    "dueDay": 26,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  },
+  {
+    "name": "Yesoulfitness",
+    "group": "Monthly Bills",
+    "lastMonthTotal": 13.99,
+    "avgMonthly": 13.99,
+    "dueDay": 26,
+    "txCount": 4,
+    "monthsSeen": 4,
+    "flag": ""
+  }
+]

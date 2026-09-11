@@ -10,7 +10,8 @@ RULES = [
     (r"ODP TRANSFER FROM SAVINGS", "Transfer - Savings to Checking", "Transfer", "H", "Overdraft-protection auto-pull from savings"),
     (r"PAYPAL\s+TRANSFER\s+ADD TO BALANCE", "Transfer - Checking to PayPal", "Transfer", "H", ""),
     (r"PAYPAL\s+TRANSFER(?!\s+ADD)", "Transfer - PayPal to Checking", "Transfer", "H", ""),
-    (r"SOFI BANK\s+TRANSFER|SMBS ACCOUNT\s+TRANSFER", "Transfer - Checking to SoFi/Other", "Transfer", "R", "Large transfer (thousands) to a SoFi/SMBS account - please confirm what this account is"),
+    # SoFi Bank / SMBS Account transfer direction is decided by amount sign in SPECIAL_CASES below,
+    # since both labels appear as both debits and credits.
 
     # ---- Monthly Bills ----
     (r"AMAZON PRIME", "Amazon Prime", "Monthly Bills", "H", ""),
@@ -37,8 +38,8 @@ RULES = [
     (r"AFFIRM\.COM|AFFIRM \* PAY", "Affirm", "Debt", "H", ""),
     (r"UPGRADE, INC\.", "Upgrade", "Debt", "H", ""),
     (r"PREMIER BANKCARD", "CC - FPB", "Debt", "H", ""),
-    (r"WESTLAKESVCS", "Auto Loan - Honda", "Debt", "R", "Westlake Financial payment - assumed Honda auto loan, please confirm"),
-    (r"^WF\s+PAYMENT", "Auto Loan - Honda", "Debt", "R", "Same $ amounts as the Westlake payments below/above - looks like the same auto loan, formerly serviced by 'WF'. Please confirm"),
+    (r"WESTLAKESVCS", "Others", "Expenses", "R", "You confirmed the Honda auto loan is the Chase/ALA 0908 payment, so this separate ~$223+$276/month Westlake Financial payment must be something else - a second loan, warranty, or GAP insurance? Please tell me what it is."),
+    (r"^WF\s+PAYMENT", "Others", "Expenses", "R", "Same amounts as the Westlake Financial payment above/below (this account's servicer name changed from 'WF' to Westlake over time) - still unidentified, please tell me what this is."),
     (r"OLLO CC", "CC - Ollo", "Debt", "H", ""),
     (r"ASPIRE ?MC|AUTOPMT ASPIREMC", "CC - Aspire", "Debt", "H", ""),
     (r"PAYPAL \*ALIPAYUSINC", "paypal - Alipay", "Debt", "H", ""),
@@ -62,7 +63,7 @@ RULES = [
     (r"DIAMOND DENTAL|SHS\*SVMHSCLINICS|SHS\*SVHMC", "Medical", "Expenses", "H", ""),
     (r"PAYPAL\s+PURCHASE\s+TIKTOK SHOP", "paypal tiktok", "Expenses", "H", ""),
     (r"TIKTOK SHOP", "Shop - Tiktok", "Expenses", "H", ""),
-    (r"TAPTAP SEND|SENDWAVE", "Remittance - others", "Expenses", "R", "Remittance app transfer - recipient not shown; please tell me if this is Aron, Aron's tuition, or someone else"),
+    (r"TAPTAP SEND|SENDWAVE", "Remittance - Aron", "Expenses", "H", "Confirmed by you: remittance to your son. Move individual ones to 'Remittance - Aron tuition' if you know a specific transfer was for tuition."),
     (r"AMAZON MARKETPLA ADJUSTMENT", "Shop - Amazon returns", "Expenses", "H", ""),
     (r"AMAZON MARKETPLA|AMAZON\.COM SERVI|AMAZON\.COM\*|AMAZON PRIME\*", "Shop - Amazon", "Expenses", "H", ""),
     (r"GOODWILL", "Shop - Goodwill", "Expenses", "H", ""),
@@ -98,17 +99,17 @@ RULES = [
     (r"PIERCE CO\., LP", "Others", "Expenses", "R", "Unclear what this business is"),
     (r"PAYPAL\s+PURCHASE", "Others", "Expenses", "R", "Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"),
     (r"UBER |UBER\*|VENMO", "Others", "Expenses", "R", "Rideshare or Venmo payment - no matching category, and Venmo recipient is unclear"),
-    (r"^LBC SALINAS", "Remittance - others", "Expenses", "R", "LBC is a Filipino remittance/cargo courier - please confirm recipient"),
-    (r"ONLINE PAYMENT.*TO ALA 0908", "Others", "Expenses", "R", "Recurring $706.36/month loan-type payment to 'ALA 0908' - please tell me what this is so I can give it the right category"),
+    (r"^LBC SALINAS", "Remittance - Aron", "Expenses", "H", "LBC is a Filipino remittance/cargo courier - assumed this is also for your son, like the Taptap Send/Sendwave ones"),
+    (r"ONLINE PAYMENT.*TO ALA 0908", "Auto Loan - Honda", "Debt", "H", "Confirmed by you: Chase auto loan"),
     (r"MADONNA INN|BOARDWALK PLAZA|QUALITY INNS|CITY PISMO BEACH|MSS SURFACE LOT|SFC LAS VEGAS|BOULDER VINTAGE|LITTLE PAMPANGA|CLARK CO PARKS|SSA - USS MIDWAY|CSI-\d", "Vacation", "Expenses", "D", "Hotel/travel-city charge, looks like part of a trip"),
 
     # ---- Fees / misc bank ----
     (r"FEE_TRANSACTION|WIRE FEE|CHECK OR SUPPLY", "Others", "Expenses", "H", "Bank fee"),
     (r"^ATM WITHDRAWAL", "Others", "Expenses", "H", "ATM cash withdrawal - cash spend is untracked after this point"),
-    (r"^CHECK\b", "Others", "Expenses", "R", "Paper check - payee not shown on the statement; please tell me who checks were written to"),
+    # Paper checks are fully handled in special_cases() above (amount decides Insurance vs unknown).
 
     # ---- Income ----
-    (r"TEAMSTERS\s+PAYMENTS", "Chris - Pension", "Income", "R", "Recurring ~$4,275 credit - assumed this is Chris' Teamsters pension, please confirm"),
+    (r"TEAMSTERS\s+PAYMENTS", "Chris - Pension", "Income", "H", "Confirmed by you: Chris' pension"),
     (r"UNITED PARCEL SE\s+PAYROLL", "Key Salary", "Income", "R", "UPS payroll deposit - assumed this is your own Key Salary income, please confirm"),
     (r"CHECK_DEPOSIT|REMOTE ONLINE DEPOSIT|DEPOSIT\s+ID NUMBER|CHIPS CREDIT", "Others - Income", "Income", "R", "Deposit/wire with unclear source"),
     (r"UNITED PARCEL SE\s+DV\d", "Others - Income", "Income", "R", "UPS-related credit, not the regular payroll line"),
@@ -120,6 +121,35 @@ RULES = [
 
 COMPILED = [(re.compile(pat, re.I), cat, grp, conf, note) for pat, cat, grp, conf, note in RULES]
 
+_SOFI_RE = re.compile(r"SOFI BANK\s+TRANSFER|SMBS ACCOUNT\s+TRANSFER", re.I)
+_PAYPAL_TRANSFER_RE = re.compile(r"PAYPAL\s+TRANSFER(?!\s+ADD)", re.I)
+_CHECK_RE = re.compile(r"^CHECK\b", re.I)
+
+def special_cases(desc, ttype, amount):
+    """Amount-dependent rules that can't be expressed as a plain description match.
+    Checked before the ordered RULES table; return None to fall through to it."""
+    # SoFi/SMBS transfers run both directions under both label spellings -
+    # direction comes from the amount's sign, confirmed by you: SoFi savings account.
+    if _SOFI_RE.search(desc):
+        if amount < 0:
+            return "Transfer - Checking to SoFi Savings", "Transfer", "H", "Confirmed by you: SoFi savings account"
+        return "Transfer - SoFi Savings to Checking", "Transfer", "H", "Confirmed by you: SoFi savings account"
+
+    # You confirmed: $1,828.00, landing on/before the 5th and 20th, is your COO income from Kristin.
+    # Other PAYPAL TRANSFER amounts are still treated as a plain PayPal<->checking transfer.
+    if _PAYPAL_TRANSFER_RE.search(desc) and amount == 1828.00:
+        return "Kristin - COO Income", "Income", "H", "Confirmed by you: lands on/before the 5th and 20th"
+
+    # Paper checks: you confirmed $500 ones are insurance; the one-off $7,500 you don't recall.
+    if _CHECK_RE.search(desc):
+        if amount == -500.00:
+            return "Insurance", "Monthly Bills", "H", "Confirmed by you: insurance payment"
+        if amount == -7500.00:
+            return "Others", "Expenses", "D", "You didn't recall what this $7,500 check was when I asked - update this if it comes back to you."
+        return "Others", "Expenses", "R", "Paper check - payee not shown on the statement; please tell me who this was written to"
+
+    return None
+
 def type_fallback(ttype, amount):
     credit_types = {"MISC_CREDIT","ACH_CREDIT","QUICKPAY_CREDIT","PARTNERFI_TO_CHASE",
                      "WIRE_INCOMING","CHECK_DEPOSIT","DEPOSIT"}
@@ -128,6 +158,9 @@ def type_fallback(ttype, amount):
     return "Others", "Expenses", "R", "Unrecognized charge - please tell me what this is"
 
 def categorize(desc, ttype, amount):
+    special = special_cases(desc, ttype, amount)
+    if special:
+        return special
     for rx, cat, grp, conf, note in COMPILED:
         if rx.search(desc):
             return cat, grp, conf, note
