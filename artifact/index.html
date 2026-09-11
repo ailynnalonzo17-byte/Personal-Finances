@@ -465,7 +465,9 @@ function renderAccounts(){
       btn.disabled = true; btn.textContent = "Saving…";
       const ref = db.doc("accounts/"+id);
       const cur = state.accounts[id] || {name:ACCOUNT_NAMES[id], startingBalance:0, hasStatementData:true};
-      await ref.set({...cur, actualBalance:val, actualBalanceDate:date, hasStatementData:true});
+      const next = {...cur, actualBalance:val, actualBalanceDate:date, hasStatementData:true};
+      await ref.set(next);
+      state.accounts[id] = next; renderAll();
       btn.disabled = false; btn.textContent = "Save";
     });
   });
@@ -602,14 +604,17 @@ function renderBudgetGrid(){
       const val = parseFloat(inp.value);
       if(inp.value.trim()!=="" && isNaN(val)) return;
       const cat = MASTER_CATS.find(([,c])=>slug(c)===id);
-      await db.doc("budgets/"+id).set({
-        category: cat?cat[1]:id, group: cat?cat[0]:"", monthlyBudget: inp.value.trim()===""?null:val
-      });
+      const next = {category: cat?cat[1]:id, group: cat?cat[0]:"", monthlyBudget: inp.value.trim()===""?null:val};
+      await db.doc("budgets/"+id).set(next);
+      state.budgets[id] = next;
+      renderBudgetGrid();
     });
   });
   document.querySelectorAll("[data-checkkey]").forEach(cb=>{
     cb.addEventListener("change", async ()=>{
-      await db.doc("bills_checked/"+cb.dataset.checkkey).set({checked: cb.checked});
+      const key = cb.dataset.checkkey;
+      await db.doc("bills_checked/"+key).set({checked: cb.checked});
+      state.checked[key] = {checked: cb.checked};
     });
   });
 }
@@ -668,14 +673,18 @@ function renderBills(){
       if(isNaN(amt) || isNaN(day)) return;
       btn.textContent="Saving…"; btn.disabled=true;
       await db.doc("bills/"+id).update({amount:amt, dueDay:day});
-      btn.textContent="Save"; btn.disabled=false;
+      state.bills[id] = {...state.bills[id], amount:amt, dueDay:day};
+      renderAll();
     });
   });
   document.querySelectorAll("[data-pausebill]").forEach(btn=>{
     btn.addEventListener("click", async ()=>{
       const id = btn.dataset.pausebill;
       const cur = state.bills[id];
-      await db.doc("bills/"+id).update({active: cur.active===false});
+      const nextActive = cur.active===false;
+      await db.doc("bills/"+id).update({active: nextActive});
+      state.bills[id] = {...cur, active: nextActive};
+      renderAll();
     });
   });
 }
@@ -765,9 +774,11 @@ function renderTransactions(){
       const doc = state.transactions[docId];
       if(!doc) return;
       const entries2 = doc.entries.map(en=> en.id===entryId ? {...en, category:c, group:g, confidence:"H", note:"Corrected by you"} : en);
+      const next = {...doc, entries:entries2};
       sel.disabled = true;
-      await db.doc("transactions/"+docId).set({...doc, entries:entries2});
-      sel.disabled = false;
+      await db.doc("transactions/"+docId).set(next);
+      state.transactions[docId] = next;
+      renderAll();
     });
   });
 }
@@ -803,6 +814,8 @@ async function onAdd(ev){
     };
     existing.entries = [...(existing.entries||[]), entry];
     await ref.set(existing);
+    state.transactions[docId] = existing;
+    renderAll();
     msg.textContent = "Added.";
     document.getElementById("f-desc").value = "";
     document.getElementById("f-amt").value = "";
