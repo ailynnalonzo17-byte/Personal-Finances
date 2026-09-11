@@ -184,6 +184,7 @@
   tbody tr:hover{background:var(--surface-2);}
   td.amt{text-align:right; font-family:"IBM Plex Mono",monospace;}
   td.amt.pos{color:var(--income);} td.amt.neg{color:var(--ink);}
+  td.amt.bal-neg{color:var(--critical);}
   .conf-dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
   .conf-H{background:var(--income);} .conf-D{background:var(--gold);} .conf-R{background:var(--critical);}
   select.cat-select{font-size:12px; padding:4px 5px;}
@@ -235,6 +236,25 @@
       <div class="field"><button type="submit" class="btn" id="addBtn">Add</button></div>
       <div class="form-msg" id="formMsg"></div>
     </form>
+  </div>
+
+  <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+      <div><h2>Running balance</h2><div class="sub" id="registerSub">Every transaction for this account, oldest to newest, with the balance right after each one</div></div>
+      <select id="registerAcct">
+        <option value="checking">Checking</option>
+        <option value="savings">Savings</option>
+        <option value="paypal">PayPal</option>
+        <option value="sofi_savings">SoFi Savings</option>
+      </select>
+    </div>
+    <div class="tx-scroll" id="registerScroll">
+      <table>
+        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead>
+        <tbody id="registerBody"></tbody>
+      </table>
+    </div>
+    <div class="row-count" id="registerCount"></div>
   </div>
 
   <div class="panel">
@@ -341,6 +361,7 @@ async function init(){
   document.getElementById("txAcct").addEventListener("change", renderTransactions);
   document.getElementById("txGroup").addEventListener("change", renderTransactions);
   document.getElementById("txConf").addEventListener("change", renderTransactions);
+  document.getElementById("registerAcct").addEventListener("change", renderRegister);
 
   const groupSel = document.getElementById("txGroup");
   Object.keys(GROUP_COLOR).forEach(g=>{
@@ -783,6 +804,41 @@ function renderTransactions(){
   });
 }
 
+/* ---------------- render: running balance register ---------------- */
+function renderRegister(){
+  const acctId = document.getElementById("registerAcct").value || "checking";
+  const acc = state.accounts[acctId];
+  const start = acc ? (acc.startingBalance||0) : 0;
+
+  const entries = allEntries().filter(e=> e.account===acctId).slice().reverse(); // oldest first
+  document.getElementById("registerSub").textContent =
+    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, oldest to newest, with the balance right after each one`;
+
+  let running = start;
+  const rows = [`<tr>
+      <td>${acc && acc.startingDate ? acc.startingDate : "—"}</td>
+      <td style="font-style:italic; color:var(--ink-faint);">Starting balance</td>
+      <td></td><td class="amt num"></td>
+      <td class="amt num ${running<0?'bal-neg':''}">${money(running)}</td>
+    </tr>`];
+  entries.forEach(e=>{
+    running += e.amount;
+    rows.push(`<tr>
+      <td>${e.date}</td>
+      <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}</td>
+      <td>${e.category}</td>
+      <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
+      <td class="amt num ${running<0?'bal-neg':''}" style="font-weight:600;">${money(running)}</td>
+    </tr>`);
+  });
+  document.getElementById("registerBody").innerHTML = rows.join("");
+  document.getElementById("registerCount").textContent =
+    `${entries.length} transaction${entries.length===1?"":"s"} · ends at ${money(running)}`;
+
+  const scroller = document.getElementById("registerScroll");
+  scroller.scrollTop = scroller.scrollHeight; // jump to the latest (bottom)
+}
+
 /* ---------------- add transaction ---------------- */
 async function onAdd(ev){
   ev.preventDefault();
@@ -852,6 +908,7 @@ function renderCreditCards(){
 function renderAll(){
   renderAccounts();
   renderCreditCards();
+  renderRegister();
   renderPeriodOptions();
   renderSummary();
   renderCatBars();
