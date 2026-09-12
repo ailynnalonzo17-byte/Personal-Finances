@@ -613,14 +613,14 @@ function renderCatBars(){
 
 /* ---------------- render: budget by category ---------------- */
 const BUDGET_COLS = [
-  {group:"Monthly Bills", cls:"bills",    label:"Bills",    hasLeft:false, hasCheck:true,  hasDue:true},
-  {group:"Expenses",      cls:"expenses", label:"Expenses", hasLeft:true,  hasCheck:false, hasDue:false},
-  {group:"Debt",          cls:"debt",     label:"Debt",     hasLeft:false, hasCheck:true,  hasDue:true},
+  {group:"Monthly Bills", cls:"bills",    label:"Bills",    hasBudget:false, hasLeft:false, hasCheck:true,  hasDue:true},
+  {group:"Expenses",      cls:"expenses", label:"Expenses", hasBudget:true,  hasLeft:true,  hasCheck:false, hasDue:false},
+  {group:"Debt",          cls:"debt",     label:"Debt",     hasBudget:false, hasLeft:false, hasCheck:true,  hasDue:true},
 ];
 
 // Falls back to a known bill amount, or (for Affirm/Klarna) the sum of that
 // provider's loan-schedule installments due in this period, when nobody has
-// typed an explicit budget override yet.
+// typed an explicit budget override yet. Only used for columns that show Budget.
 function defaultBudgetFor(cat, id, period){
   if(state.bills[id]?.amount!=null) return state.bills[id].amount;
   if(cat==="Affirm" || cat==="Klarna"){
@@ -653,8 +653,10 @@ function renderBudgetGrid(){
     const rows = cats.map(cat=>{
       const id = slug(cat);
       const override = state.budgets[id];
-      const budget = override && Object.prototype.hasOwnProperty.call(override,"monthlyBudget")
-        ? override.monthlyBudget : defaultBudgetFor(cat, id, period);
+      const budget = col.hasBudget
+        ? (override && Object.prototype.hasOwnProperty.call(override,"monthlyBudget")
+            ? override.monthlyBudget : defaultBudgetFor(cat, id, period))
+        : null;
       const actual = actualByCat[cat] || 0;
       totalBudget += budget || 0; totalActual += actual;
       const dueDay = state.bills[id]?.dueDay;
@@ -665,8 +667,8 @@ function renderBudgetGrid(){
         ${col.hasCheck ? `<td><input type="checkbox" class="budget-check" data-checkkey="${checkKey}" ${isChecked?"checked":""}></td>` : ""}
         <td class="name" title="${cat}">${cat}</td>
         ${col.hasDue ? `<td class="due">${dueDay?dueDay+"th":"–"}</td>` : ""}
-        <td class="num"><input type="text" inputmode="decimal" class="budget-input" data-budgetcat="${id}"
-              value="${budget!=null?budget:''}" placeholder="–"></td>
+        ${col.hasBudget ? `<td class="num"><input type="text" inputmode="decimal" class="budget-input" data-budgetcat="${id}"
+              value="${budget!=null?budget:''}" placeholder="–"></td>` : ""}
         <td class="num">${actual ? money(actual) : "–"}</td>
         ${col.hasLeft ? `<td class="num ${left<0?'left-neg':''}">${budget!=null?money(left):"–"}</td>` : ""}
       </tr>`;
@@ -678,13 +680,13 @@ function renderBudgetGrid(){
           ${col.hasCheck?"<th></th>":""}
           <th>Name</th>
           ${col.hasDue?"<th>Due</th>":""}
-          <th>Budget</th><th>Actual</th>${col.hasLeft?"<th>Left</th>":""}
+          ${col.hasBudget?"<th>Budget</th>":""}<th>Actual</th>${col.hasLeft?"<th>Left</th>":""}
         </tr></thead>
         <tbody>${rows}
           <tr class="budget-totals">
             ${col.hasCheck?"<td></td>":""}
             <td>Total</td>${col.hasDue?"<td></td>":""}
-            <td class="num">${money(totalBudget)}</td>
+            ${col.hasBudget?`<td class="num">${money(totalBudget)}</td>`:""}
             <td class="num">${money(totalActual)}</td>
             ${col.hasLeft?`<td class="num ${totalBudget-totalActual<0?'left-neg':''}">${money(totalBudget-totalActual)}</td>`:""}
           </tr>
