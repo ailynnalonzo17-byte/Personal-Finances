@@ -618,6 +618,24 @@ const BUDGET_COLS = [
   {group:"Debt",          cls:"debt",     label:"Debt",     hasLeft:false, hasCheck:true,  hasDue:true},
 ];
 
+// Falls back to a known bill amount, or (for Affirm/Klarna) the sum of that
+// provider's loan-schedule installments due in this period, when nobody has
+// typed an explicit budget override yet.
+function defaultBudgetFor(cat, id, period){
+  if(state.bills[id]?.amount!=null) return state.bills[id].amount;
+  if(cat==="Affirm" || cat==="Klarna"){
+    let sum = 0;
+    Object.values(state.loanSchedule).forEach(plan=>{
+      if(plan.provider!==cat) return;
+      (plan.installments||[]).forEach(inst=>{
+        if(period==="all" || inst.dueDate.slice(0,7)===period) sum += inst.amount;
+      });
+    });
+    return sum || undefined;
+  }
+  return undefined;
+}
+
 function renderBudgetGrid(){
   const period = document.getElementById("periodSelect").value || "all";
   document.getElementById("budgetSub").textContent = (period==="all" ? "All time" :
@@ -630,11 +648,20 @@ function renderBudgetGrid(){
 
   document.getElementById("budgetCols").innerHTML = BUDGET_COLS.map(col=>{
     const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c)
-      .filter(cat => (actualByCat[cat]||0) !== 0); // hide categories with nothing this period
+      .filter(cat => {
+        const id = slug(cat);
+        if((actualByCat[cat]||0) !== 0) return true; // something happened this period
+        const override = state.budgets[id];
+        const budget = override && Object.prototype.hasOwnProperty.call(override,"monthlyBudget")
+          ? override.monthlyBudget : defaultBudgetFor(cat, id, period);
+        return budget != null && budget !== 0; // or it's a bill/loan we know is coming
+      });
     let totalBudget = 0, totalActual = 0;
     const rows = cats.map(cat=>{
       const id = slug(cat);
-      const budget = state.budgets[id]?.monthlyBudget;
+      const override = state.budgets[id];
+      const budget = override && Object.prototype.hasOwnProperty.call(override,"monthlyBudget")
+        ? override.monthlyBudget : defaultBudgetFor(cat, id, period);
       const actual = actualByCat[cat] || 0;
       totalBudget += budget || 0; totalActual += actual;
       const dueDay = state.bills[id]?.dueDay;
