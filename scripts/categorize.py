@@ -110,7 +110,7 @@ RULES = [
 
     # ---- Income ----
     (r"TEAMSTERS\s+PAYMENTS", "Chris - Pension", "Income", "H", "Confirmed by you: Chris' pension"),
-    (r"UNITED PARCEL SE\s+PAYROLL", "Others - Income", "Income", "R", "UPS payroll deposit - you said Key Salary isn't an income category, so this needs a real answer: whose paycheck is this, or what should it be called?"),
+    (r"UNITED PARCEL SE\s+PAYROLL", "Chris - UPS Income", "Income", "H", "Confirmed by you: Chris' income from UPS"),
     (r"CHECK_DEPOSIT|REMOTE ONLINE DEPOSIT|DEPOSIT\s+ID NUMBER|CHIPS CREDIT", "Others - Income", "Income", "R", "Deposit/wire with unclear source"),
     (r"UNITED PARCEL SE\s+DV\d", "Others - Income", "Income", "R", "UPS-related credit, not the regular payroll line"),
     (r"JOSE REYES REYES PUSH", "Others - Income", "Income", "R", "Incoming payment, source unclear"),

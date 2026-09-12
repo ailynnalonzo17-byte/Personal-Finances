@@ -29,7 +29,7 @@ DEBT = [
 ]
 
 INCOME = [
-    "Chris - Pension","Kristin - COO Income","Others - Income",
+    "Chris - Pension","Chris - UPS Income","Kristin - COO Income","Others - Income",
 ]
 
 TRANSFER = [
