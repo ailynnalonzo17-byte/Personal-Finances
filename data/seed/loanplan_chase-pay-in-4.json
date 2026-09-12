@@ -1,0 +1,1 @@
+{"name": "Chase Pay in 4", "provider": "Chase", "account": "checking", "installments": [{"n": 2, "total": 4, "dueDate": "2026-09-18", "amount": 75.2, "paid": false}, {"n": 3, "total": 4, "dueDate": "2026-10-12", "amount": 75.2, "paid": false}, {"n": 4, "total": 4, "dueDate": "2026-10-16", "amount": 75.2, "paid": false}]}

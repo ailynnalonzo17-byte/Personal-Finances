@@ -1,1 +1,1 @@
-{"name": "Affirm - Eufy camera", "group": "Debt", "type": "bnpl", "amount": 88.24, "dueDay": 25, "account": "checking", "active": true, "note": "Installment 4 of 4 (last payment) - confirmed by you for September."}
+{"name": "Affirm - Eufy camera", "group": "Debt", "type": "bnpl", "amount": 88.24, "dueDay": 25, "account": "checking", "active": false, "note": "Replaced by the full itemized schedule in the new Loan Payment Schedule panel."}

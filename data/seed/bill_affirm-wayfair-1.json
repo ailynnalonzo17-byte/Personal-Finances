@@ -1,1 +1,1 @@
-{"name": "Affirm - Wayfair", "group": "Debt", "type": "bnpl", "amount": 177.82, "dueDay": 26, "account": "checking", "active": true, "note": "Installment 1 of 6 - confirmed by you for September."}
+{"name": "Affirm - Wayfair", "group": "Debt", "type": "bnpl", "amount": 177.82, "dueDay": 26, "account": "checking", "active": false, "note": "Replaced by the full itemized schedule in the new Loan Payment Schedule panel."}

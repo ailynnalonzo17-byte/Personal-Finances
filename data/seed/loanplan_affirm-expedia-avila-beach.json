@@ -1,0 +1,1 @@
+{"name": "Affirm - Expedia (Avila Beach)", "provider": "Affirm", "account": "checking", "installments": [{"n": 1, "total": 3, "dueDate": "2026-08-20", "amount": 141.09, "paid": true}, {"n": 2, "total": 3, "dueDate": "2026-09-20", "amount": 141.09, "paid": false}, {"n": 3, "total": 3, "dueDate": "2026-10-20", "amount": 141.09, "paid": false}]}

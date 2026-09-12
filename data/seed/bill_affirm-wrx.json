@@ -1,1 +1,1 @@
-{"name": "Affirm - WRX", "group": "Debt", "type": "bnpl", "amount": 220.95, "dueDay": 21, "account": "checking", "active": true, "note": "Installment 4 of 6 - confirmed by you for September."}
+{"name": "Affirm - WRX", "group": "Debt", "type": "bnpl", "amount": 220.95, "dueDay": 21, "account": "checking", "active": false, "note": "Replaced by the full itemized schedule in the new Loan Payment Schedule panel."}

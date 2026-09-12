@@ -1,0 +1,1 @@
+{"name": "Affirm - Expedia (San Diego)", "provider": "Affirm", "account": "checking", "installments": [{"n": 1, "total": 3, "dueDate": "2026-07-15", "amount": 287.25, "paid": true}, {"n": 2, "total": 3, "dueDate": "2026-08-15", "amount": 287.25, "paid": true}, {"n": 3, "total": 3, "dueDate": "2026-09-15", "amount": 287.25, "paid": false}]}

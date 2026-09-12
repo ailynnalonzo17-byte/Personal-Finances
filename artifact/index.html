@@ -205,6 +205,12 @@
   select.cat-select{font-size:12px; padding:4px 5px;}
   .row-count{font-size:12px; color:var(--ink-faint); margin-top:8px;}
 
+  /* ---------- loan payment schedule ---------- */
+  tr.loan-paid td{color:var(--ink-faint); text-decoration:line-through; text-decoration-color:var(--border);}
+  tr.loan-paid .amt{text-decoration:line-through; text-decoration-color:var(--border);}
+  tr.loan-overdue td.due-cell{color:var(--critical); font-weight:600;}
+  input.loan-check{width:15px; height:15px; accent-color:var(--accent);}
+
   footer{text-align:center; font-size:11.5px; color:var(--ink-faint); margin-top:30px;}
   .banner{background:var(--gold-soft); border:1px solid var(--gold-soft-border); color:var(--gold); border-radius:10px;
     padding:12px 16px; font-size:13px; margin-bottom:18px;}
@@ -313,6 +319,23 @@
   </div>
 
   <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+      <div><h2>Loan payment schedule</h2><div class="sub" id="loanSchedSub">Every installment you gave me, oldest to newest - check one off when it posts</div></div>
+      <label style="display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-dim);">
+        <input type="checkbox" id="loanSchedHidePaid"> hide paid
+      </label>
+    </div>
+    <div id="loanSchedSummary" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll" style="max-height:600px;">
+      <table>
+        <thead><tr><th></th><th>Date</th><th>Plan</th><th>Installment</th><th style="text-align:right">Amount</th><th style="text-align:right">Projected balance</th></tr></thead>
+        <tbody id="loanSchedBody"></tbody>
+      </table>
+    </div>
+    <div class="row-count" id="loanSchedCount"></div>
+  </div>
+
+  <div class="panel">
     <h2>Category by month</h2>
     <div class="sub">Every category with any activity, month by month. Categories with nothing in any month are left out.</div>
     <div class="pivot-wrap">
@@ -352,7 +375,7 @@ const money = n => (n<0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US",{mini
 const todayISO = () => new Date().toISOString().slice(0,10);
 
 let db = null;
-let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{} };
+let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{}, loanSchedule:{} };
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 
@@ -385,6 +408,7 @@ async function init(){
   document.getElementById("txGroup").addEventListener("change", renderTransactions);
   document.getElementById("txConf").addEventListener("change", renderTransactions);
   document.getElementById("registerAcct").addEventListener("change", renderRegister);
+  document.getElementById("loanSchedHidePaid").addEventListener("change", renderLoanSchedule);
 
   const groupSel = document.getElementById("txGroup");
   Object.keys(GROUP_COLOR).forEach(g=>{
@@ -440,6 +464,12 @@ function subscribe(){
   unsubs.push(db.collection("bills_checked").onSnapshot(snap=>{
     state.checked = {};
     snap.docs.forEach(d=> state.checked[d.id] = d.data());
+    renderAll();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("loan_schedule").onSnapshot(snap=>{
+    state.loanSchedule = {};
+    snap.docs.forEach(d=> state.loanSchedule[d.id] = d.data());
     renderAll();
   }, err=> setSync(false, "Connection lost")));
 }
@@ -772,18 +802,37 @@ function renderBills(){
   });
 }
 
+function allLoanInstallments(){
+  const out = [];
+  Object.entries(state.loanSchedule).forEach(([docId, plan])=>{
+    (plan.installments||[]).forEach(inst=> out.push({
+      docId, planName: plan.name, provider: plan.provider, account: plan.account||"checking",
+      n: inst.n, total: inst.total, dueDate: inst.dueDate, amount: inst.amount, paid: !!inst.paid
+    }));
+  });
+  out.sort((a,b)=> a.dueDate < b.dueDate ? -1 : a.dueDate > b.dueDate ? 1 : 0);
+  return out;
+}
+
 function renderProjection(){
   const svg = document.getElementById("projChart");
+  const today0 = new Date(new Date().setHours(0,0,0,0));
   const bills = activeBills().filter(b=>{
-    const days = daysBetween(new Date(new Date().setHours(0,0,0,0)), b.next);
+    const days = daysBetween(today0, b.next);
     return days>=0 && days<=30 && b.account==="checking";
-  });
+  }).map(b=> ({days: daysBetween(today0, b.next), amount: b.amount}));
+  const loanItems = allLoanInstallments().filter(i=>{
+    if(i.paid || i.account!=="checking") return false;
+    const days = daysBetween(today0, new Date(i.dueDate+"T00:00:00"));
+    return days>=0 && days<=30;
+  }).map(i=> ({days: daysBetween(today0, new Date(i.dueDate+"T00:00:00")), amount: i.amount}));
+  const combined = [...bills, ...loanItems].sort((a,b)=>a.days-b.days);
+
   let bal = accountBalance("checking");
   const points = [{day:0, bal}];
-  bills.forEach(b=>{
-    const days = daysBetween(new Date(new Date().setHours(0,0,0,0)), b.next);
-    bal -= b.amount;
-    points.push({day:days, bal});
+  combined.forEach(item=>{
+    bal -= item.amount;
+    points.push({day:item.days, bal});
   });
   points.push({day:30, bal});
 
@@ -819,6 +868,63 @@ function renderProjection(){
   document.getElementById("projSub").textContent = worst<0
     ? `⚠ Projected to go negative — lowest point ${money(worst)}`
     : `Stays positive through the next 30 days · lowest point ${money(worst)}`;
+}
+
+/* ---------------- render: loan payment schedule ---------------- */
+function renderLoanSchedule(){
+  const all = allLoanInstallments();
+  const hidePaid = document.getElementById("loanSchedHidePaid").checked;
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  // Running projected balance: only unpaid installments move it, starting from the
+  // current checking balance. Paid ones are already reflected in that balance.
+  let running = accountBalance("checking");
+  const withBalance = all.map(item=>{
+    if(!item.paid && item.account==="checking"){
+      running -= item.amount;
+      return {...item, balance: running};
+    }
+    return {...item, balance: null};
+  });
+  const endingBalance = running;
+
+  const unpaidTotal = all.filter(i=>!i.paid).reduce((s,i)=>s+i.amount,0);
+  const paidCount = all.filter(i=>i.paid).length;
+  document.getElementById("loanSchedSummary").innerHTML = `
+    <div class="stile"><div class="k">Installments</div><div class="v">${paidCount} of ${all.length} paid</div></div>
+    <div class="stile debt"><div class="k">Remaining to pay</div><div class="v">${money(unpaidTotal)}</div></div>
+    <div class="stile net"><div class="k">Checking after all of it posts</div><div class="v" style="${endingBalance<0?'color:var(--critical)':''}">${money(endingBalance)}</div></div>
+  `;
+
+  const rows = withBalance.filter(i=> !hidePaid || !i.paid).map(item=>{
+    const overdue = !item.paid && new Date(item.dueDate+"T00:00:00") < today;
+    return `<tr class="${item.paid?'loan-paid':''} ${overdue?'loan-overdue':''}">
+      <td><input type="checkbox" class="loan-check" data-plan="${item.docId}" data-n="${item.n}" ${item.paid?"checked":""}></td>
+      <td class="${overdue?'due-cell':''}">${item.dueDate}</td>
+      <td>${item.planName}</td>
+      <td>${item.n}/${item.total}</td>
+      <td class="amt num">${money(item.amount)}</td>
+      <td class="amt num" style="font-weight:${item.balance!=null?600:400}; ${item.balance!=null && item.balance<0?'color:var(--critical)':''}">${item.balance!=null?money(item.balance):"—"}</td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("loanSchedBody").innerHTML = rows || `<tr><td colspan="6" style="color:var(--ink-faint);">Nothing scheduled yet.</td></tr>`;
+  document.getElementById("loanSchedCount").textContent = `${withBalance.filter(i=>!hidePaid||!i.paid).length} of ${all.length} installments shown across ${Object.keys(state.loanSchedule).length} plans`;
+
+  document.querySelectorAll(".loan-check").forEach(cb=>{
+    cb.addEventListener("change", async ()=>{
+      const docId = cb.dataset.plan;
+      const n = parseInt(cb.dataset.n, 10);
+      const plan = state.loanSchedule[docId];
+      if(!plan) return;
+      const installments2 = plan.installments.map(inst=> inst.n===n ? {...inst, paid: cb.checked} : inst);
+      const next = {...plan, installments: installments2};
+      cb.disabled = true;
+      await db.doc("loan_schedule/"+docId).set(next);
+      state.loanSchedule[docId] = next;
+      renderAll();
+    });
+  });
 }
 
 /* ---------------- render: transactions table ---------------- */
@@ -982,6 +1088,7 @@ function renderAll(){
   renderBudgetGrid();
   renderPivot();
   renderBills();
+  renderLoanSchedule();
   renderProjection();
   renderTransactions();
 }

@@ -1,1 +1,1 @@
-{"name": "Chase Pay Over Time - China Airlines", "group": "Debt", "type": "bnpl", "amount": 169.59, "dueDay": 30, "account": "checking", "active": true, "note": "Installment 1 of 12 - confirmed by you for September."}
+{"name": "Chase Pay Over Time - China Airlines", "group": "Debt", "type": "bnpl", "amount": 169.59, "dueDay": 30, "account": "checking", "active": false, "note": "Replaced by the full itemized schedule in the new Loan Payment Schedule panel."}
