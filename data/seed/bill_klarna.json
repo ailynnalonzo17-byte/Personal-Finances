@@ -1,1 +1,1 @@
-{"name": "Klarna", "group": "Debt", "type": "debt", "amount": 148.89, "dueDay": 13, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026."}
+{"name": "Klarna", "group": "Debt", "type": "debt", "amount": 148.89, "dueDay": 13, "account": "checking", "active": false, "note": "Replaced by the itemized Klarna plan (onepay - walmart) you gave me for September, instead of one lumped estimate."}

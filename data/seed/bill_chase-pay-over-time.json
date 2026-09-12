@@ -1,10 +1,1 @@
-{
-  "name": "Chase Pay Over Time (My Chase Plan)",
-  "group": "Debt",
-  "type": "bnpl",
-  "amount": 30.00,
-  "dueDay": 11,
-  "account": "checking",
-  "active": true,
-  "note": "Two payments seen so far, both on the 11th: $409.50 (May) and $30.00 (September) - due day looks real but the amount swings a lot, so this is a rough estimate at best. Please confirm this is your Chase Pay Over Time plan and correct the amount if you know the real one."
-}
+{"name": "Chase Pay Over Time (My Chase Plan)", "group": "Debt", "type": "bnpl", "amount": 30, "dueDay": 11, "account": "checking", "active": false, "note": "Replaced by the itemized Chase Pay Over Time plan (china air) you gave me for September, instead of a rough guess."}
