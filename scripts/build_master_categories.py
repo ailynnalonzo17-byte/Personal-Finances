@@ -12,7 +12,7 @@ EXPENSES = [
     "Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
-    "Groceries - Steves","Groceries - Walmart","Lawyer","Medical","Misc - Gail",
+    "Groceries - Steves","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
     "Misc - gail gown and cap","Movie","Others","paypal tiktok",
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
@@ -29,7 +29,7 @@ DEBT = [
 ]
 
 INCOME = [
-    "Key Salary","Chris - Pension","Kristin - COO Income","Others - Income",
+    "Chris - Pension","Kristin - COO Income","Others - Income",
 ]
 
 TRANSFER = [
