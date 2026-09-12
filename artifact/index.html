@@ -648,14 +648,7 @@ function renderBudgetGrid(){
 
   document.getElementById("budgetCols").innerHTML = BUDGET_COLS.map(col=>{
     const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c)
-      .filter(cat => {
-        const id = slug(cat);
-        if((actualByCat[cat]||0) !== 0) return true; // something happened this period
-        const override = state.budgets[id];
-        const budget = override && Object.prototype.hasOwnProperty.call(override,"monthlyBudget")
-          ? override.monthlyBudget : defaultBudgetFor(cat, id, period);
-        return budget != null && budget !== 0; // or it's a bill/loan we know is coming
-      });
+      .filter(cat => (actualByCat[cat]||0) !== 0); // only once it's actually been paid this period
     let totalBudget = 0, totalActual = 0;
     const rows = cats.map(cat=>{
       const id = slug(cat);
