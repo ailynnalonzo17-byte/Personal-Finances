@@ -917,11 +917,42 @@ function renderLoanSchedule(){
       const n = parseInt(cb.dataset.n, 10);
       const plan = state.loanSchedule[docId];
       if(!plan) return;
-      const installments2 = plan.installments.map(inst=> inst.n===n ? {...inst, paid: cb.checked} : inst);
-      const next = {...plan, installments: installments2};
+      const inst = plan.installments.find(i=>i.n===n);
       cb.disabled = true;
-      await db.doc("loan_schedule/"+docId).set(next);
-      state.loanSchedule[docId] = next;
+
+      const installments2 = plan.installments.map(i=> i.n===n ? {...i, paid: cb.checked} : i);
+      const nextPlan = {...plan, installments: installments2};
+      await db.doc("loan_schedule/"+docId).set(nextPlan);
+      state.loanSchedule[docId] = nextPlan;
+
+      // Only post a real transaction for installments not already sitting in your
+      // imported history (today or later). Anything before today was already
+      // marked paid on import and is already counted in your real balance.
+      if(inst.dueDate >= todayISO()){
+        const acct = plan.account || "checking";
+        const ym = inst.dueDate.slice(0,7);
+        const txDocId = `${acct}_${ym}`;
+        const ref = db.doc("transactions/"+txDocId);
+        const snap = await ref.get();
+        const existingTx = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
+        const entryId = `loan_${docId}_${n}`;
+        let entries2;
+        if(cb.checked){
+          const already = (existingTx.entries||[]).some(e=>e.id===entryId);
+          const cat = plan.provider==="Affirm" ? "Affirm" : plan.provider==="Klarna" ? "Klarna" : "Others";
+          entries2 = already ? existingTx.entries : [...(existingTx.entries||[]), {
+            id: entryId, date: inst.dueDate,
+            description: `${plan.name} - installment ${n}/${inst.total}`,
+            amount: -inst.amount, category: cat, group: "Debt", confidence: "H",
+            note: "From your Loan Payment Schedule - checked off by you", source: "Loan schedule payment"
+          }];
+        } else {
+          entries2 = (existingTx.entries||[]).filter(e=> e.id!==entryId);
+        }
+        const nextTx = {...existingTx, entries: entries2};
+        await ref.set(nextTx);
+        state.transactions[txDocId] = nextTx;
+      }
       renderAll();
     });
   });
