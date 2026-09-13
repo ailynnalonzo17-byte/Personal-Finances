@@ -135,6 +135,9 @@
   .bill-amt{font-size:14px; font-weight:600;}
   .due-badge{font-size:11px; font-weight:700; padding:3px 8px; border-radius:99px; white-space:nowrap;}
   .edit-link{font-size:11px; color:var(--ink-faint); background:none; border:none; cursor:pointer; text-decoration:underline;}
+  .reg-del{font-size:12px; line-height:1; color:var(--ink-faint); background:none; border:none; cursor:pointer;
+    padding:4px 6px; border-radius:5px;}
+  .reg-del:hover{color:var(--critical); background:var(--critical-soft);}
   .bill-edit-row{display:none; grid-column:1/-1; gap:6px; padding:8px 0 2px; flex-wrap:wrap;}
   .bill-edit-row.open{display:flex;}
   .bill-edit-row input{width:100px;}
@@ -274,7 +277,7 @@
     </div>
     <div class="tx-scroll" id="registerScroll">
       <table>
-        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead>
+        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th><th></th></tr></thead>
         <tbody id="registerBody"></tbody>
       </table>
     </div>
@@ -1082,6 +1085,7 @@ function renderRegister(){
       <td style="font-style:italic; color:var(--ink-faint);">Starting balance</td>
       <td></td><td class="amt num"></td>
       <td class="amt num ${start<0?'bal-neg':''}">${money(start)}</td>
+      <td></td>
     </tr>`;
   const txRows = computed.slice().reverse().map(e=> `<tr>
       <td>${e.date}</td>
@@ -1089,6 +1093,7 @@ function renderRegister(){
       <td>${e.category}</td>
       <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
       <td class="amt num ${e.balance<0?'bal-neg':''}" style="font-weight:600;">${money(e.balance)}</td>
+      <td><button class="reg-del" data-docid="${e.docId}" data-id="${e.id}" title="Delete this entry">✕</button></td>
     </tr>`); // newest first
 
   document.getElementById("registerBody").innerHTML = txRows.join("") + startRow;
@@ -1096,6 +1101,25 @@ function renderRegister(){
     `${computed.length} transaction${computed.length===1?"":"s"} · currently ${money(ending)}`;
 
   document.getElementById("registerScroll").scrollTop = 0; // newest is at the top
+
+  document.querySelectorAll(".reg-del").forEach(btn=>{
+    btn.addEventListener("click", ()=> deleteRegisterEntry(btn.dataset.docid, btn.dataset.id));
+  });
+}
+
+async function deleteRegisterEntry(docId, entryId){
+  if(!db) return;
+  const existing = state.transactions[docId];
+  if(!existing) return;
+  const entry = (existing.entries||[]).find(e=> e.id===entryId);
+  if(!entry) return;
+  const label = `${entry.date} · ${entry.description} · ${money(entry.amount)}`;
+  if(!confirm(`Delete this transaction?\n\n${label}\n\nThis can't be undone.`)) return;
+
+  const next = {...existing, entries: (existing.entries||[]).filter(e=> e.id!==entryId)};
+  await db.doc("transactions/"+docId).set(next);
+  state.transactions[docId] = next;
+  renderAll();
 }
 
 /* ---------------- add transaction ---------------- */
