@@ -769,31 +769,36 @@ function renderPivot(){
   });
 
   const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
-  let head = `<thead><tr><th>Category</th>${months.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+  const head = `<thead><tr><th>Category</th>${months.map(()=>"<th></th>").join("")}<th></th></tr></thead>`;
 
   let bodyRows = "";
-  const monthTotals = {}; let grandTotal = 0;
+  let grandTotal = 0; const grandMonthTotals = {};
   const groups = ["Income","Monthly Bills","Expenses","Debt","Transfer"];
   groups.forEach(g=>{
     const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
       .filter(cat => byCat[cat] && byCat[cat].grand > 0)
       .sort();
     if(cats.length===0) return;
-    bodyRows += `<tr class="group-row"><td colspan="${months.length+2}">${g}</td></tr>`;
+    // Group header row doubles as the month header for this section.
+    bodyRows += `<tr class="group-row group-header-row"><td>${g}</td>${months.map(m=>`<td>${monthLabel(m)}</td>`).join("")}<td class="grand">Total</td></tr>`;
+    let groupTotal = 0; const groupMonthTotals = {};
     cats.forEach(cat=>{
       const row = byCat[cat];
       const cells = months.map(m=>{
         const v = row[m]||0;
-        monthTotals[m] = (monthTotals[m]||0) + v;
+        groupMonthTotals[m] = (groupMonthTotals[m]||0) + v;
+        grandMonthTotals[m] = (grandMonthTotals[m]||0) + v;
         return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
       }).join("");
-      grandTotal += row.grand;
+      groupTotal += row.grand; grandTotal += row.grand;
       bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
     });
+    const groupTotalCells = months.map(m=>`<td>${money(groupMonthTotals[m]||0)}</td>`).join("");
+    bodyRows += `<tr class="total-row"><td>TOTAL ${g.toUpperCase()}</td>${groupTotalCells}<td class="grand">${money(groupTotal)}</td></tr>`;
   });
   if(bodyRows){
-    const totalCells = months.map(m=>`<td>${money(monthTotals[m]||0)}</td>`).join("");
-    bodyRows += `<tr class="group-row total-row"><td>Total</td>${totalCells}<td class="grand">${money(grandTotal)}</td></tr>`;
+    const grandCells = months.map(m=>`<td>${money(grandMonthTotals[m]||0)}</td>`).join("");
+    bodyRows += `<tr class="group-row total-row"><td>GRAND TOTAL</td>${grandCells}<td class="grand">${money(grandTotal)}</td></tr>`;
   }
 
   document.getElementById("pivotTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${months.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
@@ -1234,31 +1239,36 @@ function renderCombinedCategory(){
   });
 
   const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
-  let head = `<thead><tr><th>Category</th>${monthList.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+  const head = `<thead><tr><th>Category</th>${monthList.map(()=>"<th></th>").join("")}<th></th></tr></thead>`;
 
   let bodyRows = "";
-  const monthTotals = {}; let grandTotal = 0;
+  let grandTotal = 0; const grandMonthTotals = {};
   const groups = ["Monthly Bills","Expenses","Debt"];
   groups.forEach(g=>{
     const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
       .filter(cat => byCat[cat] && byCat[cat].grand > 0)
       .sort();
     if(cats.length===0) return;
-    bodyRows += `<tr class="group-row"><td colspan="${monthList.length+2}">${g}</td></tr>`;
+    // Group header row doubles as the month header for this section.
+    bodyRows += `<tr class="group-row group-header-row"><td>${g}</td>${monthList.map(m=>`<td>${monthLabel(m)}</td>`).join("")}<td class="grand">Total</td></tr>`;
+    let groupTotal = 0; const groupMonthTotals = {};
     cats.forEach(cat=>{
       const row = byCat[cat];
       const cells = monthList.map(m=>{
         const v = row[m]||0;
-        monthTotals[m] = (monthTotals[m]||0) + v;
+        groupMonthTotals[m] = (groupMonthTotals[m]||0) + v;
+        grandMonthTotals[m] = (grandMonthTotals[m]||0) + v;
         return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
       }).join("");
-      grandTotal += row.grand;
+      groupTotal += row.grand; grandTotal += row.grand;
       bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
     });
+    const groupTotalCells = monthList.map(m=>`<td>${money(groupMonthTotals[m]||0)}</td>`).join("");
+    bodyRows += `<tr class="total-row"><td>TOTAL ${g.toUpperCase()}</td>${groupTotalCells}<td class="grand">${money(groupTotal)}</td></tr>`;
   });
   if(bodyRows){
-    const totalCells = monthList.map(m=>`<td>${money(monthTotals[m]||0)}</td>`).join("");
-    bodyRows += `<tr class="group-row total-row"><td>Total</td>${totalCells}<td class="grand">${money(grandTotal)}</td></tr>`;
+    const grandCells = monthList.map(m=>`<td>${money(grandMonthTotals[m]||0)}</td>`).join("");
+    bodyRows += `<tr class="group-row total-row"><td>GRAND TOTAL</td>${grandCells}<td class="grand">${money(grandTotal)}</td></tr>`;
   }
 
   document.getElementById("combinedCatTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${monthList.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
