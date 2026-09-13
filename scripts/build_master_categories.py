@@ -21,7 +21,7 @@ EXPENSES = [
 ]
 
 DEBT = [
-    "Affirm","Upgrade","CC - FPB","Auto Loan - Honda","CC - Ollo","CC - Aspire",
+    "Affirm","Upgrade","CC - FPB","Auto Loan - Honda","Auto Loan - Miata","CC - Ollo","CC - Aspire",
     "paypal - Alipay","paypal - pay in 4 Golden Nugget","CC - Credit 1","Klarna",
     "CC - Frontier card","CC - Whole foods","Afterpay","CC - One Pay",
     "CC - Citibank","CC - Capital 1","CC - paypal","CC - cashback MC",
