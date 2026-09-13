@@ -9,7 +9,7 @@ MONTHLY_BILLS = [
 ]
 
 EXPENSES = [
-    "Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
+    "Business Expense","Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
     "Groceries - Steves","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
@@ -17,7 +17,7 @@ EXPENSES = [
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
     "Shop - Others","Shop - Ross","Shop - Shein","Shop - Temu","Shop - Tiktok",
-    "Shop - Whatnot","Vacation","Water",
+    "Shop - Whatnot","VA expense","Vacation","Water",
 ]
 
 DEBT = [

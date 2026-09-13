@@ -32,10 +32,10 @@
       "date": "2026-04-21",
       "description": "ATLASSIAN SAN FRANCISCO CA",
       "amount": 18.0,
-      "category": "Others",
+      "category": "VA expense",
       "group": "Expenses",
-      "confidence": "R",
-      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "confidence": "H",
+      "note": "Confirmed by you: SaaS subscription, VA expense",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     }

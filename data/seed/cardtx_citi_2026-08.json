@@ -58,8 +58,8 @@
       "amount": 416.0,
       "category": "Others",
       "group": "Expenses",
-      "confidence": "R",
-      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "confidence": "H",
+      "note": "Confirmed by you: movers",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     }

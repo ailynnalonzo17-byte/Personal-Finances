@@ -84,6 +84,9 @@ RULES = [
     (r"GIV\*FIRST PRESBY", "Others", "Expenses", "H", "Recurring $20 church/charitable giving - no matching category in your list, put under Others"),
     (r"HIMS ?& ?HERS HEALTH|USANA HEALTH SCIENCES|LILLYDIRECT", "Medical", "Expenses", "H", "Telehealth/health-supplement merchant, categorized as Medical"),
     (r"STARLUX|SOUTHWEST AIR(?!LINES CO)|DELTA AIR ?LINES|SPIRIT AIR|ALASKA AIRLINES|AMERICAN AIRLINES", "Vacation", "Expenses", "H", "Airline ticket charge"),
+    (r"WHOP\*IMPACTCLIENTS", "Business Expense", "Expenses", "H", "Confirmed by you: business expense"),
+    (r"CLAUDE\.AI SUBSCRIPTION|ANTHROPIC\*? ?CLAUDE SUB|^ANTHROPIC SAN FRANCISCO|OPENAI \*CHATGPT|BASE44|ATLASSIAN|ELEVENLABS\.IO|HEYGEN TECHNOLOGY|VMAKE\.AI", "VA expense", "Expenses", "H", "Confirmed by you: SaaS subscription, VA expense"),
+    (r"UNIVERSAL TRANSPORTATION|US STARR TRUCKING", "Others", "Expenses", "H", "Confirmed by you: movers"),
 
     # ---- Expenses: broad default buckets (lower confidence, still usable) ----
     (r"CHEVRON|SHELL (SERVICE|OIL)|EXXON|\bARCO\b|VALERO|FASTRAK|SAV ON GASOLINE|MARATHON \d|TRAVEL CENTER|SALINAS SINCLAI|7-ELEVEN|D & R MKT|NYACK EMIGRANT GAP|LOVE'?S #\d|\b76 - ", "Gas", "Expenses", "D", ""),
