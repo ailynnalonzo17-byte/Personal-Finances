@@ -136,8 +136,9 @@
   .due-badge{font-size:11px; font-weight:700; padding:3px 8px; border-radius:99px; white-space:nowrap;}
   .edit-link{font-size:11px; color:var(--ink-faint); background:none; border:none; cursor:pointer; text-decoration:underline;}
   .reg-del{font-size:12px; line-height:1; color:var(--ink-faint); background:none; border:none; cursor:pointer;
-    padding:4px 6px; border-radius:5px;}
+    padding:4px 6px; border-radius:5px; white-space:nowrap;}
   .reg-del:hover{color:var(--critical); background:var(--critical-soft);}
+  .reg-del.armed{color:var(--surface); background:var(--critical); font-weight:600; font-size:11px;}
   .bill-edit-row{display:none; grid-column:1/-1; gap:6px; padding:8px 0 2px; flex-wrap:wrap;}
   .bill-edit-row.open{display:flex;}
   .bill-edit-row input{width:100px;}
@@ -1114,8 +1115,23 @@ function renderRegister(){
 
   document.getElementById("registerScroll").scrollTop = 0; // newest is at the top
 
+  // Artifacts run sandboxed and can't use window.confirm() (it silently no-ops), so
+  // deleting is a two-click pattern instead: first click arms the button ("Sure?"),
+  // second click within a few seconds actually deletes. Clicking a different row's
+  // delete button, or waiting it out, disarms it.
   document.querySelectorAll(".reg-del").forEach(btn=>{
-    btn.addEventListener("click", ()=> deleteRegisterEntry(btn.dataset.docid, btn.dataset.id));
+    btn.addEventListener("click", ()=>{
+      if(btn.dataset.armed==="1"){
+        deleteRegisterEntry(btn.dataset.docid, btn.dataset.id);
+        return;
+      }
+      document.querySelectorAll(".reg-del[data-armed='1']").forEach(other=>{
+        other.dataset.armed = "0"; other.textContent = "✕"; other.classList.remove("armed");
+      });
+      btn.dataset.armed = "1"; btn.textContent = "Sure?"; btn.classList.add("armed");
+      clearTimeout(btn._disarmTimer);
+      btn._disarmTimer = setTimeout(()=>{ btn.dataset.armed="0"; btn.textContent="✕"; btn.classList.remove("armed"); }, 4000);
+    });
   });
 }
 
@@ -1123,11 +1139,6 @@ async function deleteRegisterEntry(docId, entryId){
   if(!db) return;
   const existing = state.transactions[docId];
   if(!existing) return;
-  const entry = (existing.entries||[]).find(e=> e.id===entryId);
-  if(!entry) return;
-  const label = `${entry.date} · ${entry.description} · ${money(entry.amount)}`;
-  if(!confirm(`Delete this transaction?\n\n${label}\n\nThis can't be undone.`)) return;
-
   const next = {...existing, entries: (existing.entries||[]).filter(e=> e.id!==entryId)};
   await db.doc("transactions/"+docId).set(next);
   state.transactions[docId] = next;
