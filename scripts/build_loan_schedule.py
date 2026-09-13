@@ -87,6 +87,10 @@ d = ["2026-10-15","2026-11-15","2026-12-15","2027-01-15","2027-02-15","2027-03-1
      "2027-04-15","2027-05-15","2027-06-15","2027-07-15","2027-08-15","2027-09-15"]
 plan("Chase Pay Over Time - China Airline (day 15)", "Chase", 169.59, [(x,169.59) for x in d])
 
+# 16. Affirm - Pickleball (4 x 24.38, first payment due 2026-09-13)
+d = ["2026-09-13","2026-09-28","2026-10-12","2026-10-26"]
+plan("Affirm - Pickleball", "Affirm", 24.38, [(x,24.38) for x in d])
+
 def slug(s):
     import re
     return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
