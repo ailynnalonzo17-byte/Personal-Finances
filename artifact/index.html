@@ -178,7 +178,7 @@
 
   /* ---------- category-by-month pivot ---------- */
   .pivot-wrap{overflow-x:auto;}
-  table.pivot-table{border-collapse:collapse; width:100%; font-size:12.5px; white-space:nowrap;}
+  table.pivot-table{border-collapse:collapse; width:100%; font-size:12.5px;}
   .pivot-table th{padding:7px 12px; font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint);
     text-align:right; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--surface);}
   .pivot-table th:first-child{text-align:left; position:sticky; left:0; z-index:2; background:var(--surface);}
@@ -192,7 +192,11 @@
     text-transform:uppercase; letter-spacing:.04em; position:static;}
   .pivot-table tr.total-row td{background:var(--surface); font-size:12.5px; text-transform:none;
     letter-spacing:normal; border-top:2px solid var(--border); font-family:"IBM Plex Mono",monospace;}
-  .pivot-table tr.total-row td:first-child{font-family:"IBM Plex Sans",sans-serif; position:sticky; left:0;}
+  .pivot-table tr.total-row td:first-child{font-family:"IBM Plex Sans",sans-serif; position:sticky; left:0; font-weight:700;}
+  .pivot-table tr.cat-header-row td{font-weight:600; color:var(--ink); background:var(--bg);}
+  .pivot-table tr.month-sub-row td{border-bottom:none; padding-top:3px; padding-bottom:3px;}
+  .pivot-table tr.month-sub-row td.month-cell{padding-left:22px; color:var(--ink-faint); font-size:12px;}
+  .pivot-table tr.month-sub-row td.num{color:var(--ink-dim); font-size:12px;}
 
   /* ---------- transactions table ---------- */
   .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;}
@@ -348,7 +352,7 @@
 
   <div class="panel">
     <h2>Category by month</h2>
-    <div class="sub">Every category with any activity, month by month. Categories with nothing in any month are left out.</div>
+    <div class="sub">Every category with any activity, newest month on top under each one, with a total per group and per category. Categories with nothing in any month are left out.</div>
     <div class="pivot-wrap">
       <table class="pivot-table" id="pivotTable"></table>
     </div>
@@ -356,7 +360,7 @@
 
   <div class="panel">
     <h2>Category by month — cash + cards combined</h2>
-    <div class="sub">Every dollar you spent, wherever it went — checking/debit spend plus every credit-card purchase, categorized the same way. Card payments themselves are left out here so they aren't counted twice.</div>
+    <div class="sub">Every dollar you spent, wherever it went — checking/debit spend plus every credit-card purchase, categorized the same way, newest month on top under each category. Card payments themselves are left out here so they aren't counted twice.</div>
     <div class="pivot-wrap">
       <table class="pivot-table" id="combinedCatTable"></table>
     </div>
@@ -755,8 +759,10 @@ function renderBudgetGrid(){
 }
 
 /* ---------------- render: category-by-month pivot ---------------- */
+// Months run vertically, stacked under each category (newest first), rather than as columns
+// running across the table - easier to scan and no horizontal scrolling to match a number
+// to its month.
 function renderPivot(){
-  const months = availableMonths().reverse(); // newest first, e.g. ["2026-09", ..., "2026-03"]
   const entries = allEntries();
 
   // total[category][month] = sum of abs(amount); total[category].grand = sum over all months
@@ -769,34 +775,34 @@ function renderPivot(){
   });
 
   const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
-  let head = `<thead><tr><th>Category</th>${months.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+  const head = `<thead><tr><th>Category / Month</th><th style="text-align:right">Amount</th></tr></thead>`;
 
   let bodyRows = "";
-  const monthTotals = {}; let grandTotal = 0;
+  let grandTotal = 0;
   const groups = ["Income","Monthly Bills","Expenses","Debt","Transfer"];
   groups.forEach(g=>{
     const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
       .filter(cat => byCat[cat] && byCat[cat].grand > 0)
       .sort();
     if(cats.length===0) return;
-    bodyRows += `<tr class="group-row"><td colspan="${months.length+2}">${g}</td></tr>`;
+    bodyRows += `<tr class="group-row"><td colspan="2">${g}</td></tr>`;
+    let groupTotal = 0;
     cats.forEach(cat=>{
       const row = byCat[cat];
-      const cells = months.map(m=>{
-        const v = row[m]||0;
-        monthTotals[m] = (monthTotals[m]||0) + v;
-        return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
-      }).join("");
-      grandTotal += row.grand;
-      bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
+      grandTotal += row.grand; groupTotal += row.grand;
+      bodyRows += `<tr class="cat-header-row"><td>${cat}</td><td class="grand">${money(row.grand)}</td></tr>`;
+      const monthsForCat = Object.keys(row).filter(k=>k!=="grand").sort().reverse(); // newest first
+      monthsForCat.forEach(m=>{
+        bodyRows += `<tr class="month-sub-row"><td class="month-cell">${monthLabel(m)}</td><td class="num">${money(row[m])}</td></tr>`;
+      });
     });
+    bodyRows += `<tr class="total-row"><td>Total ${g}</td><td class="grand">${money(groupTotal)}</td></tr>`;
   });
   if(bodyRows){
-    const totalCells = months.map(m=>`<td>${money(monthTotals[m]||0)}</td>`).join("");
-    bodyRows += `<tr class="group-row total-row"><td>Total</td>${totalCells}<td class="grand">${money(grandTotal)}</td></tr>`;
+    bodyRows += `<tr class="group-row total-row"><td>Grand Total</td><td class="grand">${money(grandTotal)}</td></tr>`;
   }
 
-  document.getElementById("pivotTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${months.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
+  document.getElementById("pivotTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="2" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
 }
 
 /* ---------------- render: bills & projection ---------------- */
@@ -1207,12 +1213,9 @@ function allCardEntries(){
   return out;
 }
 
+// Same vertical layout as renderPivot(): months stack under each category rather than
+// running across as columns.
 function renderCombinedCategory(){
-  const months = new Set();
-  Object.values(state.transactions).forEach(d=> months.add(d.month));
-  Object.values(state.cardTransactions).forEach(d=> months.add(d.month));
-  const monthList = [...months].sort().reverse(); // newest first
-
   // Cash side: every checking/savings/paypal entry EXCEPT the lump-sum "CC - X" Debt payments
   // for cards we now have itemized statements for (their purchases are counted via the card
   // side instead, so counting the payment too would double it).
@@ -1234,34 +1237,34 @@ function renderCombinedCategory(){
   });
 
   const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
-  let head = `<thead><tr><th>Category</th>${monthList.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+  const head = `<thead><tr><th>Category / Month</th><th style="text-align:right">Amount</th></tr></thead>`;
 
   let bodyRows = "";
-  const monthTotals = {}; let grandTotal = 0;
+  let grandTotal = 0;
   const groups = ["Monthly Bills","Expenses","Debt"];
   groups.forEach(g=>{
     const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
       .filter(cat => byCat[cat] && byCat[cat].grand > 0)
       .sort();
     if(cats.length===0) return;
-    bodyRows += `<tr class="group-row"><td colspan="${monthList.length+2}">${g}</td></tr>`;
+    bodyRows += `<tr class="group-row"><td colspan="2">${g}</td></tr>`;
+    let groupTotal = 0;
     cats.forEach(cat=>{
       const row = byCat[cat];
-      const cells = monthList.map(m=>{
-        const v = row[m]||0;
-        monthTotals[m] = (monthTotals[m]||0) + v;
-        return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
-      }).join("");
-      grandTotal += row.grand;
-      bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
+      grandTotal += row.grand; groupTotal += row.grand;
+      bodyRows += `<tr class="cat-header-row"><td>${cat}</td><td class="grand">${money(row.grand)}</td></tr>`;
+      const monthsForCat = Object.keys(row).filter(k=>k!=="grand" && k!=="group").sort().reverse(); // newest first
+      monthsForCat.forEach(m=>{
+        bodyRows += `<tr class="month-sub-row"><td class="month-cell">${monthLabel(m)}</td><td class="num">${money(row[m])}</td></tr>`;
+      });
     });
+    bodyRows += `<tr class="total-row"><td>Total ${g}</td><td class="grand">${money(groupTotal)}</td></tr>`;
   });
   if(bodyRows){
-    const totalCells = monthList.map(m=>`<td>${money(monthTotals[m]||0)}</td>`).join("");
-    bodyRows += `<tr class="group-row total-row"><td>Total</td>${totalCells}<td class="grand">${money(grandTotal)}</td></tr>`;
+    bodyRows += `<tr class="group-row total-row"><td>Grand Total</td><td class="grand">${money(grandTotal)}</td></tr>`;
   }
 
-  document.getElementById("combinedCatTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${monthList.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
+  document.getElementById("combinedCatTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="2" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
 }
 
 /* ---------------- render all ---------------- */
