@@ -677,10 +677,14 @@ function renderBudgetGrid(){
   const actualByCat = {};
   entries.forEach(e=>{ actualByCat[e.category] = (actualByCat[e.category]||0) + Math.abs(e.amount); });
 
+  // All-time total per category, regardless of which period is selected above.
+  const allTimeByCat = {};
+  allEntries().forEach(e=>{ allTimeByCat[e.category] = (allTimeByCat[e.category]||0) + Math.abs(e.amount); });
+
   document.getElementById("budgetCols").innerHTML = BUDGET_COLS.map(col=>{
     const cats = MASTER_CATS.filter(([g])=>g===col.group).map(([,c])=>c)
       .filter(cat => (actualByCat[cat]||0) !== 0); // only once it's actually been paid this period
-    let totalBudget = 0, totalActual = 0;
+    let totalBudget = 0, totalActual = 0, totalAllTime = 0;
     const rows = cats.map(cat=>{
       const id = slug(cat);
       const override = state.budgets[id];
@@ -689,7 +693,8 @@ function renderBudgetGrid(){
             ? override.monthlyBudget : defaultBudgetFor(cat, id, period))
         : null;
       const actual = actualByCat[cat] || 0;
-      totalBudget += budget || 0; totalActual += actual;
+      const allTime = allTimeByCat[cat] || 0;
+      totalBudget += budget || 0; totalActual += actual; totalAllTime += allTime;
       const dueDay = state.bills[id]?.dueDay;
       const checkKey = `${id}__${period}`;
       const isChecked = !!state.checked[checkKey]?.checked;
@@ -702,6 +707,7 @@ function renderBudgetGrid(){
               value="${budget!=null?budget:''}" placeholder="–"></td>` : ""}
         <td class="num">${actual ? money(actual) : "–"}</td>
         ${col.hasLeft ? `<td class="num ${left<0?'left-neg':''}">${budget!=null?money(left):"–"}</td>` : ""}
+        <td class="num" style="color:var(--ink-faint);">${allTime ? money(allTime) : "–"}</td>
       </tr>`;
     }).join("");
     return `<div class="budget-col ${col.cls}">
@@ -711,7 +717,7 @@ function renderBudgetGrid(){
           ${col.hasCheck?"<th></th>":""}
           <th>Name</th>
           ${col.hasDue?"<th>Due</th>":""}
-          ${col.hasBudget?"<th>Budget</th>":""}<th>Actual</th>${col.hasLeft?"<th>Left</th>":""}
+          ${col.hasBudget?"<th>Budget</th>":""}<th>Actual</th>${col.hasLeft?"<th>Left</th>":""}<th title="Total across every month on record, not just the selected period">All-time</th>
         </tr></thead>
         <tbody>${rows}
           <tr class="budget-totals">
@@ -720,6 +726,7 @@ function renderBudgetGrid(){
             ${col.hasBudget?`<td class="num">${money(totalBudget)}</td>`:""}
             <td class="num">${money(totalActual)}</td>
             ${col.hasLeft?`<td class="num ${totalBudget-totalActual<0?'left-neg':''}">${money(totalBudget-totalActual)}</td>`:""}
+            <td class="num">${money(totalAllTime)}</td>
           </tr>
         </tbody>
       </table>
@@ -749,7 +756,7 @@ function renderBudgetGrid(){
 
 /* ---------------- render: category-by-month pivot ---------------- */
 function renderPivot(){
-  const months = availableMonths(); // ascending, e.g. ["2026-03", ..., "2026-09"]
+  const months = availableMonths().reverse(); // newest first, e.g. ["2026-09", ..., "2026-03"]
   const entries = allEntries();
 
   // total[category][month] = sum of abs(amount); total[category].grand = sum over all months
@@ -1204,7 +1211,7 @@ function renderCombinedCategory(){
   const months = new Set();
   Object.values(state.transactions).forEach(d=> months.add(d.month));
   Object.values(state.cardTransactions).forEach(d=> months.add(d.month));
-  const monthList = [...months].sort();
+  const monthList = [...months].sort().reverse(); // newest first
 
   // Cash side: every checking/savings/paypal entry EXCEPT the lump-sum "CC - X" Debt payments
   // for cards we now have itemized statements for (their purchases are counted via the card
