@@ -1,0 +1,67 @@
+{
+  "account": "onepay",
+  "month": "2026-06",
+  "cardCategory": "CC - One Pay",
+  "entries": [
+    {
+      "id": "onepay_2026-06_0",
+      "date": "2026-06-10",
+      "description": "AUTOMATIC PAYMENT - THANK YOU",
+      "amount": -30.0,
+      "category": "CC - One Pay",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "onepay_2026-06_1",
+      "date": "2026-05-31",
+      "description": "BASE44 NEW YORK  NY",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "onepay_2026-06_2",
+      "date": "2026-06-08",
+      "description": "WALMART.COM BENTONVILLE  AR",
+      "amount": 154.43,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "onepay_2026-06_3",
+      "date": "2026-06-14",
+      "description": "ANTHROPIC* CLAUDE SUB SAN FRANCISCO CA",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "onepay_2026-06_4",
+      "date": "2026-06-16",
+      "description": "ANTHROPIC* CLAUDE SUB SAN FRANCISCO CA",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

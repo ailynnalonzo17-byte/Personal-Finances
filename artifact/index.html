@@ -302,7 +302,12 @@
   <div class="panel" id="ccPanel" style="display:none">
     <h2>Credit cards on file</h2>
     <div class="sub">Pulled straight from statements you've uploaded — real balances, not estimates.</div>
-    <div id="ccList"></div>
+    <div class="tx-scroll">
+      <table>
+        <thead><tr><th>Card</th><th>Statement date</th><th>Due date</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Min. payment</th></tr></thead>
+        <tbody id="ccList"></tbody>
+      </table>
+    </div>
   </div>
 
   <div class="panel">
@@ -344,6 +349,14 @@
   </div>
 
   <div class="panel">
+    <h2>Category by month — cash + cards combined</h2>
+    <div class="sub">Every dollar you spent, wherever it went — checking/debit spend plus every credit-card purchase, categorized the same way. Card payments themselves are left out here so they aren't counted twice.</div>
+    <div class="pivot-wrap">
+      <table class="pivot-table" id="combinedCatTable"></table>
+    </div>
+  </div>
+
+  <div class="panel">
     <h2>Transactions</h2>
     <div class="sub">Every entry across every account. Click a category to fix a guess.</div>
     <div class="filters">
@@ -365,7 +378,7 @@
 </div>
 
 <script>
-const MASTER_CATS = [["Monthly Bills", "Amazon Prime"], ["Monthly Bills", "Atty Chua"], ["Monthly Bills", "Cal Water"], ["Monthly Bills", "Car insurance"], ["Monthly Bills", "Car payment"], ["Monthly Bills", "Comcast"], ["Monthly Bills", "Google 1"], ["Monthly Bills", "National Life Ins"], ["Monthly Bills", "Netflix"], ["Monthly Bills", "Rent"], ["Monthly Bills", "Roku"], ["Monthly Bills", "Verizon"], ["Monthly Bills", "Waste Management"], ["Monthly Bills", "Yesoulfitness"], ["Monthly Bills", "YT Premium"], ["Monthly Bills", "PGE"], ["Monthly Bills", "Insurance"], ["Monthly Bills", "Harna fit"], ["Monthly Bills", "Planet Fitness"], ["Monthly Bills", "Life 360"], ["Expenses", "Compass"], ["Expenses", "CVS"], ["Expenses", "Doris"], ["Expenses", "Food - Ailynn"], ["Expenses", "Food - Chris"], ["Expenses", "Food - Eat Out"], ["Expenses", "Food - Misc"], ["Expenses", "Food - To go"], ["Expenses", "For Bike"], ["Expenses", "For Car"], ["Expenses", "Gas"], ["Expenses", "Groceries - Costco"], ["Expenses", "Groceries - Others"], ["Expenses", "Groceries - Safeway"], ["Expenses", "Groceries - Santa Fe"], ["Expenses", "Groceries - Steves"], ["Expenses", "Groceries - Walmart"], ["Expenses", "Key Salary"], ["Expenses", "Lawyer"], ["Expenses", "Medical"], ["Expenses", "Misc - Gail"], ["Expenses", "Misc - gail gown and cap"], ["Expenses", "Movie"], ["Expenses", "Others"], ["Expenses", "paypal tiktok"], ["Expenses", "Remittance - Aron"], ["Expenses", "Remittance - Aron tuition"], ["Expenses", "Remittance - others"], ["Expenses", "Salinas Valley Dr"], ["Expenses", "Shop - Amazon"], ["Expenses", "Shop - Amazon returns"], ["Expenses", "Shop - Goodwill"], ["Expenses", "Shop - Others"], ["Expenses", "Shop - Ross"], ["Expenses", "Shop - Shein"], ["Expenses", "Shop - Temu"], ["Expenses", "Shop - Tiktok"], ["Expenses", "Shop - Whatnot"], ["Expenses", "Vacation"], ["Expenses", "Water"], ["Debt", "Affirm"], ["Debt", "Upgrade"], ["Debt", "CC - FPB"], ["Debt", "Auto Loan - Honda"], ["Debt", "CC - Ollo"], ["Debt", "CC - Aspire"], ["Debt", "paypal - Alipay"], ["Debt", "paypal - pay in 4 Golden Nugget"], ["Debt", "CC - Credit 1"], ["Debt", "Klarna"], ["Debt", "CC - Frontier card"], ["Debt", "CC - Whole foods"], ["Debt", "Afterpay"], ["Debt", "CC - One Pay"], ["Debt", "CC - Citibank"], ["Debt", "CC - Capital 1"], ["Debt", "CC - paypal"], ["Debt", "CC - cashback MC"], ["Debt", "Paypal pay in 4"], ["Debt", "CC - Mission Lane"], ["Debt", "CC - Citizen bank"], ["Income", "Chris - Pension"], ["Income", "Chris - UPS Income"], ["Income", "Kristin - COO Income"], ["Income", "Others - Income"], ["Transfer", "Transfer - Checking to Savings"], ["Transfer", "Transfer - Savings to Checking"], ["Transfer", "Transfer - Checking to PayPal"], ["Transfer", "Transfer - PayPal to Checking"], ["Transfer", "Transfer - Checking to SoFi Savings"], ["Transfer", "Transfer - SoFi Savings to Checking"]];
+const MASTER_CATS = [["Monthly Bills", "Amazon Prime"], ["Monthly Bills", "Atty Chua"], ["Monthly Bills", "Cal Water"], ["Monthly Bills", "Car insurance"], ["Monthly Bills", "Car payment"], ["Monthly Bills", "Comcast"], ["Monthly Bills", "Google 1"], ["Monthly Bills", "National Life Ins"], ["Monthly Bills", "Netflix"], ["Monthly Bills", "Rent"], ["Monthly Bills", "Roku"], ["Monthly Bills", "Verizon"], ["Monthly Bills", "Waste Management"], ["Monthly Bills", "Yesoulfitness"], ["Monthly Bills", "YT Premium"], ["Monthly Bills", "PGE"], ["Monthly Bills", "Insurance"], ["Monthly Bills", "Harna fit"], ["Monthly Bills", "Planet Fitness"], ["Monthly Bills", "Life 360"], ["Expenses", "Compass"], ["Expenses", "CVS"], ["Expenses", "Doris"], ["Expenses", "Food - Ailynn"], ["Expenses", "Food - Chris"], ["Expenses", "Food - Eat Out"], ["Expenses", "Food - Misc"], ["Expenses", "Food - To go"], ["Expenses", "For Bike"], ["Expenses", "For Car"], ["Expenses", "Gas"], ["Expenses", "Groceries - Costco"], ["Expenses", "Groceries - Others"], ["Expenses", "Groceries - Safeway"], ["Expenses", "Groceries - Santa Fe"], ["Expenses", "Groceries - Steves"], ["Expenses", "Groceries - Walmart"], ["Expenses", "Key Salary"], ["Expenses", "Lawyer"], ["Expenses", "Medical"], ["Expenses", "Misc - Gail"], ["Expenses", "Misc - gail gown and cap"], ["Expenses", "Movie"], ["Expenses", "Others"], ["Expenses", "paypal tiktok"], ["Expenses", "Remittance - Aron"], ["Expenses", "Remittance - Aron tuition"], ["Expenses", "Remittance - others"], ["Expenses", "Salinas Valley Dr"], ["Expenses", "Shop - Amazon"], ["Expenses", "Shop - Amazon returns"], ["Expenses", "Shop - Goodwill"], ["Expenses", "Shop - Others"], ["Expenses", "Shop - Ross"], ["Expenses", "Shop - Shein"], ["Expenses", "Shop - Temu"], ["Expenses", "Shop - Tiktok"], ["Expenses", "Shop - Whatnot"], ["Expenses", "Vacation"], ["Expenses", "Water"], ["Debt", "Affirm"], ["Debt", "Upgrade"], ["Debt", "CC - FPB"], ["Debt", "Auto Loan - Honda"], ["Debt", "CC - Ollo"], ["Debt", "CC - Aspire"], ["Debt", "paypal - Alipay"], ["Debt", "paypal - pay in 4 Golden Nugget"], ["Debt", "CC - Credit 1"], ["Debt", "Klarna"], ["Debt", "CC - Frontier card"], ["Debt", "CC - Whole foods"], ["Debt", "Afterpay"], ["Debt", "CC - One Pay"], ["Debt", "CC - Citibank"], ["Debt", "CC - Capital 1"], ["Debt", "CC - paypal"], ["Debt", "CC - cashback MC"], ["Debt", "Paypal pay in 4"], ["Debt", "CC - Mission Lane"], ["Debt", "CC - Citizen bank"], ["Debt", "CC - Chase Amazon Visa"], ["Income", "Chris - Pension"], ["Income", "Chris - UPS Income"], ["Income", "Kristin - COO Income"], ["Income", "Others - Income"], ["Transfer", "Transfer - Checking to Savings"], ["Transfer", "Transfer - Savings to Checking"], ["Transfer", "Transfer - Checking to PayPal"], ["Transfer", "Transfer - PayPal to Checking"], ["Transfer", "Transfer - Checking to SoFi Savings"], ["Transfer", "Transfer - SoFi Savings to Checking"]];
 const GROUP_COLOR = {
   "Income":"var(--income)", "Monthly Bills":"var(--ink)", "Expenses":"var(--expense)",
   "Debt":"var(--debt)", "Transfer":"var(--ink-faint)"
@@ -375,7 +388,13 @@ const money = n => (n<0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US",{mini
 const todayISO = () => new Date().toISOString().slice(0,10);
 
 let db = null;
-let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{}, loanSchedule:{} };
+let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{}, loanSchedule:{}, cardTransactions:{} };
+// Card categories we have full itemized statements for - their checking-side "CC - X" Debt
+// entries (the lump-sum payment) are excluded from the combined category view below, since
+// the card's own purchases/fees now represent that spend at the category level instead.
+const ITEMIZED_CARD_CATS = new Set(["CC - paypal","CC - cashback MC","CC - One Pay","CC - Ollo",
+  "CC - Mission Lane","CC - Aspire","CC - Credit 1","CC - Frontier card","CC - Citibank",
+  "CC - Capital 1","CC - FPB","CC - Chase Amazon Visa"]);
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 
@@ -470,6 +489,12 @@ function subscribe(){
   unsubs.push(db.collection("loan_schedule").onSnapshot(snap=>{
     state.loanSchedule = {};
     snap.docs.forEach(d=> state.loanSchedule[d.id] = d.data());
+    renderAll();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("card_transactions").onSnapshot(snap=>{
+    state.cardTransactions = {};
+    snap.docs.forEach(d=> state.cardTransactions[d.id] = d.data());
     renderAll();
   }, err=> setSync(false, "Connection lost")));
 }
@@ -1110,24 +1135,85 @@ async function onAdd(ev){
 /* ---------------- render: credit cards ---------------- */
 function renderCreditCards(){
   const panel = document.getElementById("ccPanel");
-  const cards = Object.entries(state.creditCards);
+  const cards = Object.entries(state.creditCards).sort((a,b)=> (a[1].name||"").localeCompare(b[1].name||""));
   if(cards.length===0){ panel.style.display = "none"; return; }
   panel.style.display = "block";
   const today = new Date(); today.setHours(0,0,0,0);
+  let totalBalance = 0, totalMin = 0;
   document.getElementById("ccList").innerHTML = cards.map(([id,c])=>{
-    const due = new Date(c.dueDate+"T00:00:00");
-    const days = daysBetween(today, due);
-    let badgeClass = "ok"; if(days<=2) badgeClass="bad"; else if(days<=7) badgeClass="warn";
-    return `<div class="bill-row" style="grid-template-columns:1fr auto auto auto;">
-      <div>
-        <div class="bill-name">${c.name}${c.last4?` ···${c.last4}`:""} ${c.holder?`<span class="pill muted" style="margin-left:4px;">${c.holder}</span>`:""}</div>
-        <div class="bill-note">Balance ${money(c.balance)} of ${money(c.creditLimit)} limit · ${c.apr}% APR · statement dated ${c.statementDate}</div>
-      </div>
-      <div class="bill-amt num">${money(c.minPayment)} min</div>
-      <div class="due-badge pill ${badgeClass}">${fmtDate(due)} · ${days<=0?"due now":`in ${days}d`}</div>
-      <div></div>
-    </div>`;
-  }).join("");
+    const due = c.dueDate ? new Date(c.dueDate+"T00:00:00") : null;
+    const days = due ? daysBetween(today, due) : null;
+    let badgeClass = "ok"; if(days!=null){ if(days<=2) badgeClass="bad"; else if(days<=7) badgeClass="warn"; }
+    totalBalance += c.balance||0; totalMin += c.minPayment||0;
+    return `<tr>
+      <td><div class="bill-name">${c.name}${c.last4?` ···${c.last4}`:""}</div>${c.holder?`<div class="bill-note">${c.holder}</div>`:""}</td>
+      <td>${c.statementDate||"–"}</td>
+      <td>${due ? `<span class="pill ${badgeClass}">${fmtDate(due)}${days!=null?` · ${days<=0?"due now":`in ${days}d`}`:""}</span>` : "–"}</td>
+      <td class="amt num">${c.apr!=null?c.apr+"%":"–"}</td>
+      <td class="amt num">${money(c.balance||0)}</td>
+      <td class="amt num">${c.minPayment!=null?money(c.minPayment):"–"}</td>
+    </tr>`;
+  }).join("") + `<tr class="budget-totals"><td>Total</td><td></td><td></td><td></td>
+      <td class="num">${money(totalBalance)}</td><td class="num">${money(totalMin)}</td></tr>`;
+}
+
+/* ---------------- render: combined monthly category (cash + cards) ---------------- */
+function allCardEntries(){
+  const out = [];
+  Object.entries(state.cardTransactions).forEach(([docId, doc])=>{
+    (doc.entries||[]).forEach(e=> out.push({...e, account: doc.account, docId}));
+  });
+  return out;
+}
+
+function renderCombinedCategory(){
+  const months = new Set();
+  Object.values(state.transactions).forEach(d=> months.add(d.month));
+  Object.values(state.cardTransactions).forEach(d=> months.add(d.month));
+  const monthList = [...months].sort();
+
+  // Cash side: every checking/savings/paypal entry EXCEPT the lump-sum "CC - X" Debt payments
+  // for cards we now have itemized statements for (their purchases are counted via the card
+  // side instead, so counting the payment too would double it).
+  const cashEntries = allEntries().filter(e=>
+    e.group!=="Transfer" && e.group!=="Income" &&
+    !(e.group==="Debt" && ITEMIZED_CARD_CATS.has(e.category))
+  );
+  // Card side: purchases and fees only - payments and reward credits are excluded (payments
+  // are the checking-side "CC - X" line already; rewards aren't spend).
+  const cardEntries = allCardEntries().filter(e=> e.type==="purchase" || e.type==="fee");
+
+  const byCat = {}; // cat -> {grand, group, [month]: amt}
+  [...cashEntries, ...cardEntries].forEach(e=>{
+    if(!byCat[e.category]) byCat[e.category] = {grand:0, group:e.group};
+    const v = Math.abs(e.amount);
+    const m = e.date.slice(0,7);
+    byCat[e.category][m] = (byCat[e.category][m]||0) + v;
+    byCat[e.category].grand += v;
+  });
+
+  const monthLabel = m => new Date(m+"-02").toLocaleString("en-US",{month:"short",year:"numeric"});
+  let head = `<thead><tr><th>Category</th>${monthList.map(m=>`<th>${monthLabel(m)}</th>`).join("")}<th class="grand">Grand Total</th></tr></thead>`;
+
+  let bodyRows = "";
+  const groups = ["Monthly Bills","Expenses","Debt"];
+  groups.forEach(g=>{
+    const cats = MASTER_CATS.filter(([grp])=>grp===g).map(([,c])=>c)
+      .filter(cat => byCat[cat] && byCat[cat].grand > 0)
+      .sort();
+    if(cats.length===0) return;
+    bodyRows += `<tr class="group-row"><td colspan="${monthList.length+2}">${g}</td></tr>`;
+    cats.forEach(cat=>{
+      const row = byCat[cat];
+      const cells = monthList.map(m=>{
+        const v = row[m]||0;
+        return v ? `<td>${money(v)}</td>` : `<td class="zero">–</td>`;
+      }).join("");
+      bodyRows += `<tr><td>${cat}</td>${cells}<td class="grand">${money(row.grand)}</td></tr>`;
+    });
+  });
+
+  document.getElementById("combinedCatTable").innerHTML = head + `<tbody>${bodyRows || `<tr><td colspan="${monthList.length+2}" style="color:var(--ink-faint);">Nothing recorded yet.</td></tr>`}</tbody>`;
 }
 
 /* ---------------- render all ---------------- */
@@ -1140,6 +1226,7 @@ function renderAll(){
   renderCatBars();
   renderBudgetGrid();
   renderPivot();
+  renderCombinedCategory();
   renderBills();
   renderLoanSchedule();
   renderProjection();

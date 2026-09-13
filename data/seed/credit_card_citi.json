@@ -1,0 +1,13 @@
+{
+  "name": "Costco Anywhere Visa (Citi)",
+  "issuer": "Citibank",
+  "holder": "Christopher",
+  "last4": "3533",
+  "category": "CC - Citibank",
+  "statementDate": "2026-08-20",
+  "balance": 729.62,
+  "minPayment": 41.0,
+  "dueDate": "2026-09-16",
+  "apr": 26.74,
+  "source": "Statement PDF you uploaded (4 month(s) on file)"
+}

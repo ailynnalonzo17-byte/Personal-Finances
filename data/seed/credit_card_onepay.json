@@ -1,0 +1,13 @@
+{
+  "name": "OnePay CashRewards",
+  "issuer": "Synchrony Bank",
+  "holder": "Ailynn",
+  "last4": "0461",
+  "category": "CC - One Pay",
+  "statementDate": "2026-08-18",
+  "balance": 203.66,
+  "minPayment": 30.0,
+  "dueDate": "2026-09-10",
+  "apr": 30.74,
+  "source": "Statement PDF you uploaded (4 month(s) on file)"
+}

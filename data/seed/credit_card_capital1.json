@@ -1,0 +1,13 @@
+{
+  "name": "Capital One Quicksilver",
+  "issuer": "Capital One",
+  "holder": "Ailynn",
+  "last4": "5643",
+  "category": "CC - Capital 1",
+  "statementDate": "2026-09-02",
+  "balance": 1535.68,
+  "minPayment": 37.0,
+  "dueDate": "2026-09-27",
+  "apr": 28.24,
+  "source": "Statement PDF you uploaded (5 month(s) on file)"
+}

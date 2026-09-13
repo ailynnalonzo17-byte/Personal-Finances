@@ -1,0 +1,13 @@
+{
+  "name": "Ollo Credit Card",
+  "issuer": "Ollo Card Services",
+  "holder": "Christopher",
+  "last4": "3450",
+  "category": "CC - Ollo",
+  "statementDate": "2026-08-10",
+  "balance": 129.0,
+  "minPayment": 27.0,
+  "dueDate": "2026-09-04",
+  "apr": 30.49,
+  "source": "Statement PDF you uploaded (2 month(s) on file)"
+}

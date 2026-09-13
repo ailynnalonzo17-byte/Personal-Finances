@@ -1,0 +1,31 @@
+{
+  "account": "onepay",
+  "month": "2026-05",
+  "cardCategory": "CC - One Pay",
+  "entries": [
+    {
+      "id": "onepay_2026-05_0",
+      "date": "2026-05-09",
+      "description": "ONLINE PAYMENT THANK YOU",
+      "amount": -1015.59,
+      "category": "CC - One Pay",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "onepay_2026-05_1",
+      "date": "2026-05-16",
+      "description": "CLAUDE.AI SUBSCRIPTION SAN FRANCISCO CA",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

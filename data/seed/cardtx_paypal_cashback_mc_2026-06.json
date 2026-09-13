@@ -1,0 +1,79 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-06",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-06_0",
+      "date": "2026-06-19",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -1056.99,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-06_1",
+      "date": "2026-05-23",
+      "description": "ABC #101 LV LAS VEGAS  NV",
+      "amount": 7.23,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-06_2",
+      "date": "2026-05-23",
+      "description": "ABC #101 LV LAS VEGAS  NV",
+      "amount": 32.52,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-06_3",
+      "date": "2026-05-24",
+      "description": "COSMOPOL-WICKED SPOON LAS VEGAS  NV",
+      "amount": 654.73,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-06_4",
+      "date": "2026-05-24",
+      "description": "ABC #109 LV LAS VEGAS  NV",
+      "amount": 6.98,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-06_5",
+      "date": "2026-05-26",
+      "description": "GOLDEN NUGGET HOTEL LV LAS VEGAS  NV",
+      "amount": 108.48,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

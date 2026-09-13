@@ -1,0 +1,19 @@
+{
+  "account": "aspire",
+  "month": "2026-05",
+  "cardCategory": "CC - Aspire",
+  "entries": [
+    {
+      "id": "aspire_2026-05_0",
+      "date": "2026-05-08",
+      "description": "AUTO PAYMENT DEDUCTION",
+      "amount": -38.64,
+      "category": "CC - Aspire",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

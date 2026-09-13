@@ -1,0 +1,13 @@
+{
+  "name": "Aspire Mastercard",
+  "issuer": "Aspire Mastercard / MSB",
+  "holder": "Christopher",
+  "last4": "5551",
+  "category": "CC - Aspire",
+  "statementDate": "2026-06-08",
+  "balance": 0.0,
+  "minPayment": 0.0,
+  "dueDate": "2026-07-05",
+  "apr": 36.0,
+  "source": "Statement PDF you uploaded (2 month(s) on file)"
+}

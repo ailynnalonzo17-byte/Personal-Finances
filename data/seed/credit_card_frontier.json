@@ -1,0 +1,13 @@
+{
+  "name": "Frontier Airlines World Mastercard",
+  "issuer": "Barclays Bank Delaware",
+  "holder": "Ailynn",
+  "last4": "6936",
+  "category": "CC - Frontier card",
+  "statementDate": "2026-09-11",
+  "balance": 4105.08,
+  "minPayment": 121.34,
+  "dueDate": "2026-10-08",
+  "apr": 29.49,
+  "source": "Statement PDF you uploaded (5 month(s) on file)"
+}

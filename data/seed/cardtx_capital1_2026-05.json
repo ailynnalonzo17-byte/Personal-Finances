@@ -1,0 +1,55 @@
+{
+  "account": "capital1",
+  "month": "2026-05",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-05_0",
+      "date": "2026-04-27",
+      "description": "CAPITAL ONE AUTOPAY PYMT",
+      "amount": -100.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-05_1",
+      "date": "2026-04-16",
+      "description": "CLAUDE.AI SUBSCRIPTIONSAN FRANCISCOCA",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-05_2",
+      "date": "2026-04-19",
+      "description": "WM SUPERCENTER #5751SALINASCA",
+      "amount": 154.94,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-05_3",
+      "date": "2026-04-29",
+      "description": "ELEVENLABS.IONEW YORKNY",
+      "amount": 6.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

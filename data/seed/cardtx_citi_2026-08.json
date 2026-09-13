@@ -1,0 +1,67 @@
+{
+  "account": "citi",
+  "month": "2026-08",
+  "cardCategory": "CC - Citibank",
+  "entries": [
+    {
+      "id": "citi_2026-08_0",
+      "date": "2026-08-15",
+      "description": "ONLINE PAYMENT, THANK YOU",
+      "amount": -3139.48,
+      "category": "CC - Citibank",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-08_1",
+      "date": "2026-08-11",
+      "description": "8/11 HOMEAGLOW           AUSTIN       TX",
+      "amount": -231.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-08_2",
+      "date": "2026-07-21",
+      "description": "GOLDILOCKS               MILPITAS     CA",
+      "amount": 73.62,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-08_3",
+      "date": "2026-08-15",
+      "description": "TST*DELTA KING HOTEL     Sacramento   CA",
+      "amount": 240.0,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-08_4",
+      "date": "2026-08-18",
+      "description": "IN *US STARR TRUCKING LLC865-7484600  TN",
+      "amount": 416.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

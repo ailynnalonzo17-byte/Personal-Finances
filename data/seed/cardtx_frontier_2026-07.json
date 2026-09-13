@@ -1,0 +1,79 @@
+{
+  "account": "frontier",
+  "month": "2026-07",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-07_0",
+      "date": "2026-07-10",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -799.42,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-07_1",
+      "date": "2026-06-21",
+      "description": "ATLASSIAN SAN FRANCISCO CA",
+      "amount": 24.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-07_2",
+      "date": "2026-06-22",
+      "description": "MARSHALLS #0504 SALINAS CA",
+      "amount": 25.12,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-07_3",
+      "date": "2026-06-29",
+      "description": "PG&E/EZ-PAY OAKLAND CA",
+      "amount": 828.22,
+      "category": "PGE",
+      "group": "Monthly Bills",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-07_4",
+      "date": "2026-07-03",
+      "description": "Marc Jacobs Carlsbad CA",
+      "amount": 56.57,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-07_5",
+      "date": "2026-07-05",
+      "description": "Crocs Carlsbad CA",
+      "amount": 107.69,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

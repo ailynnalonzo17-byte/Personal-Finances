@@ -1,0 +1,43 @@
+{
+  "account": "capital1",
+  "month": "2026-07",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-07_0",
+      "date": "2026-06-27",
+      "description": "CAPITAL ONE AUTOPAY PYMT",
+      "amount": -100.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-07_1",
+      "date": "2026-06-13",
+      "description": "WHOP*IMPACTCLIENTSNew YorkNY",
+      "amount": 399.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-07_2",
+      "date": "2026-06-27",
+      "description": "WHOP*ALLENNewarkDE",
+      "amount": 20.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

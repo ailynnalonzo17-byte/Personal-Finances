@@ -1,0 +1,19 @@
+{
+  "account": "mission_lane",
+  "month": "2026-08",
+  "cardCategory": "CC - Mission Lane",
+  "entries": [
+    {
+      "id": "mission_lane_2026-08_0",
+      "date": "2026-08-25",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -2.31,
+      "category": "CC - Mission Lane",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

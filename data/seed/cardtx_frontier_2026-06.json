@@ -1,0 +1,67 @@
+{
+  "account": "frontier",
+  "month": "2026-06",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-06_0",
+      "date": "2026-05-13",
+      "description": "ATLASSIAN SAN FRANCISCO CA",
+      "amount": 5.55,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-06_1",
+      "date": "2026-05-20",
+      "description": "MJ THE EVOLUTION LAS VEGAS NV",
+      "amount": 406.32,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-06_2",
+      "date": "2026-05-21",
+      "description": "ATLASSIAN SAN FRANCISCO CA",
+      "amount": 24.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-06_3",
+      "date": "2026-05-23",
+      "description": "Fever*ARTE MUSEUM An I LAS DE",
+      "amount": 270.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-06_4",
+      "date": "2026-05-23",
+      "description": "FREDDY'S 100-0001 BARSTOW CA",
+      "amount": 93.55,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

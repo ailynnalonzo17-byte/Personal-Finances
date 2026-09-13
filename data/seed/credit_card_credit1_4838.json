@@ -1,0 +1,13 @@
+{
+  "name": "Credit One Bank (...4838)",
+  "issuer": "Credit One Bank",
+  "holder": "Christopher",
+  "last4": "4838",
+  "category": "CC - Credit 1",
+  "statementDate": "2026-09-04",
+  "balance": 24.94,
+  "minPayment": 24.94,
+  "dueDate": "2026-09-28",
+  "apr": 27.49,
+  "source": "Statement PDF you uploaded (5 month(s) on file)"
+}

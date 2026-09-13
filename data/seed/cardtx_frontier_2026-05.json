@@ -1,0 +1,43 @@
+{
+  "account": "frontier",
+  "month": "2026-05",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-05_0",
+      "date": "2026-05-08",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -94.78,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-05_1",
+      "date": "2026-05-09",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -4550.02,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-05_2",
+      "date": "2026-04-21",
+      "description": "ATLASSIAN SAN FRANCISCO CA",
+      "amount": 18.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

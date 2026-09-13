@@ -1,0 +1,19 @@
+{
+  "account": "chase_amazon",
+  "month": "2026-08",
+  "cardCategory": "CC - Chase Amazon Visa",
+  "entries": [
+    {
+      "id": "chase_amazon_2026-08_0",
+      "date": "2026-08-14",
+      "description": "CARE USA CARE.ORG GA",
+      "amount": 30.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "First Premier Bank",
+  "issuer": "First Premier Bank",
+  "holder": "Christopher",
+  "last4": "3035",
+  "category": "CC - FPB",
+  "statementDate": "2026-09-04",
+  "balance": 6.31,
+  "minPayment": 6.31,
+  "dueDate": "2026-10-02",
+  "apr": 36.0,
+  "source": "Statement PDF you uploaded (4 month(s) on file)"
+}

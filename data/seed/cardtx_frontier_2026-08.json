@@ -1,0 +1,103 @@
+{
+  "account": "frontier",
+  "month": "2026-08",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-08_0",
+      "date": "2026-08-05",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -1099.59,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_1",
+      "date": "2026-08-05",
+      "description": "SHAPERMINT LAS VEGAS NV",
+      "amount": -38.06,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_2",
+      "date": "2026-07-11",
+      "description": "WM SUPERCENTER #5751 SALINAS CA",
+      "amount": 133.79,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_3",
+      "date": "2026-07-20",
+      "description": "OLD NAVY US 5333 SALINAS CA",
+      "amount": 90.66,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_4",
+      "date": "2026-07-25",
+      "description": "WM SUPERCENTER #5751 SALINAS CA",
+      "amount": 255.74,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_5",
+      "date": "2026-07-25",
+      "description": "ROSS STORES #523 SALINAS CA",
+      "amount": 63.74,
+      "category": "Shop - Ross",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_6",
+      "date": "2026-07-28",
+      "description": "SHAPERMINT LAS VEGAS NV",
+      "amount": 213.12,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-08_7",
+      "date": "2026-08-01",
+      "description": "WAL-MART #2458 SALINAS CA",
+      "amount": 58.11,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

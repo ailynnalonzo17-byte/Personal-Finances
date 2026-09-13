@@ -25,7 +25,7 @@ DEBT = [
     "paypal - Alipay","paypal - pay in 4 Golden Nugget","CC - Credit 1","Klarna",
     "CC - Frontier card","CC - Whole foods","Afterpay","CC - One Pay",
     "CC - Citibank","CC - Capital 1","CC - paypal","CC - cashback MC",
-    "Paypal pay in 4","CC - Mission Lane","CC - Citizen bank",
+    "Paypal pay in 4","CC - Mission Lane","CC - Citizen bank","CC - Chase Amazon Visa",
 ]
 
 INCOME = [

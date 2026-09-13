@@ -1,0 +1,13 @@
+{
+  "name": "Mission Lane Visa",
+  "issuer": "Transportation Alliance Bank (TAB Bank)",
+  "holder": "Christopher",
+  "last4": "6793",
+  "category": "CC - Mission Lane",
+  "statementDate": "2026-08-28",
+  "balance": 0.0,
+  "minPayment": 0.0,
+  "dueDate": "2026-09-25",
+  "apr": 31.99,
+  "source": "Statement PDF you uploaded (4 month(s) on file)"
+}

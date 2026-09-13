@@ -1,0 +1,19 @@
+{
+  "account": "credit1_4352",
+  "month": "2026-09",
+  "cardCategory": "CC - Credit 1",
+  "entries": [
+    {
+      "id": "credit1_4352_2026-09_0",
+      "date": "2026-09-10",
+      "description": "LATE FEE",
+      "amount": 30.0,
+      "category": "CC - Credit 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Fee charged by this card",
+      "type": "fee",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

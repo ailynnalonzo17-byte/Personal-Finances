@@ -1,0 +1,31 @@
+{
+  "account": "paypal_1",
+  "month": "2026-05",
+  "cardCategory": "CC - paypal",
+  "entries": [
+    {
+      "id": "paypal_1_2026-05_0",
+      "date": "2026-05-09",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -3928.11,
+      "category": "CC - paypal",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_1_2026-05_1",
+      "date": "2026-05-11",
+      "description": "PAYPAL PURCHASE SAN JOSE  CA",
+      "amount": 43.49,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

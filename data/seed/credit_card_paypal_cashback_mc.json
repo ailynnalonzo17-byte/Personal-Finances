@@ -3,12 +3,11 @@
   "issuer": "Synchrony Bank",
   "holder": "Christopher",
   "last4": "2682",
+  "category": "CC - cashback MC",
   "statementDate": "2026-08-25",
   "balance": 191.92,
-  "minPayment": 40.00,
+  "minPayment": 40.0,
   "dueDate": "2026-09-17",
-  "creditLimit": 1100,
-  "availableCredit": 908,
   "apr": 34.24,
-  "source": "Statement PDF you uploaded, billing cycle 07/25/2026-08/25/2026"
+  "source": "Statement PDF you uploaded (4 month(s) on file)"
 }

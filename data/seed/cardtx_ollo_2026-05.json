@@ -1,0 +1,43 @@
+{
+  "account": "ollo",
+  "month": "2026-05",
+  "cardCategory": "CC - Ollo",
+  "entries": [
+    {
+      "id": "ollo_2026-05_0",
+      "date": "2026-04-14",
+      "description": "HIMS & HERS HEALTH SAN FRANCISCO CA",
+      "amount": 129.0,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Telehealth/health-supplement merchant, categorized as Medical",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "ollo_2026-05_1",
+      "date": "2026-05-04",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -27.0,
+      "category": "CC - Ollo",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "ollo_2026-05_2",
+      "date": "2026-05-09",
+      "description": "ONLINE ONE TIME PAYMENT  WOODBURY     NY",
+      "amount": -392.12,
+      "category": "CC - Ollo",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

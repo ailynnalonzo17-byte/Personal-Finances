@@ -1,0 +1,13 @@
+{
+  "name": "PayPal Credit",
+  "issuer": "Synchrony Bank",
+  "holder": "Christopher",
+  "last4": "1164",
+  "category": "CC - paypal",
+  "statementDate": "2026-05-27",
+  "balance": 43.49,
+  "minPayment": 30.0,
+  "dueDate": "2026-06-19",
+  "apr": 29.64,
+  "source": "Statement PDF you uploaded (1 month(s) on file)"
+}

@@ -1,0 +1,115 @@
+{
+  "account": "citi",
+  "month": "2026-06",
+  "cardCategory": "CC - Citibank",
+  "entries": [
+    {
+      "id": "citi_2026-06_0",
+      "date": "2026-06-12",
+      "description": "NAPA STORE 4574057       SALINAS      CA",
+      "amount": 10.8,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_1",
+      "date": "2026-06-12",
+      "description": "O'REILLY 2991            SALINAS      CA",
+      "amount": 33.63,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_2",
+      "date": "2026-06-12",
+      "description": "DIM SUM INN              SALINAS      CA",
+      "amount": 170.06,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_3",
+      "date": "2026-06-12",
+      "description": "TST*BETTY BURGER-APTOS   Aptos        CA",
+      "amount": 39.83,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_4",
+      "date": "2026-06-13",
+      "description": "UNIVERSAL TRANSPORTATION 818-886-2221 CA",
+      "amount": 750.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_5",
+      "date": "2026-06-14",
+      "description": "CHIBOG                   DALY CITY    CA",
+      "amount": 238.17,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_6",
+      "date": "2026-06-15",
+      "description": "NOODLE BAR II            MARINA       CA",
+      "amount": 18.04,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_7",
+      "date": "2026-06-15",
+      "description": "STEVE'S FILIPINO ASIAN   SALINAS      CA",
+      "amount": 36.95,
+      "category": "Groceries - Steves",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-06_8",
+      "date": "2026-06-17",
+      "description": "CHEVRON 0091927          WATSONVILLE  CA",
+      "amount": 7.54,
+      "category": "Gas",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

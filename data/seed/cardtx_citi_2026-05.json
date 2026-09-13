@@ -1,0 +1,127 @@
+{
+  "account": "citi",
+  "month": "2026-05",
+  "cardCategory": "CC - Citibank",
+  "entries": [
+    {
+      "id": "citi_2026-05_0",
+      "date": "2026-05-09",
+      "description": "ONLINE PAYMENT, THANK YOU",
+      "amount": -1347.59,
+      "category": "CC - Citibank",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_1",
+      "date": "2026-04-24",
+      "description": "ICHIBAN SUSHI            SALINAS      CA",
+      "amount": 127.07,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_2",
+      "date": "2026-04-27",
+      "description": "WWW COSTCO COM           800-955-2292 WA",
+      "amount": 43.49,
+      "category": "Groceries - Costco",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_3",
+      "date": "2026-04-28",
+      "description": "COSTCO WHSE #0472        SALINAS      CA",
+      "amount": 120.15,
+      "category": "Groceries - Costco",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_4",
+      "date": "2026-04-29",
+      "description": "COSTA AZUL RESTAURANT DP DAVENPORT    CA",
+      "amount": 19.76,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_5",
+      "date": "2026-04-30",
+      "description": "DIAMOND DENTAL OF SALINASSALINAS      CA",
+      "amount": 275.0,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_6",
+      "date": "2026-05-03",
+      "description": "TST*EL PARRILLASO - NEW  SALINAS      CA",
+      "amount": 100.08,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_7",
+      "date": "2026-05-04",
+      "description": "DIM SUM INN              SALINAS      CA",
+      "amount": 102.85,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Restaurant/fast-food - defaulted to Eat Out; move to Food - Ailynn/Chris/Misc if you know whose order it was",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_8",
+      "date": "2026-05-10",
+      "description": "TST*PRANZI - SAN CARLOS  San Carlos   CA",
+      "amount": 1107.5,
+      "category": "Food - Eat Out",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "citi_2026-05_9",
+      "date": "2026-05-17",
+      "description": "USANA HEALTH SCIENCES    888-9509595  UT",
+      "amount": 313.56,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Telehealth/health-supplement merchant, categorized as Medical",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

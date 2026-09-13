@@ -1,0 +1,91 @@
+{
+  "account": "capital1",
+  "month": "2026-09",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-09_0",
+      "date": "2026-08-27",
+      "description": "CAPITAL ONE AUTOPAY PYMT",
+      "amount": -100.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_1",
+      "date": "2026-08-13",
+      "description": "KICKOFF COACHING MANHATTAN NY",
+      "amount": 50.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_2",
+      "date": "2026-08-14",
+      "description": "WHOP*IMPACTCLIENTS New York NY",
+      "amount": 399.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_3",
+      "date": "2026-08-18",
+      "description": "GIFTHEALTH*LILLYDIRECT COLUMBUS OH",
+      "amount": 304.42,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Telehealth/health-supplement merchant, categorized as Medical",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_4",
+      "date": "2026-08-26",
+      "description": "Southwest Gas LAS VEGAS NV",
+      "amount": 102.71,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_5",
+      "date": "2026-08-29",
+      "description": "METAPAY*YT233426N4 MENLO PARK CA",
+      "amount": 1.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-09_6",
+      "date": "2026-08-29",
+      "description": "MJ THE EVOLUTION LAS VEGAS NV",
+      "amount": 254.07,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "account": "frontier",
+  "month": "2026-09",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-09_0",
+      "date": "2026-09-09",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -798.74,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_1",
+      "date": "2026-08-25",
+      "description": "WAL-MART #2838 HENDERSON NV",
+      "amount": -22.4,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_2",
+      "date": "2026-08-14",
+      "description": "Refuge Carmel Carmel CA",
+      "amount": 270.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_3",
+      "date": "2026-08-14",
+      "description": "ROSS STORES #523 SALINAS CA",
+      "amount": 78.8,
+      "category": "Shop - Ross",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_4",
+      "date": "2026-08-21",
+      "description": "WAL-MART #2838 HENDERSON NV",
+      "amount": 442.13,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_5",
+      "date": "2026-08-21",
+      "description": "CHARLEYS PHILLY STEAKS HENDERSON NV",
+      "amount": 46.57,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_6",
+      "date": "2026-08-22",
+      "description": "DAISO - BEST ON THE BL LAS VEGAS NV",
+      "amount": 80.7,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_7",
+      "date": "2026-08-25",
+      "description": "WAL-MART #2838 HENDERSON NV",
+      "amount": 191.13,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_8",
+      "date": "2026-08-27",
+      "description": "STARLUX  101892106486648 TAIPEI ALMO AILYNN ALONZO MRS 01/19/2027 MNL   TPE   PHX Agency: MNLJX08AA #01892106486648",
+      "amount": 2375.05,
+      "category": "Vacation",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Airline ticket charge",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_9",
+      "date": "2026-08-28",
+      "description": "SHAPERMINT LAS VEGAS NV",
+      "amount": 4.99,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_10",
+      "date": "2026-09-10",
+      "description": "GIFTHEALTH*LILLYDIRECT COLUMBUS OH",
+      "amount": 304.42,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Telehealth/health-supplement merchant, categorized as Medical",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-09_11",
+      "date": "2026-08-25",
+      "description": "NV ENERGY 8003313103 NV",
+      "amount": 230.18,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

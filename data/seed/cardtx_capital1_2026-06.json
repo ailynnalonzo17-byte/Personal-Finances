@@ -1,0 +1,55 @@
+{
+  "account": "capital1",
+  "month": "2026-06",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-06_0",
+      "date": "2026-05-14",
+      "description": "CREDIT-CASH BACK REWARD",
+      "amount": -24.4,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Cashback/rewards redemption credit - not spend, excluded from category totals",
+      "type": "reward",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-06_1",
+      "date": "2026-05-12",
+      "description": "WHOP*IMPACTCLIENTSBROOKLYNNY",
+      "amount": 896.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-06_2",
+      "date": "2026-05-13",
+      "description": "WIX.COM 1240078411SAN FRANCISCOCA",
+      "amount": 174.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-06_3",
+      "date": "2026-05-29",
+      "description": "ELEVENLABS.IONEW YORKNY",
+      "amount": 6.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

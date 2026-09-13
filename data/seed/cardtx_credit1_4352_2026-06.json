@@ -1,0 +1,19 @@
+{
+  "account": "credit1_4352",
+  "month": "2026-06",
+  "cardCategory": "CC - Credit 1",
+  "entries": [
+    {
+      "id": "credit1_4352_2026-06_0",
+      "date": "2026-05-13",
+      "description": "SP+AFF* SMOOCHE.COM AFFIRM.COM  CA",
+      "amount": 24.5,
+      "category": "Affirm",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

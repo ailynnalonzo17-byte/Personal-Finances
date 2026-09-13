@@ -1,0 +1,31 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-07",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-07_0",
+      "date": "2026-07-21",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -35.04,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-07_1",
+      "date": "2026-07-17",
+      "description": "IBI*FABLETICS.COM EL SEGUNDO  CA",
+      "amount": 13.68,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Card purchase - merchant not recognized, please tell me what this is",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

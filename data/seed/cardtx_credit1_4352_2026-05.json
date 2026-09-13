@@ -1,0 +1,43 @@
+{
+  "account": "credit1_4352",
+  "month": "2026-05",
+  "cardCategory": "CC - Credit 1",
+  "entries": [
+    {
+      "id": "credit1_4352_2026-05_0",
+      "date": "2026-04-28",
+      "description": "SP+AFF* SMOOCHE.COM AFFIRM.COM  CA",
+      "amount": 24.5,
+      "category": "Affirm",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "credit1_4352_2026-05_1",
+      "date": "2026-05-06",
+      "description": "PAYMENT - AUTOPAY        LAS VEGAS    NV",
+      "amount": -50.0,
+      "category": "CC - Credit 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "credit1_4352_2026-05_2",
+      "date": "2026-05-09",
+      "description": "INTERNET PAYMENT         LAS VEGAS    NV",
+      "amount": -13.5,
+      "category": "CC - Credit 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

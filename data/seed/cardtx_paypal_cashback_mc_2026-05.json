@@ -1,0 +1,43 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-05",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-05_0",
+      "date": "2026-05-09",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -8768.01,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-05_1",
+      "date": "2026-05-17",
+      "description": "CINEMARK 1015 ONLINE MARINA  CA",
+      "amount": 34.47,
+      "category": "Movie",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-05_2",
+      "date": "2026-05-17",
+      "description": "CINEMARK 449 ONLINE SALINAS  CA",
+      "amount": 68.97,
+      "category": "Movie",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

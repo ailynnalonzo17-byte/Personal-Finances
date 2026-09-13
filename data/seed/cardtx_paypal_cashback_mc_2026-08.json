@@ -1,0 +1,67 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-08",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-08_0",
+      "date": "2026-08-12",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -2.0,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-08_1",
+      "date": "2026-08-22",
+      "description": "AMAZON MKTPL*5A1N81RN2 SEATTLE  WA",
+      "amount": 22.75,
+      "category": "Shop - Amazon",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-08_2",
+      "date": "2026-08-22",
+      "description": "PAYPAL PURCHASE SAN JOSE  CA",
+      "amount": 65.33,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-08_3",
+      "date": "2026-08-23",
+      "description": "AMAZON MKTPL*5O9K36O92 SEATTLE  WA",
+      "amount": 65.0,
+      "category": "Shop - Amazon",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-08_4",
+      "date": "2026-08-23",
+      "description": "AMAZON MKTPL*5O6YU1T21 SEATTLE  WA",
+      "amount": 36.84,
+      "category": "Shop - Amazon",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
