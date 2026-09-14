@@ -2,7 +2,7 @@
 # Income and Transfer groups needed for reconciliation.
 
 MONTHLY_BILLS = [
-    "Amazon Prime","Atty Chua","Cal Water","Car insurance","Car payment","Comcast",
+    "Amazon Prime","Atty Chua","Cal Water","Car insurance","Comcast",
     "Google 1","National Life Ins","Netflix","Rent","Roku","Verizon",
     "Waste Management","Yesoulfitness","YT Premium","PGE","Insurance","Harna fit",
     "Planet Fitness","Life 360","NV Energy","SW Gas","Prulife",
@@ -21,7 +21,7 @@ EXPENSES = [
 ]
 
 DEBT = [
-    "Affirm","Upgrade","CC - FPB","Auto Loan - Honda","Auto Loan - Miata","CC - Ollo","CC - Aspire",
+    "Affirm","Upgrade","CC - FPB","Auto Loan - Honda","Auto Loan - WRX","Auto Loan - Miata","CC - Ollo","CC - Aspire",
     "paypal - Alipay","paypal - pay in 4 Golden Nugget","CC - Credit 1","Klarna",
     "CC - Frontier card","CC - Whole foods","Afterpay","CC - One Pay",
     "CC - Citibank","CC - Capital 1","CC - paypal","CC - cashback MC",

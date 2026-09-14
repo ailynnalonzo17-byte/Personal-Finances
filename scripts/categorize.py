@@ -18,7 +18,8 @@ RULES = [
     (r"CHUA TINSAY", "Atty Chua", "Monthly Bills", "H", ""),
     (r"CALWATER", "Cal Water", "Monthly Bills", "H", ""),
     (r"CSAA INSURANCE", "Car insurance", "Monthly Bills", "H", ""),
-    (r"CAPITAL ONE AUTO (CARPAY|DIRECTPAY)", "Car payment", "Monthly Bills", "H", ""),
+    (r"CAPITAL ONE AUTO (CARPAY|DIRECTPAY)", "Auto Loan - Honda", "Debt", "H",
+     "Confirmed by you: Capital One auto loan for the Honda"),
     (r"COMCAST-XFINITY", "Comcast", "Monthly Bills", "H", ""),
     (r"GOOGLE ONE|GOOGLE \*GOOGLE ONE", "Google 1", "Monthly Bills", "H", ""),
     (r"LIFE INS OF SW", "National Life Ins", "Monthly Bills", "H", ""),
@@ -111,7 +112,7 @@ RULES = [
     (r"PAYPAL\s+PURCHASE", "Others", "Expenses", "R", "Subscription/purchase via PayPal (Apple, Etsy, Google apps, Lyft, AARP, etc.) - no matching category"),
     (r"UBER |UBER\*|VENMO", "Others", "Expenses", "R", "Rideshare or Venmo payment - no matching category, and Venmo recipient is unclear"),
     (r"^LBC SALINAS", "Remittance - Aron", "Expenses", "H", "LBC is a Filipino remittance/cargo courier - assumed this is also for your son, like the Taptap Send/Sendwave ones"),
-    (r"ONLINE PAYMENT.*TO ALA 0908", "Auto Loan - Honda", "Debt", "H", "Confirmed by you: Chase auto loan"),
+    (r"ONLINE PAYMENT.*TO ALA 0908", "Auto Loan - WRX", "Debt", "H", "Confirmed by you: Chase auto loan for the WRX"),
     (r"MADONNA INN|BOARDWALK PLAZA|QUALITY INNS|CITY PISMO BEACH|MSS SURFACE LOT|SFC LAS VEGAS|BOULDER VINTAGE|LITTLE PAMPANGA|CLARK CO PARKS|SSA - USS MIDWAY|CSI-\d", "Vacation", "Expenses", "D", "Hotel/travel-city charge, looks like part of a trip"),
 
     # ---- Fees / misc bank ----
