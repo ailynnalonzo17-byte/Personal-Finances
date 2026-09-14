@@ -18,7 +18,7 @@ RULES = [
     (r"CHUA TINSAY", "Atty Chua", "Monthly Bills", "H", ""),
     (r"CALWATER", "Cal Water", "Monthly Bills", "H", ""),
     (r"CSAA INSURANCE", "Car insurance", "Monthly Bills", "H", ""),
-    (r"CAPITAL ONE AUTO CARPAY", "Car payment", "Monthly Bills", "H", ""),
+    (r"CAPITAL ONE AUTO (CARPAY|DIRECTPAY)", "Car payment", "Monthly Bills", "H", ""),
     (r"COMCAST-XFINITY", "Comcast", "Monthly Bills", "H", ""),
     (r"GOOGLE ONE|GOOGLE \*GOOGLE ONE", "Google 1", "Monthly Bills", "H", ""),
     (r"LIFE INS OF SW", "National Life Ins", "Monthly Bills", "H", ""),
