@@ -1,1 +1,1 @@
-{"name": "CC - One Pay", "group": "Debt", "type": "debt", "amount": 30.0, "dueDay": 11, "account": "checking", "active": true, "note": "Estimated as the median monthly total from your Chase statement, March-September 2026. Amount varies a lot month to month - verify (seen as low as 30.00 and as high as 1015.59)."}
+{"name": "CC - One Pay", "group": "Debt", "type": "debt", "amount": 30, "dueDay": 10, "account": "checking", "active": true, "note": "Real statement data (OnePay CashRewards, $30 due, due date 9/10 - already matched the amount, corrected the due day)."}
