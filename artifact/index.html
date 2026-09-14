@@ -308,10 +308,10 @@
 
   <div class="panel" id="ccPanel" style="display:none">
     <h2>Credit cards on file</h2>
-    <div class="sub">Pulled straight from statements you've uploaded — real balances, not estimates.</div>
+    <div class="sub" id="ccSub">Pulled straight from statements you've uploaded — real balances, not estimates.</div>
     <div class="tx-scroll">
       <table>
-        <thead><tr><th>Card</th><th>Statement date</th><th>Due date</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Min. payment</th></tr></thead>
+        <thead><tr><th>Card</th><th>Statement date</th><th>Due date</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Min. payment</th><th style="text-align:center">Paid</th></tr></thead>
         <tbody id="ccList"></tbody>
       </table>
     </div>
@@ -1190,28 +1190,48 @@ async function onAdd(ev){
 }
 
 /* ---------------- render: credit cards ---------------- */
+// A card counts as paid this cycle once a checking-account payment for its category
+// (a negative "CC - X" Debt entry - the lump-sum payment line, not a card purchase)
+// shows up on or after its statement date. Purely derived from the ledger - not a
+// manual checkbox - since the user wants this to check itself off automatically.
+function isCardPaidThisCycle(card){
+  if(!card.category) return false;
+  const cutoff = card.statementDate || "0000-00-00";
+  return allEntries().some(e=> e.account==="checking" && e.group==="Debt" &&
+    e.category===card.category && e.amount<0 && e.date>=cutoff);
+}
+
 function renderCreditCards(){
   const panel = document.getElementById("ccPanel");
-  const cards = Object.entries(state.creditCards).sort((a,b)=> (a[1].name||"").localeCompare(b[1].name||""));
-  if(cards.length===0){ panel.style.display = "none"; return; }
+  if(Object.keys(state.creditCards).length===0){ panel.style.display = "none"; return; }
   panel.style.display = "block";
   const today = new Date(); today.setHours(0,0,0,0);
+  const curMonth = today.toISOString().slice(0,7);
+  const cards = Object.entries(state.creditCards)
+    .filter(([,c])=> c.dueDate && c.dueDate.slice(0,7)===curMonth)
+    .sort((a,b)=> (a[1].dueDate||"").localeCompare(b[1].dueDate||""));
+  document.getElementById("ccSub").textContent = cards.length
+    ? `Due this month only. Checks itself off once a payment for that card shows up in checking.`
+    : `No cards on file are due this month.`;
+  if(cards.length===0){ document.getElementById("ccList").innerHTML = ""; return; }
   let totalBalance = 0, totalMin = 0;
   document.getElementById("ccList").innerHTML = cards.map(([id,c])=>{
     const due = c.dueDate ? new Date(c.dueDate+"T00:00:00") : null;
     const days = due ? daysBetween(today, due) : null;
+    const paid = isCardPaidThisCycle(c);
     let badgeClass = "ok"; if(days!=null){ if(days<=2) badgeClass="bad"; else if(days<=7) badgeClass="warn"; }
     totalBalance += c.balance||0; totalMin += c.minPayment||0;
-    return `<tr>
+    return `<tr${paid?' class="has-actual"':''}>
       <td><div class="bill-name">${c.name}${c.last4?` ···${c.last4}`:""}</div>${c.holder?`<div class="bill-note">${c.holder}</div>`:""}</td>
       <td>${c.statementDate||"–"}</td>
-      <td>${due ? `<span class="pill ${badgeClass}">${fmtDate(due)}${days!=null?` · ${days<=0?"due now":`in ${days}d`}`:""}</span>` : "–"}</td>
+      <td>${due ? `<span class="pill ${paid?'ok':badgeClass}">${fmtDate(due)}${paid?" · paid":(days!=null?` · ${days<=0?"due now":`in ${days}d`}`:"")}</span>` : "–"}</td>
       <td class="amt num">${c.apr!=null?c.apr+"%":"–"}</td>
       <td class="amt num">${money(c.balance||0)}</td>
       <td class="amt num">${c.minPayment!=null?money(c.minPayment):"–"}</td>
+      <td style="text-align:center"><input type="checkbox" disabled ${paid?"checked":""}></td>
     </tr>`;
   }).join("") + `<tr class="budget-totals"><td>Total</td><td></td><td></td><td></td>
-      <td class="num">${money(totalBalance)}</td><td class="num">${money(totalMin)}</td></tr>`;
+      <td class="num">${money(totalBalance)}</td><td class="num">${money(totalMin)}</td><td></td></tr>`;
 }
 
 /* ---------------- render: combined monthly category (cash + cards) ---------------- */
