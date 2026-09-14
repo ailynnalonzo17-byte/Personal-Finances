@@ -222,6 +222,11 @@
   footer{text-align:center; font-size:11.5px; color:var(--ink-faint); margin-top:30px;}
   .banner{background:var(--gold-soft); border:1px solid var(--gold-soft-border); color:var(--gold); border-radius:10px;
     padding:12px 16px; font-size:13px; margin-bottom:18px;}
+  .due-soon-banner{background:var(--critical-soft); border:1px solid var(--critical); border-radius:10px;
+    padding:12px 16px; margin-bottom:18px; color:var(--ink);}
+  .due-soon-banner strong{color:var(--critical); font-size:13.5px;}
+  .due-soon-list{display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:8px;}
+  .due-soon-item{display:inline-flex; align-items:center; gap:6px; font-size:13px;}
 </style>
 
 <div class="wrap">
@@ -236,6 +241,8 @@
   <div id="noDbBanner" class="banner" style="display:none">
     This page can't reach its data store right now, so nothing here is live. Reopen it, or ask Claude to check the connection.
   </div>
+
+  <div id="dueSoonBanner" class="due-soon-banner" style="display:none"></div>
 
   <section class="accounts" id="accountsGrid"></section>
 
@@ -887,6 +894,46 @@ function renderBills(){
   });
 }
 
+// ---------------- render: due-soon reminder banner ----------------
+// Flags anything unpaid that's due today, tomorrow, or the day after (i.e. the
+// 2-day-ahead warning window), plus anything unpaid that's already overdue.
+// Pulls from the same sources as the bills panel and month list so it never
+// drifts out of sync with what's actually marked paid.
+function daysUntil(dateStr){
+  const d = new Date(dateStr+"T00:00:00");
+  const today = new Date(); today.setHours(0,0,0,0);
+  return daysBetween(today, d);
+}
+function renderDueSoon(){
+  const el = document.getElementById("dueSoonBanner");
+  if(!el) return;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const horizon = new Date(today); horizon.setDate(horizon.getDate()+2);
+  const horizonStr = horizon.toISOString().slice(0,10);
+
+  const billItems = activeBills().map(b=>{
+    const dateStr = b.next.toISOString().slice(0,10);
+    const checkKey = `${b.id}__${dateStr.slice(0,7)}`;
+    return {name: b.name, date: dateStr, amount: b.amount, paid: !!state.checked[checkKey]?.checked};
+  }).filter(r=> !r.paid && r.date<=horizonStr);
+
+  const loanItems = allLoanInstallments()
+    .filter(i=> !i.paid && i.dueDate<=horizonStr)
+    .map(i=> ({name: `${i.planName} (${i.n}/${i.total})`, date: i.dueDate, amount: i.amount}));
+
+  const items = [...billItems, ...loanItems].sort((a,b)=> a.date<b.date?-1:a.date>b.date?1:0);
+
+  if(!items.length){ el.style.display="none"; el.innerHTML=""; return; }
+
+  el.style.display="block";
+  el.innerHTML = `<strong>${items.length} due soon</strong>
+    <div class="due-soon-list">${items.map(r=>{
+      const days = daysUntil(r.date);
+      const label = days<0 ? "overdue" : days===0 ? "due today" : days===1 ? "due tomorrow" : `in ${days}d`;
+      return `<span class="due-soon-item"><span class="pill bad">${label}</span> ${r.name} — ${money(r.amount)}</span>`;
+    }).join("")}</div>`;
+}
+
 function allLoanInstallments(){
   const out = [];
   Object.entries(state.loanSchedule).forEach(([docId, plan])=>{
@@ -1518,6 +1565,7 @@ function renderCombinedCategory(){
 
 /* ---------------- render all ---------------- */
 function renderAll(){
+  renderDueSoon();
   renderAccounts();
   renderCreditCards();
   renderRegister();
