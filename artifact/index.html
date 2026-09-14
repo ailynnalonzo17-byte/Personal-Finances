@@ -306,6 +306,17 @@
     </div>
   </div>
 
+  <div class="panel" id="monthListPanel">
+    <h2>This month's bills &amp; loans</h2>
+    <div class="sub" id="monthListSub"></div>
+    <div class="tx-scroll">
+      <table>
+        <thead><tr><th>Due</th><th>Name</th><th>Type</th><th style="text-align:right">Amount</th><th style="text-align:center">Paid</th></tr></thead>
+        <tbody id="monthListBody"></tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="panel" id="ccPanel" style="display:none">
     <h2>Credit cards on file</h2>
     <div class="sub" id="ccSub">Pulled straight from statements you've uploaded — real balances, not estimates.</div>
@@ -887,6 +898,80 @@ function allLoanInstallments(){
   return out;
 }
 
+/* ---------------- render: this month's bills & loans (combined) ---------------- */
+// One list of everything due in the real current calendar month - active recurring
+// bills (Monthly Bills + Debt) plus itemized loan-schedule installments (Affirm/
+// Klarna/Chase). Paid checkboxes write to the same places the other panels do
+// (bills_checked / loan_schedule), so checking one off here stays in sync everywhere.
+function renderMonthList(){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const curMonth = today.toISOString().slice(0,10).slice(0,7);
+  const monthLabel = new Date(curMonth+"-02").toLocaleString("en-US",{month:"long",year:"numeric"});
+
+  // Use each bill's due day IN THIS calendar month specifically - not activeBills()'s
+  // "next" field, which rolls forward to next month once the day has already passed
+  // (that's right for the "upcoming" panel, but would wrongly drop already-passed,
+  // maybe-still-unpaid bills out of "this month"'s list).
+  const billRows = activeBills()
+    .map(b=>{
+      const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), b.dueDay);
+      const checkKey = `${b.id}__${curMonth}`;
+      return {date: dueThisMonth.toISOString().slice(0,10), name: b.name,
+        type: b.group==="Debt" ? "Debt" : "Bill", amount: b.amount,
+        paid: !!state.checked[checkKey]?.checked, kind:"bill", checkKey};
+    });
+
+  const loanRows = allLoanInstallments()
+    .filter(i=> i.dueDate.slice(0,7)===curMonth)
+    .map(i=> ({date: i.dueDate, name: `${i.planName} (${i.n}/${i.total})`, type: "Loan",
+      amount: i.amount, paid: i.paid, kind:"loan", docId: i.docId, n: i.n}));
+
+  const rows = [...billRows, ...loanRows].sort((a,b)=> a.date<b.date?-1:a.date>b.date?1:0);
+  const total = rows.reduce((s,r)=>s+r.amount,0);
+  const remaining = rows.filter(r=>!r.paid).reduce((s,r)=>s+r.amount,0);
+  const todayStr = today.toISOString().slice(0,10);
+
+  document.getElementById("monthListSub").textContent = rows.length
+    ? `${monthLabel} — ${money(total)} total, ${money(remaining)} still unpaid.`
+    : `Nothing scheduled for ${monthLabel}.`;
+
+  document.getElementById("monthListBody").innerHTML = rows.map(r=>{
+    const overdue = !r.paid && r.date < todayStr;
+    const cb = r.kind==="bill"
+      ? `class="monthlist-check monthlist-bill-check" data-checkkey="${r.checkKey}"`
+      : `class="monthlist-check monthlist-loan-check" data-plan="${r.docId}" data-n="${r.n}"`;
+    return `<tr class="${r.paid?'has-actual':''} ${overdue?'loan-overdue':''}">
+      <td class="${overdue?'due-cell':''}">${r.date}</td>
+      <td>${r.name}</td>
+      <td><span class="pill muted">${r.type}</span></td>
+      <td class="amt num">${money(r.amount)}</td>
+      <td style="text-align:center"><input type="checkbox" ${cb} ${r.paid?"checked":""}></td>
+    </tr>`;
+  }).join("") || `<tr><td colspan="5" style="color:var(--ink-faint);">Nothing due this month.</td></tr>`;
+
+  document.querySelectorAll("#monthListBody .monthlist-bill-check").forEach(box=>{
+    box.addEventListener("change", async ()=>{
+      const key = box.dataset.checkkey;
+      await db.doc("bills_checked/"+key).set({checked: box.checked});
+      state.checked[key] = {checked: box.checked};
+      renderAll();
+    });
+  });
+  document.querySelectorAll("#monthListBody .monthlist-loan-check").forEach(box=>{
+    box.addEventListener("change", async ()=>{
+      const docId = box.dataset.plan;
+      const n = parseInt(box.dataset.n, 10);
+      const plan = state.loanSchedule[docId];
+      if(!plan) return;
+      const installments2 = plan.installments.map(i=> i.n===n ? {...i, paid: box.checked} : i);
+      const nextPlan = {...plan, installments: installments2};
+      await db.doc("loan_schedule/"+docId).set(nextPlan);
+      state.loanSchedule[docId] = nextPlan;
+      renderAll();
+    });
+  });
+}
+
 function renderProjection(){
   const svg = document.getElementById("projChart");
   const today0 = new Date(new Date().setHours(0,0,0,0));
@@ -1317,6 +1402,7 @@ function renderAll(){
   renderPivot();
   renderCombinedCategory();
   renderBills();
+  renderMonthList();
   renderLoanSchedule();
   renderProjection();
   renderTransactions();
