@@ -174,6 +174,7 @@
   .budget-table td.due{text-align:center; color:var(--ink-faint); font-size:11px;}
   .budget-table td.left-neg{color:var(--critical);}
   .budget-input{width:64px; text-align:right; padding:3px 5px; font-size:11.5px; border-radius:5px;}
+  .amt-edit{width:76px; text-align:right; padding:3px 5px; font-size:11.5px; border-radius:5px; font-family:"IBM Plex Mono",monospace;}
   .budget-check{width:14px; height:14px; accent-color:var(--accent);}
   .budget-totals td{font-weight:700; border-top:2px solid var(--border); border-bottom:none; padding-top:7px;}
 
@@ -937,14 +938,16 @@ function renderMonthList(){
 
   document.getElementById("monthListBody").innerHTML = rows.map(r=>{
     const overdue = !r.paid && r.date < todayStr;
+    const idAttrs = r.kind==="bill" ? `data-billid="${r.billId}"` : `data-plan="${r.docId}" data-n="${r.n}"`;
     const cb = r.kind==="bill"
-      ? `class="monthlist-check monthlist-bill-check" data-billid="${r.billId}"`
-      : `class="monthlist-check monthlist-loan-check" data-plan="${r.docId}" data-n="${r.n}"`;
+      ? `class="monthlist-check monthlist-bill-check" ${idAttrs}`
+      : `class="monthlist-check monthlist-loan-check" ${idAttrs}`;
     return `<tr class="${r.paid?'has-actual':''} ${overdue?'loan-overdue':''}">
       <td class="${overdue?'due-cell':''}">${r.date}</td>
       <td>${r.name}</td>
       <td><span class="pill muted">${r.type}</span></td>
-      <td class="amt num">${money(r.amount)}</td>
+      <td class="amt num"><input type="text" inputmode="decimal" class="amt-edit monthlist-amt-edit"
+            data-kind="${r.kind}" ${idAttrs} value="${r.amount}"></td>
       <td style="text-align:center"><input type="checkbox" ${cb} ${r.paid?"checked":""}></td>
     </tr>`;
   }).join("") || `<tr><td colspan="5" style="color:var(--ink-faint);">Nothing due this month.</td></tr>`;
@@ -961,6 +964,66 @@ function renderMonthList(){
       await toggleLoanInstallmentPaid(box.dataset.plan, parseInt(box.dataset.n, 10), box.checked);
     });
   });
+  document.querySelectorAll("#monthListBody .monthlist-amt-edit").forEach(inp=>{
+    inp.addEventListener("change", async ()=>{
+      const val = parseFloat(inp.value);
+      if(isNaN(val)){ inp.value = inp.defaultValue; return; }
+      if(inp.dataset.kind==="bill") await setBillAmount(inp.dataset.billid, val);
+      else await setLoanInstallmentAmount(inp.dataset.plan, parseInt(inp.dataset.n, 10), val);
+    });
+  });
+}
+
+// Editing the amount from This month's bills & loans updates the bill's/
+// installment's own stored amount, and - if it's already been checked off
+// this cycle via a synthetic register entry (not a real imported one) -
+// keeps that posted entry's amount in sync too, so the Running Balance
+// doesn't go stale until the next toggle.
+async function setBillAmount(billId, amount){
+  const bill = state.bills[billId];
+  if(!bill) return;
+  await db.doc("bills/"+billId).update({amount});
+  state.bills[billId] = {...bill, amount};
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const ym = today.toISOString().slice(0,7);
+  const acct = bill.account || "checking";
+  const txDocId = `${acct}_${ym}`;
+  const existingTx = state.transactions[txDocId];
+  const entryId = `bill_${billId}_${ym}`;
+  if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
+    const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
+    const nextTx = {...existingTx, entries: entries2};
+    await db.doc("transactions/"+txDocId).set(nextTx);
+    state.transactions[txDocId] = nextTx;
+  }
+  renderAll();
+}
+
+async function setLoanInstallmentAmount(docId, n, amount){
+  const plan = state.loanSchedule[docId];
+  if(!plan) return;
+  const inst = plan.installments.find(i=>i.n===n);
+  if(!inst) return;
+  const installments2 = plan.installments.map(i=> i.n===n ? {...i, amount} : i);
+  const nextPlan = {...plan, installments: installments2};
+  await db.doc("loan_schedule/"+docId).set(nextPlan);
+  state.loanSchedule[docId] = nextPlan;
+
+  if(inst.paid){
+    const acct = plan.account || "checking";
+    const ym = inst.dueDate.slice(0,7);
+    const txDocId = `${acct}_${ym}`;
+    const existingTx = state.transactions[txDocId];
+    const entryId = `loan_${docId}_${n}`;
+    if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
+      const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
+      const nextTx = {...existingTx, entries: entries2};
+      await db.doc("transactions/"+txDocId).set(nextTx);
+      state.transactions[txDocId] = nextTx;
+    }
+  }
+  renderAll();
 }
 
 function renderProjection(){
@@ -1233,7 +1296,8 @@ function renderRegister(){
       <td>${e.date}</td>
       <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}</td>
       <td>${e.category}</td>
-      <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
+      <td class="amt num"><input type="text" inputmode="decimal" class="amt-edit reg-amt-edit ${e.amount>0?'pos':''}"
+            data-docid="${e.docId}" data-id="${e.id}" value="${e.amount}"></td>
       <td class="amt num ${e.balance<0?'bal-neg':''}" style="font-weight:600;">${money(e.balance)}</td>
       <td><button class="reg-del" data-docid="${e.docId}" data-id="${e.id}" title="Delete this entry">✕</button></td>
     </tr>`); // newest first
@@ -1262,6 +1326,24 @@ function renderRegister(){
       btn._disarmTimer = setTimeout(()=>{ btn.dataset.armed="0"; btn.textContent="✕"; btn.classList.remove("armed"); }, 4000);
     });
   });
+
+  document.querySelectorAll(".reg-amt-edit").forEach(inp=>{
+    inp.addEventListener("change", async ()=>{
+      const val = parseFloat(inp.value);
+      if(isNaN(val)){ inp.value = inp.defaultValue; return; }
+      await editRegisterAmount(inp.dataset.docid, inp.dataset.id, val);
+    });
+  });
+}
+
+async function editRegisterAmount(docId, entryId, amount){
+  if(!db) return;
+  const existing = state.transactions[docId];
+  if(!existing) return;
+  const next = {...existing, entries: (existing.entries||[]).map(e=> e.id===entryId ? {...e, amount} : e)};
+  await db.doc("transactions/"+docId).set(next);
+  state.transactions[docId] = next;
+  renderAll();
 }
 
 async function deleteRegisterEntry(docId, entryId){
