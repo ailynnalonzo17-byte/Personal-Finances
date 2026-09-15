@@ -293,6 +293,17 @@
     <div class="row-count" id="registerCount"></div>
   </div>
 
+  <div class="panel" id="monthListPanel">
+    <h2>This month's bills &amp; loans</h2>
+    <div class="sub" id="monthListSub"></div>
+    <div class="tx-scroll">
+      <table>
+        <thead><tr><th>Due</th><th>Name</th><th>Type</th><th style="text-align:right">Amount</th><th style="text-align:center">Paid</th></tr></thead>
+        <tbody id="monthListBody"></tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="panel">
     <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
       <div><h2 id="summaryTitle">Summary</h2><div class="sub" id="summarySub">by group</div></div>
@@ -311,17 +322,6 @@
       <h2>Checking, next 30 days</h2>
       <div class="sub" id="projSub">Projected balance if nothing but the bills above hits</div>
       <div class="proj-wrap"><svg class="proj" id="projChart" viewBox="0 0 560 190" width="100%" height="190"></svg></div>
-    </div>
-  </div>
-
-  <div class="panel" id="monthListPanel">
-    <h2>This month's bills &amp; loans</h2>
-    <div class="sub" id="monthListSub"></div>
-    <div class="tx-scroll">
-      <table>
-        <thead><tr><th>Due</th><th>Name</th><th>Type</th><th style="text-align:right">Amount</th><th style="text-align:center">Paid</th></tr></thead>
-        <tbody id="monthListBody"></tbody>
-      </table>
     </div>
   </div>
 
