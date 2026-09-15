@@ -424,6 +424,21 @@ const ITEMIZED_CARD_CATS = new Set(["CC - paypal","CC - cashback MC","CC - One P
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 
+// The db has no transactions (last-writer-wins), and several different bills/loan
+// installments share the same monthly transactions/<acct>_<ym> doc. Without this,
+// checking two boxes close together races: both read the doc before either write
+// lands, and the second write silently clobbers the first one's new entry. Queuing
+// every read-modify-write against a given doc id through here makes each one wait
+// for the previous to finish before it reads, which fixes same-tab races (it can't
+// fix a genuine multi-device conflict - the platform doesn't offer that).
+const txDocQueues = {};
+function withTxLock(docId, fn){
+  const prev = txDocQueues[docId] || Promise.resolve();
+  const next = prev.then(fn, fn);
+  txDocQueues[docId] = next.catch(()=>{});
+  return next;
+}
+
 function catOptionsHTML(selected){
   let html = ""; let curGroup = null;
   for(const [g,c] of MASTER_CATS){
@@ -1036,14 +1051,16 @@ async function setBillAmount(billId, amount){
   const ym = today.toISOString().slice(0,7);
   const acct = bill.account || "checking";
   const txDocId = `${acct}_${ym}`;
-  const existingTx = state.transactions[txDocId];
-  const entryId = `bill_${billId}_${ym}`;
-  if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
-    const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
-    const nextTx = {...existingTx, entries: entries2};
-    await db.doc("transactions/"+txDocId).set(nextTx);
-    state.transactions[txDocId] = nextTx;
-  }
+  await withTxLock(txDocId, async ()=>{
+    const existingTx = state.transactions[txDocId];
+    const entryId = `bill_${billId}_${ym}`;
+    if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
+      const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
+      const nextTx = {...existingTx, entries: entries2};
+      await db.doc("transactions/"+txDocId).set(nextTx);
+      state.transactions[txDocId] = nextTx;
+    }
+  });
   renderAll();
 }
 
@@ -1061,14 +1078,16 @@ async function setLoanInstallmentAmount(docId, n, amount){
     const acct = plan.account || "checking";
     const ym = inst.dueDate.slice(0,7);
     const txDocId = `${acct}_${ym}`;
-    const existingTx = state.transactions[txDocId];
-    const entryId = `loan_${docId}_${n}`;
-    if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
-      const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
-      const nextTx = {...existingTx, entries: entries2};
-      await db.doc("transactions/"+txDocId).set(nextTx);
-      state.transactions[txDocId] = nextTx;
-    }
+    await withTxLock(txDocId, async ()=>{
+      const existingTx = state.transactions[txDocId];
+      const entryId = `loan_${docId}_${n}`;
+      if(existingTx && (existingTx.entries||[]).some(e=>e.id===entryId)){
+        const entries2 = existingTx.entries.map(e=> e.id===entryId ? {...e, amount: -Math.abs(amount)} : e);
+        const nextTx = {...existingTx, entries: entries2};
+        await db.doc("transactions/"+txDocId).set(nextTx);
+        state.transactions[txDocId] = nextTx;
+      }
+    });
   }
   renderAll();
 }
@@ -1152,26 +1171,28 @@ async function toggleLoanInstallmentPaid(docId, n, checked){
     const acct = plan.account || "checking";
     const ym = inst.dueDate.slice(0,7);
     const txDocId = `${acct}_${ym}`;
-    const ref = db.doc("transactions/"+txDocId);
-    const snap = await ref.get();
-    const existingTx = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
-    const entryId = `loan_${docId}_${n}`;
-    let entries2;
-    if(checked){
-      const already = (existingTx.entries||[]).some(e=>e.id===entryId);
-      const cat = plan.provider==="Affirm" ? "Affirm" : plan.provider==="Klarna" ? "Klarna" : "Others";
-      entries2 = already ? existingTx.entries : [...(existingTx.entries||[]), {
-        id: entryId, date: inst.dueDate,
-        description: `${plan.name} - installment ${n}/${inst.total}`,
-        amount: -inst.amount, category: cat, group: "Debt", confidence: "H",
-        note: "From your Loan Payment Schedule - checked off by you", source: "Loan schedule payment"
-      }];
-    } else {
-      entries2 = (existingTx.entries||[]).filter(e=> e.id!==entryId);
-    }
-    const nextTx = {...existingTx, entries: entries2};
-    await ref.set(nextTx);
-    state.transactions[txDocId] = nextTx;
+    await withTxLock(txDocId, async ()=>{
+      const ref = db.doc("transactions/"+txDocId);
+      const snap = await ref.get();
+      const existingTx = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
+      const entryId = `loan_${docId}_${n}`;
+      let entries2;
+      if(checked){
+        const already = (existingTx.entries||[]).some(e=>e.id===entryId);
+        const cat = plan.provider==="Affirm" ? "Affirm" : plan.provider==="Klarna" ? "Klarna" : "Others";
+        entries2 = already ? existingTx.entries : [...(existingTx.entries||[]), {
+          id: entryId, date: inst.dueDate,
+          description: `${plan.name} - installment ${n}/${inst.total}`,
+          amount: -inst.amount, category: cat, group: "Debt", confidence: "H",
+          note: "From your Loan Payment Schedule - checked off by you", source: "Loan schedule payment"
+        }];
+      } else {
+        entries2 = (existingTx.entries||[]).filter(e=> e.id!==entryId);
+      }
+      const nextTx = {...existingTx, entries: entries2};
+      await ref.set(nextTx);
+      state.transactions[txDocId] = nextTx;
+    });
   }
   renderAll();
 }
@@ -1193,31 +1214,33 @@ async function toggleBillPaid(billId, checked){
 
   const acct = bill.account || "checking";
   const txDocId = `${acct}_${ym}`;
-  const ref = db.doc("transactions/"+txDocId);
-  const snap = await ref.get();
-  const existingTx = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
-  const entryId = `bill_${billId}_${ym}`;
-  const already = (existingTx.entries||[]).some(e=>e.id===entryId);
-  const realExists = (existingTx.entries||[]).some(e=> e.category===bill.name && e.id!==entryId);
+  await withTxLock(txDocId, async ()=>{
+    const ref = db.doc("transactions/"+txDocId);
+    const snap = await ref.get();
+    const existingTx = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
+    const entryId = `bill_${billId}_${ym}`;
+    const already = (existingTx.entries||[]).some(e=>e.id===entryId);
+    const realExists = (existingTx.entries||[]).some(e=> e.category===bill.name && e.id!==entryId);
 
-  let entries2 = existingTx.entries || [];
-  if(checked){
-    if(!already && !realExists){
-      const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), bill.dueDay).toISOString().slice(0,10);
-      entries2 = [...entries2, {
-        id: entryId, date: dueThisMonth, description: `${bill.name} - checked off as paid`,
-        amount: -Math.abs(bill.amount||0), category: bill.name, group: bill.group, confidence: "H",
-        note: "From This month's bills & loans - checked off by you", source: "Bill checklist payment"
-      }];
+    let entries2 = existingTx.entries || [];
+    if(checked){
+      if(!already && !realExists){
+        const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), bill.dueDay).toISOString().slice(0,10);
+        entries2 = [...entries2, {
+          id: entryId, date: dueThisMonth, description: `${bill.name} - checked off as paid`,
+          amount: -Math.abs(bill.amount||0), category: bill.name, group: bill.group, confidence: "H",
+          note: "From This month's bills & loans - checked off by you", source: "Bill checklist payment"
+        }];
+      }
+    } else if(already){
+      entries2 = entries2.filter(e=> e.id!==entryId);
     }
-  } else if(already){
-    entries2 = entries2.filter(e=> e.id!==entryId);
-  }
-  if(entries2 !== existingTx.entries){
-    const nextTx = {...existingTx, entries: entries2};
-    await ref.set(nextTx);
-    state.transactions[txDocId] = nextTx;
-  }
+    if(entries2 !== existingTx.entries){
+      const nextTx = {...existingTx, entries: entries2};
+      await ref.set(nextTx);
+      state.transactions[txDocId] = nextTx;
+    }
+  });
   renderAll();
 }
 
@@ -1385,21 +1408,25 @@ function renderRegister(){
 
 async function editRegisterAmount(docId, entryId, amount){
   if(!db) return;
-  const existing = state.transactions[docId];
-  if(!existing) return;
-  const next = {...existing, entries: (existing.entries||[]).map(e=> e.id===entryId ? {...e, amount} : e)};
-  await db.doc("transactions/"+docId).set(next);
-  state.transactions[docId] = next;
+  await withTxLock(docId, async ()=>{
+    const existing = state.transactions[docId];
+    if(!existing) return;
+    const next = {...existing, entries: (existing.entries||[]).map(e=> e.id===entryId ? {...e, amount} : e)};
+    await db.doc("transactions/"+docId).set(next);
+    state.transactions[docId] = next;
+  });
   renderAll();
 }
 
 async function deleteRegisterEntry(docId, entryId){
   if(!db) return;
-  const existing = state.transactions[docId];
-  if(!existing) return;
-  const next = {...existing, entries: (existing.entries||[]).filter(e=> e.id!==entryId)};
-  await db.doc("transactions/"+docId).set(next);
-  state.transactions[docId] = next;
+  await withTxLock(docId, async ()=>{
+    const existing = state.transactions[docId];
+    if(!existing) return;
+    const next = {...existing, entries: (existing.entries||[]).filter(e=> e.id!==entryId)};
+    await db.doc("transactions/"+docId).set(next);
+    state.transactions[docId] = next;
+  });
   renderAll();
 }
 
@@ -1425,18 +1452,20 @@ async function onAdd(ev){
   try{
     const ym = date.slice(0,7);
     const docId = `${acct}_${ym}`;
-    const ref = db.doc("transactions/"+docId);
-    const snap = await ref.get();
-    const existing = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
-    const entry = {
-      id: (crypto.randomUUID ? crypto.randomUUID() : "e"+Date.now()+Math.random().toString(16).slice(2)),
-      date, description:desc, amount:amt, category, group, confidence:"H", note:"", source:"Manual entry"
-    };
-    // existing came from snap.data(), which is frozen - build a new object rather than
-    // mutating it, or the write silently saves back the unchanged original.
-    const next = {...existing, entries: [...(existing.entries||[]), entry]};
-    await ref.set(next);
-    state.transactions[docId] = next;
+    await withTxLock(docId, async ()=>{
+      const ref = db.doc("transactions/"+docId);
+      const snap = await ref.get();
+      const existing = snap.exists ? snap.data() : {account:acct, month:ym, entries:[]};
+      const entry = {
+        id: (crypto.randomUUID ? crypto.randomUUID() : "e"+Date.now()+Math.random().toString(16).slice(2)),
+        date, description:desc, amount:amt, category, group, confidence:"H", note:"", source:"Manual entry"
+      };
+      // existing came from snap.data(), which is frozen - build a new object rather than
+      // mutating it, or the write silently saves back the unchanged original.
+      const next = {...existing, entries: [...(existing.entries||[]), entry]};
+      await ref.set(next);
+      state.transactions[docId] = next;
+    });
     renderAll();
     msg.textContent = "Added.";
     document.getElementById("f-desc").value = "";
