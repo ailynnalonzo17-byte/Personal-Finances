@@ -442,6 +442,14 @@ function withTxLock(docId, fn){
   return next;
 }
 
+// Coalesces renderAll() calls that land in the same tick (see subscribe()) into one.
+let renderScheduled = false;
+function scheduleRender(){
+  if(renderScheduled) return;
+  renderScheduled = true;
+  Promise.resolve().then(()=>{ renderScheduled = false; renderAll(); });
+}
+
 function catOptionsHTML(selected){
   let html = ""; let curGroup = null;
   for(const [g,c] of MASTER_CATS){
@@ -493,62 +501,79 @@ async function init(){
   subscribe();
 }
 
+// Every collection below fires its own onSnapshot independently, and a single
+// write from this page (e.g. checking off a bill touches bills_checked AND
+// transactions) triggers more than one of them close together. Calling
+// scheduleRender() instead of renderAll() directly coalesces any snapshots that
+// land in the same tick - initial load's 8-way stampede included - into one
+// render pass rather than one full page rebuild per collection.
 function subscribe(){
   unsubs.push(db.collection("accounts").onSnapshot(snap=>{
     state.accounts = {};
     snap.docs.forEach(d=> state.accounts[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("transactions").onSnapshot(snap=>{
     state.transactions = {};
     snap.docs.forEach(d=> state.transactions[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("bills").onSnapshot(snap=>{
     state.bills = {};
     snap.docs.forEach(d=> state.bills[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("credit_cards").onSnapshot(snap=>{
     state.creditCards = {};
     snap.docs.forEach(d=> state.creditCards[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("budgets").onSnapshot(snap=>{
     state.budgets = {};
     snap.docs.forEach(d=> state.budgets[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("bills_checked").onSnapshot(snap=>{
     state.checked = {};
     snap.docs.forEach(d=> state.checked[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("loan_schedule").onSnapshot(snap=>{
     state.loanSchedule = {};
     snap.docs.forEach(d=> state.loanSchedule[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 
   unsubs.push(db.collection("card_transactions").onSnapshot(snap=>{
     state.cardTransactions = {};
     snap.docs.forEach(d=> state.cardTransactions[d.id] = d.data());
-    renderAll();
+    scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 }
 
+// Every render function that needs the flat, sorted list of every transaction
+// (there are 1,500+ once a few months of statements are in) calls allEntries() -
+// often several times in a single renderAll() pass (accountBalance alone runs it
+// for each of the 4 account tiles, plus the projection chart and loan schedule).
+// Recomputing and re-sorting that array from scratch each time was the single
+// biggest cost per render, so it's cached for the duration of one pass and reset
+// at the top of renderAll() - every render sees fresh data, nothing is memoized
+// across passes.
+let _entriesCache = null;
 function allEntries(){
+  if(_entriesCache) return _entriesCache;
   const out = [];
   Object.entries(state.transactions).forEach(([docId, doc])=>{
     (doc.entries||[]).forEach(e=> out.push({...e, account: doc.account, docId}));
   });
   out.sort((a,b)=> a.date < b.date ? 1 : -1);
+  _entriesCache = out;
   return out;
 }
 
@@ -557,13 +582,13 @@ function allEntries(){
 // out that way (see toggleBillPaid/toggleLoanInstallmentPaid) - they're your own
 // estimate of a bill, not something the bank has actually processed yet. Every real
 // entry (a CSV import, a manual add) has no `cleared` field at all, which counts.
+// Reads from the allEntries() cache above rather than re-walking state.transactions
+// itself, since this runs several times per render pass.
 function accountBalance(accId){
   const acc = state.accounts[accId];
   const start = acc ? (acc.startingBalance||0) : 0;
   let total = start;
-  Object.values(state.transactions).forEach(doc=>{
-    if(doc.account===accId) (doc.entries||[]).forEach(e=>{ if(e.cleared!==false) total += e.amount; });
-  });
+  allEntries().forEach(e=>{ if(e.account===accId && e.cleared!==false) total += e.amount; });
   return total;
 }
 
@@ -1634,6 +1659,7 @@ function renderCombinedCategory(){
 
 /* ---------------- render all ---------------- */
 function renderAll(){
+  _entriesCache = null; // fresh per pass - see allEntries()
   renderDueSoon();
   renderAccounts();
   renderCreditCards();
