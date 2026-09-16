@@ -139,6 +139,9 @@
     padding:4px 6px; border-radius:5px; white-space:nowrap;}
   .reg-del:hover{color:var(--critical); background:var(--critical-soft);}
   .reg-del.armed{color:var(--surface); background:var(--critical); font-weight:600; font-size:11px;}
+  input.reg-cleared{width:15px; height:15px; accent-color:var(--accent);}
+  tr.reg-pending td{color:var(--ink-faint);}
+  tr.reg-pending td.amt,tr.reg-pending .reg-amt-edit{color:var(--ink-dim);}
   .bill-edit-row{display:none; grid-column:1/-1; gap:6px; padding:8px 0 2px; flex-wrap:wrap;}
   .bill-edit-row.open{display:flex;}
   .bill-edit-row input{width:100px;}
@@ -286,7 +289,7 @@
     </div>
     <div class="tx-scroll" id="registerScroll">
       <table>
-        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th><th></th></tr></thead>
+        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:center" title="Whether this entry counts toward the balance to the right">Counts</th><th style="text-align:right">Balance</th><th></th></tr></thead>
         <tbody id="registerBody"></tbody>
       </table>
     </div>
@@ -549,12 +552,17 @@ function allEntries(){
   return out;
 }
 
+// An entry counts toward the balance unless it's explicitly marked cleared:false.
+// Only entries posted from This month's bills & loans / Loan Payment Schedule start
+// out that way (see toggleBillPaid/toggleLoanInstallmentPaid) - they're your own
+// estimate of a bill, not something the bank has actually processed yet. Every real
+// entry (a CSV import, a manual add) has no `cleared` field at all, which counts.
 function accountBalance(accId){
   const acc = state.accounts[accId];
   const start = acc ? (acc.startingBalance||0) : 0;
   let total = start;
   Object.values(state.transactions).forEach(doc=>{
-    if(doc.account===accId) (doc.entries||[]).forEach(e=> total += e.amount);
+    if(doc.account===accId) (doc.entries||[]).forEach(e=>{ if(e.cleared!==false) total += e.amount; });
   });
   return total;
 }
@@ -1152,7 +1160,9 @@ function renderProjection(){
 // panel, so checking an installment off in either place behaves identically and
 // can never post the same transaction twice. Keyed by a deterministic entry id
 // (loan_<planDocId>_<n>), so re-checking an already-checked box, or the panel
-// simply re-rendering, never adds a duplicate.
+// simply re-rendering, never adds a duplicate. The posted entry starts out
+// cleared:false - it's added to Running Balance so you can see it, but doesn't
+// move the balance total until you tick "Counts" there once it actually posts.
 async function toggleLoanInstallmentPaid(docId, n, checked){
   const plan = state.loanSchedule[docId];
   if(!plan) return;
@@ -1183,7 +1193,7 @@ async function toggleLoanInstallmentPaid(docId, n, checked){
         entries2 = already ? existingTx.entries : [...(existingTx.entries||[]), {
           id: entryId, date: inst.dueDate,
           description: `${plan.name} - installment ${n}/${inst.total}`,
-          amount: -inst.amount, category: cat, group: "Debt", confidence: "H",
+          amount: -inst.amount, category: cat, group: "Debt", confidence: "H", cleared: false,
           note: "From your Loan Payment Schedule - checked off by you", source: "Loan schedule payment"
         }];
       } else {
@@ -1202,7 +1212,10 @@ async function toggleLoanInstallmentPaid(docId, n, checked){
 // (bill_<billId>_<YYYY-MM>) so re-checking or re-rendering never duplicates it -
 // and if a REAL transaction for this category already posted this month (from
 // an actual CSV import), checking the box does NOT add a second, synthetic one
-// on top of it - it only records the checkmark.
+// on top of it - it only records the checkmark. When it does post one, that entry
+// starts cleared:false: it shows up in Running Balance right away, but is only
+// counted toward the balance once you tick "Counts" there (see accountBalance) -
+// your bill amount is usually an estimate, not what the bank actually charges.
 async function toggleBillPaid(billId, checked){
   const bill = state.bills[billId];
   if(!bill) return;
@@ -1228,7 +1241,7 @@ async function toggleBillPaid(billId, checked){
         const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), bill.dueDay).toISOString().slice(0,10);
         entries2 = [...entries2, {
           id: entryId, date: dueThisMonth, description: `${bill.name} - checked off as paid`,
-          amount: -Math.abs(bill.amount||0), category: bill.name, group: bill.group, confidence: "H",
+          amount: -Math.abs(bill.amount||0), category: bill.name, group: bill.group, confidence: "H", cleared: false,
           note: "From This month's bills & loans - checked off by you", source: "Bill checklist payment"
         }];
       }
@@ -1346,28 +1359,33 @@ function renderRegister(){
 
   const chronological = allEntries().filter(e=> e.account===acctId).slice().reverse(); // oldest first, to compute running balance
   document.getElementById("registerSub").textContent =
-    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, newest first, with the balance right after each one`;
+    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, newest first - uncheck "Counts" for anything that hasn't actually hit your bank yet`;
 
+  // Uncounted entries (cleared:false, from This month's bills & loans / Loan Payment
+  // Schedule before you confirm them) don't move the running total - the balance shown
+  // on their row is what it was before them, not a real post-transaction balance.
   let running = start;
   const computed = chronological.map(e=>{
-    running += e.amount;
-    return {...e, balance: running};
+    const cleared = e.cleared!==false;
+    if(cleared) running += e.amount;
+    return {...e, cleared, balance: running};
   });
   const ending = running;
 
   const startRow = `<tr>
       <td>${acc && acc.startingDate ? acc.startingDate : "—"}</td>
       <td style="font-style:italic; color:var(--ink-faint);">Starting balance</td>
-      <td></td><td class="amt num"></td>
+      <td></td><td class="amt num"></td><td></td>
       <td class="amt num ${start<0?'bal-neg':''}">${money(start)}</td>
       <td></td>
     </tr>`;
-  const txRows = computed.slice().reverse().map(e=> `<tr>
+  const txRows = computed.slice().reverse().map(e=> `<tr class="${e.cleared?'':'reg-pending'}">
       <td>${e.date}</td>
-      <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}</td>
+      <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}${!e.cleared ? ' <span class="pill warn">not counted yet</span>' : ''}</td>
       <td>${e.category}</td>
       <td class="amt num"><input type="text" inputmode="decimal" class="amt-edit reg-amt-edit ${e.amount>0?'pos':''}"
             data-docid="${e.docId}" data-id="${e.id}" value="${e.amount}"></td>
+      <td style="text-align:center"><input type="checkbox" class="reg-cleared" data-docid="${e.docId}" data-id="${e.id}" ${e.cleared?"checked":""}></td>
       <td class="amt num ${e.balance<0?'bal-neg':''}" style="font-weight:600;">${money(e.balance)}</td>
       <td><button class="reg-del" data-docid="${e.docId}" data-id="${e.id}" title="Delete this entry">✕</button></td>
     </tr>`); // newest first
@@ -1404,6 +1422,13 @@ function renderRegister(){
       await editRegisterAmount(inp.dataset.docid, inp.dataset.id, val);
     });
   });
+
+  document.querySelectorAll(".reg-cleared").forEach(cb=>{
+    cb.addEventListener("change", async ()=>{
+      cb.disabled = true;
+      await setEntryCleared(cb.dataset.docid, cb.dataset.id, cb.checked);
+    });
+  });
 }
 
 async function editRegisterAmount(docId, entryId, amount){
@@ -1412,6 +1437,21 @@ async function editRegisterAmount(docId, entryId, amount){
     const existing = state.transactions[docId];
     if(!existing) return;
     const next = {...existing, entries: (existing.entries||[]).map(e=> e.id===entryId ? {...e, amount} : e)};
+    await db.doc("transactions/"+docId).set(next);
+    state.transactions[docId] = next;
+  });
+  renderAll();
+}
+
+// Toggling "Counts" in Running Balance is what actually makes an entry move the
+// balance - see accountBalance(). Used to confirm a This month's bills & loans / Loan
+// Payment Schedule checkoff really hit the bank, without having to delete and re-add it.
+async function setEntryCleared(docId, entryId, cleared){
+  if(!db) return;
+  await withTxLock(docId, async ()=>{
+    const existing = state.transactions[docId];
+    if(!existing) return;
+    const next = {...existing, entries: (existing.entries||[]).map(e=> e.id===entryId ? {...e, cleared} : e)};
     await db.doc("transactions/"+docId).set(next);
     state.transactions[docId] = next;
   });
