@@ -427,6 +427,17 @@ const ITEMIZED_CARD_CATS = new Set(["CC - paypal","CC - cashback MC","CC - One P
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 
+// Running Balance and Transactions only render the newest REGISTER_PAGE / TX_PAGE
+// rows by default - your history is 1,500+ entries and counting, and building every
+// row's DOM (an <input> per register row, a whole category <select> per transaction
+// row) for all of them on every render was most of the page's render cost. "Show
+// more" bumps the count for that panel only; switching accounts or changing a
+// transaction filter resets it back down, since the old count refers to a list that
+// no longer applies.
+const REGISTER_PAGE = 100, TX_PAGE = 100;
+let registerVisibleCount = REGISTER_PAGE;
+let txVisibleCount = TX_PAGE;
+
 // The db has no transactions (last-writer-wins), and several different bills/loan
 // installments share the same monthly transactions/<acct>_<ym> doc. Without this,
 // checking two boxes close together races: both read the doc before either write
@@ -474,11 +485,12 @@ async function init(){
     b.classList.add("active");
   });
   document.getElementById("addForm").addEventListener("submit", onAdd);
-  document.getElementById("txSearch").addEventListener("input", renderTransactions);
-  document.getElementById("txAcct").addEventListener("change", renderTransactions);
-  document.getElementById("txGroup").addEventListener("change", renderTransactions);
-  document.getElementById("txConf").addEventListener("change", renderTransactions);
-  document.getElementById("registerAcct").addEventListener("change", renderRegister);
+  const resetTxPageAnd = fn => ()=>{ txVisibleCount = TX_PAGE; fn(); };
+  document.getElementById("txSearch").addEventListener("input", resetTxPageAnd(renderTransactions));
+  document.getElementById("txAcct").addEventListener("change", resetTxPageAnd(renderTransactions));
+  document.getElementById("txGroup").addEventListener("change", resetTxPageAnd(renderTransactions));
+  document.getElementById("txConf").addEventListener("change", resetTxPageAnd(renderTransactions));
+  document.getElementById("registerAcct").addEventListener("change", ()=>{ registerVisibleCount = REGISTER_PAGE; renderRegister(); });
   document.getElementById("loanSchedHidePaid").addEventListener("change", renderLoanSchedule);
 
   const groupSel = document.getElementById("txGroup");
@@ -1342,23 +1354,37 @@ function renderTransactions(){
   if(acctF) entries = entries.filter(e=> e.account===acctF);
   if(groupF) entries = entries.filter(e=> e.group===groupF);
   if(confF) entries = entries.filter(e=> e.confidence===confF);
-  entries = entries.slice(0, 500);
+  entries = entries.slice(0, 500); // hard ceiling regardless of paging below - narrow filters for more than this
 
-  document.getElementById("txBody").innerHTML = entries.map(e=>{
-    const sel = `${e.group}||${e.category}`;
-    return `<tr>
+  const visible = entries.slice(0, txVisibleCount);
+  const remaining = entries.length - visible.length;
+
+  // Every row needs the same ~90-option category list, just with a different one
+  // selected - building that string fresh per row (500x) was most of this panel's
+  // render cost. Build it once with nothing pre-selected and set each select's
+  // value in JS afterward instead.
+  const catOptionsBase = catOptionsHTML(null);
+  document.getElementById("txBody").innerHTML = visible.map(e=> `<tr>
       <td>${e.date}</td>
       <td title="${e.note||""}">${e.description}</td>
       <td>${ACCOUNT_NAMES[e.account]||e.account}</td>
       <td>
         <span class="conf-dot conf-${e.confidence}" title="confidence: ${e.confidence}"></span>
-        <select class="cat-select" data-entry="${e.docId}|${e.id}">${catOptionsHTML(sel)}</select>
+        <select class="cat-select" data-entry="${e.docId}|${e.id}" data-sel="${e.group}||${e.category}">${catOptionsBase}</select>
       </td>
       <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
       <td></td>
-    </tr>`;
-  }).join("");
-  document.getElementById("txCount").textContent = `Showing ${entries.length} transaction${entries.length===1?"":"s"}${entries.length===500?" (of more — narrow your filters)":""}`;
+    </tr>`).join("") + (remaining>0
+      ? `<tr><td colspan="6" style="text-align:center; padding:10px;"><button class="btn ghost" id="loadMoreTx" style="padding:6px 14px;">Show ${Math.min(TX_PAGE, remaining)} more (${remaining} left)</button></td></tr>`
+      : "");
+
+  document.querySelectorAll(".cat-select").forEach(sel=>{ sel.value = sel.dataset.sel; });
+
+  document.getElementById("txCount").textContent =
+    `Showing ${visible.length} of ${entries.length}${entries.length===500?"+ (narrow your filters for the rest)":""} transaction${entries.length===1?"":"s"}`;
+
+  const loadMoreTx = document.getElementById("loadMoreTx");
+  if(loadMoreTx) loadMoreTx.addEventListener("click", ()=>{ txVisibleCount += TX_PAGE; renderTransactions(); });
 
   document.querySelectorAll(".cat-select").forEach(sel=>{
     sel.addEventListener("change", async ()=>{
@@ -1377,7 +1403,7 @@ function renderTransactions(){
 }
 
 /* ---------------- render: running balance register ---------------- */
-function renderRegister(){
+function renderRegister(preserveScroll){
   const acctId = document.getElementById("registerAcct").value || "checking";
   const acc = state.accounts[acctId];
   const start = acc ? (acc.startingBalance||0) : 0;
@@ -1389,6 +1415,8 @@ function renderRegister(){
   // Uncounted entries (cleared:false, from This month's bills & loans / Loan Payment
   // Schedule before you confirm them) don't move the running total - the balance shown
   // on their row is what it was before them, not a real post-transaction balance.
+  // Balances are computed over the FULL history regardless of how much is shown below -
+  // only the DOM rows are paginated, so the numbers stay correct either way.
   let running = start;
   const computed = chronological.map(e=>{
     const cleared = e.cleared!==false;
@@ -1397,14 +1425,21 @@ function renderRegister(){
   });
   const ending = running;
 
-  const startRow = `<tr>
+  const newestFirst = computed.slice().reverse();
+  const visible = newestFirst.slice(0, registerVisibleCount);
+  const remaining = newestFirst.length - visible.length;
+
+  // The starting-balance row only makes sense once every entry back to it is shown -
+  // otherwise there'd be a gap between the oldest visible row and "starting balance"
+  // with no way to tell how much history is missing in between.
+  const startRow = remaining===0 ? `<tr>
       <td>${acc && acc.startingDate ? acc.startingDate : "—"}</td>
       <td style="font-style:italic; color:var(--ink-faint);">Starting balance</td>
       <td></td><td class="amt num"></td><td></td>
       <td class="amt num ${start<0?'bal-neg':''}">${money(start)}</td>
       <td></td>
-    </tr>`;
-  const txRows = computed.slice().reverse().map(e=> `<tr class="${e.cleared?'':'reg-pending'}">
+    </tr>` : `<tr><td colspan="7" style="text-align:center; padding:10px;"><button class="btn ghost" id="loadMoreReg" style="padding:6px 14px;">Show ${Math.min(REGISTER_PAGE, remaining)} more (${remaining} left)</button></td></tr>`;
+  const txRows = visible.map(e=> `<tr class="${e.cleared?'':'reg-pending'}">
       <td>${e.date}</td>
       <td title="${e.note||''}">${e.description}${e.source==="Manual entry" ? ' <span class="pill muted">manual</span>' : ''}${!e.cleared ? ' <span class="pill warn">not counted yet</span>' : ''}</td>
       <td>${e.category}</td>
@@ -1416,10 +1451,14 @@ function renderRegister(){
     </tr>`); // newest first
 
   document.getElementById("registerBody").innerHTML = txRows.join("") + startRow;
-  document.getElementById("registerCount").textContent =
-    `${computed.length} transaction${computed.length===1?"":"s"} · currently ${money(ending)}`;
+  document.getElementById("registerCount").textContent = remaining>0
+    ? `Showing the newest ${visible.length} of ${computed.length} transactions · currently ${money(ending)}`
+    : `${computed.length} transaction${computed.length===1?"":"s"} · currently ${money(ending)}`;
 
-  document.getElementById("registerScroll").scrollTop = 0; // newest is at the top
+  const loadMoreReg = document.getElementById("loadMoreReg");
+  if(loadMoreReg) loadMoreReg.addEventListener("click", ()=>{ registerVisibleCount += REGISTER_PAGE; renderRegister(true); });
+
+  if(!preserveScroll) document.getElementById("registerScroll").scrollTop = 0; // newest is at the top
 
   // Artifacts run sandboxed and can't use window.confirm() (it silently no-ops), so
   // deleting is a two-click pattern instead: first click arms the button ("Sure?"),
