@@ -26,6 +26,7 @@ DEBT = [
     "CC - Frontier card","CC - Whole foods","Afterpay","CC - One Pay",
     "CC - Citibank","CC - Capital 1","CC - paypal","CC - cashback MC",
     "Paypal pay in 4","CC - Mission Lane","CC - Citizen bank","CC - Chase Amazon Visa",
+    "PayPal Pay Monthly",
 ]
 
 INCOME = [
