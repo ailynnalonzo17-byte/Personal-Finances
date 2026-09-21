@@ -1,0 +1,10 @@
+{
+  "account": "checking",
+  "active": true,
+  "amount": 139.72,
+  "dueDay": 29,
+  "group": "Monthly Bills",
+  "name": "Cox",
+  "type": "bill",
+  "note": "Replaces Comcast starting September 2026. Carried over Comcast's median estimate ($139.72, due 29th) until a real Cox statement comes in - verify once you get one."
+}

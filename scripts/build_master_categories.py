@@ -2,7 +2,7 @@
 # Income and Transfer groups needed for reconciliation.
 
 MONTHLY_BILLS = [
-    "Amazon Prime","Atty Chua","Cal Water","Car insurance","Comcast",
+    "Amazon Prime","Atty Chua","Cal Water","Car insurance","Comcast","Cox",
     "Google 1","National Life Ins","Netflix","Rent","Roku","Verizon",
     "Waste Management","Yesoulfitness","YT Premium","PGE","Insurance","Harna fit",
     "Planet Fitness","Life 360","NV Energy","SW Gas","Prulife",
@@ -12,7 +12,7 @@ EXPENSES = [
     "Business Expense","Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
-    "Groceries - Steves","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
+    "Groceries - Seafood City","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
     "Misc - gail gown and cap","Movie","Others","paypal tiktok",
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
