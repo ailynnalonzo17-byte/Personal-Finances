@@ -279,7 +279,7 @@
 
   <div class="panel">
     <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-      <div><h2>Running balance</h2><div class="sub" id="registerSub">Every transaction for this account, newest first, with the balance right after each one</div></div>
+      <div><h2>Running balance</h2><div class="sub" id="registerSub">Unchecked transactions first, then newest first, with the balance right after each one</div></div>
       <select id="registerAcct">
         <option value="checking">Checking</option>
         <option value="savings">Savings</option>
@@ -1410,7 +1410,7 @@ function renderRegister(preserveScroll){
 
   const chronological = allEntries().filter(e=> e.account===acctId).slice().reverse(); // oldest first, to compute running balance
   document.getElementById("registerSub").textContent =
-    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction, newest first - uncheck "Counts" for anything that hasn't actually hit your bank yet`;
+    `Every ${ACCOUNT_NAMES[acctId]||acctId} transaction - unchecked ("Counts") ones first since those need a look, newest first within each group`;
 
   // Uncounted entries (cleared:false, from This month's bills & loans / Loan Payment
   // Schedule before you confirm them) don't move the running total - the balance shown
@@ -1425,9 +1425,12 @@ function renderRegister(preserveScroll){
   });
   const ending = running;
 
+  // Unchecked ("Counts" off) rows surface at the top regardless of date - those are the
+  // ones still needing a look - each group otherwise kept newest-first, same as before.
   const newestFirst = computed.slice().reverse();
-  const visible = newestFirst.slice(0, registerVisibleCount);
-  const remaining = newestFirst.length - visible.length;
+  const displayOrder = [...newestFirst.filter(e=> !e.cleared), ...newestFirst.filter(e=> e.cleared)];
+  const visible = displayOrder.slice(0, registerVisibleCount);
+  const remaining = displayOrder.length - visible.length;
 
   // The starting-balance row only makes sense once every entry back to it is shown -
   // otherwise there'd be a gap between the oldest visible row and "starting balance"
@@ -1448,11 +1451,11 @@ function renderRegister(preserveScroll){
       <td style="text-align:center"><input type="checkbox" class="reg-cleared" data-docid="${e.docId}" data-id="${e.id}" ${e.cleared?"checked":""}></td>
       <td class="amt num ${e.balance<0?'bal-neg':''}" style="font-weight:600;">${money(e.balance)}</td>
       <td><button class="reg-del" data-docid="${e.docId}" data-id="${e.id}" title="Delete this entry">✕</button></td>
-    </tr>`); // newest first
+    </tr>`); // unchecked first, then newest-checked first
 
   document.getElementById("registerBody").innerHTML = txRows.join("") + startRow;
   document.getElementById("registerCount").textContent = remaining>0
-    ? `Showing the newest ${visible.length} of ${computed.length} transactions · currently ${money(ending)}`
+    ? `Showing ${visible.length} of ${computed.length} transactions · currently ${money(ending)}`
     : `${computed.length} transaction${computed.length===1?"":"s"} · currently ${money(ending)}`;
 
   const loadMoreReg = document.getElementById("loadMoreReg");
