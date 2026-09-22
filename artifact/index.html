@@ -287,6 +287,7 @@
         <option value="sofi_savings">SoFi Savings</option>
       </select>
     </div>
+    <div id="registerSummary" class="summary" style="margin-bottom:14px;"></div>
     <div class="tx-scroll" id="registerScroll">
       <table>
         <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:center" title="Whether this entry counts toward the balance to the right">Counts</th><th style="text-align:right">Balance</th><th></th></tr></thead>
@@ -1424,6 +1425,17 @@ function renderRegister(preserveScroll){
     return {...e, cleared, balance: running};
   });
   const ending = running;
+
+  // "Not counted yet" is the net of every uncounted entry (almost always debits still
+  // pending/unconfirmed, so normally negative) - "Checking less not counted yet" is what's
+  // left if all of it posts as expected: adding that (already-negative) net to the current
+  // balance is the same arithmetic as subtracting the pending amount you'd expect it to cost.
+  const notCountedTotal = computed.filter(e=> !e.cleared).reduce((s,e)=> s+e.amount, 0);
+  const projectedBalance = ending + notCountedTotal;
+  document.getElementById("registerSummary").innerHTML = `
+    <div class="stile debt"><div class="k">Not counted yet</div><div class="v">${money(notCountedTotal)}</div></div>
+    <div class="stile net"><div class="k">${ACCOUNT_NAMES[acctId]||acctId} less not counted yet</div><div class="v" style="${projectedBalance<0?'color:var(--critical)':''}">${money(projectedBalance)}</div></div>
+  `;
 
   // Unchecked ("Counts" off) rows surface at the top regardless of date - those are the
   // ones still needing a look - each group otherwise kept newest-first, same as before.
