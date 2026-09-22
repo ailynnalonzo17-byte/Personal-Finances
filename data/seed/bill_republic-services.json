@@ -1,0 +1,10 @@
+{
+  "account": "checking",
+  "active": true,
+  "amount": 48.96,
+  "dueDay": 20,
+  "group": "Monthly Bills",
+  "name": "Republic Services",
+  "type": "bill",
+  "note": "Real Republic Services trash/recycling bill (Henderson, NV account 3-0620-1483963). Invoice dated 8/31/26, $48.96 due 9/20/26 - amount can vary month to month, verify against future invoices."
+}

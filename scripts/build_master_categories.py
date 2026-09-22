@@ -5,7 +5,7 @@ MONTHLY_BILLS = [
     "Amazon Prime","Atty Chua","Cal Water","Car insurance","Comcast","Cox",
     "Google 1","National Life Ins","Netflix","Rent","Roku","Verizon",
     "Waste Management","Yesoulfitness","YT Premium","PGE","Insurance","Harna fit",
-    "Planet Fitness","Life 360","NV Energy","SW Gas","Prulife",
+    "Planet Fitness","Life 360","NV Energy","SW Gas","Prulife","Republic Services",
 ]
 
 EXPENSES = [
