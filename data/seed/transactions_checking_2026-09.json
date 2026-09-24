@@ -1447,7 +1447,7 @@
       "description": "ORIG CO NAME:VENMO CO ENTRY DESCR:PAYMENT SEC:WEB IND ID:1053175806133 ORIG ID:3264681992",
       "group": "Expenses",
       "id": "5d04443b-7341-4d1a-92c0-a446043ccc53",
-      "note": "Confirmed by you: part of the garage sale proceeds split, totaling $140 (matches the +$140 'garage sale' entry on 9/18)",
+      "note": "Garage sale purchases (5 payments totaling $140). Confirmed posted 9/21 in Chase.",
       "source": "Chase pending transaction"
     },
     {
@@ -1459,7 +1459,7 @@
       "description": "ZELLE PAYMENT TO TIGRESA BEAUTY, CORP. 30892678593",
       "group": "Expenses",
       "id": "9a6e133d-7c34-4bbe-b4ee-cea53ed226f1",
-      "note": "Confirmed by you: part of the garage sale proceeds split, totaling $140 (matches the +$140 'garage sale' entry on 9/18)",
+      "note": "Garage sale purchases (5 payments totaling $140). Confirmed posted 9/21 in Chase.",
       "source": "Chase pending transaction"
     },
     {
@@ -1483,7 +1483,7 @@
       "description": "ZELLE PAYMENT TO TIGRESA BEAUTY, CORP. 30883622748",
       "group": "Expenses",
       "id": "d8e358ce-962f-40d5-ac7f-080d06431dfc",
-      "note": "Confirmed by you: part of the garage sale proceeds split, totaling $140 (matches the +$140 'garage sale' entry on 9/18)",
+      "note": "Garage sale purchases (5 payments totaling $140). Confirmed posted 9/21 in Chase.",
       "source": "Chase pending transaction"
     },
     {
@@ -1495,7 +1495,7 @@
       "description": "ZELLE PAYMENT TO 7023353090 JPM99CX2WFBR",
       "group": "Expenses",
       "id": "bb20f206-d520-42aa-8c3e-8c0cfa5dfc98",
-      "note": "Confirmed by you: part of the garage sale proceeds split, totaling $140 (matches the +$140 'garage sale' entry on 9/18)",
+      "note": "Garage sale purchases (5 payments totaling $140). Confirmed posted 9/21 in Chase.",
       "source": "Chase pending transaction"
     },
     {
@@ -1507,7 +1507,7 @@
       "description": "ZELLE PAYMENT TO JANICE JPM99CX2QG3E",
       "group": "Expenses",
       "id": "00126f24-cd16-4953-8363-8448350e834c",
-      "note": "Confirmed by you: part of the garage sale proceeds split, totaling $140 (matches the +$140 'garage sale' entry on 9/18)",
+      "note": "Garage sale purchases (5 payments totaling $140). Confirmed posted 9/21 in Chase.",
       "source": "Chase pending transaction"
     },
     {
@@ -1593,7 +1593,7 @@
       "category": "Life 360",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-09-24",
+      "date": "2026-09-23",
       "description": "Life 360 - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_life-360_2026-09",
