@@ -1755,8 +1755,9 @@
       "description": "dinkers",
       "group": "Expenses",
       "id": "6e3f0644-399b-4ebc-a7f4-a07b29cfcfec",
-      "note": "",
-      "source": "Manual entry"
+      "note": "Pending Dinkers hold dropped off in Chase on 9/24 - not counted. Tick Counts if it posts again.",
+      "source": "Manual entry",
+      "cleared": false
     },
     {
       "amount": 700,
