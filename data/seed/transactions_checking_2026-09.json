@@ -1395,7 +1395,7 @@
     },
     {
       "amount": -175.94,
-      "category": "Groceries - Costco",
+      "category": "Groceries - Seafood City",
       "confidence": "H",
       "date": "2026-09-20",
       "description": "seafood city",
@@ -1431,11 +1431,11 @@
       "category": "Cox",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-09-29",
+      "date": "2026-09-21",
       "description": "Cox - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_cox_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Real posting: COX COMM LAS -$130.00 on 9/21 per Chase",
       "source": "Bill checklist payment"
     },
     {
