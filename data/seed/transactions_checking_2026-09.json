@@ -299,13 +299,13 @@
     },
     {
       "amount": -75.2,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Chase Pay in 4",
+      "confidence": "H",
       "date": "2026-09-04",
       "description": "Autopay to Chase Pay in 4 (...6737) 09/04",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0464",
-      "note": "Unrecognized charge - please tell me what this is",
+      "note": "Chase Pay in 4 installment 1/4 (autopay)",
       "source": "Chase CSV import"
     },
     {
@@ -1193,7 +1193,7 @@
     },
     {
       "amount": -75.2,
-      "category": "Others",
+      "category": "Chase Pay in 4",
       "cleared": true,
       "confidence": "H",
       "date": "2026-09-18",
