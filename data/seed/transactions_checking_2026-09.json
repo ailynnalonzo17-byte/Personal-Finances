@@ -1577,9 +1577,9 @@
       "source": "Manual entry"
     },
     {
-      "amount": -62.71,
+      "amount": -59.67,
       "category": "Prulife",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-23",
       "description": "Prulife - checked off as paid",
@@ -1603,7 +1603,7 @@
     {
       "amount": -49.17,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-24",
       "description": "Affirm - Amazon (12 mo) - installment 1/12",
@@ -1613,9 +1613,9 @@
       "source": "Loan schedule payment"
     },
     {
-      "amount": -450,
+      "amount": -401.75,
       "category": "Verizon",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-25",
       "description": "Verizon - checked off as paid",
@@ -1637,9 +1637,9 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -88.24,
+      "amount": -88.22,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-25",
       "description": "Affirm - Eufy camera - installment 4/4",
@@ -1755,6 +1755,88 @@
       "description": "fr paypal",
       "group": "Transfer",
       "id": "0af5c32d-7704-4687-ae08-d561d945425e",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 0,
+      "category": "CC - Mission Lane",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "CC - Mission Lane - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-mission-lane_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -10.74,
+      "category": "Afterpay",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "Afterpay - checked off as paid",
+      "group": "Debt",
+      "id": "bill_afterpay_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -13.99,
+      "category": "Yesoulfitness",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "Yesoulfitness - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_yesoulfitness_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -177.82,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "Affirm - Wayfair - installment 1/6",
+      "group": "Debt",
+      "id": "loan_affirm-wayfair_1",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -93.87,
+      "category": "Klarna",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "Klarna - Walmart (OnePay TV) - installment 1/6",
+      "group": "Debt",
+      "id": "loan_klarna-walmart-onepay-tv_1",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -7,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "meta ads",
+      "group": "Expenses",
+      "id": "23ca58f9-6d6f-4de0-8775-043fd0c2057f",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -27.6,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "amazon - gas line kit",
+      "group": "Expenses",
+      "id": "6bfe5a0c-3cb0-4bec-8d55-4fc3d89a3657",
       "note": "",
       "source": "Manual entry"
     }
