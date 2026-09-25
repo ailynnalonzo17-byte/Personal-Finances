@@ -1577,15 +1577,15 @@
       "source": "Manual entry"
     },
     {
-      "amount": -59.67,
+      "amount": -62.71,
       "category": "Prulife",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-09-23",
       "description": "Prulife - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_prulife_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | The -$59.67 seen in Chase is a Taptap Send remittance, not Prulife - Prulife hasn't posted yet",
       "source": "Bill checklist payment"
     },
     {
@@ -1625,7 +1625,7 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -15.99,
+      "amount": -14.39,
       "category": "YT Premium",
       "cleared": true,
       "confidence": "H",
@@ -1633,7 +1633,7 @@
       "description": "YT Premium - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_yt-premium_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Real charge: PayPal *Google YouTube -$14.39 (pending in Chase 9/25)",
       "source": "Bill checklist payment"
     },
     {
@@ -1761,13 +1761,13 @@
     {
       "amount": -10.74,
       "category": "Afterpay",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Afterpay - checked off as paid",
       "group": "Debt",
       "id": "bill_afterpay_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Not in Chase yet as of 9/25 - tick Counts once it posts",
       "source": "Bill checklist payment"
     },
     {
@@ -1785,25 +1785,25 @@
     {
       "amount": -177.82,
       "category": "Affirm",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Affirm - Wayfair - installment 1/6",
       "group": "Debt",
       "id": "loan_affirm-wayfair_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/25 - tick Counts once it posts",
       "source": "Loan schedule payment"
     },
     {
       "amount": -93.87,
       "category": "Klarna",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Klarna - Walmart (OnePay TV) - installment 1/6",
       "group": "Debt",
       "id": "loan_klarna-walmart-onepay-tv_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/25 - tick Counts once it posts",
       "source": "Loan schedule payment"
     },
     {
@@ -1814,8 +1814,9 @@
       "description": "meta ads",
       "group": "Expenses",
       "id": "23ca58f9-6d6f-4de0-8775-043fd0c2057f",
-      "note": "",
-      "source": "Manual entry"
+      "note": "Not in Chase yet as of 9/25 - tick Counts once it posts",
+      "source": "Manual entry",
+      "cleared": false
     },
     {
       "amount": -27.6,
@@ -1840,14 +1841,14 @@
       "source": "Manual entry"
     },
     {
-      "amount": -10,
+      "amount": -25,
       "category": "Others",
       "confidence": "H",
       "date": "2026-09-24",
       "description": "dinkers",
       "group": "Expenses",
       "id": "2f5f8c0c-5327-40c3-8369-d92484918a90",
-      "note": "",
+      "note": "Real charge: Dinkers LLC -$25.00 (pending in Chase 9/25)",
       "source": "Manual entry"
     },
     {
@@ -1933,6 +1934,51 @@
       "id": "loan_chase-pay-over-time-china-air-day-30_1",
       "note": "From your Loan Payment Schedule - checked off by you",
       "source": "Loan schedule payment"
+    },
+    {
+      "amount": 50,
+      "category": "Transfer - Savings to Checking",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "fr SA",
+      "group": "Transfer",
+      "id": "9458a0e9-0548-4ca7-84bf-5ef7ec5ba0e0",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 50,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "zelle from katrina for phone bill",
+      "group": "Income",
+      "id": "a898d8c0-c9c9-4ad1-a375-5a40a879565f",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "to paypal",
+      "group": "Transfer",
+      "id": "4b90769c-0140-4f55-bce6-14ed036e4428",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "id": "3539aeeb-4ebb-4bac-85a5-09f292f6a6e4",
+      "date": "2026-09-25",
+      "description": "PYMT SENT Taptap Send New York NY 8341 (...5438)",
+      "amount": -59.67,
+      "category": "Remittance - Aron",
+      "group": "Expenses",
+      "confidence": "H",
+      "cleared": true,
+      "note": "Pending in Chase 9/25 - Taptap Send remittance (previously mistaken for the Prulife bill)",
+      "source": "Chase pending transaction"
     }
   ]
 }
