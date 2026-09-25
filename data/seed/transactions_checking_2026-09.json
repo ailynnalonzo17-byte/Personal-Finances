@@ -1627,7 +1627,7 @@
     {
       "amount": -15.99,
       "category": "YT Premium",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-25",
       "description": "YT Premium - checked off as paid",
@@ -1759,21 +1759,9 @@
       "source": "Manual entry"
     },
     {
-      "amount": 0,
-      "category": "CC - Mission Lane",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-09-25",
-      "description": "CC - Mission Lane - checked off as paid",
-      "group": "Debt",
-      "id": "bill_cc-mission-lane_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
-    },
-    {
       "amount": -10.74,
       "category": "Afterpay",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Afterpay - checked off as paid",
@@ -1797,7 +1785,7 @@
     {
       "amount": -177.82,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Affirm - Wayfair - installment 1/6",
@@ -1809,7 +1797,7 @@
     {
       "amount": -93.87,
       "category": "Klarna",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Klarna - Walmart (OnePay TV) - installment 1/6",
@@ -1839,6 +1827,112 @@
       "id": "6bfe5a0c-3cb0-4bec-8d55-4fc3d89a3657",
       "note": "",
       "source": "Manual entry"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "to savings",
+      "group": "Transfer",
+      "id": "8c0bbc8e-3e34-4f34-bc3f-d540edd93460",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -10,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-24",
+      "description": "dinkers",
+      "group": "Expenses",
+      "id": "2f5f8c0c-5327-40c3-8369-d92484918a90",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -37,
+      "category": "CC - Capital 1",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-27",
+      "description": "CC - Capital 1 - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-capital-1_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -24.94,
+      "category": "CC - Credit 1 (...4838)",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "CC - Credit 1 (...4838) - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-credit1-4838_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -2.49,
+      "category": "Google 1",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Google 1 - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_google-1_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -13.06,
+      "category": "SW Gas",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "SW Gas - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_sw-gas_2026-09",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -24.38,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Affirm - Pickleball - installment 2/4",
+      "group": "Debt",
+      "id": "loan_affirm-pickleball_2",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -177.82,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "Affirm - Wayfair (2nd plan) - installment 1/3",
+      "group": "Debt",
+      "id": "loan_affirm-wayfair-2nd-plan_1",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -169.59,
+      "category": "Others",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "Chase Pay Over Time - China Air (day 30) - installment 1/12",
+      "group": "Debt",
+      "id": "loan_chase-pay-over-time-china-air-day-30_1",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
     }
   ]
 }
