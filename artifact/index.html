@@ -1496,8 +1496,14 @@ function renderRegister(preserveScroll){
 
   document.querySelectorAll(".reg-amt-edit").forEach(inp=>{
     inp.addEventListener("change", async ()=>{
-      const val = parseFloat(inp.value);
-      if(isNaN(val)){ inp.value = inp.defaultValue; return; }
+      // Typing a bare number keeps the entry's existing sign, so retyping a charge as
+      // "20" can't silently turn it into a credit. A leading + or - still flips it on purpose.
+      const raw = inp.value.trim().replace(/[$,\s]/g, "");
+      const typed = parseFloat(raw);
+      if(isNaN(typed)){ inp.value = inp.defaultValue; return; }
+      const explicitSign = raw.startsWith("+") || raw.startsWith("-");
+      const wasNegative = parseFloat(inp.defaultValue) < 0;
+      const val = explicitSign ? typed : (wasNegative ? -Math.abs(typed) : Math.abs(typed));
       await editRegisterAmount(inp.dataset.docid, inp.dataset.id, val);
     });
   });
