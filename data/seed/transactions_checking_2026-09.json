@@ -2021,7 +2021,7 @@
       "description": "PGE",
       "group": "Monthly Bills",
       "id": "afd0ebde-4895-472d-9af6-577200577969",
-      "note": "",
+      "note": "Final PG&E bill for the California home - confirmed by you, no more PG&E after this",
       "source": "Manual entry"
     },
     {
@@ -2190,15 +2190,15 @@
       "source": "Manual entry"
     },
     {
-      "id": "c1bd6226-946c-425e-b803-031af8a9df7e",
+      "amount": -19.99,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "R",
       "date": "2026-09-28",
       "description": "POS DEBIT GOOGLE *G1AI101M G.CO/HELPPAY CA (...5438)",
-      "amount": -19.99,
-      "category": "Google 1",
-      "group": "Monthly Bills",
-      "confidence": "H",
-      "cleared": true,
-      "note": "Google One AI plan - pending in Chase 9/28",
+      "group": "Expenses",
+      "id": "c1bd6226-946c-425e-b803-031af8a9df7e",
+      "note": "You don't recognize this - 'G1AI101M' looks like a Google One AI plan, charged to the card ending 5438. Check that card's Google account subscriptions; dispute with Chase if it isn't yours",
       "source": "Chase pending transaction"
     }
   ]
