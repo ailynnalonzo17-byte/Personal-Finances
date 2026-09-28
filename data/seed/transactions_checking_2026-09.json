@@ -1785,19 +1785,19 @@
     {
       "amount": -177.82,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Affirm - Wayfair - installment 1/6",
       "group": "Debt",
       "id": "loan_affirm-wayfair_1",
-      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/25 - tick Counts once it posts",
+      "note": "From your Loan Payment Schedule - checked off by you | Real: Affirm -$177.82 pending in Chase 9/28",
       "source": "Loan schedule payment"
     },
     {
       "amount": -93.87,
       "category": "Klarna",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-26",
       "description": "Klarna - Walmart (OnePay TV) - installment 1/6",
@@ -1809,7 +1809,7 @@
     {
       "amount": -7,
       "category": "Others",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-25",
       "description": "meta ads",
@@ -1852,15 +1852,15 @@
       "source": "Manual entry"
     },
     {
-      "amount": -37,
+      "amount": -100,
       "category": "CC - Capital 1",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-27",
       "description": "CC - Capital 1 - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-capital-1_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Real: Capital One CRCARDPMT -$100.00 (pending in Chase 9/28)",
       "source": "Bill checklist payment"
     },
     {
@@ -1902,7 +1902,7 @@
     {
       "amount": -24.38,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-28",
       "description": "Affirm - Pickleball - installment 2/4",
@@ -1920,7 +1920,7 @@
       "description": "Affirm - Wayfair (2nd plan) - installment 1/3",
       "group": "Debt",
       "id": "loan_affirm-wayfair-2nd-plan_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/28 - tick Counts once it posts",
       "source": "Loan schedule payment"
     },
     {
@@ -1967,6 +1967,239 @@
       "id": "4b90769c-0140-4f55-bce6-14ed036e4428",
       "note": "",
       "source": "Manual entry"
+    },
+    {
+      "amount": -10,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-25",
+      "description": "dinkers",
+      "group": "Expenses",
+      "id": "72047dc1-c523-4730-a848-b3309a773fe2",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -27.31,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "walmart",
+      "group": "Expenses",
+      "id": "509c2863-7246-4f6a-a1c3-5ec74dac1648",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -35,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "gas tank",
+      "group": "Expenses",
+      "id": "d8db7727-5560-48a7-af70-66d780fa119b",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 2000,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "fr paypal",
+      "group": "Transfer",
+      "id": "83689223-fea5-4737-a4b9-1b827c802c5e",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -93.31,
+      "category": "PGE",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-09-26",
+      "description": "PGE",
+      "group": "Monthly Bills",
+      "id": "afd0ebde-4895-472d-9af6-577200577969",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 440,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "zelle - from erik",
+      "group": "Income",
+      "id": "35d1c655-cad1-4bf2-9759-8205096cbd66",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -130.88,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "UPS shipping",
+      "group": "Expenses",
+      "id": "a5b284ea-1339-4e20-8a3f-a1713a20db0f",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -66.45,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Kitchen USA - foodie las vegas",
+      "group": "Expenses",
+      "id": "bca4e343-40ef-4d6b-9ea3-eda724e8c6f7",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -94.77,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Cal pizza kitchen",
+      "group": "Expenses",
+      "id": "43a21302-cb73-46cd-ab1e-a22f7d0509fd",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -20,
+      "category": "Compass",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "compass",
+      "group": "Expenses",
+      "id": "44629ee4-9949-4c9b-97ae-5815fd954730",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -96,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "DMV plate",
+      "group": "Expenses",
+      "id": "a81b3da3-8b7a-45d8-b864-247ba987352a",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -30,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "kitchen light",
+      "group": "Expenses",
+      "id": "3dd1d93c-025f-4777-802f-093878961b53",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -94.83,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Walmart",
+      "group": "Expenses",
+      "id": "76cdecde-6e56-42a6-9eca-38ebcdb949f1",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -119.14,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Gimik republik",
+      "group": "Expenses",
+      "id": "074701b0-3184-47aa-8dfe-4cfd375e6f67",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 180.49,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "amazon - refund",
+      "group": "Expenses",
+      "id": "81de79f8-6d55-4df7-bd61-1780cda176e6",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -165.82,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "amazon -  pickleball shoes",
+      "group": "Expenses",
+      "id": "74011c4d-2752-476d-aab4-f28909cdcb27",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -29.25,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "amazon - portable ac partd",
+      "group": "Expenses",
+      "id": "6e34e09d-3155-4e88-9a05-467e138b964b",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -1000,
+      "category": "CC - Capital 1",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "CC - Capital 1",
+      "group": "Debt",
+      "id": "3eaa41a8-a6b1-476f-ba15-2a9ce219a19b",
+      "note": "Real: Capital One ONLINE PMT -$1,000.00 (pending in Chase 9/28)",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -8.99,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Capcut",
+      "group": "Expenses",
+      "id": "95b754b0-aa05-4c7f-99ed-4c037ecbd313",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -81.76,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-28",
+      "description": "Pegs Glorified",
+      "group": "Expenses",
+      "id": "c1281094-0db9-443f-855b-9f2e95e81e51",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "id": "c1bd6226-946c-425e-b803-031af8a9df7e",
+      "date": "2026-09-28",
+      "description": "POS DEBIT GOOGLE *G1AI101M G.CO/HELPPAY CA (...5438)",
+      "amount": -19.99,
+      "category": "Google 1",
+      "group": "Monthly Bills",
+      "confidence": "H",
+      "cleared": true,
+      "note": "Google One AI plan - pending in Chase 9/28",
+      "source": "Chase pending transaction"
     }
   ]
 }
