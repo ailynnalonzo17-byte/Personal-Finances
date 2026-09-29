@@ -1914,13 +1914,13 @@
     {
       "amount": -177.82,
       "category": "Affirm",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-09-30",
       "description": "Affirm - Wayfair (2nd plan) - installment 1/3",
       "group": "Debt",
       "id": "loan_affirm-wayfair-2nd-plan_1",
-      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/28 - tick Counts once it posts",
+      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/29 - tick Counts once it posts",
       "source": "Loan schedule payment"
     },
     {
@@ -2046,14 +2046,14 @@
       "source": "Manual entry"
     },
     {
-      "amount": -94.77,
+      "amount": -109.77,
       "category": "Food - Eat Out",
       "confidence": "H",
       "date": "2026-09-28",
       "description": "Cal pizza kitchen",
       "group": "Expenses",
       "id": "43a21302-cb73-46cd-ab1e-a22f7d0509fd",
-      "note": "",
+      "note": " | Posted at -$109.77 (tip added) per Chase 9/28",
       "source": "Manual entry"
     },
     {
@@ -2212,17 +2212,6 @@
       "source": "Manual entry"
     },
     {
-      "amount": -119.14,
-      "category": "Food - Eat Out",
-      "confidence": "H",
-      "date": "2026-09-29",
-      "description": "gimik republik",
-      "group": "Expenses",
-      "id": "b1a610ed-4944-4909-9d56-43d0a0fc80de",
-      "note": "",
-      "source": "Manual entry"
-    },
-    {
       "amount": -55.29,
       "category": "Food - Eat Out",
       "confidence": "H",
@@ -2276,6 +2265,28 @@
       "id": "4c5690d8-a909-40a6-ac08-573f950bcc64",
       "note": "",
       "source": "Manual entry"
+    },
+    {
+      "id": "baf0c740-f41c-4b8c-b395-f5ab590bf294",
+      "date": "2026-09-28",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "amount": 500.0,
+      "category": "Transfer - PayPal to Checking",
+      "group": "Transfer",
+      "confidence": "H",
+      "note": "Posted in Chase 9/28",
+      "source": "Chase CSV import"
+    },
+    {
+      "id": "ecb2d7e7-16d8-4530-b3fd-f1c0d69f4514",
+      "date": "2026-09-29",
+      "description": "POS DEBIT MR TERRIBLE SELF-SERV HENDERSON NV",
+      "amount": -15.0,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Self-serve car wash - pending in Chase 9/29",
+      "source": "Chase pending transaction"
     }
   ]
 }
