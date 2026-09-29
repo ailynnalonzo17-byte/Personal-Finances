@@ -898,8 +898,24 @@ function fmtDate(d){ return d.toLocaleDateString("en-US",{month:"short",day:"num
 
 function activeBills(){
   return Object.entries(state.bills).filter(([id,b])=> b.active!==false)
-    .map(([id,b])=>({id, ...b, next: nextDueDate(b.dueDay)}))
+    .map(([id,b])=>{
+      const next = nextDueDate(b.dueDay);
+      return {id, ...b, next, amount: billAmount(id, b, next.toISOString().slice(0,7))};
+    })
     .sort((a,b)=> a.next-b.next);
+}
+
+// A card bill with Pay Over Time plans riding on its minimum payment (loan_schedule
+// docs whose billedTo is this bill's id) owes its own baseAmount plus whichever of
+// those plans' installments fall due in that month.
+function billAmount(id, b, ym){
+  if(b.baseAmount==null) return b.amount;
+  let total = b.baseAmount;
+  Object.values(state.loanSchedule).forEach(plan=>{
+    if(plan.billedTo!==id) return;
+    (plan.installments||[]).forEach(i=>{ if(i.dueDate.slice(0,7)===ym) total += i.amount; });
+  });
+  return Math.round(total*100)/100;
 }
 
 function renderBills(){
@@ -920,7 +936,7 @@ function renderBills(){
       <div class="due-badge pill ${badgeClass}">${fmtDate(b.next)} · ${badgeText}</div>
       <button class="edit-link" data-editbill="${b.id}">edit</button>
       <div class="bill-edit-row" id="billedit-${b.id}">
-        <input type="text" inputmode="decimal" id="billamt-${b.id}" value="${b.amount}" placeholder="amount">
+        <input type="text" inputmode="decimal" id="billamt-${b.id}" value="${b.baseAmount!=null?b.baseAmount:b.amount}" placeholder="${b.baseAmount!=null?'card minimum, before plans':'amount'}">
         <input type="number" min="1" max="31" id="billday-${b.id}" value="${b.dueDay}" placeholder="due day">
         <button class="btn" style="padding:6px 10px;" data-savebill="${b.id}">Save</button>
         <button class="btn ghost" style="padding:6px 10px;" data-pausebill="${b.id}">${b.active===false?"Reactivate":"Pause"}</button>
@@ -938,8 +954,9 @@ function renderBills(){
       const day = parseInt(document.getElementById("billday-"+id).value,10);
       if(isNaN(amt) || isNaN(day)) return;
       btn.textContent="Saving…"; btn.disabled=true;
-      await db.doc("bills/"+id).update({amount:amt, dueDay:day});
-      state.bills[id] = {...state.bills[id], amount:amt, dueDay:day};
+      const fields = state.bills[id].baseAmount!=null ? {baseAmount:amt, dueDay:day} : {amount:amt, dueDay:day};
+      await db.doc("bills/"+id).update(fields);
+      state.bills[id] = {...state.bills[id], ...fields};
       renderAll();
     });
   });
@@ -979,7 +996,7 @@ function renderDueSoon(){
   }).filter(r=> !r.paid && r.date<=horizonStr);
 
   const loanItems = allLoanInstallments()
-    .filter(i=> !i.paid && i.dueDate<=horizonStr)
+    .filter(i=> !i.paid && !i.billedTo && i.dueDate<=horizonStr)
     .map(i=> ({name: `${i.planName} (${i.n}/${i.total})`, date: i.dueDate, amount: i.amount}));
 
   const items = [...billItems, ...loanItems].sort((a,b)=> a.date<b.date?-1:a.date>b.date?1:0);
@@ -999,7 +1016,7 @@ function allLoanInstallments(){
   const out = [];
   Object.entries(state.loanSchedule).forEach(([docId, plan])=>{
     (plan.installments||[]).forEach(inst=> out.push({
-      docId, planName: plan.name, provider: plan.provider, account: plan.account||"checking",
+      docId, planName: plan.name, provider: plan.provider, account: plan.account||"checking", billedTo: plan.billedTo||null,
       n: inst.n, total: inst.total, dueDate: inst.dueDate, amount: inst.amount, paid: !!inst.paid
     }));
   });
@@ -1026,12 +1043,13 @@ function renderMonthList(){
       const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), b.dueDay);
       const checkKey = `${b.id}__${curMonth}`;
       return {date: dueThisMonth.toISOString().slice(0,10), name: b.name,
-        type: b.group==="Debt" ? "Debt" : "Bill", amount: b.amount,
+        type: b.group==="Debt" ? "Debt" : "Bill", amount: billAmount(b.id, b, curMonth),
         paid: !!state.checked[checkKey]?.checked, kind:"bill", billId: b.id};
     });
 
+  // Plans billed onto a card are already inside that card's bill row above.
   const loanRows = allLoanInstallments()
-    .filter(i=> i.dueDate.slice(0,7)===curMonth)
+    .filter(i=> i.dueDate.slice(0,7)===curMonth && !i.billedTo)
     .map(i=> ({date: i.dueDate, name: `${i.planName} (${i.n}/${i.total})`, type: "Loan",
       amount: i.amount, paid: i.paid, kind:"loan", docId: i.docId, n: i.n}));
 
@@ -1090,11 +1108,16 @@ function renderMonthList(){
 async function setBillAmount(billId, amount){
   const bill = state.bills[billId];
   if(!bill) return;
-  await db.doc("bills/"+billId).update({amount});
-  state.bills[billId] = {...bill, amount};
-
   const today = new Date(); today.setHours(0,0,0,0);
   const ym = today.toISOString().slice(0,7);
+  // For a card carrying Pay Over Time plans, the typed total is this month's full
+  // payment - store it as the card's own minimum by taking the plans' share back out.
+  const fields = bill.baseAmount!=null
+    ? {baseAmount: Math.round((amount - (billAmount(billId, bill, ym) - bill.baseAmount))*100)/100}
+    : {amount};
+  await db.doc("bills/"+billId).update(fields);
+  state.bills[billId] = {...bill, ...fields};
+
   const acct = bill.account || "checking";
   const txDocId = `${acct}_${ym}`;
   await withTxLock(txDocId, async ()=>{
@@ -1146,7 +1169,7 @@ function renderProjection(){
     return days>=0 && days<=30 && b.account==="checking";
   }).map(b=> ({days: daysBetween(today0, b.next), amount: b.amount}));
   const loanItems = allLoanInstallments().filter(i=>{
-    if(i.paid || i.account!=="checking") return false;
+    if(i.paid || i.account!=="checking" || i.billedTo) return false;
     const days = daysBetween(today0, new Date(i.dueDate+"T00:00:00"));
     return days>=0 && days<=30;
   }).map(i=> ({days: daysBetween(today0, new Date(i.dueDate+"T00:00:00")), amount: i.amount}));
@@ -1215,7 +1238,8 @@ async function toggleLoanInstallmentPaid(docId, n, checked){
   // Only post a real transaction for installments not already sitting in your
   // imported history (today or later). Anything before today was already
   // marked paid on import and is already counted in your real balance.
-  if(inst.dueDate >= todayISO()){
+  // Plans billed onto a card never hit checking on their own - the card's payment covers them.
+  if(inst.dueDate >= todayISO() && !plan.billedTo){
     const acct = plan.account || "checking";
     const ym = inst.dueDate.slice(0,7);
     const txDocId = `${acct}_${ym}`;
@@ -1279,7 +1303,7 @@ async function toggleBillPaid(billId, checked){
         const dueThisMonth = new Date(today.getFullYear(), today.getMonth(), bill.dueDay).toISOString().slice(0,10);
         entries2 = [...entries2, {
           id: entryId, date: dueThisMonth, description: `${bill.name} - checked off as paid`,
-          amount: -Math.abs(bill.amount||0), category: bill.name, group: bill.group, confidence: "H", cleared: false,
+          amount: -Math.abs(billAmount(billId, bill, ym)||0), category: bill.name, group: bill.group, confidence: "H", cleared: false,
           note: "From This month's bills & loans - checked off by you", source: "Bill checklist payment"
         }];
       }
@@ -1326,7 +1350,7 @@ function renderLoanSchedule(){
     return `<tr class="${item.paid?'loan-paid':''} ${overdue?'loan-overdue':''}">
       <td><input type="checkbox" class="loan-check" data-plan="${item.docId}" data-n="${item.n}" ${item.paid?"checked":""}></td>
       <td class="${overdue?'due-cell':''}">${item.dueDate}</td>
-      <td>${item.planName}</td>
+      <td>${item.planName}${item.billedTo ? ` <span class="pill muted">on ${state.bills[item.billedTo]?.name||"card"} bill</span>` : ""}</td>
       <td>${item.n}/${item.total}</td>
       <td class="amt num">${money(item.amount)}</td>
       <td class="amt num" style="font-weight:${item.balance!=null?600:400}; ${item.balance!=null && item.balance<0?'color:var(--critical)':''}">${item.balance!=null?money(item.balance):"—"}</td>

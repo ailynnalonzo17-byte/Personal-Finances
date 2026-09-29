@@ -1914,25 +1914,13 @@
     {
       "amount": -177.82,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-30",
       "description": "Affirm - Wayfair (2nd plan) - installment 1/3",
       "group": "Debt",
       "id": "loan_affirm-wayfair-2nd-plan_1",
       "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/28 - tick Counts once it posts",
-      "source": "Loan schedule payment"
-    },
-    {
-      "amount": -169.59,
-      "category": "Others",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-09-30",
-      "description": "Chase Pay Over Time - China Air (day 30) - installment 1/12",
-      "group": "Debt",
-      "id": "loan_chase-pay-over-time-china-air-day-30_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
       "source": "Loan schedule payment"
     },
     {
@@ -2200,6 +2188,94 @@
       "id": "c1bd6226-946c-425e-b803-031af8a9df7e",
       "note": "You don't recognize this - 'G1AI101M' looks like a Google One AI plan, charged to the card ending 5438. Check that card's Google account subscriptions; dispute with Chase if it isn't yours",
       "source": "Chase pending transaction"
+    },
+    {
+      "amount": -11.58,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "UPS ship",
+      "group": "Expenses",
+      "id": "2e92b9b0-84d7-411c-bbcd-5763e73e3927",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -30,
+      "category": "CC - Venmo",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "venmo",
+      "group": "Debt",
+      "id": "d3f9d4df-94af-4675-90cd-3fa8989b0407",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -119.14,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "gimik republik",
+      "group": "Expenses",
+      "id": "b1a610ed-4944-4909-9d56-43d0a0fc80de",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -55.29,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "tacos el gordo",
+      "group": "Expenses",
+      "id": "dbaac22b-893a-468a-99e0-63cbd4a07be6",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -34.84,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "tacos el gordo",
+      "group": "Expenses",
+      "id": "9de29d87-101a-4ce7-aaf8-7e78f6a388a0",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -40.86,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "auntioe annes",
+      "group": "Expenses",
+      "id": "f35e152b-d02b-4430-a131-161ef226f216",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -7.8,
+      "category": "Food - Misc",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "water",
+      "group": "Expenses",
+      "id": "0c5c29ec-2dc6-42f2-a27e-38f8eace621a",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -55,
+      "category": "Shop - Others",
+      "confidence": "H",
+      "date": "2026-09-29",
+      "description": "zelle to buy pickleball",
+      "group": "Expenses",
+      "id": "4c5690d8-a909-40a6-ac08-573f950bcc64",
+      "note": "",
+      "source": "Manual entry"
     }
   ]
 }
