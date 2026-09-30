@@ -5,9 +5,10 @@
   "last4": "2682",
   "category": "CC - cashback MC",
   "statementDate": "2026-08-25",
-  "balance": 191.92,
-  "minPayment": 40.0,
+  "balance": 0,
+  "minPayment": 0,
   "dueDate": "2026-09-17",
   "apr": 34.24,
-  "source": "Statement PDF you uploaded (4 month(s) on file)"
+  "source": "Statement PDF you uploaded (4 month(s) on file)",
+  "note": "Confirmed by you: $0 balance as of 9/30/2026. Statement/due date shown are from the 8/25 statement on file."
 }

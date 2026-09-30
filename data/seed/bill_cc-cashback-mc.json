@@ -1,1 +1,1 @@
-{"name": "CC - cashback MC", "group": "Debt", "type": "debt", "amount": 500, "dueDay": 17, "account": "checking", "active": true, "note": "Confirmed by you: paying $500/mo (statement minimum $40)."}
+{"name": "CC - cashback MC", "group": "Debt", "type": "debt", "amount": 0, "dueDay": 17, "account": "checking", "active": false, "note": "Confirmed by you: PayPal Cashback Mastercard (...2682) has a $0 balance as of 9/30/2026 - nothing to pay. Reactivate if the card gets used again."}
