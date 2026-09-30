@@ -424,7 +424,7 @@ let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}
 // the card's own purchases/fees now represent that spend at the category level instead.
 const ITEMIZED_CARD_CATS = new Set(["CC - paypal","CC - cashback MC","CC - One Pay","CC - Ollo",
   "CC - Mission Lane","CC - Aspire","CC - Credit 1","CC - Frontier card","CC - Citibank",
-  "CC - Capital 1","CC - FPB","CC - Chase Amazon Visa"]);
+  "CC - Capital 1","CC - FPB","CC - Chase Amazon Visa","CC - Venmo"]);
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 let unsubs = [];
 

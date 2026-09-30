@@ -1,0 +1,14 @@
+{
+  "name": "Venmo Credit Card",
+  "issuer": "Synchrony Bank",
+  "holder": "Christopher",
+  "last4": "7985",
+  "category": "CC - Venmo",
+  "statementDate": "2026-09-04",
+  "balance": 81.82,
+  "minPayment": 30,
+  "dueDate": "2026-09-27",
+  "apr": 34.24,
+  "source": "Statement PDF you uploaded (1 month(s) on file)",
+  "note": "AutoPay of $30 on the due date (the 9/27 payment posted in Chase 9/29). Credit limit $5,200."
+}
