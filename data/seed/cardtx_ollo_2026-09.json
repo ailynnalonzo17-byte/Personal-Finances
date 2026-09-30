@@ -1,0 +1,31 @@
+{
+  "account": "ollo",
+  "month": "2026-09",
+  "cardCategory": "CC - Ollo",
+  "entries": [
+    {
+      "id": "ollo_2026-09_0",
+      "date": "2026-09-06",
+      "description": "ONLINE ONE TIME PAYMENT WOODBURY NY",
+      "amount": -129.0,
+      "category": "CC - Ollo",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Card payment - posted 9/6, two days after the 9/4 due date",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "ollo_2026-09_1",
+      "date": "2026-09-05",
+      "description": "LATE FEE",
+      "amount": 27.0,
+      "category": "CC - Ollo",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Late fee - the $129 payment arrived after the 9/4 due date",
+      "type": "fee",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

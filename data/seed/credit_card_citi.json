@@ -2,12 +2,13 @@
   "name": "Costco Anywhere Visa (Citi)",
   "issuer": "Citibank",
   "holder": "Christopher",
-  "last4": "3533",
+  "last4": "7561",
   "category": "CC - Citibank",
-  "statementDate": "2026-08-20",
-  "balance": 729.62,
-  "minPayment": 41.0,
-  "dueDate": "2026-09-16",
+  "statementDate": "2026-09-18",
+  "balance": 1154.9,
+  "minPayment": 41,
+  "dueDate": "2026-10-16",
   "apr": 26.74,
-  "source": "Statement PDF you uploaded (4 month(s) on file)"
+  "source": "Statement PDF you uploaded (5 month(s) on file)",
+  "note": "Card number now ends in 7561 (was 3533)."
 }

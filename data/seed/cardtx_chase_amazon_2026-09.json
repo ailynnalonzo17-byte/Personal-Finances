@@ -1,0 +1,67 @@
+{
+  "account": "chase_amazon",
+  "month": "2026-09",
+  "cardCategory": "CC - Chase Amazon Visa",
+  "entries": [
+    {
+      "id": "chase_amazon_2026-09_0",
+      "date": "2026-09-11",
+      "description": "Payment Thank You - Web",
+      "amount": -30.0,
+      "category": "CC - Chase Amazon Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Card payment",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-09_1",
+      "date": "2026-08-21",
+      "description": "SHELL OIL 93004129051 HENDERSON NV",
+      "amount": 11.47,
+      "category": "Gas",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-09_2",
+      "date": "2026-08-21",
+      "description": "SHELL OIL 93004129051 HENDERSON NV",
+      "amount": 75.69,
+      "category": "Gas",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-09_3",
+      "date": "2026-08-27",
+      "description": "CHINA AIR 2972426442256 WWW.CHINA-AIR CA",
+      "amount": 2035.0,
+      "category": "Vacation",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Airfare - converted to Chase Pay Over Time (12 x $169.59, first due 10/15)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-09_4",
+      "date": "2026-09-14",
+      "description": "CARE USA CARE.ORG GA",
+      "amount": 30.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Monthly $30 CARE.org charge (also 8/14) - looks like a recurring donation",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

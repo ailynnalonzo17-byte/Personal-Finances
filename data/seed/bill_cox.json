@@ -1,10 +1,1 @@
-{
-  "account": "checking",
-  "active": true,
-  "amount": 139.72,
-  "dueDay": 29,
-  "group": "Monthly Bills",
-  "name": "Cox",
-  "type": "bill",
-  "note": "Replaces Comcast starting September 2026. Carried over Comcast's median estimate ($139.72, due 29th) until a real Cox statement comes in - verify once you get one."
-}
+{"account": "checking", "active": true, "amount": 130, "dueDay": 9, "group": "Monthly Bills", "name": "Cox", "type": "bill", "note": "Cox is now Spectrum (acct 001 8610 150194904). $130/mo internet, due the 9th. The 9/19 bill's $130 'past due' was the payment that posted in Chase 9/21 - next $130 due 10/9."}
