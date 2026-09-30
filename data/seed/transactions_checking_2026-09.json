@@ -1876,18 +1876,6 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -2.49,
-      "category": "Google 1",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-09-28",
-      "description": "Google 1 - checked off as paid",
-      "group": "Monthly Bills",
-      "id": "bill_google-1_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
-    },
-    {
       "amount": -13.06,
       "category": "SW Gas",
       "cleared": false,

@@ -58,8 +58,8 @@
       "amount": 30.0,
       "category": "Others",
       "group": "Expenses",
-      "confidence": "R",
-      "note": "Monthly $30 CARE.org charge (also 8/14) - looks like a recurring donation",
+      "confidence": "H",
+      "note": "Monthly $30 CARE.org donation - confirmed by you",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     }

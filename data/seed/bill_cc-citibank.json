@@ -1,1 +1,1 @@
-{"name": "CC - Citibank", "group": "Debt", "type": "debt", "amount": 41, "dueDay": 16, "account": "checking", "active": true, "note": "Updated to the real Citi statement minimum payment ($41, due 9/16) instead of the old $1,619.91 median estimate - matches the real card record in Credit Cards on file."}
+{"name": "CC - Citibank", "group": "Debt", "type": "debt", "amount": 500, "dueDay": 16, "account": "checking", "active": true, "note": "Confirmed by you: paying $500/mo (statement minimum is $41; 9/18 balance $1,154.90)."}
