@@ -1912,7 +1912,7 @@
       "source": "Loan schedule payment"
     },
     {
-      "amount": -177.82,
+      "amount": -39.33,
       "category": "Affirm",
       "cleared": false,
       "confidence": "H",
@@ -1920,7 +1920,7 @@
       "description": "Affirm - Wayfair (2nd plan) - installment 1/3",
       "group": "Debt",
       "id": "loan_affirm-wayfair-2nd-plan_1",
-      "note": "From your Loan Payment Schedule - checked off by you | Not in Chase yet as of 9/29 - tick Counts once it posts",
+      "note": "From your Loan Payment Schedule - checked off by you | Real amount $39.33 (Affirm shows it processing 9/30) - tick Counts once it posts in Chase",
       "source": "Loan schedule payment"
     },
     {
@@ -2101,7 +2101,7 @@
       "source": "Manual entry"
     },
     {
-      "amount": -119.14,
+      "amount": -139.14,
       "category": "Food - Eat Out",
       "confidence": "H",
       "date": "2026-09-28",
@@ -2267,26 +2267,92 @@
       "source": "Manual entry"
     },
     {
-      "id": "baf0c740-f41c-4b8c-b395-f5ab590bf294",
+      "amount": 500,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
       "date": "2026-09-28",
       "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
-      "amount": 500.0,
-      "category": "Transfer - PayPal to Checking",
       "group": "Transfer",
-      "confidence": "H",
+      "id": "baf0c740-f41c-4b8c-b395-f5ab590bf294",
       "note": "Posted in Chase 9/28",
       "source": "Chase CSV import"
     },
     {
-      "id": "ecb2d7e7-16d8-4530-b3fd-f1c0d69f4514",
+      "amount": -15,
+      "category": "For Car",
+      "confidence": "D",
       "date": "2026-09-29",
       "description": "POS DEBIT MR TERRIBLE SELF-SERV HENDERSON NV",
-      "amount": -15.0,
-      "category": "For Car",
       "group": "Expenses",
-      "confidence": "D",
+      "id": "ecb2d7e7-16d8-4530-b3fd-f1c0d69f4514",
       "note": "Self-serve car wash - pending in Chase 9/29",
       "source": "Chase pending transaction"
+    },
+    {
+      "amount": -125,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "zelle - mattress",
+      "group": "Expenses",
+      "id": "367fbacc-4b18-4ddd-ab7a-2d2333f9de29",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -9.99,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "doordash pass",
+      "group": "Expenses",
+      "id": "aaf526a8-0d02-492f-b4b9-1ce02cf73fce",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -28.8,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "Dam Roast",
+      "group": "Expenses",
+      "id": "54155d13-6d8e-47ca-ba6a-cc2dc8c7da57",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": 19.5,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "amazon refund",
+      "group": "Income",
+      "id": "e0296445-99e5-428e-b6af-5b94a0b1ad9e",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -30.33,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "amazon - filter for dyson",
+      "group": "Expenses",
+      "id": "7aa24344-37e6-42c0-bd18-5909aa5595d3",
+      "note": "",
+      "source": "Manual entry"
+    },
+    {
+      "amount": -161.81,
+      "category": "Remittance - Aron",
+      "confidence": "H",
+      "date": "2026-09-30",
+      "description": "remittance aron",
+      "group": "Expenses",
+      "id": "82bb337f-86e5-4185-9655-4a652472d7d9",
+      "note": "",
+      "source": "Manual entry"
     }
   ]
 }
