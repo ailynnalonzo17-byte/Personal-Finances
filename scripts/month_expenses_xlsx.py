@@ -11,7 +11,7 @@ html = open('artifact/index.html').read()
 ITEM = set(re.findall(r'"([^"]+)"', re.search(r'ITEMIZED_CARD_CATS = new Set\(\[(.*?)\]\)', html, re.S).group(1)))
 names = {}
 for f in glob.glob(cards_dir + '/*.json'):
-    d = json.load(open(f)); names[f.split('/')[-1][:-5]] = f"{d['name']} (...{d.get('last4', '')})"
+    d = json.load(open(f)); n = d["name"]; l4 = d.get("last4", ""); names[f.split("/")[-1][:-5]] = n if l4 in n else f"{n} (...{l4})"
 
 rows, pending = [], []
 for e in json.load(open(checking_json))['entries']:
@@ -19,7 +19,7 @@ for e in json.load(open(checking_json))['entries']:
     if e.get('cleared') is False:
         if e['group'] not in ('Income', 'Transfer'): pending.append(e)
         continue
-    if e['group'] in ('Income', 'Transfer') or (e['group'] == 'Debt' and e['category'] in ITEM): continue
+    if e['group'] in ('Income', 'Transfer') or (e['group'] == 'Debt' and any(e['category'] == c or e['category'].startswith(c + ' (') for c in ITEM)): continue
     rows.append((e['date'], e['description'].strip(), 'Checking', e['group'], e['category'], round(-e['amount'], 2)))
 for f in sorted(glob.glob(card_dir + '/*.json')):
     d = json.load(open(f))
