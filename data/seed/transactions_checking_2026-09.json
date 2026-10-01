@@ -2019,8 +2019,9 @@
       "description": "UPS shipping",
       "group": "Expenses",
       "id": "a5b284ea-1339-4e20-8a3f-a1713a20db0f",
-      "note": "",
-      "source": "Manual entry"
+      "note": " | two UPS -$65.44 holds did not post - not in the 9/30 Chase export. Not counted; tick Counts if it posts later, or delete if it never does.",
+      "source": "Manual entry",
+      "cleared": false
     },
     {
       "amount": -66.45,
@@ -2168,13 +2169,13 @@
     {
       "amount": -19.99,
       "category": "Others",
-      "cleared": true,
+      "cleared": false,
       "confidence": "R",
       "date": "2026-09-28",
       "description": "POS DEBIT GOOGLE *G1AI101M G.CO/HELPPAY CA (...5438)",
       "group": "Expenses",
       "id": "c1bd6226-946c-425e-b803-031af8a9df7e",
-      "note": "You don't recognize this - 'G1AI101M' looks like a Google One AI plan, charged to the card ending 5438. Check that card's Google account subscriptions; dispute with Chase if it isn't yours",
+      "note": "You don't recognize this - 'G1AI101M' looks like a Google One AI plan, charged to the card ending 5438. Check that card's Google account subscriptions; dispute with Chase if it isn't yours | Google G1AI -$19.99 hold did not post - not in the 9/30 Chase export. Not counted; tick Counts if it posts later, or delete if it never does.",
       "source": "Chase pending transaction"
     },
     {
@@ -2185,8 +2186,9 @@
       "description": "UPS ship",
       "group": "Expenses",
       "id": "2e92b9b0-84d7-411c-bbcd-5763e73e3927",
-      "note": "",
-      "source": "Manual entry"
+      "note": " | UPS -$11.58 hold did not post - not in the 9/30 Chase export. Not counted; tick Counts if it posts later, or delete if it never does.",
+      "source": "Manual entry",
+      "cleared": false
     },
     {
       "amount": -30,
@@ -2266,14 +2268,14 @@
       "source": "Chase CSV import"
     },
     {
-      "amount": -15,
+      "amount": -7.0,
       "category": "For Car",
       "confidence": "D",
       "date": "2026-09-29",
       "description": "POS DEBIT MR TERRIBLE SELF-SERV HENDERSON NV",
       "group": "Expenses",
       "id": "ecb2d7e7-16d8-4530-b3fd-f1c0d69f4514",
-      "note": "Self-serve car wash - pending in Chase 9/29",
+      "note": "Self-serve car wash - posted at -$7.00 in Chase 9/29",
       "source": "Chase pending transaction"
     },
     {
@@ -2299,7 +2301,7 @@
       "source": "Manual entry"
     },
     {
-      "amount": -28.8,
+      "amount": -31.8,
       "category": "Food - Eat Out",
       "confidence": "H",
       "date": "2026-09-30",
@@ -2341,6 +2343,50 @@
       "id": "82bb337f-86e5-4185-9655-4a652472d7d9",
       "note": "",
       "source": "Manual entry"
+    },
+    {
+      "id": "951ece49-13fc-42d1-ba5b-869dda600c0e",
+      "date": "2026-09-30",
+      "description": "COSTCO GAS #0673 HENDERSON NV",
+      "amount": -78.32,
+      "category": "Gas",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "source": "Chase CSV import"
+    },
+    {
+      "id": "0246b9e7-df7b-44cf-9de3-9c5c0ee68507",
+      "date": "2026-09-30",
+      "description": "Zelle payment to Mary Gerbino JPM99cy9d01s",
+      "amount": -10.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Zelle sent - who is Mary Gerbino?",
+      "source": "Chase CSV import"
+    },
+    {
+      "id": "3f451b41-d811-4254-8621-f2b25f354d40",
+      "date": "2026-09-30",
+      "description": "ATM WITHDRAWAL 005706 09/30",
+      "amount": -60.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "ATM cash withdrawal",
+      "source": "Chase CSV import"
+    },
+    {
+      "id": "510b9f73-e81f-444a-ad3b-00c0986e19d9",
+      "date": "2026-09-30",
+      "description": "PAYPAL PURCHASE GOVAUCTIONS",
+      "amount": -0.01,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "1-cent GovAuctions account verification",
+      "source": "Chase CSV import"
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "id": "a193ceb0-56b3-4fd5-b775-7aeada46b4a2",
+      "date": "2026-10-01",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "amount": 1828.0,
+      "category": "Kristin - COO Income",
+      "group": "Income",
+      "confidence": "H",
+      "note": "Posted in Chase 9/30 - counted as October income per you",
+      "source": "Chase CSV import"
+    }
+  ]
+}
