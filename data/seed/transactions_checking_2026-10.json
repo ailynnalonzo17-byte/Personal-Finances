@@ -29,8 +29,8 @@
       "amount": -2000.0,
       "category": "Rent",
       "group": "Monthly Bills",
-      "confidence": "R",
-      "note": "$2,000 withdrawal pending 10/1 - assumed to be October rent to Greg (due the 5th); please confirm",
+      "confidence": "H",
+      "note": "October rent to Greg - confirmed by you (cash withdrawal, pending in Chase 10/1)",
       "source": "Chase pending transaction"
     },
     {
