@@ -1,15 +1,70 @@
 {
   "entries": [
     {
-      "id": "a193ceb0-56b3-4fd5-b775-7aeada46b4a2",
+      "amount": 1828,
+      "category": "Kristin - COO Income",
+      "confidence": "H",
       "date": "2026-10-01",
       "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
-      "amount": 1828.0,
-      "category": "Kristin - COO Income",
       "group": "Income",
-      "confidence": "H",
+      "id": "a193ceb0-56b3-4fd5-b775-7aeada46b4a2",
       "note": "Posted in Chase 9/30 - counted as October income per you",
       "source": "Chase CSV import"
+    },
+    {
+      "id": "8b9558fc-9a26-43e2-9f31-b7661feda2a8",
+      "date": "2026-10-01",
+      "description": "ORIG CO NAME:TEAMSTERS CO ENTRY DESCR:PAYMENTS",
+      "amount": 4355.12,
+      "category": "Chris - Pension",
+      "group": "Income",
+      "confidence": "H",
+      "note": "Chris' pension - pending in Chase 10/1",
+      "source": "Chase pending transaction"
+    },
+    {
+      "id": "79e1f46b-a4d6-4bef-b82e-0084ba20fc47",
+      "date": "2026-10-01",
+      "description": "WITHDRAWAL",
+      "amount": -2000.0,
+      "category": "Rent",
+      "group": "Monthly Bills",
+      "confidence": "R",
+      "note": "$2,000 withdrawal pending 10/1 - assumed to be October rent to Greg (due the 5th); please confirm",
+      "source": "Chase pending transaction"
+    },
+    {
+      "id": "7d7d15ff-2a4d-449c-9d29-65a5188be359",
+      "date": "2026-10-01",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
+      "amount": -10.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Pending in Chase 10/1",
+      "source": "Chase pending transaction"
+    },
+    {
+      "id": "ed3c659c-3a95-4f2c-ae08-12735d23de13",
+      "date": "2026-10-01",
+      "description": "POS DEBIT NV DMV 17 HENDERSON NV (...5851)",
+      "amount": -41.5,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "DMV - pending in Chase 10/1",
+      "source": "Chase pending transaction"
+    },
+    {
+      "id": "b1d56f49-1f6b-4f9c-a8e3-53169f063932",
+      "date": "2026-10-01",
+      "description": "ORIG CO NAME:PAYPAL CO ENTRY DESCR:TRANSFER",
+      "amount": 8.99,
+      "category": "Transfer - PayPal to Checking",
+      "group": "Transfer",
+      "confidence": "H",
+      "note": "PayPal transfer in - pending in Chase 10/1",
+      "source": "Chase pending transaction"
     }
   ]
 }
