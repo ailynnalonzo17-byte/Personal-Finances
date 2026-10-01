@@ -58,12 +58,12 @@
     {
       "id": "b1d56f49-1f6b-4f9c-a8e3-53169f063932",
       "date": "2026-10-01",
-      "description": "ORIG CO NAME:PAYPAL CO ENTRY DESCR:TRANSFER",
+      "description": "PAYPAL REFUND (CapCut / Google Bytedance)",
       "amount": 8.99,
-      "category": "Transfer - PayPal to Checking",
-      "group": "Transfer",
+      "category": "Others",
+      "group": "Expenses",
       "confidence": "H",
-      "note": "PayPal transfer in - pending in Chase 10/1",
+      "note": "Refund of the 9/28 -$8.99 CapCut charge - confirmed by you; pending in Chase 10/1",
       "source": "Chase pending transaction"
     }
   ]

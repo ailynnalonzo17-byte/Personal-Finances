@@ -2357,13 +2357,13 @@
     },
     {
       "amount": -10,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Shop - Others",
+      "confidence": "H",
       "date": "2026-09-30",
       "description": "Zelle payment to Mary Gerbino JPM99cy9d01s",
       "group": "Expenses",
       "id": "0246b9e7-df7b-44cf-9de3-9c5c0ee68507",
-      "note": "Zelle sent - who is Mary Gerbino?",
+      "note": "Marketplace purchase - bench (confirmed by you)",
       "source": "Chase CSV import"
     },
     {
@@ -2389,13 +2389,13 @@
       "source": "Chase CSV import"
     },
     {
-      "id": "852ea5ad-a00b-4932-9414-3a0dda32ca6f",
-      "date": "2026-09-30",
-      "description": "POS CREDIT GOOGLE *G1AI101M g.co/helppay CA (...5438)",
       "amount": 19.99,
       "category": "Others",
-      "group": "Expenses",
       "confidence": "H",
+      "date": "2026-09-30",
+      "description": "POS CREDIT GOOGLE *G1AI101M g.co/helppay CA (...5438)",
+      "group": "Expenses",
+      "id": "852ea5ad-a00b-4932-9414-3a0dda32ca6f",
       "note": "Refund of the unrecognized Google One AI charge - pending in Chase 10/1",
       "source": "Chase pending transaction"
     }
