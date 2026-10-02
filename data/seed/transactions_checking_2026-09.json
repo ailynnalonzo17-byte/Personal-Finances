@@ -2012,7 +2012,7 @@
       "source": "Manual entry"
     },
     {
-      "amount": -130.88,
+      "amount": -65.44,
       "category": "Others",
       "cleared": true,
       "confidence": "H",
@@ -2020,7 +2020,7 @@
       "description": "UPS shipping",
       "group": "Expenses",
       "id": "a5b284ea-1339-4e20-8a3f-a1713a20db0f",
-      "note": "Two PayPal UPS shipping charges of $65.44 - pending in Chase 10/1 (were briefly missing from the 9/30 export)",
+      "note": "Two PayPal UPS shipping charges of $65.44 - pending in Chase 10/1 (were briefly missing from the 9/30 export) | Only one $65.44 UPS charge posted (10/1) - confirmed by you",
       "source": "Manual entry"
     },
     {

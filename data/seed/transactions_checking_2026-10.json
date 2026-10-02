@@ -342,13 +342,13 @@
     },
     {
       "amount": -20,
-      "category": "Remittance - Aron",
+      "category": "Remittance - others",
       "confidence": "H",
       "date": "2026-10-02",
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
       "group": "Expenses",
       "id": "b7571907-3f08-4e3c-a054-71b1cb3c7415",
-      "note": "Pending in Chase 10/2 - Taptap $20, filed as remittance; tell me if it is something else",
+      "note": "Pending in Chase 10/2 - Taptap to Kate, confirmed by you",
       "source": "Chase screenshot"
     },
     {
