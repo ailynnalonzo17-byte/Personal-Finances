@@ -805,24 +805,24 @@
     },
     {
       "amount": -19.58,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Affirm",
+      "confidence": "H",
       "date": "2026-09-11",
       "description": "POS DEBIT                SP+AFF * AEROFLOWDYNAM    855-423-3729 CA",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0510",
-      "note": "Unrecognized charge - please tell me what this is",
+      "note": "Affirm (Shop Pay) - Aeroflow - installment 4/4 (final; 7/30, 8/14, 8/28, 9/11)",
       "source": "Chase CSV import"
     },
     {
       "amount": -88.24,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Affirm",
+      "confidence": "H",
       "date": "2026-09-11",
       "description": "POS DEBIT                SP+AFF * EUFY US          855-423-3729 CA",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0511",
-      "note": "Unrecognized charge - please tell me what this is",
+      "note": "Affirm (Shop Pay) - Eufy camera - installment 3/4",
       "source": "Chase CSV import"
     },
     {
@@ -1137,7 +1137,7 @@
     },
     {
       "amount": -90,
-      "category": "Others",
+      "category": "For Car",
       "confidence": "H",
       "date": "2026-09-17",
       "description": "DMV",
@@ -1148,7 +1148,7 @@
     },
     {
       "amount": -41.5,
-      "category": "Others",
+      "category": "For Car",
       "confidence": "H",
       "date": "2026-09-17",
       "description": "DMV",
@@ -1159,7 +1159,7 @@
     },
     {
       "amount": -25,
-      "category": "Others",
+      "category": "For Car",
       "confidence": "H",
       "date": "2026-09-17",
       "description": "DMV",
@@ -2058,7 +2058,7 @@
     },
     {
       "amount": -96,
-      "category": "Others",
+      "category": "For Car",
       "confidence": "H",
       "date": "2026-09-28",
       "description": "DMV plate",
