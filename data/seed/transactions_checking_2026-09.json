@@ -2313,13 +2313,13 @@
     },
     {
       "amount": 19.5,
-      "category": "Others - Income",
+      "category": "Shop - Amazon",
       "confidence": "H",
       "date": "2026-09-30",
       "description": "amazon refund",
-      "group": "Income",
+      "group": "Expenses",
       "id": "e0296445-99e5-428e-b6af-5b94a0b1ad9e",
-      "note": "",
+      "note": " | Refund of the 9/17 Amazon $19.50 (AMAZON MARKETPLA ADJUSTMENT, posted 9/30)",
       "source": "Manual entry"
     },
     {

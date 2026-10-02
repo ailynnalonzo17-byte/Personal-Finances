@@ -69,25 +69,25 @@
     {
       "amount": -709.9,
       "category": "Auto Loan - Honda",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-04",
+      "date": "2026-10-02",
       "description": "Auto Loan - Honda - checked off as paid",
       "group": "Debt",
       "id": "bill_auto-loan-honda_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/2 (Capital One Auto CARPAY)",
       "source": "Bill checklist payment"
     },
     {
       "amount": -47.93,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-01",
+      "date": "2026-10-02",
       "description": "Affirm - Howler Bike Park - installment 4/12",
       "group": "Debt",
       "id": "loan_affirm-howler-bike-park_4",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/2 (SP+AFF Howler Bike)",
       "source": "Loan schedule payment"
     },
     {
@@ -131,11 +131,11 @@
       "category": "Auto Loan - WRX",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-25",
+      "date": "2026-10-01",
       "description": "Auto Loan - WRX - checked off as paid",
       "group": "Debt",
       "id": "bill_auto-loan-wrx_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/1 (Online Payment To ALA)",
       "source": "Bill checklist payment"
     },
     {
@@ -225,13 +225,13 @@
     {
       "amount": -75.2,
       "category": "Chase Pay in 4",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-12",
+      "date": "2026-10-02",
       "description": "Chase Pay in 4 - installment 3/4",
       "group": "Debt",
       "id": "loan_chase-pay-in-4_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/2 (Autopay to Chase Pay in 4)",
       "source": "Loan schedule payment"
     },
     {
@@ -305,6 +305,84 @@
       "id": "loan_affirm-amazon-5-mo_3",
       "note": "From your Loan Payment Schedule - checked off by you",
       "source": "Loan schedule payment"
+    },
+    {
+      "amount": -37.92,
+      "category": "Affirm",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "Affirm - TikTok (entryway table) - installment 1/4",
+      "group": "Debt",
+      "id": "loan_affirm-tiktok-entryway-table_1",
+      "note": "From your Loan Payment Schedule | Pending in Chase 10/2 (KLARNA*TIKTOK SHOP)",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "PAYPAL TRANSFER - ADD TO BALANCE",
+      "group": "Transfer",
+      "id": "4123d8bd-9528-4dbf-a7b0-4cafe033cb6d",
+      "note": "Pending in Chase 10/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -30,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV 3454 (...5851)",
+      "group": "Expenses",
+      "id": "b852f001-6248-48f8-a148-77b74a85a9f4",
+      "note": "Pending in Chase 10/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Remittance - Aron",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
+      "group": "Expenses",
+      "id": "b7571907-3f08-4e3c-a054-71b1cb3c7415",
+      "note": "Pending in Chase 10/2 - Taptap $20, filed as remittance; tell me if it is something else",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "ONLINE TRANSFER TO SAV ...5953 #30951547865",
+      "group": "Transfer",
+      "id": "77f33947-96b6-4613-ac32-f9a9745e7a06",
+      "note": "Pending in Chase 10/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -24.37,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "AMAZON MARKETPLA INTERNET 043000093665300",
+      "group": "Expenses",
+      "id": "3b790894-f660-4275-8751-51b8a25d7ee8",
+      "note": "Pending in Chase 10/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -8.66,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-02",
+      "description": "AMAZON MARKETPLA INTERNET 043000093716028",
+      "group": "Expenses",
+      "id": "4602be78-b38a-4dd1-828c-97283601769f",
+      "note": "Pending in Chase 10/2",
+      "source": "Chase screenshot"
     }
   ]
 }
