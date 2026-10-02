@@ -123,7 +123,7 @@
     },
     {
       "amount": -15.99,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -134,7 +134,7 @@
     },
     {
       "amount": -21.05,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -145,7 +145,7 @@
     },
     {
       "amount": -30.2,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -156,7 +156,7 @@
     },
     {
       "amount": -98.47,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -200,7 +200,7 @@
     },
     {
       "amount": -69.35,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -321,11 +321,11 @@
     },
     {
       "amount": -53.55,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-04-06",
       "description": "SP+AFF * AOOACALIPERC 855-423-3729 CA        04/06",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0250",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
@@ -354,7 +354,7 @@
     },
     {
       "amount": -9.19,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-06",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -376,7 +376,7 @@
     },
     {
       "amount": -17.63,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-06",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -398,7 +398,7 @@
     },
     {
       "amount": -30.67,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-06",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -409,7 +409,7 @@
     },
     {
       "amount": -32.98,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-06",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -651,11 +651,11 @@
     },
     {
       "amount": -27.73,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-04-08",
       "description": "SP+AFF * AEROFLOWDYNA 855-423-3729 CA        04/08",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0280",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
@@ -816,7 +816,7 @@
     },
     {
       "amount": -28.5,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-10",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -904,7 +904,7 @@
     },
     {
       "amount": -10.77,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-13",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -915,7 +915,7 @@
     },
     {
       "amount": -23.43,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-13",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -926,7 +926,7 @@
     },
     {
       "amount": -19.67,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-13",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -948,7 +948,7 @@
     },
     {
       "amount": -35.81,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-13",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -959,7 +959,7 @@
     },
     {
       "amount": -48.46,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-13",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1157,7 +1157,7 @@
     },
     {
       "amount": -27.86,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-14",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1168,7 +1168,7 @@
     },
     {
       "amount": -45.68,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-14",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1179,7 +1179,7 @@
     },
     {
       "amount": -77.22,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-14",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1388,18 +1388,18 @@
     },
     {
       "amount": -53.55,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-04-20",
       "description": "SP+AFF * AOOACALIPERC 855-423-3729 CA        04/20",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0347",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
     },
     {
       "amount": -10.43,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-20",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1410,7 +1410,7 @@
     },
     {
       "amount": -14.78,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-20",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1454,7 +1454,7 @@
     },
     {
       "amount": -46.27,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-20",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1465,7 +1465,7 @@
     },
     {
       "amount": -63.67,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-20",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1850,18 +1850,18 @@
     },
     {
       "amount": -17.44,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-04-24",
       "description": "SP+AFF * NORTH ALPINE 855-423-3729 CA        04/24",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0389",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
     },
     {
       "amount": -24.16,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-24",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1872,7 +1872,7 @@
     },
     {
       "amount": -63.08,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-24",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1971,7 +1971,7 @@
     },
     {
       "amount": -36.02,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-27",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -1982,7 +1982,7 @@
     },
     {
       "amount": -136.16,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-27",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -2136,7 +2136,7 @@
     },
     {
       "amount": -11.93,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-28",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -2147,7 +2147,7 @@
     },
     {
       "amount": -16.32,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-28",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -2158,7 +2158,7 @@
     },
     {
       "amount": -18.45,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-04-28",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",

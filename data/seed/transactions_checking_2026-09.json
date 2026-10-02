@@ -68,13 +68,13 @@
     },
     {
       "amount": -47.93,
-      "category": "For Bike",
+      "category": "Affirm",
       "confidence": "H",
       "date": "2026-09-02",
       "description": "SP+AFF * HOWLER BIKE 855-423-3729 CA         09/02",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0443",
-      "note": "",
+      "note": "Affirm (Shop Pay) - Howler Bike Park - installment 3/12",
       "source": "Chase CSV import"
     },
     {
@@ -145,7 +145,7 @@
     },
     {
       "amount": -67.89,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-09-03",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -354,7 +354,7 @@
     },
     {
       "amount": -214.57,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-09-08",
       "description": "PAYPAL           PURCHASE   TIKTOK SHOP     WEB ID: PAYPALSI77",
@@ -882,11 +882,11 @@
     },
     {
       "amount": -50,
-      "category": "Others",
+      "category": "Transfer - Checking to PayPal",
       "confidence": "H",
       "date": "2026-09-11",
       "description": "to paypal savings",
-      "group": "Expenses",
+      "group": "Transfer",
       "id": "3e79335b-51dc-4705-98d0-6abfc69ffb2a",
       "note": "",
       "source": "Manual entry"
@@ -1318,7 +1318,7 @@
     },
     {
       "amount": -141.13,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-09-18",
       "description": "paypal tiktok",
@@ -1512,7 +1512,7 @@
     },
     {
       "amount": -45.93,
-      "category": "paypal tiktok",
+      "category": "Shop - Tiktok",
       "confidence": "H",
       "date": "2026-09-18",
       "description": "PAYPAL PURCHASE TIKTOK SHOP WEB ID: PAYPALSI77",
@@ -2102,7 +2102,7 @@
     },
     {
       "amount": 180.49,
-      "category": "Others",
+      "category": "Shop - Amazon",
       "confidence": "H",
       "date": "2026-09-28",
       "description": "amazon - refund",

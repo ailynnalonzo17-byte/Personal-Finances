@@ -13,7 +13,7 @@ EXPENSES = [
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
     "Groceries - Seafood City","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
-    "Misc - gail gown and cap","Movie","Others","paypal tiktok",
+    "Misc - gail gown and cap","Movie","Others",
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
     "Shop - Others","Shop - Ross","Shop - Shein","Shop - Temu","Shop - Tiktok",

@@ -871,11 +871,11 @@
     },
     {
       "amount": -27.72,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-03-11",
       "description": "SP+AFF * AEROFLOWDYNA 855-423-3729 CA        03/11",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0079",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
@@ -1949,11 +1949,11 @@
     },
     {
       "amount": -27.72,
-      "category": "Shop - Others",
+      "category": "Affirm",
       "confidence": "R",
       "date": "2026-03-25",
       "description": "SP+AFF * AEROFLOWDYNA 855-423-3729 CA        03/25",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "chk_new_0177",
       "note": "Small online-shop charge via an affiliate/Affirm-style processor - description doesn't name the actual store",
       "source": "Chase CSV import"
