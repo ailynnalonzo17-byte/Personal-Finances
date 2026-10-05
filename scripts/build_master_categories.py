@@ -12,7 +12,7 @@ EXPENSES = [
     "Business Expense","Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
-    "Groceries - Seafood City","Groceries - Walmart","Key Salary","Lawyer","Medical","Misc - Gail",
+    "Groceries - Seafood City","Groceries - Walmart","Haircut","Key Salary","Lawyer","Medical","Misc - Gail",
     "Misc - gail gown and cap","Movie","Others",
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
