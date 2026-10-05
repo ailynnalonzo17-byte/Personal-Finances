@@ -484,17 +484,6 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -3.25,
-      "category": "Others",
-      "confidence": "H",
-      "date": "2026-10-05",
-      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA (...5851)",
-      "group": "Expenses",
-      "id": "fde8d4b1-0395-4aff-a6fa-efe0f306044c",
-      "note": "Pending in Chase 10/5",
-      "source": "Chase screenshot"
-    },
-    {
       "amount": -13.47,
       "category": "Groceries - Others",
       "confidence": "H",
