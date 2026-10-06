@@ -584,13 +584,13 @@
     },
     {
       "amount": -22.0,
-      "category": "Remittance - Aron",
+      "category": "Key Salary",
       "confidence": "H",
       "date": "2026-10-06",
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
       "group": "Expenses",
       "id": "ae7684e9-5706-4d83-b3bf-f357b245ba3a",
-      "note": "Pending in Chase 10/6 - filed as remittance to Aron; tell me if it is for someone else",
+      "note": "Pending in Chase 10/6 - Taptap to Key, confirmed by you",
       "source": "Chase screenshot"
     },
     {
