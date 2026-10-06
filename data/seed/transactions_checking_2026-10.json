@@ -151,15 +151,15 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -90,
+      "amount": -250,
       "category": "CC - Credit 1 (...4352)",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-06",
       "description": "CC - Credit 1 (...4352) - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-credit1-4352_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/6: Credit One payment $250 (minimum was $90)",
       "source": "Bill checklist payment"
     },
     {
@@ -440,7 +440,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -40.0,
+      "amount": -40,
       "category": "Medical",
       "confidence": "H",
       "date": "2026-10-05",
@@ -473,7 +473,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -20.0,
+      "amount": -20,
       "category": "Others",
       "confidence": "H",
       "date": "2026-10-05",
@@ -539,7 +539,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -60.0,
+      "amount": -60,
       "category": "Haircut",
       "confidence": "H",
       "date": "2026-10-05",
@@ -547,6 +547,61 @@
       "group": "Expenses",
       "id": "1aba895b-05b5-4808-9868-23418ef544e4",
       "note": "Pending in Chase 10/5 - haircut, confirmed by you",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -37.65,
+      "category": "Shop - Others",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "POS DEBIT NESPRESSO USA INC WILMINGTON DE (...5851)",
+      "group": "Expenses",
+      "id": "87ddcd39-b3f5-4465-ba59-373b0a57cca4",
+      "note": "Pending in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -31.6,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "POS DEBIT MCDONALDS 25291 HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "9bad4e8a-4944-42ad-b254-972dc96a2255",
+      "note": "Pending in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -13.06,
+      "category": "SW Gas",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "SOUTHWEST GAS PAYMENT B26275117274411",
+      "group": "Monthly Bills",
+      "id": "4e48453c-f63d-4b32-907d-2484f52a7d95",
+      "note": "Pending in Chase 10/6 - second $13.06 SW Gas payment the same day; looks like a duplicate of the September bill (should show as a credit on the next bill)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.0,
+      "category": "Remittance - Aron",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
+      "group": "Expenses",
+      "id": "ae7684e9-5706-4d83-b3bf-f357b245ba3a",
+      "note": "Pending in Chase 10/6 - filed as remittance to Aron; tell me if it is for someone else",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10.27,
+      "category": "Gas",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "POS DEBIT SHELL/SHELL LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "11779d20-7aed-4282-b3f9-d10a295e4348",
+      "note": "Pending in Chase 10/6",
       "source": "Chase screenshot"
     }
   ]

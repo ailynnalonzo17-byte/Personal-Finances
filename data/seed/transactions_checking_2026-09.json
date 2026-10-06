@@ -1759,18 +1759,6 @@
       "source": "Manual entry"
     },
     {
-      "amount": -10.74,
-      "category": "Afterpay",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-09-26",
-      "description": "Afterpay - checked off as paid",
-      "group": "Debt",
-      "id": "bill_afterpay_2026-09",
-      "note": "From This month's bills & loans - checked off by you | Not in Chase yet as of 9/25 - tick Counts once it posts",
-      "source": "Bill checklist payment"
-    },
-    {
       "amount": -13.99,
       "category": "Yesoulfitness",
       "cleared": true,
@@ -1878,13 +1866,13 @@
     {
       "amount": -13.06,
       "category": "SW Gas",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-09-28",
       "description": "SW Gas - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_sw-gas_2026-09",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Paid - pending in Chase 10/6 (SOUTHWEST GAS PAYMENT $13.06)",
       "source": "Bill checklist payment"
     },
     {
