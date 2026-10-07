@@ -139,7 +139,7 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -1000,
+      "amount": -800,
       "category": "CC - Frontier card",
       "cleared": false,
       "confidence": "H",
@@ -661,7 +661,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": 32.0,
+      "amount": 32,
       "category": "Others",
       "confidence": "H",
       "date": "2026-10-07",
