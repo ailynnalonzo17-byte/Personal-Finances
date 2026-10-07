@@ -662,13 +662,13 @@
     },
     {
       "amount": 32.0,
-      "category": "Others - Income",
+      "category": "Others",
       "confidence": "H",
       "date": "2026-10-07",
       "description": "ZELLE PAYMENT FROM RHIAN ABIGAIL ALMO 31116630063",
-      "group": "Income",
+      "group": "Expenses",
       "id": "6f269419-2f3c-477d-8324-ddc0516832b0",
-      "note": "Pending in Chase 10/7 - Zelle from Rhian Almo; filed as other income, tell me if it is a repayment",
+      "note": "Pending in Chase 10/7 - Rhian Almo paying you back (confirmed by you); offsets spending rather than income",
       "source": "Chase screenshot"
     }
   ]
