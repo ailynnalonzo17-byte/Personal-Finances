@@ -116,10 +116,10 @@
       "date": "2026-09-29",
       "description": "CARD C1409.3877.0643 WWW.VENETIANL NV",
       "amount": 20.0,
-      "category": "Others",
+      "category": "For Car",
       "group": "Expenses",
       "confidence": "H",
-      "note": "Venetian Las Vegas",
+      "note": "Venetian Las Vegas parking - confirmed by you",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },

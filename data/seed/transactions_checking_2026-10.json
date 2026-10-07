@@ -579,11 +579,11 @@
       "description": "SOUTHWEST GAS PAYMENT B26275117274411",
       "group": "Monthly Bills",
       "id": "4e48453c-f63d-4b32-907d-2484f52a7d95",
-      "note": "Pending in Chase 10/6 - second $13.06 SW Gas payment the same day; looks like a duplicate of the September bill (should show as a credit on the next bill)",
+      "note": "Pending in Chase 10/6 - second $13.06 SW Gas payment the same day. Confirmed by you: paid twice, fine - it will show as a credit on the next SW Gas bill",
       "source": "Chase screenshot"
     },
     {
-      "amount": -22.0,
+      "amount": -22,
       "category": "Key Salary",
       "confidence": "H",
       "date": "2026-10-06",
@@ -602,6 +602,73 @@
       "group": "Expenses",
       "id": "11779d20-7aed-4282-b3f9-d10a295e4348",
       "note": "Pending in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -500,
+      "category": "BADD Insurance",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "BADD Insurance - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_badd-insurance_2026-10",
+      "note": "From This month's bills & loans - checked off by you | Paid by CHECK #359, cleared Chase 10/6",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -185.06,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "WM SUPERCENTER #2838 HENDERSON NV 10/06 (...5438)",
+      "group": "Expenses",
+      "id": "c914f5b8-9f70-4b64-b8bc-50f11645ebe3",
+      "note": "Posted in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -23.84,
+      "category": "Shop - Tiktok",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "PAYPAL PURCHASE TIKTOK SHOP WEB ID: PAYPALSI77",
+      "group": "Expenses",
+      "id": "922fcd18-8766-4ba4-911c-fae2b30cb15b",
+      "note": "Posted in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -41.16,
+      "category": "Shop - Others",
+      "confidence": "H",
+      "date": "2026-10-06",
+      "description": "HOMEGOODS #0768 HENDERSON NV 10/06 (...5438)",
+      "group": "Expenses",
+      "id": "aea7fd9c-b4b2-4694-9035-90b7e3bf1d57",
+      "note": "Posted in Chase 10/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 27.6,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-07",
+      "description": "AMAZON MARKETPLA ADJUSTMENT (refund)",
+      "group": "Expenses",
+      "id": "67e88ef9-381c-417a-8dbb-1f4034c3f0b4",
+      "note": "Pending in Chase 10/7 - Amazon refund $27.60 (same amount as the 9/25 gas line kit)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 32.0,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-10-07",
+      "description": "ZELLE PAYMENT FROM RHIAN ABIGAIL ALMO 31116630063",
+      "group": "Income",
+      "id": "6f269419-2f3c-477d-8324-ddc0516832b0",
+      "note": "Pending in Chase 10/7 - Zelle from Rhian Almo; filed as other income, tell me if it is a repayment",
       "source": "Chase screenshot"
     }
   ]
