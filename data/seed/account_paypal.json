@@ -1,1 +1,1 @@
-{"name": "PayPal", "last4": null, "startingBalance": 0, "startingDate": null, "actualBalance": null, "actualBalanceDate": null, "hasStatementData": false}
+{"name": "PayPal Savings", "last4": null, "startingBalance": 5020.49, "startingDate": "2026-10-08", "actualBalance": 5020.49, "actualBalanceDate": "2026-10-08", "hasStatementData": true, "apy": 3.55, "note": "Balance $5,020.49 at 3.55% APY as of 10/8/2026 (from your screenshot). Was $10,195.37 on 9/12. Automatic $50 transfer from Chase checking every Friday."}
