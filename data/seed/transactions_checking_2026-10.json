@@ -141,13 +141,13 @@
     {
       "amount": -800,
       "category": "CC - Frontier card",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-08",
       "description": "CC - Frontier card - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-frontier-card_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/8 (BARCLAYCARD US CREDITCARD $800)",
       "source": "Bill checklist payment"
     },
     {
@@ -165,13 +165,13 @@
     {
       "amount": -29.98,
       "category": "Netflix",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-08",
       "description": "Netflix - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_netflix_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/8 (NETFLIX.COM)",
       "source": "Bill checklist payment"
     },
     {
@@ -187,9 +187,9 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -300,
+      "amount": -278.33,
       "category": "CC - One Pay",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-10",
       "description": "CC - One Pay - checked off as paid",
@@ -669,6 +669,39 @@
       "group": "Expenses",
       "id": "6f269419-2f3c-477d-8324-ddc0516832b0",
       "note": "Pending in Chase 10/7 - Rhian Almo paying you back (confirmed by you); offsets spending rather than income",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 700.0,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-07",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "f9e9eca0-ebac-4411-8429-75840f1ead7f",
+      "note": "Posted in Chase 10/7 - filed as a transfer from PayPal; tell me if it is income",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -42.7,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-08",
+      "description": "POS DEBIT Robertos Taco Shop HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "c9e6b0ed-5a05-46b2-97f5-9f13342bfe16",
+      "note": "Pending in Chase 10/8",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5.0,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-08",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "379602d5-74ba-4397-9bca-dd6f19cd4ee5",
+      "note": "Pending in Chase 10/8",
       "source": "Chase screenshot"
     }
   ]
