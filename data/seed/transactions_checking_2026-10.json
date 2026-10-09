@@ -177,13 +177,13 @@
     {
       "amount": -130,
       "category": "Cox",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-09",
+      "date": "2026-10-08",
       "description": "Cox - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_cox_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/8 (COX COMM LAS)",
       "source": "Bill checklist payment"
     },
     {
@@ -191,11 +191,11 @@
       "category": "CC - One Pay",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-10",
+      "date": "2026-10-09",
       "description": "CC - One Pay - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-one-pay_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/9 (ONEPAY CASHREWRD SYF PAYMNT $278.33)",
       "source": "Bill checklist payment"
     },
     {
@@ -672,7 +672,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": 700.0,
+      "amount": 700,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
       "date": "2026-10-07",
@@ -694,7 +694,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -5.0,
+      "amount": -5,
       "category": "Others",
       "confidence": "H",
       "date": "2026-10-08",
@@ -702,6 +702,50 @@
       "group": "Expenses",
       "id": "379602d5-74ba-4397-9bca-dd6f19cd4ee5",
       "note": "Pending in Chase 10/8",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -3.25,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-04",
+      "description": "PAYPAL *UPS US SHIP 800-742-5877 GA 10/04 (...5851)",
+      "group": "Expenses",
+      "id": "f11e9f5a-1ffb-4a70-865a-41007e67ecb9",
+      "note": "Posted in Chase 10/5 - separate $3.25 UPS charge (not the 9/29 $11.58 one)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -155.09,
+      "category": "Groceries - Others",
+      "confidence": "H",
+      "date": "2026-10-08",
+      "description": "SMITHS #4331 HENDERSON NV 10/08 (...5438)",
+      "group": "Expenses",
+      "id": "14744231-4f7b-4b83-a874-be6b54bce4a3",
+      "note": "Posted in Chase 10/8",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 500.0,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-08",
+      "description": "ZELLE PAYMENT FROM RHIAN ABIGAIL ALMO 31138463833",
+      "group": "Expenses",
+      "id": "58bb4f8c-1a92-4522-9a6c-49a3cc11cf41",
+      "note": "Posted in Chase 10/8 - filed as Rhian paying you back like the $32; tell me if it is something else",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25.0,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-10-09",
+      "description": "ONLINE TRANSFER TO SAV ...5953 #31051892246",
+      "group": "Transfer",
+      "id": "d815fe7f-7a82-4a6e-8bc7-622af550f965",
+      "note": "Pending in Chase 10/9",
       "source": "Chase screenshot"
     }
   ]

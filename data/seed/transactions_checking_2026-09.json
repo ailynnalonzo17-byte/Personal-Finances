@@ -2167,7 +2167,7 @@
       "source": "Chase pending transaction"
     },
     {
-      "amount": -3.25,
+      "amount": -11.58,
       "category": "Others",
       "cleared": true,
       "confidence": "H",
@@ -2175,7 +2175,7 @@
       "description": "UPS ship",
       "group": "Expenses",
       "id": "2e92b9b0-84d7-411c-bbcd-5763e73e3927",
-      "note": "PayPal UPS shipping $11.58 - pending in Chase 10/1 | UPS hold of $11.58 settled at $3.25 (PAYPAL *UPS US SHIP 0829, pending 10/5)",
+      "note": "UPS shipping $11.58 - the hold dropped off for a few days and the charge posted in Chase 10/7",
       "source": "Manual entry"
     },
     {
