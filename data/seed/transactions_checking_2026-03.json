@@ -1047,13 +1047,13 @@
     },
     {
       "amount": 500,
-      "category": "Others - Income",
+      "category": "Auto Loan - Miata",
       "confidence": "R",
       "date": "2026-03-12",
       "description": "Zelle payment from RHIAN ABIGAIL ALMO 28404498414",
-      "group": "Income",
+      "group": "Debt",
       "id": "chk_new_0095",
-      "note": "Zelle received - please tell me who this person is so I can map them to a category",
+      "note": "Rhian paying for her Miata (monthly $500, confirmed by you 10/9); offsets the Miata loan payment",
       "source": "Chase CSV import"
     },
     {
