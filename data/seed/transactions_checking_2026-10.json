@@ -728,13 +728,13 @@
     },
     {
       "amount": 500.0,
-      "category": "Others",
+      "category": "Auto Loan - Miata",
       "confidence": "H",
       "date": "2026-10-08",
       "description": "ZELLE PAYMENT FROM RHIAN ABIGAIL ALMO 31138463833",
-      "group": "Expenses",
+      "group": "Debt",
       "id": "58bb4f8c-1a92-4522-9a6c-49a3cc11cf41",
-      "note": "Posted in Chase 10/8 - filed as Rhian paying you back like the $32; tell me if it is something else",
+      "note": "Posted in Chase 10/8 - Rhian paying for her Miata (confirmed by you); offsets the $500 Miata payment",
       "source": "Chase screenshot"
     },
     {
