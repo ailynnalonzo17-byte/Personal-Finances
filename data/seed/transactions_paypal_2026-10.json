@@ -1,0 +1,17 @@
+{
+  "account": "paypal",
+  "entries": [
+    {
+      "amount": 50.0,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-09",
+      "description": "Weekly transfer from Chase checking",
+      "group": "Transfer",
+      "id": "pp_2026-10-09",
+      "note": "Matches the Chase PAYPAL TRANSFER ADD TO BALANCE -$50 on 10/9",
+      "source": "Chase screenshot"
+    }
+  ],
+  "month": "2026-10"
+}

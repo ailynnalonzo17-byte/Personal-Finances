@@ -727,7 +727,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": 500.0,
+      "amount": 500,
       "category": "Auto Loan - Miata",
       "confidence": "H",
       "date": "2026-10-08",
@@ -738,7 +738,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -25.0,
+      "amount": -25,
       "category": "Transfer - Checking to Savings",
       "confidence": "H",
       "date": "2026-10-09",
@@ -746,6 +746,182 @@
       "group": "Transfer",
       "id": "d815fe7f-7a82-4a6e-8bc7-622af550f965",
       "note": "Pending in Chase 10/9",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -50.0,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-09",
+      "description": "PAYPAL TRANSFER ADD TO BALANCE WEB ID: PAYPALSD22",
+      "group": "Transfer",
+      "id": "773c3f0d-1d62-4c17-8dce-f755b760d11e",
+      "note": "Posted in Chase 10/9 - weekly $50 to PayPal Savings",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 160.0,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-10-09",
+      "description": "REMOTE ONLINE DEPOSIT # 1",
+      "group": "Income",
+      "id": "fac45784-ac7d-481b-8e35-68f61fa1d72b",
+      "note": "Posted in Chase 10/9 - mobile check deposit; tell me what it was",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -36.85,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
+      "group": "Expenses",
+      "id": "da5bcde3-96c1-4195-8ba9-1a229b1419ac",
+      "note": "Posted in Chase 10/10",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.59,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
+      "group": "Expenses",
+      "id": "ef3c8dba-6dc3-4b94-bfca-eb825879ecae",
+      "note": "Posted in Chase 10/10",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -17.64,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SQ *SR THAI & POTATO Las Vegas NV (...5438)",
+      "group": "Expenses",
+      "id": "fefeb715-c3a4-4877-a955-60ba246246c6",
+      "note": "Posted in Chase 10/10",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -16.0,
+      "category": "Shop - Others",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SP HELLA KULIT LAKESIDE CA (...5851)",
+      "group": "Expenses",
+      "id": "dbefed89-3849-49d8-baba-096dc2693a4d",
+      "note": "Posted in Chase 10/10",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -11.02,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SQ *SR THAI & POTATO Las Vegas NV (...5851)",
+      "group": "Expenses",
+      "id": "a8769b05-716d-4694-ac2b-ffbba800ec6b",
+      "note": "Posted in Chase 10/10",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10.0,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "POS DEBIT SOFI PLUS +18554567634 CA (...5438)",
+      "group": "Expenses",
+      "id": "11fd8654-2a6f-4df8-a7a8-2ca52c21472b",
+      "note": "Posted in Chase 10/10 - SoFi Plus monthly fee",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -210.0,
+      "category": "Remittance - Aron",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
+      "group": "Expenses",
+      "id": "c78d2ae8-dfeb-4db5-9426-dbf329e0d034",
+      "note": "Posted in Chase 10/10 - filed as remittance to Aron; tell me if it is for someone else",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 170.0,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "ZELLE PAYMENT FROM ANGELYNN FLORA PNCAA0DXX76B",
+      "group": "Income",
+      "id": "2d553e0c-e8c4-4a2a-8152-fa847185d019",
+      "note": "Posted in Chase 10/10 - Zelle from Angelynn; tell me if it is money to pass on (like September)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.0,
+      "category": "VA expense",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT ANTHROPIC* CLAUDE SUB +14152360599 CA (...5438)",
+      "group": "Expenses",
+      "id": "418376c8-0462-4f17-a180-473b471b0d61",
+      "note": "Pending in Chase 10/11 - Claude subscription",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.0,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT GIV*FIRST PRESBY 831-4227811 CA (...5438)",
+      "group": "Expenses",
+      "id": "79275f32-6e44-40b6-a18c-24ebac1450b7",
+      "note": "Pending in Chase 10/11",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -70.34,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT ADULT SUPERSTORE BLVD LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "845e424f-ca73-4c71-add4-c9b2524c3267",
+      "note": "Pending in Chase 10/11",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -17.64,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT SQ *SR THAI & POTATO LAS VEGAS NV (...5438)",
+      "group": "Expenses",
+      "id": "1c6b8ff3-67f5-480a-9f9b-cec503217c68",
+      "note": "Pending in Chase 10/11 - same amount as the posted 10/10 SR Thai $17.64; may be the same charge shown twice",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -83.89,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT LCS KITCHENUSA LLC GARDEN GROVE CA (...5851)",
+      "group": "Expenses",
+      "id": "3f61803e-cec4-45b7-ad03-b643f594f914",
+      "note": "Pending in Chase 10/11",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -86.4,
+      "category": "Gas",
+      "confidence": "H",
+      "date": "2026-10-11",
+      "description": "POS DEBIT CHEVRON 0382445 HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "7b6cc6a4-4de8-4ca1-9686-909a88c15d2f",
+      "note": "Pending in Chase 10/11",
       "source": "Chase screenshot"
     }
   ]
