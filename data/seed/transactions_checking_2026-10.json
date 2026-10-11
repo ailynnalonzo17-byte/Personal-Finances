@@ -778,7 +778,7 @@
       "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
       "group": "Expenses",
       "id": "da5bcde3-96c1-4195-8ba9-1a229b1419ac",
-      "note": "Posted in Chase 10/10",
+      "note": "Posted in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
       "source": "Chase screenshot"
     },
     {
@@ -789,7 +789,7 @@
       "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
       "group": "Expenses",
       "id": "ef3c8dba-6dc3-4b94-bfca-eb825879ecae",
-      "note": "Posted in Chase 10/10",
+      "note": "Posted in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
       "source": "Chase screenshot"
     },
     {
@@ -837,14 +837,25 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -210,
+      "amount": -170.0,
       "category": "Transfer - Pass-through",
       "confidence": "H",
       "date": "2026-10-10",
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
       "group": "Transfer",
       "id": "c78d2ae8-dfeb-4db5-9426-dbf329e0d034",
-      "note": "Posted in Chase 10/10 - Taptap sending on money for Angelynn (confirmed by you); not your spending. $40 more than she sent you",
+      "note": "Posted in Chase 10/10 (Taptap $210 total) - $170 sending on money for Angelynn (confirmed by you); not your spending",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -40.0,
+      "category": "Remittance - others",
+      "confidence": "H",
+      "date": "2026-10-10",
+      "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
+      "group": "Expenses",
+      "id": "56752c6d-b415-4d68-a8d8-294279892f05",
+      "note": "Posted in Chase 10/10 (Taptap $210 total) - your $40 for Mama Linda's birthday (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
