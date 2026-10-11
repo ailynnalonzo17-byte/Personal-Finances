@@ -37,7 +37,7 @@ TRANSFER = [
     "Transfer - Checking to Savings","Transfer - Savings to Checking",
     "Transfer - Checking to PayPal","Transfer - PayPal to Checking",
     "Transfer - Checking to SoFi Savings",
-    "Transfer - SoFi Savings to Checking",
+    "Transfer - SoFi Savings to Checking","Transfer - Pass-through",
 ]
 
 ALL_GROUPS = {

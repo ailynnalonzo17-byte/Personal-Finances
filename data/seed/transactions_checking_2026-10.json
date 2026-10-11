@@ -749,7 +749,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -50.0,
+      "amount": -50,
       "category": "Transfer - Checking to PayPal",
       "confidence": "H",
       "date": "2026-10-09",
@@ -760,14 +760,14 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": 160.0,
+      "amount": 160,
       "category": "Others - Income",
       "confidence": "H",
       "date": "2026-10-09",
       "description": "REMOTE ONLINE DEPOSIT # 1",
       "group": "Income",
       "id": "fac45784-ac7d-481b-8e35-68f61fa1d72b",
-      "note": "Posted in Chase 10/9 - mobile check deposit; tell me what it was",
+      "note": "Posted in Chase 10/9 - check deposit, income for Chris (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -804,7 +804,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -16.0,
+      "amount": -16,
       "category": "Shop - Others",
       "confidence": "H",
       "date": "2026-10-10",
@@ -826,7 +826,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -10.0,
+      "amount": -10,
       "category": "Others",
       "confidence": "H",
       "date": "2026-10-10",
@@ -837,29 +837,29 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -210.0,
-      "category": "Remittance - Aron",
+      "amount": -210,
+      "category": "Transfer - Pass-through",
       "confidence": "H",
       "date": "2026-10-10",
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
-      "group": "Expenses",
+      "group": "Transfer",
       "id": "c78d2ae8-dfeb-4db5-9426-dbf329e0d034",
-      "note": "Posted in Chase 10/10 - filed as remittance to Aron; tell me if it is for someone else",
+      "note": "Posted in Chase 10/10 - Taptap sending on money for Angelynn (confirmed by you); not your spending. $40 more than she sent you",
       "source": "Chase screenshot"
     },
     {
-      "amount": 170.0,
-      "category": "Others - Income",
+      "amount": 170,
+      "category": "Transfer - Pass-through",
       "confidence": "H",
       "date": "2026-10-10",
       "description": "ZELLE PAYMENT FROM ANGELYNN FLORA PNCAA0DXX76B",
-      "group": "Income",
+      "group": "Transfer",
       "id": "2d553e0c-e8c4-4a2a-8152-fa847185d019",
-      "note": "Posted in Chase 10/10 - Zelle from Angelynn; tell me if it is money to pass on (like September)",
+      "note": "Posted in Chase 10/10 - money from Angelynn that you passed on through Taptap (confirmed by you); not your income",
       "source": "Chase screenshot"
     },
     {
-      "amount": -20.0,
+      "amount": -20,
       "category": "VA expense",
       "confidence": "H",
       "date": "2026-10-11",
@@ -870,7 +870,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -20.0,
+      "amount": -20,
       "category": "Others",
       "confidence": "H",
       "date": "2026-10-11",
