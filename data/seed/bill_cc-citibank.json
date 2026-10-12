@@ -1,1 +1,1 @@
-{"name": "CC - Citibank", "group": "Debt", "type": "debt", "amount": 500, "dueDay": 16, "account": "checking", "active": true, "note": "Confirmed by you: paying $500/mo (statement minimum is $41; 9/18 balance $1,154.90)."}
+{"name": "CC - Citibank", "group": "Debt", "type": "debt", "amount": 41, "dueDay": 16, "account": "checking", "active": true, "note": "Plan: minimum payment only (per you 10/12). $41 was the October minimum - update from each new statement."}

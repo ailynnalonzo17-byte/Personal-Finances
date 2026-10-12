@@ -1,1 +1,1 @@
-{"name": "CC - One Pay", "group": "Debt", "type": "debt", "amount": 30, "dueDay": 10, "account": "checking", "active": true, "note": "Real statement data (OnePay CashRewards, $30 due, due date 9/10 - already matched the amount, corrected the due day)."}
+{"name": "CC - One Pay", "group": "Debt", "type": "debt", "amount": 30, "dueDay": 10, "account": "checking", "active": true, "note": "Plan: minimum payment only (per you 10/12). AutoPay minimum $30 - update from each new statement."}

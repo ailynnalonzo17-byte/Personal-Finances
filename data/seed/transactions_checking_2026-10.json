@@ -271,7 +271,7 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -500,
+      "amount": -41.0,
       "category": "CC - Citibank",
       "cleared": false,
       "confidence": "H",
@@ -279,7 +279,7 @@
       "description": "CC - Citibank - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-citibank_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Minimum payment only (changed from $500 per you 10/12)",
       "source": "Bill checklist payment"
     },
     {
@@ -837,7 +837,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -170.0,
+      "amount": -170,
       "category": "Transfer - Pass-through",
       "confidence": "H",
       "date": "2026-10-10",
@@ -848,7 +848,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -40.0,
+      "amount": -40,
       "category": "Remittance - others",
       "confidence": "H",
       "date": "2026-10-10",
