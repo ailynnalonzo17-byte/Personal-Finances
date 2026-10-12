@@ -213,7 +213,7 @@
     {
       "amount": -24.38,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-12",
       "description": "Affirm - Pickleball - installment 3/4",
