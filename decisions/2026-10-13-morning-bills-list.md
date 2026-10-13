@@ -13,3 +13,7 @@ Every morning daily pass includes, as a [YOU] item, the bills Vera needs the own
 - Never mark a bill confirmed or paid unless the owner sent it.
 
 Lives as the routine row "Bills I need from you" (Order 1, daily, active) in the Routines table.
+
+## Update, same day
+
+The owner: ask for a new statement only after its statement date, which Vera already knows from past statements. Dates live in `reference/statement-dates.md`. A statement is due to ask for when today is on or after (last statement on file + 1 month) and that statement is not in the vault yet. Bills with no statement on file are not chased.
