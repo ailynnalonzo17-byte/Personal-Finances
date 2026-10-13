@@ -2,7 +2,7 @@
   "account": "paypal",
   "entries": [
     {
-      "amount": 50.0,
+      "amount": 50,
       "category": "Transfer - Checking to PayPal",
       "confidence": "H",
       "date": "2026-10-09",
@@ -10,6 +10,17 @@
       "group": "Transfer",
       "id": "pp_2026-10-09",
       "note": "Matches the Chase PAYPAL TRANSFER ADD TO BALANCE -$50 on 10/9",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -1000.0,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "Transfer to Chase checking",
+      "group": "Transfer",
+      "id": "pp_2026-10-13",
+      "note": "Matches the Chase PAYPAL TRANSFER +$1,000 pending 10/13",
       "source": "Chase screenshot"
     }
   ],

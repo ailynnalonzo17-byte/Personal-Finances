@@ -201,13 +201,13 @@
     {
       "amount": -205.62,
       "category": "National Life Ins",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-11",
+      "date": "2026-10-12",
       "description": "National Life Ins - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_national-life-ins_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/12 (LIFE INS OF SW)",
       "source": "Bill checklist payment"
     },
     {
@@ -219,7 +219,7 @@
       "description": "Affirm - Pickleball - installment 3/4",
       "group": "Debt",
       "id": "loan_affirm-pickleball_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/12 (SP+AFF * CPX PICKLEBAL)",
       "source": "Loan schedule payment"
     },
     {
@@ -271,7 +271,7 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -41.0,
+      "amount": -41,
       "category": "CC - Citibank",
       "cleared": false,
       "confidence": "H",
@@ -778,7 +778,7 @@
       "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
       "group": "Expenses",
       "id": "da5bcde3-96c1-4195-8ba9-1a229b1419ac",
-      "note": "Posted in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
+      "note": "Pending in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
       "source": "Chase screenshot"
     },
     {
@@ -789,7 +789,7 @@
       "description": "POS DEBIT SQ *4CORNERS STREETKIT Las Vegas NV (...5851)",
       "group": "Expenses",
       "id": "ef3c8dba-6dc3-4b94-bfca-eb825879ecae",
-      "note": "Posted in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
+      "note": "Pending in Chase 10/10 - 4Corners Streetkit (sisig), confirmed by you",
       "source": "Chase screenshot"
     },
     {
@@ -800,7 +800,7 @@
       "description": "POS DEBIT SQ *SR THAI & POTATO Las Vegas NV (...5438)",
       "group": "Expenses",
       "id": "fefeb715-c3a4-4877-a955-60ba246246c6",
-      "note": "Posted in Chase 10/10",
+      "note": "Pending in Chase 10/10",
       "source": "Chase screenshot"
     },
     {
@@ -811,7 +811,7 @@
       "description": "POS DEBIT SP HELLA KULIT LAKESIDE CA (...5851)",
       "group": "Expenses",
       "id": "dbefed89-3849-49d8-baba-096dc2693a4d",
-      "note": "Posted in Chase 10/10",
+      "note": "Pending in Chase 10/10",
       "source": "Chase screenshot"
     },
     {
@@ -822,7 +822,7 @@
       "description": "POS DEBIT SQ *SR THAI & POTATO Las Vegas NV (...5851)",
       "group": "Expenses",
       "id": "a8769b05-716d-4694-ac2b-ffbba800ec6b",
-      "note": "Posted in Chase 10/10",
+      "note": "Pending in Chase 10/10",
       "source": "Chase screenshot"
     },
     {
@@ -833,7 +833,7 @@
       "description": "POS DEBIT SOFI PLUS +18554567634 CA (...5438)",
       "group": "Expenses",
       "id": "11fd8654-2a6f-4df8-a7a8-2ca52c21472b",
-      "note": "Posted in Chase 10/10 - SoFi Plus monthly fee",
+      "note": "Pending in Chase 10/10 - SoFi Plus monthly fee",
       "source": "Chase screenshot"
     },
     {
@@ -844,7 +844,7 @@
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
       "group": "Transfer",
       "id": "c78d2ae8-dfeb-4db5-9426-dbf329e0d034",
-      "note": "Posted in Chase 10/10 (Taptap $210 total) - $170 sending on money for Angelynn (confirmed by you); not your spending",
+      "note": "Pending in Chase 10/10 (Taptap $210 total) - $170 sending on money for Angelynn (confirmed by you); not your spending",
       "source": "Chase screenshot"
     },
     {
@@ -855,7 +855,7 @@
       "description": "PYMT SENT TAPTAP SEND NEW YORK NY 8341 (...5438)",
       "group": "Expenses",
       "id": "56752c6d-b415-4d68-a8d8-294279892f05",
-      "note": "Posted in Chase 10/10 (Taptap $210 total) - your $40 for Mama Linda's birthday (confirmed by you)",
+      "note": "Pending in Chase 10/10 (Taptap $210 total) - your $40 for Mama Linda's birthday (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -866,7 +866,7 @@
       "description": "ZELLE PAYMENT FROM ANGELYNN FLORA PNCAA0DXX76B",
       "group": "Transfer",
       "id": "2d553e0c-e8c4-4a2a-8152-fa847185d019",
-      "note": "Posted in Chase 10/10 - money from Angelynn that you passed on through Taptap (confirmed by you); not your income",
+      "note": "Pending in Chase 10/10 - money from Angelynn that you passed on through Taptap (confirmed by you); not your income",
       "source": "Chase screenshot"
     },
     {
@@ -933,6 +933,83 @@
       "group": "Expenses",
       "id": "7b6cc6a4-4de8-4ca1-9686-909a88c15d2f",
       "note": "Pending in Chase 10/11",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -17.33,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "AMAZON MARKETPLA INTERNET 043000097039690",
+      "group": "Expenses",
+      "id": "9b93103a-de5d-476f-a4b1-ebb0c0a64ea3",
+      "note": "Pending in Chase 10/13",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -119.2,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "AMAZON MARKETPLA INTERNET 043000094058490",
+      "group": "Expenses",
+      "id": "c2075227-ee5b-4c82-8aa1-5528af7e8e2a",
+      "note": "Pending in Chase 10/13",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 30.33,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "AMAZON MARKETPLA ADJUSTMENT (refund)",
+      "group": "Expenses",
+      "id": "7cdee5c7-a939-46d8-a7d4-2627ed17939e",
+      "note": "Pending in Chase 10/13 - Amazon refund $30.33 (same amount as the 9/30 Dyson filter)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 1000.0,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "791c8653-9057-4142-b9c5-89a59c24bd01",
+      "note": "Pending in Chase 10/13 - from PayPal Savings to cover the October shortfall",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -27.41,
+      "category": "Groceries - Others",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "POS DEBIT ALBERTSONS #105 LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "1796a782-ee82-40d0-9baf-2d1affcf0c8e",
+      "note": "Pending in Chase 10/13",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -48.76,
+      "category": "Key Salary",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "PYMT SENT SENDWAVE 844-9335122 MA 4479 (...5851)",
+      "group": "Expenses",
+      "id": "b0db7f3c-acd2-4fde-b3eb-04ef6b43cdb5",
+      "note": "Pending in Chase 10/13 - Sendwave, filed as Key Salary like your earlier Sendwave payments; tell me if it is for someone else",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10.0,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "953b8db5-3012-483e-a70e-2e63aabd7e3b",
+      "note": "Pending in Chase 10/13",
       "source": "Chase screenshot"
     }
   ]
