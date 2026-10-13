@@ -1,0 +1,103 @@
+{
+  "account": "capital1",
+  "month": "2026-10",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-10_0",
+      "date": "2026-09-26",
+      "description": "CAPITAL ONE ONLINE PYMT",
+      "amount": -1000.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_1",
+      "date": "2026-09-27",
+      "description": "CAPITAL ONE AUTOPAY PYMT",
+      "amount": -100.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_2",
+      "date": "2026-09-03",
+      "description": "CITY OF HENDERSON UTL HENDERSON NV",
+      "amount": 92.94,
+      "category": "Water",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "City of Henderson utilities (water/sewer)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_3",
+      "date": "2026-09-09",
+      "description": "Pru Life of U.K. TAGUIG (PHP 3,554.50)",
+      "amount": 57.04,
+      "category": "Prulife",
+      "group": "Monthly Bills",
+      "confidence": "H",
+      "note": "Pru Life UK premium paid by card",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_4",
+      "date": "2026-09-11",
+      "description": "ANTHROPIC* CLAUDE SUB SAN FRANCISCO CA",
+      "amount": 20.0,
+      "category": "VA expense",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Claude subscription",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_5",
+      "date": "2026-09-15",
+      "description": "WHOP*IMPACTCLIENTS Newark DE",
+      "amount": 399.0,
+      "category": "Business Expense",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Whop - Impact Clients (online course/coaching)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_6",
+      "date": "2026-09-29",
+      "description": "METAPAY*7XBK98W6N4 MENLO PARK CA",
+      "amount": 1.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Meta",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-10_7",
+      "date": "2026-10-02",
+      "description": "INTEREST CHARGE ON PURCHASES",
+      "amount": 39.7,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest on the carried balance",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
