@@ -992,13 +992,13 @@
     },
     {
       "amount": -48.76,
-      "category": "Key Salary",
+      "category": "Remittance - others",
       "confidence": "H",
       "date": "2026-10-13",
       "description": "PYMT SENT SENDWAVE 844-9335122 MA 4479 (...5851)",
       "group": "Expenses",
       "id": "b0db7f3c-acd2-4fde-b3eb-04ef6b43cdb5",
-      "note": "Pending in Chase 10/13 - Sendwave, filed as Key Salary like your earlier Sendwave payments; tell me if it is for someone else",
+      "note": "Pending in Chase 10/13 - Sendwave to Anniel (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
