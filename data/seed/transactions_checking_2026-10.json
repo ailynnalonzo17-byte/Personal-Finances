@@ -35,7 +35,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-10-01",
       "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
@@ -259,9 +259,9 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -204.59,
+      "amount": -286.75,
       "category": "CC - Chase Amazon Visa",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-15",
       "description": "CC - Chase Amazon Visa - checked off as paid",
@@ -331,7 +331,7 @@
     },
     {
       "amount": -30,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-10-02",
       "description": "POS DEBIT DINKERS LLC HENDERSON NV 3454 (...5851)",
@@ -474,7 +474,7 @@
     },
     {
       "amount": -20,
-      "category": "Others",
+      "category": "Compass",
       "confidence": "H",
       "date": "2026-10-05",
       "description": "POS DEBIT GIV*FIRST PRESBY 831-4227811 CA (...5438)",
@@ -695,7 +695,7 @@
     },
     {
       "amount": -5,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-10-08",
       "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
@@ -717,7 +717,7 @@
     },
     {
       "amount": -155.09,
-      "category": "Groceries - Others",
+      "category": "Groceries - Smith",
       "confidence": "H",
       "date": "2026-10-08",
       "description": "SMITHS #4331 HENDERSON NV 10/08 (...5438)",
@@ -882,7 +882,7 @@
     },
     {
       "amount": -20,
-      "category": "Others",
+      "category": "Compass",
       "confidence": "H",
       "date": "2026-10-11",
       "description": "POS DEBIT GIV*FIRST PRESBY 831-4227811 CA (...5438)",
@@ -969,7 +969,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": 1000.0,
+      "amount": 1000,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
       "date": "2026-10-13",
@@ -1002,8 +1002,8 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -10.0,
-      "category": "Others",
+      "amount": -10,
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-10-13",
       "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
@@ -1011,6 +1011,18 @@
       "id": "953b8db5-3012-483e-a70e-2e63aabd7e3b",
       "note": "Pending in Chase 10/13",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -37.92,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "Affirm - TikTok (entryway table) - installment 2/4",
+      "group": "Debt",
+      "id": "loan_affirm-tiktok-entryway-table_2",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
     }
   ]
 }

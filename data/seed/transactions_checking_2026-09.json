@@ -90,7 +90,7 @@
     },
     {
       "amount": -46.22,
-      "category": "Others",
+      "category": "Food - Eat Out",
       "confidence": "R",
       "date": "2026-09-02",
       "description": "CHOPSTIX HENDERSON NV                        09/01",
@@ -134,7 +134,7 @@
     },
     {
       "amount": -69,
-      "category": "Others",
+      "category": "For Car",
       "confidence": "R",
       "date": "2026-09-02",
       "description": "EXPRESS SMOG- HENDERSON HENDERSON NV         09/01",
@@ -200,7 +200,7 @@
     },
     {
       "amount": -4,
-      "category": "Others",
+      "category": "Food - Eat Out",
       "confidence": "R",
       "date": "2026-09-03",
       "description": "AUNTIE ANNE'S PRETZELS HENDERSON NV          09/02",
@@ -409,7 +409,7 @@
     },
     {
       "amount": -30,
-      "category": "Others",
+      "category": "Shop - Paypal",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "PAYPAL           PURCHASE   GOVAUCTIONS     WEB ID: PAYPALSI77",
@@ -464,7 +464,7 @@
     },
     {
       "amount": -125.61,
-      "category": "Others",
+      "category": "Food - Eat Out",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "GORDON RAMSAYS GR BURGE LAS VEGAS NV         09/06",
@@ -475,7 +475,7 @@
     },
     {
       "amount": -21.66,
-      "category": "Others",
+      "category": "Shop - Others",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "LEGO Fashion Show Las Vegas NV               09/07",
@@ -497,7 +497,7 @@
     },
     {
       "amount": -20,
-      "category": "Others",
+      "category": "Compass",
       "confidence": "H",
       "date": "2026-09-08",
       "description": "GIV*FIRST PRESBY 831-4227811 CA              09/06",
@@ -519,7 +519,7 @@
     },
     {
       "amount": -48.78,
-      "category": "Others",
+      "category": "Shop - Others",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "HURLEYLVSXXX089 LAS VEGAS NV                 09/05",
@@ -563,7 +563,7 @@
     },
     {
       "amount": -141.39,
-      "category": "Others",
+      "category": "Shop - Others",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "NikePOS_US Las Vegas NV                      09/06",
@@ -585,7 +585,7 @@
     },
     {
       "amount": -9,
-      "category": "Others",
+      "category": "Shop - Marketplace",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "Zelle payment to 7252368666 JPM99cvlxw9o",
@@ -629,7 +629,7 @@
     },
     {
       "amount": -160,
-      "category": "Others",
+      "category": "Shop - Marketplace",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "Zelle payment to German F JPM99cviq5aa",
@@ -651,7 +651,7 @@
     },
     {
       "amount": -65.1,
-      "category": "Others",
+      "category": "Groceries - Smith",
       "confidence": "R",
       "date": "2026-09-09",
       "description": "SMITHS #4331 HENDERSON NV                    09/09",
@@ -739,7 +739,7 @@
     },
     {
       "amount": -43.46,
-      "category": "Others",
+      "category": "Groceries - Filipino Store",
       "confidence": "R",
       "date": "2026-09-10",
       "description": "JOSHAN FILIPINO ORIENT HENDERSON NV          09/10",
@@ -794,7 +794,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "R",
       "date": "2026-09-11",
       "description": "POS DEBIT                DINKERS LLC               HENDERSON    NV",
@@ -893,7 +893,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-09-13",
       "description": "dinkers",
@@ -1014,7 +1014,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-09-15",
       "description": "dinkers",
@@ -1250,7 +1250,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-09-14",
       "description": "Dinkers LLC Henderson NV",
@@ -1464,7 +1464,7 @@
     },
     {
       "amount": -20,
-      "category": "Others",
+      "category": "Compass",
       "cleared": true,
       "confidence": "H",
       "date": "2026-09-21",
@@ -1830,7 +1830,7 @@
     },
     {
       "amount": -25,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-09-24",
       "description": "dinkers",
@@ -1934,7 +1934,7 @@
     },
     {
       "amount": -10,
-      "category": "Others",
+      "category": "Dinkers",
       "confidence": "H",
       "date": "2026-09-25",
       "description": "dinkers",
@@ -2268,7 +2268,7 @@
     },
     {
       "amount": -125,
-      "category": "Others",
+      "category": "Shop - Marketplace",
       "confidence": "H",
       "date": "2026-09-30",
       "description": "zelle - mattress",
@@ -2367,7 +2367,7 @@
     },
     {
       "amount": -0.01,
-      "category": "Others",
+      "category": "Shop - Paypal",
       "confidence": "H",
       "date": "2026-09-30",
       "description": "PAYPAL PURCHASE GOVAUCTIONS",

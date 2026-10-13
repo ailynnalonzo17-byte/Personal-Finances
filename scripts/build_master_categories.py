@@ -9,14 +9,14 @@ MONTHLY_BILLS = [
 ]
 
 EXPENSES = [
-    "Business Expense","Compass","CVS","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
+    "Business Expense","Compass","CVS","Dinkers","Doris","Food - Ailynn","Food - Chris","Food - Eat Out",
     "Food - Misc","Food - To go","For Bike","For Car","Gas","Groceries - Costco",
     "Groceries - Others","Groceries - Safeway","Groceries - Santa Fe",
-    "Groceries - Seafood City","Groceries - Walmart","Haircut","Key Salary","Lawyer","Medical","Misc - Gail",
+    "Groceries - Seafood City","Groceries - Walmart","Groceries - Smith","Groceries - Filipino Store","Haircut","Key Salary","Lawyer","Medical","Misc - Gail",
     "Misc - gail gown and cap","Movie","Others",
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
-    "Shop - Others","Shop - Ross","Shop - Shein","Shop - Temu","Shop - Tiktok",
+    "Shop - Others","Shop - Marketplace","Shop - Paypal","Shop - Ross","Shop - Shein","Shop - Temu","Shop - Tiktok",
     "Shop - Whatnot","VA expense","Vacation","Water",
 ]
 

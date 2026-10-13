@@ -47,7 +47,7 @@
       "category": "Prulife",
       "group": "Monthly Bills",
       "confidence": "H",
-      "note": "Pru Life UK premium paid by card",
+      "note": "Pru Life UK premium for AUGUST, paid late on 9/9 (confirmed by you)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },
@@ -71,7 +71,7 @@
       "category": "Business Expense",
       "group": "Expenses",
       "confidence": "H",
-      "note": "Whop - Impact Clients (online course/coaching)",
+      "note": "Whop - Impact Clients, business expense (confirmed by you)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },
