@@ -1,0 +1,19 @@
+{
+  "account": "aaa_visa",
+  "month": "2026-10",
+  "cardCategory": "CC - AAA Visa",
+  "entries": [
+    {
+      "id": "aaa_visa_2026-10_0",
+      "date": "2026-09-28",
+      "description": "POLAR TINT HENDERSON 170-26656009 NV",
+      "amount": 250.49,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Polar Tint - car window tint",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
