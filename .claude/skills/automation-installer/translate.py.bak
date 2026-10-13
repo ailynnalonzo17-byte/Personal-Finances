@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+"""
+VA Optional automation ID translator.
+
+Two jobs, one dictionary (Airtable table + field NAMES, which survive a base
+copy; IDs do not).
+
+  extract  (owner side, run by the Flow Packager)
+      Turn a real n8n workflow into a shareable TEMPLATE: every Airtable base/
+      table/field ID, the Slack channel, and the owner's email(s) are replaced
+      with named placeholders. Emits template.json + namemap.json.
+      Validates: every app/tbl/fld ID in the workflow is found in the owner's
+      base schema. An unknown ID means we cannot package it safely -> hard stop.
+
+  apply    (member side, run by the Automation Installer)
+      Fill a TEMPLATE for one member: look each placeholder's NAME up in the
+      member's base schema, substitute THEIR id. Emits the member's workflow.
+      Validates, in order:
+        completeness  every table/field name the flow needs exists in the
+                      member's base (missing/renamed -> plain-English stop)
+        round-trip    each member id we chose maps back to the expected name
+        no-remainder  zero {{...}} left, zero surviving owner ids
+
+Placeholders:
+  {{BASE_ID}}
+  {{TBL::<Table Name>}}
+  {{FLD::<Table Name>::<Field Name>}}
+  {{SLACK_CHANNEL}}
+  {{VAR::<KEY>}}          # free literals, e.g. an email address
+
+A "schema" file is compact JSON: {"baseId": "...", "tables":[{"id","name",
+"fields":[{"id","name"}]}]}.
+"""
+import json
+import re
+import sys
+import argparse
+
+# Table/field IDs have unambiguous prefixes — no English word starts with
+# "tbl"/"fld" + 14 chars, so matching these is safe. Base IDs ("app" + 14) DO
+# collide with code identifiers like "appendAttribution", so the base ID is
+# never regex-scanned: only the one known base ID from the schema is replaced.
+TBLFLD_RE = re.compile(r'(?:tbl|fld)[A-Za-z0-9]{14}')
+# Our placeholders use a %%VAO::...%% sentinel, NOT {{...}}, because n8n
+# expressions ({{ $json.x }}) and the Google Doc merge tags ({{Tenant}}) both
+# use {{ }} and would collide. The remainder check scans only for our sentinel.
+VAO_RE = re.compile(r'%%VAO::[^%]+%%')
+
+
+def ph(inner):
+    """Wrap a placeholder body in the collision-proof sentinel."""
+    return f"%%VAO::{inner}%%"
+
+
+def load(path):
+    with open(path) as f:
+        return json.load(f)
+
+
+def build_indexes(schema):
+    """From a base schema build id->name lookups and name->id lookups."""
+    base_id = schema["baseId"]
+    tbl_id_to_name, tbl_name_to_id = {}, {}
+    fld_id_to_key, fld_key_to_id = {}, {}   # key = (table_name, field_name)
+    for t in schema["tables"]:
+        tbl_id_to_name[t["id"]] = t["name"]
+        tbl_name_to_id[t["name"]] = t["id"]
+        for fdef in t.get("fields", []):
+            key = (t["name"], fdef["name"])
+            fld_id_to_key[fdef["id"]] = key
+            fld_key_to_id[key] = fdef["id"]
+    return {
+        "base_id": base_id,
+        "tbl_id_to_name": tbl_id_to_name, "tbl_name_to_id": tbl_name_to_id,
+        "fld_id_to_key": fld_id_to_key, "fld_key_to_id": fld_key_to_id,
+    }
+
+
+def extract(args):
+    raw = open(args.workflow).read()
+    schema = load(args.schema)
+    idx = build_indexes(schema)
+
+    ids_in_flow = sorted(set(TBLFLD_RE.findall(raw)))
+    unknown, namemap = [], {"base": None, "tables": [], "fields": [], "literals": []}
+
+    text = raw
+    # base — only the one known base ID, never a regex scan (avoids code words)
+    if idx["base_id"] in text:
+        text = text.replace(idx["base_id"], ph("BASE_ID"))
+        namemap["base"] = idx["base_id"]
+    # tables + fields — matched against the real schema
+    seen_tbl, seen_fld = set(), set()
+    for _id in ids_in_flow:
+        if _id.startswith("tbl"):
+            name = idx["tbl_id_to_name"].get(_id)
+            if not name:
+                unknown.append(_id); continue
+            text = text.replace(_id, ph(f"TBL::{name}"))
+            if name not in seen_tbl:
+                seen_tbl.add(name)
+                namemap["tables"].append({"placeholder": f"TBL::{name}", "table": name})
+        elif _id.startswith("fld"):
+            key = idx["fld_id_to_key"].get(_id)
+            if not key:
+                unknown.append(_id); continue
+            tname, fname = key
+            text = text.replace(_id, ph(f"FLD::{tname}::{fname}"))
+            if (tname, fname) not in seen_fld:
+                seen_fld.add((tname, fname))
+                namemap["fields"].append({"placeholder": f"FLD::{tname}::{fname}",
+                                           "table": tname, "field": fname})
+    # literals (slack channel + emails) supplied on the command line
+    for spec in args.literal or []:
+        key, val = spec.split("=", 1)
+        if val in text:
+            text = text.replace(val, ph(f"VAR::{key}"))
+            namemap["literals"].append({"placeholder": f"VAR::{key}", "key": key})
+
+    # validation: unknown ids
+    if unknown:
+        print("EXTRACT FAILED — these IDs are not in the base schema, cannot "
+              "package safely:", file=sys.stderr)
+        for u in unknown:
+            print("   ", u, file=sys.stderr)
+        sys.exit(2)
+    # validation: no owner ids survived
+    survivors = TBLFLD_RE.findall(text)
+    if idx["base_id"] in text:
+        survivors.append(idx["base_id"])
+    if survivors:
+        print("EXTRACT FAILED — owner IDs still present after templating:",
+              sorted(set(survivors)), file=sys.stderr)
+        sys.exit(2)
+
+    json.loads(text)  # must still be valid JSON
+    with open(args.out, "w") as f:
+        f.write(text)
+    with open(args.namemap, "w") as f:
+        json.dump(namemap, f, indent=2)
+    print(f"EXTRACT OK — {len(namemap['tables'])} tables, "
+          f"{len(namemap['fields'])} fields, {len(namemap['literals'])} literals "
+          f"templated. Wrote {args.out} and {args.namemap}.")
+
+
+def apply_(args):
+    template = open(args.template).read()
+    namemap = load(args.namemap)
+    schema = load(args.schema)
+    idx = build_indexes(schema)
+    literals = {}
+    for spec in args.value or []:
+        k, v = spec.split("=", 1)
+        literals[k] = v
+
+    missing = []
+    # completeness — every needed name exists in member base
+    for t in namemap["tables"]:
+        if t["table"] not in idx["tbl_name_to_id"]:
+            missing.append(f'table "{t["table"]}"')
+    for fl in namemap["fields"]:
+        if (fl["table"], fl["field"]) not in idx["fld_key_to_id"]:
+            missing.append(f'field "{fl["table"]} :: {fl["field"]}"')
+    for lit in namemap["literals"]:
+        if lit["key"] not in literals:
+            missing.append(f'value "{lit["key"]}" (pass --value {lit["key"]}=...)')
+    if missing:
+        print("APPLY STOPPED — the member's base is missing things this "
+              "automation needs:", file=sys.stderr)
+        for m in missing:
+            print("   -", m, file=sys.stderr)
+        sys.exit(3)
+
+    text = template
+    text = text.replace(ph("BASE_ID"), idx["base_id"])
+    chosen = {}  # placeholder -> member id, for round-trip check
+    for t in namemap["tables"]:
+        mid = idx["tbl_name_to_id"][t["table"]]
+        chosen[("tbl", t["table"])] = mid
+        text = text.replace(ph(t["placeholder"]), mid)
+    for fl in namemap["fields"]:
+        mid = idx["fld_key_to_id"][(fl["table"], fl["field"])]
+        chosen[("fld", fl["table"], fl["field"])] = mid
+        text = text.replace(ph(fl["placeholder"]), mid)
+    for lit in namemap["literals"]:
+        text = text.replace(ph(lit["placeholder"]), literals[lit["key"]])
+
+    # round-trip — every id we chose maps back to the expected name
+    rt_fail = []
+    for key, mid in chosen.items():
+        if key[0] == "tbl":
+            if idx["tbl_id_to_name"].get(mid) != key[1]:
+                rt_fail.append(f'table {key[1]}')
+        else:
+            got = idx["fld_id_to_key"].get(mid)
+            if got != (key[1], key[2]):
+                rt_fail.append(f'field {key[1]} :: {key[2]}')
+    if rt_fail:
+        print("APPLY FAILED — round-trip mismatch:", rt_fail, file=sys.stderr)
+        sys.exit(3)
+
+    # no-remainder (our sentinel only — never n8n's own {{ }} expressions)
+    left = VAO_RE.findall(text)
+    if left:
+        print("APPLY FAILED — unsubstituted placeholders remain:",
+              sorted(set(left)), file=sys.stderr)
+        sys.exit(3)
+
+    json.loads(text)
+    with open(args.out, "w") as f:
+        f.write(text)
+    print(f"APPLY OK — rendered {args.out} for base {idx['base_id']}: "
+          f"{len(namemap['tables'])} tables, {len(namemap['fields'])} fields "
+          f"translated, all round-tripped, no placeholders left.")
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__,
+                                formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    e = sub.add_parser("extract", help="owner: workflow -> template + namemap")
+    e.add_argument("--workflow", required=True)
+    e.add_argument("--schema", required=True, help="owner's base schema (compact)")
+    e.add_argument("--out", required=True, help="template.json to write")
+    e.add_argument("--namemap", required=True, help="namemap.json to write")
+    e.add_argument("--literal", action="append",
+                   help="KEY=value literal to templatize, e.g. SLACK_CHANNEL=C0...")
+    e.set_defaults(func=extract)
+
+    a = sub.add_parser("apply", help="member: template + namemap -> member workflow")
+    a.add_argument("--template", required=True)
+    a.add_argument("--namemap", required=True)
+    a.add_argument("--schema", required=True, help="member's base schema (compact)")
+    a.add_argument("--out", required=True)
+    a.add_argument("--value", action="append",
+                   help="KEY=value for each literal, e.g. AGENT_EMAIL=me@x.com")
+    a.set_defaults(func=apply_)
+
+    args = p.parse_args()
+    args.func(args)
+
+
+if __name__ == "__main__":
+    main()

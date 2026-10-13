@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Command Center · <BUSINESS_NAME></title>
+<!--
+  HOLDING PAGE — deployed in the pre-work (Phase P of command-center-builder), replaced by the
+  real page in the session. Every <PLACEHOLDER> is filled by Vera before the first push:
+    <STUDENT_NAME>   the owner's first name
+    <BUSINESS_NAME>  their main business (or "your businesses" if several)
+    <ACCENT> <INK> <CREAM> <LINE> <MUTED> <HEAD_BG>   brand tokens; defaults = The Lean Landlord palette
+    <BUILT_AT>       the date/time of the first push, e.g. "Sep 11, 2026 · 2:40 PM"
+  It reads data.json next to it (written by bake.stub.mjs on every build) and shows the last
+  refresh time, which is the live proof that the two keys and the two-hour job all work.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light;
+    --accent:<ACCENT>;--ink:<INK>;--cream:<CREAM>;--line:<LINE>;--muted:<MUTED>;--headbg:<HEAD_BG>;--card:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  header{background:var(--headbg);padding:18px 28px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  header h1{margin:0;font-size:22px;font-weight:600;font-family:'Fraunces',Georgia,'Times New Roman',serif;letter-spacing:-.01em}
+  header .stamp{font-size:12px;color:var(--muted);margin-top:3px}
+  .edition{font-size:11px;font-weight:600;background:#f2e7de;color:var(--accent);border-radius:20px;padding:4px 11px}
+  .wrap{max-width:760px;margin:0 auto;padding:34px 20px 70px}
+  .eyebrow{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.22em}
+  h2{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:600;font-size:34px;line-height:1.15;margin:10px 0 12px;letter-spacing:-.01em}
+  h2 em{font-style:normal;color:var(--accent)}
+  .lede{font-size:16px;line-height:1.65;color:var(--ink);margin:0 0 26px}
+  .st{font-size:13px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.6px;margin:28px 0 12px;display:flex;align-items:center;gap:8px}
+  .st::before{content:"";width:16px;height:3px;background:var(--accent);border-radius:2px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  ul.list{list-style:none;margin:0;padding:0}
+  ul.list li{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5}
+  ul.list li:first-child{border-top:0}
+  .tick{flex:0 0 22px;height:22px;border-radius:50%;background:#e3efe7;color:#2f6b45;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .num{flex:0 0 22px;height:22px;border-radius:50%;background:#f2e7de;color:var(--accent);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .sub{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+  .foot{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.6}
+  .foot strong{color:var(--ink)}
+  @media (max-width:520px){h2{font-size:28px}.wrap{padding-top:26px}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1><BUSINESS_NAME> · Command Center</h1>
+    <div class="stamp">Last refreshed <span id="refreshed"><BUILT_AT></span></div>
+  </div>
+  <span class="edition">Being built</span>
+</header>
+
+<div class="wrap">
+  <div class="eyebrow">Week 4 · Before the session</div>
+  <h2>Your Command Center <em>is being built</em>, <STUDENT_NAME>.</h2>
+  <p class="lede">This page is the address it will live at. It already has its own login, and it already refreshes itself. Everything below the line is what the Week 4 session fills in.</p>
+
+  <div class="st">Already working</div>
+  <div class="panel">
+    <ul class="list">
+      <li><span class="tick">✓</span><span>This page has its own address, and you just logged in to see it.<span class="sub">The login gate is on. Only your Cloudflare login opens this page.</span></span></li>
+      <li><span class="tick">✓</span><span>Cloudflare can read your memory vault.<span class="sub">Every time Vera pushes a change to the vault, this address updates itself.</span></span></li>
+      <li><span class="tick">✓</span><span>The refresh keys are in place.<span class="sub">Every two hours a job in GitHub rebuilds this page. The time in the top corner is the proof it ran.</span></span></li>
+      <li><span class="tick">✓</span><span>Your Airtable key is stored where the page needs it.<span class="sub">Read-only, one base. Nothing on this page can change your data.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="st">What the session adds</div>
+  <div class="panel">
+    <ul class="list">
+      <li><span class="num">1</span><span>Which business goes first.<span class="sub">Every business gets its own tab. One gets fully built in the session; the rest follow, one per sitting.</span></span></li>
+      <li><span class="num">2</span><span>Which numbers you would act on today.<span class="sub">Four to six. What is empty, who is behind, what expires, what is stuck. Vera suggests them from your own base and you correct her.</span></span></li>
+      <li><span class="num">3</span><span>Whether money in and out goes on the page.<span class="sub">Only if your books are current. Vera checks first and tells you what she found.</span></span></li>
+      <li><span class="num">4</span><span>Which inbox, Slack and calendar feed which business.<span class="sub">Then a 5am briefing, written by your own Vera every morning: what needs you, what changed, the one move that matters.</span></span></li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <strong>Save this page to your phone's home screen now.</strong> This address does not change. On the session, this page becomes your Command Center in place; nothing to bookmark again.
+    <br/>Built <BUILT_AT>.
+  </div>
+</div>
+
+<script>
+  // data.json is written by bake.stub.mjs on every build (Cloudflare on push, GitHub every two hours).
+  fetch("data.json", {cache:"no-store"}).then(r => r.ok ? r.json() : null).then(d => {
+    if (d && d.refreshedAt) {
+      const t = new Date(d.refreshedAt);
+      document.getElementById("refreshed").textContent = t.toLocaleString(undefined, {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"});
+    }
+  }).catch(() => {});
+</script>
+</body>
+</html>

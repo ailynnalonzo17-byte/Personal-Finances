@@ -1,0 +1,1401 @@
+{
+ "name": "Lien Waiver - Process One Job",
+ "nodes": [
+  {
+   "id": "lw2-when-called",
+   "name": "When Called",
+   "type": "n8n-nodes-base.executeWorkflowTrigger",
+   "typeVersion": 1.2,
+   "position": [
+    -260,
+    0
+   ],
+   "parameters": {
+    "inputSource": "passthrough"
+   }
+  },
+  {
+   "id": "lw2-config",
+   "name": "Config",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    -60,
+    0
+   ],
+   "parameters": {
+    "jsCode": "\n// One place for the knobs. Change the channel here and nowhere else.\nreturn [{ json: {\n  slackChannel: '%%VAO::VAR::SLACK_CHANNEL%%',\n  templateName: '%%VAO::VAR::DOCUSIGN_TEMPLATE_NAME%%',\n  roleName: '%%VAO::VAR::DOCUSIGN_ROLE_NAME%%'\n} }];\n"
+   }
+  },
+  {
+   "id": "lw2-get-job",
+   "name": "Get Job",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    140,
+    0
+   ],
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Maintenance%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ \"RECORD_ID()='\" + $('When Called').first().json.recordId + \"'\" }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Issue"
+      },
+      {
+       "name": "fields[1]",
+       "value": "Property"
+      },
+      {
+       "name": "fields[2]",
+       "value": "Unit"
+      },
+      {
+       "name": "fields[3]",
+       "value": "Vendor"
+      },
+      {
+       "name": "fields[4]",
+       "value": "Invoice Amount"
+      },
+      {
+       "name": "fields[5]",
+       "value": "Completed Date"
+      },
+      {
+       "name": "fields[6]",
+       "value": "Lien Waiver Exceptions"
+      },
+      {
+       "name": "fields[7]",
+       "value": "Invoice Number"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-plan-lookups",
+   "name": "Plan Lookups",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    340,
+    0
+   ],
+   "parameters": {
+    "jsCode": "\nconst recs = ($input.first().json.records) || [];\nif (!recs.length) { throw new Error('Maintenance record not found: ' + $('When Called').first().json.recordId); }\nconst r = recs[0];\nconst one = (v) => (v || [])[0] || '';\nconst job = {\n  recId: r.id,\n  issue: r.fields['Issue'] || '',\n  propertyId: one(r.fields['Property']),\n  unitId: one(r.fields['Unit']),\n  vendorId: one(r.fields['Vendor']),\n  invoiceAmount: r.fields['Invoice Amount'],\n  completedDate: r.fields['Completed Date'] || '',\n  exceptions: (r.fields['Lien Waiver Exceptions'] || '').trim()\n};\nconst idF = (id) => id ? (\"RECORD_ID()='\" + id + \"'\") : \"RECORD_ID()='none'\";\nreturn [{ json: { job, propertyFormula: idF(job.propertyId), unitFormula: idF(job.unitId), vendorFormula: idF(job.vendorId) } }];\n"
+   }
+  },
+  {
+   "id": "lw2-get-property",
+   "name": "Get Property",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    540,
+    0
+   ],
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Properties%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ $json.propertyFormula }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Street Address"
+      },
+      {
+       "name": "fields[1]",
+       "value": "Town"
+      },
+      {
+       "name": "fields[2]",
+       "value": "State (Select)"
+      },
+      {
+       "name": "fields[3]",
+       "value": "Owner Entity"
+      },
+      {
+       "name": "fields[4]",
+       "value": "Property Manager"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-get-unit",
+   "name": "Get Unit",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    740,
+    0
+   ],
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Units%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ $('Plan Lookups').first().json.unitFormula }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Unit"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-get-vendor",
+   "name": "Get Vendor",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    940,
+    0
+   ],
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Vendors%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ $('Plan Lookups').first().json.vendorFormula }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Vendor Name"
+      },
+      {
+       "name": "fields[1]",
+       "value": "Email"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-get-managers",
+   "name": "Get Managers",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    1140,
+    0
+   ],
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Vendors%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ \"NOT({Vendor Name}='')\" }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Vendor Name"
+      },
+      {
+       "name": "fields[1]",
+       "value": "Email"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-build-waiver",
+   "name": "Build Waiver",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1340,
+    0
+   ],
+   "parameters": {
+    "jsCode": "\nconst j = $('Plan Lookups').first().json.job;\nconst p = (($('Get Property').first().json.records || [])[0] || {}).fields || {};\nconst u = (($('Get Unit').first().json.records || [])[0] || {}).fields || {};\nconst v = (($('Get Vendor').first().json.records || [])[0] || {}).fields || {};\nconst mgrs = {}; for (const r of ($('Get Managers').first().json.records || [])) { mgrs[r.id] = r.fields; }\nconst pm = mgrs[((p['Property Manager'] || [])[0]) || ''] || {};\n\nconst money = (n) => { if (n === null || n === undefined || n === '') { return ''; }\n  const x = Number(n); if (!isFinite(x)) { return ''; } return x.toFixed(2); };\nconst usDate = (iso) => { if (!iso) { return ''; } const a = String(iso).slice(0,10).split('-');\n  return a.length === 3 ? (a[1] + '/' + a[2] + '/' + a[0]) : ''; };\n\nconst ownerEntity = (p['Owner Entity'] || '').trim();\nconst payer = (pm['Vendor Name'] || '').trim() || ownerEntity;\nconst st = p['State (Select)'];\nconst stateStr = (st && typeof st === 'object') ? (st.name || '') : (st || '');\nconst parts = [];\nif (p['Street Address']) { parts.push(String(p['Street Address']).trim()); }\nif (u['Unit'])           { parts.push(String(u['Unit']).trim()); }\nif (p['Town'])           { parts.push(String(p['Town']).trim()); }\nlet jobLocation = parts.join(', ');\nif (stateStr) { jobLocation = jobLocation + ', ' + stateStr; }\n\nconst vendorName = (v['Vendor Name'] || '').trim();\nconst vendorEmail = (v['Email'] || '').trim();\nconst amount = money(j.invoiceAmount);\nconst through = usDate(j.completedDate);\n\nconst missing = [];\nif (!vendorName) { missing.push('Vendor'); }\nif (!vendorEmail) { missing.push('Vendor email'); }\nif (!amount) { missing.push('Invoice Amount'); }\nif (!through) { missing.push('Completed Date'); }\nif (!p['Street Address']) { missing.push('Property address'); }\nif (!p['Town']) { missing.push('Town on the property'); }\nif (!stateStr) { missing.push('State on the property'); }\nif (!ownerEntity) { missing.push('Owner Entity on the property'); }\nif (!payer) { missing.push('Property Manager or Owner Entity'); }\n\nreturn [{ json: {\n  ok: missing.length === 0, missing: missing.join(', '),\n  recId: j.recId, issue: j.issue, vendorName, vendorEmail, amount, through,\n  tabs: { 'Name of Customer': payer, 'Job Location': jobLocation, 'Owner': ownerEntity,\n          'Through Date': through, 'Maker of Check': payer, 'Amount of Check': amount,\n          'Check Payable To': vendorName, 'Exceptions': j.exceptions || 'None' }\n} }];\n"
+   }
+  },
+  {
+   "id": "lw2-ready?",
+   "name": "Ready?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    1540,
+    0
+   ],
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "ok",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       },
+       "leftValue": "={{ $json.ok }}",
+       "rightValue": ""
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-mark-blocked",
+   "name": "Mark Blocked",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    1740,
+    300
+   ],
+   "parameters": {
+    "method": "PATCH",
+    "url": "=https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Maintenance%%/{{ $('Build Waiver').first().json.recId }}",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ fields: { \"%%VAO::FLD::Maintenance::Lien Waiver Status%%\": \"Blocked - missing data\" } }) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-slack-blocked",
+   "name": "Slack: Blocked",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2.5,
+   "position": [
+    1940,
+    300
+   ],
+   "parameters": {
+    "authentication": "accessToken",
+    "resource": "message",
+    "operation": "post",
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "={{ $('Config').first().json.slackChannel }}"
+    },
+    "text": "=:warning: *Lien waiver cannot be prepared* - {{ $('Build Waiver').first().json.issue }}\nStill missing: {{ $('Build Waiver').first().json.missing }}\nFill it in, then set Lien Waiver Status back to Prepare.",
+    "otherOptions": {
+     "mrkdwn": true,
+     "includeLinkToWorkflow": false,
+     "unfurl_links": false
+    }
+   },
+   "credentials": {
+    "slackApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-jwt-read",
+   "name": "JWT (read)",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1740,
+    -120
+   ],
+   "parameters": {
+    "jsCode": "const crypto = require(\"crypto\");\nconst INTEGRATION_KEY = \"%%VAO::VAR::DOCUSIGN_INTEGRATION_KEY%%\";\nconst USER_ID = \"%%VAO::VAR::DOCUSIGN_USER_ID%%\";\nconst PRIVATE_KEY = \"%%VAO::VAR::DOCUSIGN_PRIVATE_KEY%%\";\nconst now = Math.floor(Date.now()/1000);\nconst header = Buffer.from(JSON.stringify({ alg: \"RS256\", typ: \"JWT\" })).toString(\"base64url\");\nconst payload = Buffer.from(JSON.stringify({ iss: INTEGRATION_KEY, sub: USER_ID, aud: \"account.docusign.com\", iat: now, exp: now+3600, scope: \"signature impersonation\" })).toString(\"base64url\");\nconst signingInput = header + \".\" + payload;\nconst signer = crypto.createSign(\"RSA-SHA256\");\nsigner.update(signingInput);\nconst signature = signer.sign(PRIVATE_KEY).toString(\"base64url\");\nreturn [{ json: { assertion: signingInput + \".\" + signature } }];"
+   }
+  },
+  {
+   "id": "lw2-token-read",
+   "name": "Token (read)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    1940,
+    -120
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "https://account.docusign.com/oauth/token",
+    "sendBody": true,
+    "contentType": "form-urlencoded",
+    "specifyBody": "keypair",
+    "bodyParameters": {
+     "parameters": [
+      {
+       "name": "grant_type",
+       "value": "urn:ietf:params:oauth:grant-type:jwt-bearer"
+      },
+      {
+       "name": "assertion",
+       "value": "={{ $json.assertion }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-get-docusign-userinfo",
+   "name": "Get DocuSign UserInfo",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    2140,
+    -120
+   ],
+   "parameters": {
+    "method": "GET",
+    "url": "=https://account.docusign.com/oauth/userinfo",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (read)').item.json.access_token }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-resolve-docusign-account",
+   "name": "Resolve DocuSign Account",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2340,
+    -120
+   ],
+   "parameters": {
+    "jsCode": "const ui=$input.first().json;\nconst accts=ui.accounts||[];\nconst acct=accts.find(a=>a.is_default===true||a.is_default==='true')||accts[0]||{};\nif(!acct.base_uri||!acct.account_id){throw new Error('DocuSign userinfo returned no account base_uri/account_id');}\nreturn [{ json: { base_uri: acct.base_uri, account_id: acct.account_id } }];"
+   }
+  },
+  {
+   "id": "lw2-find-template",
+   "name": "Find Template",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    2540,
+    -120
+   ],
+   "parameters": {
+    "method": "GET",
+    "url": "={{ $('Resolve DocuSign Account').first().json.base_uri }}/restapi/v2.1/accounts/{{ $('Resolve DocuSign Account').first().json.account_id }}/templates",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "search_text",
+       "value": "={{ $('Config').first().json.templateName }}"
+      }
+     ]
+    },
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (read)').first().json.access_token }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-pick-template",
+   "name": "Pick Template",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2740,
+    -120
+   ],
+   "parameters": {
+    "jsCode": "\nconst want = $('Config').first().json.templateName;\nconst list = ($input.first().json.envelopeTemplates) || [];\nconst hit = list.find(t => t.name === want) || list[0];\nif (!hit) { throw new Error('No DocuSign template found matching: ' + want); }\nreturn [{ json: { templateId: hit.templateId, templateName: hit.name } }];\n"
+   }
+  },
+  {
+   "id": "lw2-get-template-tabs",
+   "name": "Get Template Tabs",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    2940,
+    -120
+   ],
+   "parameters": {
+    "method": "GET",
+    "url": "={{ $('Resolve DocuSign Account').first().json.base_uri }}/restapi/v2.1/accounts/{{ $('Resolve DocuSign Account').first().json.account_id }}/templates/{{ $json.templateId }}/recipients",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "include_tabs",
+       "value": "true"
+      }
+     ]
+    },
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (read)').first().json.access_token }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-map-tabs",
+   "name": "Map Tabs",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3140,
+    -120
+   ],
+   "parameters": {
+    "jsCode": "\nconst cfg = $('Config').first().json;\nconst j = $('Build Waiver').first().json;\nconst signers = ($input.first().json.signers) || [];\nconst role = signers.find(s => s.roleName === cfg.roleName) || signers[0];\nif (!role) { throw new Error('Template has no signer role named ' + cfg.roleName); }\nconst byTooltip = {};\nconst tabs = role.tabs || {};\nfor (const k of Object.keys(tabs)) {\n  const arr = tabs[k];\n  if (!Array.isArray(arr)) { continue; }\n  for (const t of arr) { if (t.tooltip && t.tabLabel) { byTooltip[String(t.tooltip).trim()] = t.tabLabel; } }\n}\nconst textTabs = []; const unmapped = [];\nfor (const tip of Object.keys(j.tabs)) {\n  const label = byTooltip[tip];\n  if (!label) { unmapped.push(tip); continue; }\n  textTabs.push({ tabLabel: label, value: String(j.tabs[tip]), locked: 'true' });\n}\nif (unmapped.length) { throw new Error('Template is missing a tooltip for: ' + unmapped.join(', ')); }\nreturn [{ json: { envelope: {\n  status: 'created',\n  emailSubject: 'Conditional Lien Waiver - ' + j.vendorName + ' - ' + j.tabs['Job Location'],\n  templateId: $('Pick Template').first().json.templateId,\n  templateRoles: [{ roleName: cfg.roleName, name: j.vendorName, email: j.vendorEmail, tabs: { textTabs } }]\n} } }];\n"
+   }
+  },
+  {
+   "id": "lw2-create-draft",
+   "name": "Create Draft",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    3340,
+    -120
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "={{ $('Resolve DocuSign Account').first().json.base_uri }}/restapi/v2.1/accounts/{{ $('Resolve DocuSign Account').first().json.account_id }}/envelopes",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.envelope) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (read)').first().json.access_token }}"
+      },
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-compose-proposal",
+   "name": "Compose Proposal",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3540,
+    -120
+   ],
+   "parameters": {
+    "jsCode": "\n// The Slack message IS the review. Show every value exactly as it will print on the waiver,\n// so nobody has to open DocuSign to check it.\nconst j = $('Build Waiver').first().json;\nconst envId = $input.first().json.envelopeId;\nif (!envId) { throw new Error('DocuSign returned no envelopeId'); }\nconst t = j.tabs;\nconst money = t['Amount of Check'] ? ('$' + Number(t['Amount of Check']).toLocaleString('en-US',\n  { minimumFractionDigits: 2, maximumFractionDigits: 2 })) : '';\nconst nl = String.fromCharCode(10);\nconst text = [\n  ':page_facing_up: *Lien waiver ready to send* - ' + j.vendorName,\n  '_' + j.issue + '_',\n  '',\n  '*Claimant:* ' + t['Check Payable To'],\n  '*Customer:* ' + t['Name of Customer'],\n  '*Owner:* ' + t['Owner'],\n  '*Job location:* ' + t['Job Location'],\n  '*Maker of check:* ' + t['Maker of Check'],\n  '*Amount of check:* ' + money,\n  '*Through date:* ' + t['Through Date'],\n  '*Exceptions:* ' + t['Exceptions'],\n  '',\n  'Goes to ' + j.vendorEmail + '  \u00b7  <https://app.docusign.com/documents/details/' + envId + '|view in DocuSign>'\n].join(nl);\nreturn [{ json: { text, envelopeId: envId, recId: j.recId, vendorName: j.vendorName, vendorEmail: j.vendorEmail } }];\n"
+   }
+  },
+  {
+   "id": "lw2-post-proposal",
+   "name": "Post Proposal",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2.5,
+   "position": [
+    3740,
+    -120
+   ],
+   "parameters": {
+    "authentication": "accessToken",
+    "resource": "message",
+    "operation": "post",
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "={{ $('Config').first().json.slackChannel }}"
+    },
+    "text": "={{ $json.text }}",
+    "otherOptions": {
+     "mrkdwn": true,
+     "includeLinkToWorkflow": false,
+     "unfurl_links": false
+    }
+   },
+   "credentials": {
+    "slackApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-ask-approval",
+   "name": "Ask Approval",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2.5,
+   "position": [
+    3940,
+    -120
+   ],
+   "parameters": {
+    "authentication": "accessToken",
+    "resource": "message",
+    "operation": "sendAndWait",
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "={{ $('Config').first().json.slackChannel }}"
+    },
+    "message": "=Send this lien waiver to {{ $('Compose Proposal').first().json.vendorName }}?",
+    "responseType": "approval",
+    "approvalOptions": {
+     "values": {
+      "approvalType": "double",
+      "approveLabel": "Approve & send",
+      "buttonApprovalStyle": "primary",
+      "disapproveLabel": "Decline",
+      "buttonDisapprovalStyle": "danger"
+     }
+    },
+    "options": {
+     "thread_ts": {
+      "replyValues": {
+       "thread_ts": "={{ $('Post Proposal').first().json.message_timestamp }}",
+       "reply_broadcast": false
+      }
+     }
+    }
+   },
+   "credentials": {
+    "slackApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-approved?",
+   "name": "Approved?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    4140,
+    -120
+   ],
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "ap",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       },
+       "leftValue": "={{ $json.data.approved }}",
+       "rightValue": ""
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-jwt-send",
+   "name": "JWT (send)",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    4340,
+    -260
+   ],
+   "parameters": {
+    "jsCode": "const crypto = require(\"crypto\");\nconst INTEGRATION_KEY = \"%%VAO::VAR::DOCUSIGN_INTEGRATION_KEY%%\";\nconst USER_ID = \"%%VAO::VAR::DOCUSIGN_USER_ID%%\";\nconst PRIVATE_KEY = \"%%VAO::VAR::DOCUSIGN_PRIVATE_KEY%%\";\nconst now = Math.floor(Date.now()/1000);\nconst header = Buffer.from(JSON.stringify({ alg: \"RS256\", typ: \"JWT\" })).toString(\"base64url\");\nconst payload = Buffer.from(JSON.stringify({ iss: INTEGRATION_KEY, sub: USER_ID, aud: \"account.docusign.com\", iat: now, exp: now+3600, scope: \"signature impersonation\" })).toString(\"base64url\");\nconst signingInput = header + \".\" + payload;\nconst signer = crypto.createSign(\"RSA-SHA256\");\nsigner.update(signingInput);\nconst signature = signer.sign(PRIVATE_KEY).toString(\"base64url\");\nreturn [{ json: { assertion: signingInput + \".\" + signature } }];"
+   }
+  },
+  {
+   "id": "lw2-token-send",
+   "name": "Token (send)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4540,
+    -260
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "https://account.docusign.com/oauth/token",
+    "sendBody": true,
+    "contentType": "form-urlencoded",
+    "specifyBody": "keypair",
+    "bodyParameters": {
+     "parameters": [
+      {
+       "name": "grant_type",
+       "value": "urn:ietf:params:oauth:grant-type:jwt-bearer"
+      },
+      {
+       "name": "assertion",
+       "value": "={{ $json.assertion }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-send-envelope",
+   "name": "Send Envelope",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4740,
+    -260
+   ],
+   "parameters": {
+    "method": "PUT",
+    "url": "={{ $('Resolve DocuSign Account').first().json.base_uri }}/restapi/v2.1/accounts/{{ $('Resolve DocuSign Account').first().json.account_id }}/envelopes/{{ $('Compose Proposal').first().json.envelopeId }}",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ status: \"sent\" }) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (send)').first().json.access_token }}"
+      },
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-mark-sent",
+   "name": "Mark Sent",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4940,
+    -260
+   ],
+   "parameters": {
+    "method": "PATCH",
+    "url": "=https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Maintenance%%/{{ $('Compose Proposal').first().json.recId }}",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ fields: { \"%%VAO::FLD::Maintenance::Lien Waiver Status%%\": \"Sent\", \"%%VAO::FLD::Maintenance::Lien Waiver Envelope ID%%\": $('Compose Proposal').first().json.envelopeId } }) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-confirm-in-thread",
+   "name": "Confirm in Thread",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2.5,
+   "position": [
+    5140,
+    -260
+   ],
+   "parameters": {
+    "authentication": "accessToken",
+    "resource": "message",
+    "operation": "post",
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "={{ $('Config').first().json.slackChannel }}"
+    },
+    "text": "=:white_check_mark: Sent to {{ $('Compose Proposal').first().json.vendorEmail }}. The job is marked Sent.",
+    "otherOptions": {
+     "mrkdwn": true,
+     "includeLinkToWorkflow": false,
+     "unfurl_links": false,
+     "thread_ts": {
+      "replyValues": {
+       "thread_ts": "={{ $('Post Proposal').first().json.message_timestamp }}",
+       "reply_broadcast": false
+      }
+     }
+    }
+   },
+   "credentials": {
+    "slackApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-jwt-void",
+   "name": "JWT (void)",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    4340,
+    60
+   ],
+   "parameters": {
+    "jsCode": "const crypto = require(\"crypto\");\nconst INTEGRATION_KEY = \"%%VAO::VAR::DOCUSIGN_INTEGRATION_KEY%%\";\nconst USER_ID = \"%%VAO::VAR::DOCUSIGN_USER_ID%%\";\nconst PRIVATE_KEY = \"%%VAO::VAR::DOCUSIGN_PRIVATE_KEY%%\";\nconst now = Math.floor(Date.now()/1000);\nconst header = Buffer.from(JSON.stringify({ alg: \"RS256\", typ: \"JWT\" })).toString(\"base64url\");\nconst payload = Buffer.from(JSON.stringify({ iss: INTEGRATION_KEY, sub: USER_ID, aud: \"account.docusign.com\", iat: now, exp: now+3600, scope: \"signature impersonation\" })).toString(\"base64url\");\nconst signingInput = header + \".\" + payload;\nconst signer = crypto.createSign(\"RSA-SHA256\");\nsigner.update(signingInput);\nconst signature = signer.sign(PRIVATE_KEY).toString(\"base64url\");\nreturn [{ json: { assertion: signingInput + \".\" + signature } }];"
+   }
+  },
+  {
+   "id": "lw2-token-void",
+   "name": "Token (void)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4540,
+    60
+   ],
+   "parameters": {
+    "method": "POST",
+    "url": "https://account.docusign.com/oauth/token",
+    "sendBody": true,
+    "contentType": "form-urlencoded",
+    "specifyBody": "keypair",
+    "bodyParameters": {
+     "parameters": [
+      {
+       "name": "grant_type",
+       "value": "urn:ietf:params:oauth:grant-type:jwt-bearer"
+      },
+      {
+       "name": "assertion",
+       "value": "={{ $json.assertion }}"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-void-envelope",
+   "name": "Void Envelope",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4740,
+    60
+   ],
+   "parameters": {
+    "method": "PUT",
+    "url": "={{ $('Resolve DocuSign Account').first().json.base_uri }}/restapi/v2.1/accounts/{{ $('Resolve DocuSign Account').first().json.account_id }}/envelopes/{{ $('Compose Proposal').first().json.envelopeId }}",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ status: \"voided\", voidedReason: \"Declined in Slack\" }) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Authorization",
+       "value": "=Bearer {{ $('Token (void)').first().json.access_token }}"
+      },
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   }
+  },
+  {
+   "id": "lw2-mark-blocked-declined",
+   "name": "Mark Blocked (declined)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    4940,
+    60
+   ],
+   "parameters": {
+    "method": "PATCH",
+    "url": "=https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Maintenance%%/{{ $('Compose Proposal').first().json.recId }}",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ fields: { \"%%VAO::FLD::Maintenance::Lien Waiver Status%%\": \"Blocked - missing data\", \"%%VAO::FLD::Maintenance::Lien Waiver Envelope ID%%\": \"\" } }) }}",
+    "sendHeaders": true,
+    "specifyHeaders": "keypair",
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "id": "lw2-declined-in-thread",
+   "name": "Declined in Thread",
+   "type": "n8n-nodes-base.slack",
+   "typeVersion": 2.5,
+   "position": [
+    5140,
+    60
+   ],
+   "parameters": {
+    "authentication": "accessToken",
+    "resource": "message",
+    "operation": "post",
+    "select": "channel",
+    "channelId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "={{ $('Config').first().json.slackChannel }}"
+    },
+    "text": "=:x: Declined. The DocuSign draft has been voided and the job is back to Blocked. Fix it and set Lien Waiver Status to Prepare to try again.",
+    "otherOptions": {
+     "mrkdwn": true,
+     "includeLinkToWorkflow": false,
+     "unfurl_links": false,
+     "thread_ts": {
+      "replyValues": {
+       "thread_ts": "={{ $('Post Proposal').first().json.message_timestamp }}",
+       "reply_broadcast": false
+      }
+     }
+    }
+   },
+   "credentials": {
+    "slackApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  }
+ ],
+ "connections": {
+  "When Called": {
+   "main": [
+    [
+     {
+      "node": "Config",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Config": {
+   "main": [
+    [
+     {
+      "node": "Get Job",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Job": {
+   "main": [
+    [
+     {
+      "node": "Plan Lookups",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Plan Lookups": {
+   "main": [
+    [
+     {
+      "node": "Get Property",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Property": {
+   "main": [
+    [
+     {
+      "node": "Get Unit",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Unit": {
+   "main": [
+    [
+     {
+      "node": "Get Vendor",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Vendor": {
+   "main": [
+    [
+     {
+      "node": "Get Managers",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Managers": {
+   "main": [
+    [
+     {
+      "node": "Build Waiver",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Build Waiver": {
+   "main": [
+    [
+     {
+      "node": "Ready?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Ready?": {
+   "main": [
+    [
+     {
+      "node": "JWT (read)",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "Mark Blocked",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mark Blocked": {
+   "main": [
+    [
+     {
+      "node": "Slack: Blocked",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "JWT (read)": {
+   "main": [
+    [
+     {
+      "node": "Token (read)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Token (read)": {
+   "main": [
+    [
+     {
+      "node": "Get DocuSign UserInfo",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get DocuSign UserInfo": {
+   "main": [
+    [
+     {
+      "node": "Resolve DocuSign Account",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Resolve DocuSign Account": {
+   "main": [
+    [
+     {
+      "node": "Find Template",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Find Template": {
+   "main": [
+    [
+     {
+      "node": "Pick Template",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Pick Template": {
+   "main": [
+    [
+     {
+      "node": "Get Template Tabs",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Get Template Tabs": {
+   "main": [
+    [
+     {
+      "node": "Map Tabs",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Map Tabs": {
+   "main": [
+    [
+     {
+      "node": "Create Draft",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Create Draft": {
+   "main": [
+    [
+     {
+      "node": "Compose Proposal",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Compose Proposal": {
+   "main": [
+    [
+     {
+      "node": "Post Proposal",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Post Proposal": {
+   "main": [
+    [
+     {
+      "node": "Ask Approval",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Ask Approval": {
+   "main": [
+    [
+     {
+      "node": "Approved?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "JWT (send)": {
+   "main": [
+    [
+     {
+      "node": "Token (send)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Approved?": {
+   "main": [
+    [
+     {
+      "node": "JWT (send)",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "JWT (void)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Token (send)": {
+   "main": [
+    [
+     {
+      "node": "Send Envelope",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Send Envelope": {
+   "main": [
+    [
+     {
+      "node": "Mark Sent",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mark Sent": {
+   "main": [
+    [
+     {
+      "node": "Confirm in Thread",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "JWT (void)": {
+   "main": [
+    [
+     {
+      "node": "Token (void)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Token (void)": {
+   "main": [
+    [
+     {
+      "node": "Void Envelope",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Void Envelope": {
+   "main": [
+    [
+     {
+      "node": "Mark Blocked (declined)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mark Blocked (declined)": {
+   "main": [
+    [
+     {
+      "node": "Declined in Thread",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "timezone": "America/New_York",
+  "executionOrder": "v1"
+ }
+}

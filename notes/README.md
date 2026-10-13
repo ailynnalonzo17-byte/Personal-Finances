@@ -1,0 +1,1 @@
+Notes, weekly reviews, ideas.

@@ -1,0 +1,74 @@
+{
+  "base": null,
+  "tables": [
+    {
+      "placeholder": "TBL::Maintenance",
+      "table": "Maintenance"
+    }
+  ],
+  "fields": [
+    {
+      "placeholder": "FLD::Maintenance::Issue",
+      "table": "Maintenance",
+      "field": "Issue"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Property",
+      "table": "Maintenance",
+      "field": "Property"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Unit",
+      "table": "Maintenance",
+      "field": "Unit"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Vendor",
+      "table": "Maintenance",
+      "field": "Vendor"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Invoice Amount",
+      "table": "Maintenance",
+      "field": "Invoice Amount"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Completed Date",
+      "table": "Maintenance",
+      "field": "Completed Date"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Lien Waiver Exceptions",
+      "table": "Maintenance",
+      "field": "Lien Waiver Exceptions"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Invoice Number",
+      "table": "Maintenance",
+      "field": "Invoice Number"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Lien Waiver Status",
+      "table": "Maintenance",
+      "field": "Lien Waiver Status"
+    }
+  ],
+  "literals": [
+    {
+      "placeholder": "VAR::SLACK_CHANNEL",
+      "key": "SLACK_CHANNEL"
+    },
+    {
+      "placeholder": "VAR::CHILD_WORKFLOW_ID",
+      "key": "CHILD_WORKFLOW_ID"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_ROLE_NAME",
+      "key": "DOCUSIGN_ROLE_NAME"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_TEMPLATE_NAME",
+      "key": "DOCUSIGN_TEMPLATE_NAME"
+    }
+  ]
+}

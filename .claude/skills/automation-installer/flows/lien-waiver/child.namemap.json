@@ -1,0 +1,139 @@
+{
+  "base": null,
+  "tables": [
+    {
+      "placeholder": "TBL::Properties",
+      "table": "Properties"
+    },
+    {
+      "placeholder": "TBL::Vendors",
+      "table": "Vendors"
+    },
+    {
+      "placeholder": "TBL::Maintenance",
+      "table": "Maintenance"
+    },
+    {
+      "placeholder": "TBL::Units",
+      "table": "Units"
+    }
+  ],
+  "fields": [
+    {
+      "placeholder": "FLD::Maintenance::Lien Waiver Status",
+      "table": "Maintenance",
+      "field": "Lien Waiver Status"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Lien Waiver Envelope ID",
+      "table": "Maintenance",
+      "field": "Lien Waiver Envelope ID"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Issue",
+      "table": "Maintenance",
+      "field": "Issue"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Property",
+      "table": "Maintenance",
+      "field": "Property"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Unit",
+      "table": "Maintenance",
+      "field": "Unit"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Vendor",
+      "table": "Maintenance",
+      "field": "Vendor"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Invoice Amount",
+      "table": "Maintenance",
+      "field": "Invoice Amount"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Completed Date",
+      "table": "Maintenance",
+      "field": "Completed Date"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Lien Waiver Exceptions",
+      "table": "Maintenance",
+      "field": "Lien Waiver Exceptions"
+    },
+    {
+      "placeholder": "FLD::Maintenance::Invoice Number",
+      "table": "Maintenance",
+      "field": "Invoice Number"
+    },
+    {
+      "placeholder": "FLD::Properties::Street Address",
+      "table": "Properties",
+      "field": "Street Address"
+    },
+    {
+      "placeholder": "FLD::Properties::Town",
+      "table": "Properties",
+      "field": "Town"
+    },
+    {
+      "placeholder": "FLD::Properties::State (Select)",
+      "table": "Properties",
+      "field": "State (Select)"
+    },
+    {
+      "placeholder": "FLD::Properties::Owner Entity",
+      "table": "Properties",
+      "field": "Owner Entity"
+    },
+    {
+      "placeholder": "FLD::Properties::Property Manager",
+      "table": "Properties",
+      "field": "Property Manager"
+    },
+    {
+      "placeholder": "FLD::Units::Unit",
+      "table": "Units",
+      "field": "Unit"
+    },
+    {
+      "placeholder": "FLD::Vendors::Vendor Name",
+      "table": "Vendors",
+      "field": "Vendor Name"
+    },
+    {
+      "placeholder": "FLD::Vendors::Email",
+      "table": "Vendors",
+      "field": "Email"
+    }
+  ],
+  "literals": [
+    {
+      "placeholder": "VAR::SLACK_CHANNEL",
+      "key": "SLACK_CHANNEL"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_INTEGRATION_KEY",
+      "key": "DOCUSIGN_INTEGRATION_KEY"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_PRIVATE_KEY",
+      "key": "DOCUSIGN_PRIVATE_KEY"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_ROLE_NAME",
+      "key": "DOCUSIGN_ROLE_NAME"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_TEMPLATE_NAME",
+      "key": "DOCUSIGN_TEMPLATE_NAME"
+    },
+    {
+      "placeholder": "VAR::DOCUSIGN_USER_ID",
+      "key": "DOCUSIGN_USER_ID"
+    }
+  ]
+}

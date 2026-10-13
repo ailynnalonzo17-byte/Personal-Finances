@@ -1,0 +1,22 @@
+{
+  "base": true,
+  "tables": [
+    {
+      "placeholder": "TBL::Leases",
+      "table": "Leases"
+    }
+  ],
+  "fields": [
+    {
+      "placeholder": "FLD::Leases::Security Deposit Disposition",
+      "table": "Leases",
+      "field": "Security Deposit Disposition"
+    }
+  ],
+  "literals": [
+    {
+      "placeholder": "VAR::CHILD_WORKFLOW_ID",
+      "key": "CHILD_WORKFLOW_ID"
+    }
+  ]
+}

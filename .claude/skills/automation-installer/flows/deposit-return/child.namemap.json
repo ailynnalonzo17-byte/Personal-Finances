@@ -1,0 +1,178 @@
+{
+  "base": true,
+  "tables": [
+    {
+      "placeholder": "TBL::Properties",
+      "table": "Properties"
+    },
+    {
+      "placeholder": "TBL::Leases",
+      "table": "Leases"
+    },
+    {
+      "placeholder": "TBL::Deposit Interest Rates",
+      "table": "Deposit Interest Rates"
+    },
+    {
+      "placeholder": "TBL::Automations",
+      "table": "Automations"
+    },
+    {
+      "placeholder": "TBL::Tasks",
+      "table": "Tasks"
+    },
+    {
+      "placeholder": "TBL::Units",
+      "table": "Units"
+    },
+    {
+      "placeholder": "TBL::Applicant Groups",
+      "table": "Applicant Groups"
+    },
+    {
+      "placeholder": "TBL::Policy Settings - States",
+      "table": "Policy Settings - States"
+    },
+    {
+      "placeholder": "TBL::Daily Summary",
+      "table": "Daily Summary"
+    },
+    {
+      "placeholder": "TBL::Automation Settings",
+      "table": "Automation Settings"
+    }
+  ],
+  "fields": [
+    {
+      "placeholder": "FLD::Tasks::Related Lease",
+      "table": "Tasks",
+      "field": "Related Lease"
+    },
+    {
+      "placeholder": "FLD::Leases::Security Deposit Disposition",
+      "table": "Leases",
+      "field": "Security Deposit Disposition"
+    },
+    {
+      "placeholder": "FLD::Leases::Deposit Legal Deadline",
+      "table": "Leases",
+      "field": "Deposit Legal Deadline"
+    },
+    {
+      "placeholder": "FLD::Leases::Notes",
+      "table": "Leases",
+      "field": "Notes"
+    },
+    {
+      "placeholder": "FLD::Tasks::Assigned Employee",
+      "table": "Tasks",
+      "field": "Assigned Employee"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Document URL",
+      "table": "Leases",
+      "field": "Disposition Document URL"
+    },
+    {
+      "placeholder": "FLD::Leases::Interest on Deposit",
+      "table": "Leases",
+      "field": "Interest on Deposit"
+    },
+    {
+      "placeholder": "FLD::Tasks::Deadline",
+      "table": "Tasks",
+      "field": "Deadline"
+    },
+    {
+      "placeholder": "FLD::Tasks::Amount Owed",
+      "table": "Tasks",
+      "field": "Amount Owed"
+    },
+    {
+      "placeholder": "FLD::Tasks::Immediate Need?",
+      "table": "Tasks",
+      "field": "Immediate Need?"
+    },
+    {
+      "placeholder": "FLD::Tasks::Title",
+      "table": "Tasks",
+      "field": "Title"
+    },
+    {
+      "placeholder": "FLD::Tasks::Priority Level",
+      "table": "Tasks",
+      "field": "Priority Level"
+    },
+    {
+      "placeholder": "FLD::Tasks::Status",
+      "table": "Tasks",
+      "field": "Status"
+    },
+    {
+      "placeholder": "FLD::Tasks::Due Date",
+      "table": "Tasks",
+      "field": "Due Date"
+    },
+    {
+      "placeholder": "FLD::Tasks::Task Description",
+      "table": "Tasks",
+      "field": "Task Description"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Document Drive ID",
+      "table": "Leases",
+      "field": "Disposition Document Drive ID"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Email Sent",
+      "table": "Leases",
+      "field": "Disposition Email Sent"
+    }
+  ],
+  "literals": [
+    {
+      "placeholder": "VAR::SLACK_CHANNEL",
+      "key": "SLACK_CHANNEL"
+    },
+    {
+      "placeholder": "VAR::AGENT_EMAIL",
+      "key": "AGENT_EMAIL"
+    },
+    {
+      "placeholder": "VAR::OWNER_EMAIL",
+      "key": "OWNER_EMAIL"
+    },
+    {
+      "placeholder": "VAR::OWNER_WEBSITE_URL",
+      "key": "OWNER_WEBSITE_URL"
+    },
+    {
+      "placeholder": "VAR::OWNER_WEBSITE",
+      "key": "OWNER_WEBSITE"
+    },
+    {
+      "placeholder": "VAR::BUSINESS_NAME",
+      "key": "BUSINESS_NAME"
+    },
+    {
+      "placeholder": "VAR::AGENT_NAME",
+      "key": "AGENT_NAME"
+    },
+    {
+      "placeholder": "VAR::ASSIGNED_EMPLOYEE_RECORD_ID",
+      "key": "ASSIGNED_EMPLOYEE_RECORD_ID"
+    },
+    {
+      "placeholder": "VAR::AUTOMATION_ROW_NAME",
+      "key": "AUTOMATION_ROW_NAME"
+    },
+    {
+      "placeholder": "VAR::DEPOSIT_RETURN_NOTE",
+      "key": "DEPOSIT_RETURN_NOTE"
+    },
+    {
+      "placeholder": "VAR::SIGNATURE_IMAGE_URL",
+      "key": "SIGNATURE_IMAGE_URL"
+    }
+  ]
+}

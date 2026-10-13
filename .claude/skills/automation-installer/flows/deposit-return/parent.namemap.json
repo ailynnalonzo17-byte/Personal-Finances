@@ -1,0 +1,52 @@
+{
+  "base": true,
+  "tables": [
+    {
+      "placeholder": "TBL::Leases",
+      "table": "Leases"
+    }
+  ],
+  "fields": [
+    {
+      "placeholder": "FLD::Leases::Security Deposit Disposition",
+      "table": "Leases",
+      "field": "Security Deposit Disposition"
+    },
+    {
+      "placeholder": "FLD::Leases::Deposit Legal Deadline",
+      "table": "Leases",
+      "field": "Deposit Legal Deadline"
+    },
+    {
+      "placeholder": "FLD::Leases::Notes",
+      "table": "Leases",
+      "field": "Notes"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Document URL",
+      "table": "Leases",
+      "field": "Disposition Document URL"
+    },
+    {
+      "placeholder": "FLD::Leases::Interest on Deposit",
+      "table": "Leases",
+      "field": "Interest on Deposit"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Document Drive ID",
+      "table": "Leases",
+      "field": "Disposition Document Drive ID"
+    },
+    {
+      "placeholder": "FLD::Leases::Disposition Email Sent",
+      "table": "Leases",
+      "field": "Disposition Email Sent"
+    }
+  ],
+  "literals": [
+    {
+      "placeholder": "VAR::CHILD_WORKFLOW_ID",
+      "key": "CHILD_WORKFLOW_ID"
+    }
+  ]
+}

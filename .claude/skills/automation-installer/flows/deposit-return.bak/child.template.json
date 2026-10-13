@@ -1,0 +1,1616 @@
+{
+  "name": "Security Deposit Disposition - Process One Lease",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "name": "When Called",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        260,
+        0
+      ],
+      "id": "b2982fe7-6bd5-4f75-b15d-11706f3768ea"
+    },
+    {
+      "parameters": {
+        "jsCode": "// One place for the knobs. Slack channel is the SunriseRealEstate workspace channel the\n// Slack - Sunrise (Vera app) bot posts to. Change here, nowhere else.\nreturn [{ json: {\n  slackChannel: '%%VAO::VAR::SLACK_CHANNEL%%',\n  leaseId: $('When Called').first().json.leaseId || '',\n  leaseName: $('When Called').first().json.leaseName || ''\n} }];\n"
+      },
+      "name": "Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ],
+      "id": "0830cb1a-628d-4846-9dbe-80365756fab7"
+    },
+    {
+      "parameters": {
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Config').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "name": "Get Lease",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        0
+      ],
+      "id": "8c2503a5-892a-4370-9e17-18f62c3ca9d8",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build the lookup URLs / formulas from the lease so the HTTP nodes carry no quoting logic.\nconst AT = 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/';\nconst L = $('Get Lease').first().json;\nconst f = L.fields || {};\nconst first = (v) => Array.isArray(v) ? (v[0] || '') : (v || '');\nconst unitId = first(f['Unit']);\nconst propId = first(f['Property (from Unit)']);\nconst agId = first(f['Applicant Groups']);\nconst poc = String(first(f['POC Full Name']) || '').trim();\nconst esc = (s) => String(s).split(String.fromCharCode(92)).join(String.fromCharCode(92, 92)).split(String.fromCharCode(39)).join(String.fromCharCode(92, 39));\nconst agFormula = poc\n  ? 'AND(FIND(' + String.fromCharCode(39) + esc(poc) + String.fromCharCode(39) + ', ARRAYJOIN({Tenants}))>0, {Google Drive Folder}!=' + String.fromCharCode(39, 39) + ')'\n  : 'FALSE()';\nreturn [{ json: {\n  leaseId: L.id,\n  unitUrl: AT + '%%VAO::TBL::Units%%/' + (unitId || 'none'),\n  propertyUrl: AT + '%%VAO::TBL::Properties%%/' + (propId || 'none'),\n  agUrl: AT + '%%VAO::TBL::Applicant Groups%%/' + (agId || 'none'),\n  agFormula: agFormula,\n  hasUnit: !!unitId, hasProperty: !!propId, hasAgLink: !!agId\n} }];\n"
+      },
+      "name": "Prep Lookups",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "2afbdfda-04c6-4572-8625-e3b8c0a155fd"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Prep Lookups').first().json.unitUrl }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "name": "Get Unit",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        0
+      ],
+      "id": "47171c89-4eeb-415a-8586-f9afc2afbf4e",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Prep Lookups').first().json.propertyUrl }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "name": "Get Property",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1560,
+        0
+      ],
+      "id": "caa1dd89-2096-4984-a2dc-2f9c25a79fee",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// State-scoped lookups need the property's state first.\nconst P = $('Get Property').first().json;\nconst state = String(((P.fields || {})['State (Select)'] || '')).trim();\nconst q = String.fromCharCode(39);\nreturn [{ json: {\n  state: state,\n  stateFormula: state ? '{State}=' + q + state + q : 'FALSE()'\n} }];\n"
+      },
+      "name": "Prep State Lookups",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        0
+      ],
+      "id": "2e3b7190-ff6a-493d-9b64-d68ff4533845"
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Policy Settings - States%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {},
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filterByFormula",
+              "value": "={{ $('Prep State Lookups').first().json.stateFormula }}"
+            },
+            {
+              "name": "maxRecords",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "name": "Get Policy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        0
+      ],
+      "id": "659c6a07-9d9c-4e56-9171-5b87334410cf",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Deposit Interest Rates%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {},
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filterByFormula",
+              "value": "={{ $('Prep State Lookups').first().json.stateFormula }}"
+            },
+            {
+              "name": "pageSize",
+              "value": "100"
+            }
+          ]
+        }
+      },
+      "name": "Get Rates",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2340,
+        0
+      ],
+      "id": "09cd9a6f-1160-4331-b627-91112e7af268",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Automation Settings%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {},
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "maxRecords",
+              "value": "1"
+            },
+            {
+              "name": "fields[0]",
+              "value": "Disposition Template Google Doc ID"
+            },
+            {
+              "name": "fields[1]",
+              "value": "Landlord Name"
+            },
+            {
+              "name": "fields[2]",
+              "value": "Business Name"
+            }
+          ]
+        }
+      },
+      "name": "Get Settings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2600,
+        0
+      ],
+      "id": "b4c3f367-42fb-4084-b254-73e1764c7dab",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Prep Lookups').first().json.agUrl }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "name": "Get AG by Link",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2860,
+        0
+      ],
+      "id": "bdabecbc-fbc1-4dcc-8b77-0eddee8f7600",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Applicant Groups%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {},
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filterByFormula",
+              "value": "={{ $('Prep Lookups').first().json.agFormula }}"
+            },
+            {
+              "name": "maxRecords",
+              "value": "1"
+            },
+            {
+              "name": "fields[0]",
+              "value": "Google Drive Folder"
+            }
+          ]
+        }
+      },
+      "name": "Find AG by Tenant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3120,
+        0
+      ],
+      "id": "dc477672-b80b-4ae0-913f-7c4de4d01fd4",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// ---------------------------------------------------------------------------\n// Compute & Validate: deadline, interest, amounts, decision, letter fields.\n// Every refuse-to-guess branch from the Relay flows lives here as ok:false + error.\n// ---------------------------------------------------------------------------\nconst NL = String.fromCharCode(10);\nconst rec = (n) => { try { return $(n).first().json || {}; } catch (e) { return {}; } };\nconst L = rec('Get Lease'); const lf = L.fields || {};\nconst U = rec('Get Unit'); const uf = U.fields || {};\nconst P = rec('Get Property'); const pf = P.fields || {};\nconst policy = ((rec('Get Policy').records) || [])[0] || null;\nconst rates = (rec('Get Rates').records) || [];\nconst settings = ((rec('Get Settings').records) || [])[0] || {}; const sf = settings.fields || {};\nconst agLinked = rec('Get AG by Link'); const agByTenant = ((rec('Find AG by Tenant').records) || [])[0] || null;\n\nconst first = (v) => Array.isArray(v) ? (v[0] === undefined ? '' : v[0]) : (v === undefined || v === null ? '' : v);\nconst num = (v) => { const n = typeof v === 'number' ? v : parseFloat(v || 0); return isFinite(n) ? n : 0; };\nconst money = (v) => '$' + num(v).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });\nconst iso = (v) => String(v || '').slice(0, 10);\nconst dlong = (s) => s ? new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';\nconst addDays = (s, n) => new Date(Date.parse(s + 'T00:00:00Z') + n * 86400000).toISOString().slice(0, 10);\nconst todayIso = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });\n\nconst leaseName = String(lf['Lease Name'] || lf['Lease Name (auto)'] || L.id || 'unnamed lease').split(NL)[0].trim();\nconst problems = [];\n\n// --- inputs the letter cannot do without\nconst moveOut = iso(lf['Move Out Date - start']);\nconst leaseStart = iso(lf['Lease Start Date']);\nif (!moveOut) problems.push('no Move Out Date - start on the lease');\nif (!leaseStart) problems.push('no Lease Start Date on the lease');\nconst state = String(pf['State (Select)'] || '').trim();\nif (!P.id) problems.push('lease has no Unit -> Property link, so the state and address are unknown');\nelse if (!state) problems.push('property has no State (Select)');\nif (!policy) problems.push('no Policy Settings - States row for state ' + (state || '(blank)'));\nconst templateId = String(sf['Disposition Template Google Doc ID'] || '').trim();\nif (!templateId) problems.push('Disposition Template Google Doc ID is blank in Automation Settings');\n\n// --- deposit folder: AG linked on the lease, else the AG that lists this tenant\nconst folderUrl = String(((agLinked.fields || {})['Google Drive Folder']) || ((agByTenant && agByTenant.fields) || {})['Google Drive Folder'] || '').trim();\nconst fm = folderUrl.match(/folders\\/([A-Za-z0-9_-]+)/);\nconst folderId = fm ? fm[1] : '';\nif (!folderId) problems.push('no leasing folder: the lease has no Applicant Group with a Google Drive Folder, and no Applicant Group lists ' + (String(first(lf['POC Full Name'])) || 'the point of contact'));\n\n// --- money\nconst deposit = num(lf['Total Security Deposit']);\nconst petDep = num(lf['Pet Deposit']);\nconst held = deposit + petDep;\nif (held <= 0) problems.push('Total Deposits Held is $0 - nothing to dispose');\nconst ded = {\n  repair: num(lf['Deduction - R&M']), cleaning: num(lf['Deduction - Cleaning']), missing: num(lf['Deduction - Missing Items']),\n  damaged: num(lf['Deduction - Damaged Items']), pet: num(lf['Deduction - Pet Damage']), rent: num(lf['Deduction - Unpaid Rent'])\n};\nconst deductions = Math.round((ded.repair + ded.cleaning + ded.missing + ded.damaged + ded.pet + ded.rent) * 100) / 100;\n\n// --- legal deadline (fill-when-blank; the Deadline Watch flow may already have written it)\nconst deadlineDays = policy ? num(policy.fields['Deposit Return Deadline (Days)']) : 0;\nconst existingDeadline = iso(lf['Deposit Legal Deadline']);\nconst deadline = existingDeadline || (moveOut && deadlineDays ? addDays(moveOut, deadlineDays) : '');\nif (!deadline) problems.push('cannot compute the legal deadline (no Deposit Return Deadline (Days) on the state row)');\n\n// --- interest: pro-rated per calendar year, [accrualStart, accrualEnd) day count, rate per year from the table.\n// Accrual END is the day the money actually goes back (Stephanie 09-03-2026): Anticipated Return Date when set,\n// else the statement date, and never before move-out. Matches her practice - her Chin letter accrued to the\n// return date, not to move-out.\nconst interestRequired = !!(policy && policy.fields['Security Deposit Interest Required']);\nlet interest = 0; const yearsUsed = [];\nconst accrualStart = iso(lf['Interest Last Returned']) || leaseStart;\nconst anticipatedReturn = iso(lf['Anticipated Return Date']);\nlet accrualEnd = anticipatedReturn || todayIso;\nif (moveOut && Date.parse(accrualEnd) < Date.parse(moveOut)) accrualEnd = moveOut;\nif (interestRequired && accrualStart && accrualEnd) {\n  if (Date.parse(accrualEnd) <= Date.parse(accrualStart)) {\n    interest = 0;\n  } else {\n    const rateByYear = {};\n    for (const r of rates) {\n      const rf = r.fields || {}; const y = parseInt(rf['Year'], 10); let a = num(rf['Annual Rate']);\n      if (a >= 0.1) a = a / 100;   // entered as percent points (0.52) instead of a fraction (0.0052)\n      if (y) rateByYear[y] = a;\n    }\n    const y0 = parseInt(accrualStart.slice(0, 4), 10), y1 = parseInt(accrualEnd.slice(0, 4), 10);\n    const missing = [];\n    let total = 0;\n    for (let y = y0; y <= y1; y++) {\n      const ys = y === y0 ? accrualStart : y + '-01-01';\n      const ye = y === y1 ? accrualEnd : (y + 1) + '-01-01';\n      const days = Math.round((Date.parse(ye + 'T00:00:00Z') - Date.parse(ys + 'T00:00:00Z')) / 86400000);\n      if (days <= 0) continue;\n      if (rateByYear[y] === undefined) { missing.push(y); continue; }\n      total += deposit * rateByYear[y] * days / 365;\n      yearsUsed.push({ year: y, rate: rateByYear[y], days: days });\n    }\n    if (missing.length) problems.push('missing ' + (state || '') + ' interest rate for year(s) ' + missing.join(', ') + ' in Deposit Interest Rates');\n    interest = Math.round(total * 100) / 100;\n  }\n}\n\n// --- decision and balances\nconst net = Math.round((held + interest - deductions) * 100) / 100;\nconst returnAmt = Math.max(0, net);\nconst owes = Math.max(0, -net);\nconst decision = deductions > 0 ? 'Partial Return' : 'Full Return';\nconst outcome = owes > 0 ? 'owes' : (deductions > 0 ? 'partial' : 'full');\n\n// --- people and address\nconst names = (Array.isArray(lf['Tenant Names (auto)']) ? lf['Tenant Names (auto)'] : []).map(s => String(s || '').trim()).filter(Boolean);\nconst pocName = String(first(lf['POC Full Name']) || '').trim() || names[0] || 'Tenant';\nconst tenantLine = names.length > 1 ? names.join(' & ') : (names[0] || pocName);\nconst nick = String(first(lf['POC Nickname']) || '').trim() || String(first(lf['POC First Name']) || '').trim() || pocName.split(' ')[0];\nconst street = String(pf['Street Address'] || '').split(NL).join(', ').replace(/\\*+$/, '').trim();\nconst unitName = String(uf['Unit'] || '').trim();\nconst town = String(pf['Town'] || '').trim();\nconst zip = String(pf['Zip Code'] || '').trim();\nconst address = [street, unitName, [town, [state, zip].filter(Boolean).join(' ')].filter(Boolean).join(', ')].filter(Boolean).join(', ');\nconst tenantEmail = String(first(lf['POC Email']) || first(lf['Tenant Email (auto)']) || '').trim();\n\n// --- comments block\nlet notes = String(lf['Deduction - Comments'] || '').trim();\nif (interest > 0 && yearsUsed.length) {\n  const stateFull = policy ? String(policy.fields['State Full Name'] || state) : state;\n  const parts = yearsUsed.map(y => (y.rate * 100).toFixed(2).replace(/\\.?0+$/, '') + '% for ' + y.year);\n  notes = (notes ? notes + ' ' : '') + 'Interest was calculated daily from ' + dlong(accrualStart) + ' through ' + dlong(accrualEnd) +\n    ' using the ' + stateFull + ' Banking Commissioner' + String.fromCharCode(39) + 's published rates, ' + parts.join(' and ') + '.';\n}\nif (!notes) notes = 'None';\n\nconst leaseEnd = iso(lf['Lease Expiration']) || moveOut;\nconst datePrefix = todayIso;\nconst docName = datePrefix + ' - Disposition of Security Deposit - ' + leaseName;\n\nconst ph = {\n  '{{Tenant}}': tenantLine, '{{Tenant Nickname}}': nick, '{{Date}}': dlong(todayIso), '{{Address}}': address,\n  '{{Lease Date}}': dlong(leaseStart), '{{Lease End Date}}': dlong(leaseEnd), '{{Move Out Date}}': dlong(moveOut),\n  '{{InitialSecurity}}': money(deposit), '{{PetDeposit}}': money(petDep), '{{Interest}}': money(interest), '{{TotalDeposit}}': money(held + interest),\n  '{{RepairCosts}}': money(ded.repair), '{{RepairNotes}}': String(lf['Deduction - R&M Notes'] || '').trim(),\n  '{{CleaningCosts}}': money(ded.cleaning), '{{MissingFurniture}}': money(ded.missing), '{{DamagedFurniture}}': money(ded.damaged),\n  '{{PetDamage}}': money(ded.pet), '{{UnpaidRent}}': money(ded.rent), '{{TotalDeductions}}': money(deductions),\n  '{{BalancetoTenant}}': money(returnAmt), '{{BalancetoLandlord}}': money(owes), '{{Notes}}': notes\n};\nconst docRequests = Object.keys(ph).map(k => ({ replaceAllText: { containsText: { text: k, matchCase: true }, replaceText: ph[k] } }));\n\nconst leaseCalcFields = {\n  %%VAO::FLD::Leases::Interest on Deposit%%: interest           // Interest on Deposit (the full/partial decision stays internal - Stephanie dropped the Deposit Decision field 09-02-2026)\n};\nif (!existingDeadline && deadline) leaseCalcFields.%%VAO::FLD::Leases::Deposit Legal Deadline%% = deadline;   // Deposit Legal Deadline (fill-when-blank)\n\nconst ok = problems.length === 0;\nconst alertText = ok ? '' :\n  ':warning: *Security deposit disposition cannot proceed* - ' + leaseName + NL +\n  problems.map(p => '- ' + p).join(NL) + NL +\n  'Lease marked *Needs Attention*. Fix the data and set Security Deposit Disposition back to *Prepare*.' + NL +\n  'https://airtable.com/' + '%%VAO::BASE_ID%%' + '/' + '%%VAO::TBL::Leases%%' + '/' + L.id;\n\nreturn [{ json: {\n  ok, error: problems.join('; '), alertText,\n  leaseId: L.id, leaseName, state, moveOut, leaseStart, leaseEnd, accrualStart, accrualEnd, deadline, deadlineDays,\n  deposit, petDep, held, interest, interestRequired, yearsUsed, deductions, ded, net, returnAmt, owes, decision, outcome,\n  names, pocName, nick, tenantLine, address, unitName, tenantEmail,\n  folderId, folderUrl, templateId, docName, pdfName: docName + '.pdf', placeholders: ph, docRequests, leaseCalcFields, notes\n} }];\n"
+      },
+      "name": "Compute & Validate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3380,
+        0
+      ],
+      "id": "90714f80-a45a-46fb-90cc-0dcd3df4b050"
+    },
+    {
+      "parameters": {
+        "options": {},
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "dbba6ae8-7e6a-45d2-8ef0-06d5c2984765",
+              "leftValue": "={{ $json.ok }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "name": "Preflight OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3640,
+        0
+      ],
+      "id": "aae7c0b7-c58d-4d49-8df3-975bb5621e4d"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "text": "={{ $('Compute & Validate').first().json.alertText }}",
+        "otherOptions": {
+          "mrkdwn": true,
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false
+        }
+      },
+      "name": "Alert: Needs Attention",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        3900,
+        300
+      ],
+      "id": "2b65d2b4-9591-496c-bcac-04797c85132b",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "91efe068-15b8-4e27-b73e-ea36190afbde"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Compute & Validate').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { %%VAO::FLD::Leases::Security Deposit Disposition%%: 'Needs Attention' } }) }}",
+        "options": {}
+      },
+      "name": "Mark Needs Attention",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4160,
+        300
+      ],
+      "id": "c98065db-4b7d-4500-8294-777c2787d721",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Daily Summary%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { Summary: 'Security deposit disposition needs attention: ' + $('Compute & Validate').first().json.leaseName, 'Source Flow': 'Security Deposit Disposition', Details: $('Compute & Validate').first().json.error, Date: $today.toFormat('yyyy-MM-dd') } }) }}",
+        "options": {}
+      },
+      "name": "Log Needs Attention",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4420,
+        300
+      ],
+      "id": "1fd3cd39-9ed6-4ab3-a24d-14a6405dd927",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Compute & Validate').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: $('Compute & Validate').first().json.leaseCalcFields }) }}",
+        "options": {}
+      },
+      "name": "Write Calc to Lease",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4680,
+        0
+      ],
+      "id": "7fa77af1-ffe6-4fd6-9fe8-4cfac8f29caa",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://www.googleapis.com/drive/v3/files/' + $('Compute & Validate').first().json.templateId + '/copy' }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "options": {
+          "timeout": 120000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ name: $('Compute & Validate').first().json.docName, mimeType: 'application/vnd.google-apps.document', parents: [$('Compute & Validate').first().json.folderId] }) }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "supportsAllDrives",
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "name": "Copy Template",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4940,
+        0
+      ],
+      "id": "95283faf-480c-4e7d-82d4-72da544fe22a",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "SELECT YOUR Google Drive connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://docs.googleapis.com/v1/documents/' + $('Copy Template').first().json.id + ':batchUpdate' }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "options": {
+          "timeout": 120000
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ requests: $('Compute & Validate').first().json.docRequests }) }}"
+      },
+      "name": "Fill Doc",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5200,
+        0
+      ],
+      "id": "950a8be0-5d86-48a8-a9bd-9f57ebd560fa",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "SELECT YOUR Google Drive connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://www.googleapis.com/drive/v3/files/' + $('Copy Template').first().json.id + '/export' }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "data"
+            }
+          }
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "mimeType",
+              "value": "application/pdf"
+            }
+          ]
+        }
+      },
+      "name": "Export PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5460,
+        0
+      ],
+      "id": "600b8ed0-6d5a-4eb9-86da-8b072232a202",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "SELECT YOUR Google Drive connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "upload",
+        "inputDataFieldName": "data",
+        "name": "={{ $('Compute & Validate').first().json.pdfName }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Compute & Validate').first().json.folderId }}"
+        },
+        "options": {}
+      },
+      "name": "Upload PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        5720,
+        0
+      ],
+      "id": "62107b98-7703-4e07-97b1-71fdf262efd9",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "SELECT YOUR Google Drive connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Compute & Validate').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { %%VAO::FLD::Leases::Disposition Document URL%%: $('Upload PDF').first().json.webViewLink, %%VAO::FLD::Leases::Disposition Document Drive ID%%: $('Upload PDF').first().json.id, %%VAO::FLD::Leases::Security Deposit Disposition%%: 'Awaiting Approval' } }) }}",
+        "options": {}
+      },
+      "name": "Write Doc to Lease",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5980,
+        0
+      ],
+      "id": "d2f6fb32-0323-4260-924b-ba8dfcc1d346",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const c = $('Compute & Validate').first().json;\nconst pdf = $('Upload PDF').first().json || {};\nconst doc = $('Copy Template').first().json || {};\nconst NL = String.fromCharCode(10);\nconst money = (v) => '$' + Number(v || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });\nconst days = Math.round((Date.parse(c.deadline + 'T00:00:00Z') - Date.parse(new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }) + 'T00:00:00Z')) / 86400000);\nconst line = c.outcome === 'owes'\n  ? ':red_circle: *Tenant owes: ' + money(c.owes) + '* (nothing returned)'\n  : ':white_check_mark: *Return to tenant: ' + money(c.returnAmt) + '*';\nconst text =\n  ':page_facing_up: *Security deposit disposition ready for approval* - ' + c.leaseName + NL +\n  'Decision: *' + c.decision + '*' + NL +\n  'Held ' + money(c.held) + ' (deposit ' + money(c.deposit) + ' + pet ' + money(c.petDep) + ')  |  Interest ' + money(c.interest) + '  |  Deductions ' + money(c.deductions) + NL +\n  line + NL +\n  'Legal deadline: ' + c.deadline + ' (' + (days >= 0 ? days + ' days left' : Math.abs(days) + ' days OVERDUE') + ')' + NL +\n  'Statement: <' + (pdf.webViewLink || '') + '|PDF>  |  <https://docs.google.com/document/d/' + (doc.id || '') + '/edit|Google Doc>' + NL +\n  'Tenant email will go to: ' + (c.tenantEmail || '_no email on the lease - it will come to Stephanie instead_');\nreturn [{ json: { text: text } }];\n"
+      },
+      "name": "Build Proposal",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        6240,
+        0
+      ],
+      "id": "1e094e36-0dc0-4a85-8a95-b18fa8636bfc"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "text": "={{ $json.text }}",
+        "otherOptions": {
+          "mrkdwn": true,
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false
+        }
+      },
+      "name": "Post Proposal",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        6500,
+        0
+      ],
+      "id": "d16af612-dc8d-4a25-a84e-97cc1431f8fb",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "8024d276-ab50-4200-afc0-d9d222eb3037"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "sendAndWait",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "message": "Send this statement to the tenant?",
+        "responseType": "approval",
+        "approvalOptions": {
+          "values": {
+            "approvalType": "double",
+            "approveLabel": "Approve",
+            "buttonApprovalStyle": "primary",
+            "disapproveLabel": "Request changes",
+            "buttonDisapprovalStyle": "danger"
+          }
+        },
+        "options": {
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Post Proposal').first().json.message_timestamp }}",
+              "reply_broadcast": false
+            }
+          }
+        }
+      },
+      "name": "Ask Approval (wait)",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        6760,
+        0
+      ],
+      "id": "e1103350-01ba-4523-89c9-b9a2d8abac8c",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "c5bf9211-5321-4de7-bd33-ea0280c94fd3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// The approval step answers with a boolean, not text: one click, no typing.\n// A 'Request changes' click routes to a second wait that collects the note.\n// threadTs comes from the PROPOSAL post - $json.ts does not exist on a Slack post output\n// (it is message_timestamp / message.ts), and an undefined thread_ts silently posts top-level.\nconst d = $json.data || {};\nreturn [{ json: {\n  approved: d.approved === true,\n  respondedAt: d.respondedAt || '',\n  threadTs: $('Post Proposal').first().json.message_timestamp\n} }];\n"
+      },
+      "name": "Parse Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7020,
+        0
+      ],
+      "id": "174978a4-4f3e-4a6f-b549-5de81cb98244"
+    },
+    {
+      "parameters": {
+        "options": {},
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "a84f3888-990b-46da-8272-99a9147c5595",
+              "leftValue": "={{ $json.approved }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ]
+        }
+      },
+      "name": "Approved?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        7280,
+        0
+      ],
+      "id": "cc4bafef-5907-4902-a6a5-23ded8fda4c4"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "sendAndWait",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "message": "What needs to change on this statement?",
+        "responseType": "freeText",
+        "options": {
+          "messageButtonLabel": "Describe the change",
+          "responseFormTitle": "Request changes",
+          "responseFormDescription": "Say what is wrong, for example \"cleaning should be $150\". It gets saved to the lease Notes.",
+          "responseFormButtonLabel": "Send",
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Parse Reply').first().json.threadTs }}",
+              "reply_broadcast": false
+            }
+          }
+        }
+      },
+      "name": "Ask What To Change (wait)",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        7540,
+        300
+      ],
+      "id": "c2b86fa7-4ca4-451a-8887-d45d99fb78a8",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "7b4e7d71-1b7a-4bac-a082-6fc3312e3f82"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Free text from the second wait, only reached when 'Request changes' was clicked.\nconst raw = String((($json.data || {}).text) || '').trim();\nreturn [{ json: {\n  changeNote: raw || '(no detail given)',\n  threadTs: $('Parse Reply').first().json.threadTs\n} }];\n"
+      },
+      "name": "Parse Change Note",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        7800,
+        300
+      ],
+      "id": "e65bc96a-ab0c-4a35-96be-aef04682cd13"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Compute & Validate').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { %%VAO::FLD::Leases::Security Deposit Disposition%%: 'Changes Requested', %%VAO::FLD::Leases::Notes%%: ((($('Get Lease').first().json.fields || {})['Notes'] || '') + String.fromCharCode(10) + '[' + $today.toFormat('MM-dd-yyyy') + ' disposition - changes requested] ' + $('Parse Change Note').first().json.changeNote).trim() } }) }}",
+        "options": {}
+      },
+      "name": "Mark Changes Requested",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        8060,
+        300
+      ],
+      "id": "9987acf9-4622-4191-a611-56649e6a4bd8",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "text": "={{ ':pause_button: Parked as *Changes Requested*: ' + $('Parse Change Note').first().json.changeNote + String.fromCharCode(10) + 'Update the lease, then set Security Deposit Disposition back to *Prepare* to regenerate the statement.' }}",
+        "otherOptions": {
+          "mrkdwn": true,
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false,
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Parse Change Note').first().json.threadTs }}",
+              "reply_broadcast": false
+            }
+          }
+        }
+      },
+      "name": "Ack Changes in Thread",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        8320,
+        300
+      ],
+      "id": "5bb63b52-cc86-4eab-b540-8946beef7222",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "281011e6-399b-4dc0-9998-eee31a67bfbb"
+    },
+    {
+      "parameters": {
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Automations%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {},
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "filterByFormula",
+              "value": "{Automation}='Sunrise - Security Deposit Disposition - Process One Lease'"
+            },
+            {
+              "name": "maxRecords",
+              "value": "1"
+            },
+            {
+              "name": "fields[0]",
+              "value": "Email Subject"
+            },
+            {
+              "name": "fields[1]",
+              "value": "Email Template"
+            }
+          ]
+        }
+      },
+      "name": "Fetch Email Template",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        8580,
+        0
+      ],
+      "id": "bdfebe0b-ae05-4649-a387-9d167ddf0b9b",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://www.googleapis.com/drive/v3/files/' + $('Upload PDF').first().json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "data"
+            }
+          }
+        },
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "alt",
+              "value": "media"
+            }
+          ]
+        }
+      },
+      "name": "Download PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        8840,
+        0
+      ],
+      "id": "45a2c6a5-d6e8-4dab-9d28-86c169c8c32e",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "SELECT YOUR Google Drive connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Renders the tenant email from the child flow's Automations row (Email Subject / Email Template).\n// Falls back to hardcoded copy if the cells are empty. Passes the PDF binary straight through.\nconst c = $('Compute & Validate').first().json;\nconst tpl = ((($('Fetch Email Template').first().json.records) || [])[0] || {}).fields || {};\nconst NL = String.fromCharCode(10);\nconst money = (v) => '$' + Number(v || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });\nconst dlong = (s) => s ? new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }) : '';\n\nlet result = '';\nif (c.outcome === 'full') {\n  result = 'Good news: your full deposit is being returned. The amount coming back to you is ' + money(c.returnAmt) +\n    (c.interest > 0 ? ', which includes ' + money(c.interest) + ' in interest' : '') + '.';\n} else if (c.outcome === 'partial') {\n  result = 'After the deductions itemized in the attached statement, ' + money(c.returnAmt) + ' is being returned to you' +\n    (c.interest > 0 ? ' (this includes ' + money(c.interest) + ' in interest)' : '') + '. The statement lists each deduction and the reason for it.';\n} else {\n  result = 'The deductions itemized in the attached statement come to more than the deposit we held, so no deposit is being returned and a balance of ' +\n    money(c.owes) + ' is due to %%VAO::VAR::BUSINESS_NAME%%. Please reply to this email so we can arrange payment.';\n}\nconst T = {\n  FirstName: c.nick, Address: c.address, Unit: c.unitName, MoveOutDate: dlong(c.moveOut),\n  ReturnAmount: money(c.returnAmt), OwedAmount: money(c.owes), Interest: money(c.interest), Deductions: money(c.deductions), Held: money(c.held),\n  Deadline: dlong(c.deadline), ResultBlock: result,\n  ReturnLine: c.outcome === 'owes' ? '' : 'We return deposits electronically, so be on the lookout for an email from Nutmeg State Federal Credit Union. Your passcode is SUNRISE.'\n};\nconst DEF_S = 'Your security deposit disposition - {Address}';\nconst DEF_B = 'Hi {FirstName},' + NL + NL + 'Attached is the disposition statement for the security deposit on {Address}. It itemizes the deposit we held, any interest, and any deductions.' + NL + NL + '{ResultBlock}' + NL + NL + '{ReturnLine}' + NL + NL + 'If you have any questions about the statement, just reply to this email.' + NL + NL + 'Best wishes in your next chapter,';\nlet subject = String(tpl['Email Subject'] || '').trim() || DEF_S;\nlet body = String(tpl['Email Template'] || '').trim();\nif (!body) { body = DEF_B; subject = subject + ' [default copy - template cell empty]'; }\nconst fill = (s) => String(s).replace(/\\{(\\w+)\\}/g, (m, k) => (T[k] !== undefined ? T[k] : m));\nsubject = fill(subject); body = fill(body);\nconst esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nlet t = esc(body).replace(/\\*\\*([^*]+)\\*\\*/g, '<strong>$1</strong>');\nt = t.split(/\\n\\s*\\n/).filter(p => p.trim()).map(p => {\n  const lines = p.split(NL);\n  if (lines.length && lines.every(l => l.trim().startsWith('- '))) return '<ul>' + lines.map(l => '<li>' + l.trim().slice(2) + '</li>').join('') + '</ul>';\n  return '<p>' + lines.join('<br>') + '</p>';\n}).join('');\nconst SIG = \"<table cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" border=\\\"0\\\" style=\\\"color:rgb(51,51,51);font-size:14px;line-height:1.5\\\"><tbody><tr><td style=\\\"padding-right:18px;border-right:3px solid rgb(245,158,11);vertical-align:middle\\\"><img width=\\\"96\\\" height=\\\"67\\\" alt=\\\"%%VAO::VAR::BUSINESS_NAME%%\\\" src=\\\"https://venerable-arithmetic-1a1ebd.netlify.app/img/tessa-sig.jpg\\\"></td><td style=\\\"padding-left:18px;vertical-align:middle\\\"><div style=\\\"font-size:17px;font-weight:bold;color:rgb(31,41,55);margin-bottom:2px\\\">%%VAO::VAR::AGENT_NAME%% Hartwell</div><div style=\\\"font-size:13px;color:rgb(107,114,128);margin-bottom:10px\\\">Tenant Success&nbsp;&nbsp;|&nbsp;&nbsp;%%VAO::VAR::BUSINESS_NAME%%</div><div style=\\\"font-size:13px;color:rgb(55,65,81)\\\"><a href=\\\"mailto:%%VAO::VAR::AGENT_EMAIL%%\\\" style=\\\"color:rgb(55,65,81)\\\">%%VAO::VAR::AGENT_EMAIL%%</a></div><div style=\\\"font-size:13px;color:rgb(55,65,81)\\\"><a href=\\\"%%VAO::VAR::OWNER_WEBSITE_URL%%\\\" style=\\\"color:rgb(245,158,11);font-weight:600\\\">%%VAO::VAR::OWNER_WEBSITE%%</a></div></td></tr></tbody></table>\";\nconst html = t + SIG;\nconst realTo = String(c.tenantEmail || '').trim();\nconst to = realTo || '%%VAO::VAR::OWNER_EMAIL%%';\nif (!realTo) subject = '[NO TENANT EMAIL ON LEASE] ' + subject;\n// Name the attachment. The Drive download returns the bytes with no filename, so n8n calls the\n// binary 'data' and the tenant would receive \"data.pdf\" unless this is set explicitly.\nconst binary = $input.first().binary || {};\nif (binary.data) {\n  binary.data.fileName = c.pdfName;\n  binary.data.fileExtension = 'pdf';\n  binary.data.mimeType = 'application/pdf';\n}\nreturn [{ json: { to, subject, html, realTo, fileName: c.pdfName }, binary: binary }];\n"
+      },
+      "name": "Render Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9100,
+        0
+      ],
+      "id": "4ce16583-3c8e-4f8e-a7af-c2ea573a32c4"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "sendTo": "={{ $('Render Email').first().json.to }}",
+        "subject": "={{ $('Render Email').first().json.subject }}",
+        "emailType": "html",
+        "message": "={{ $('Render Email').first().json.html }}",
+        "options": {
+          "appendAttribution": false,
+          "bccList": "%%VAO::VAR::OWNER_EMAIL%%",
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "data"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Send Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        9360,
+        0
+      ],
+      "id": "c90b8de5-6d36-46c5-a587-8ff1b7c9c3f5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "SELECT YOUR Gmail/email connection"
+        }
+      },
+      "webhookId": "45e50241-448d-4f26-98d9-8884a18b4a44"
+    },
+    {
+      "parameters": {
+        "jsCode": "// The 'Return security deposit' task Stephanie completes once the money has moved.\n// Its TITLE carries '(Full Return)' or '(Partial Return)': the Airtable automation\n// 'Security deposit return task complete -> lease Full / Partial' branches on that text.\nconst c = $('Compute & Validate').first().json;\nconst em = $('Render Email').first().json;\nconst pdf = $('Upload PDF').first().json || {};\nconst NL = String.fromCharCode(10);\nconst money = (v) => '$' + Number(v || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });\nconst us = (iso) => iso ? iso.slice(5, 7) + '-' + iso.slice(8, 10) + '-' + iso.slice(0, 4) : '';\nconst todayIso = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });\nconst addDays = (s, n) => new Date(Date.parse(s + 'T00:00:00Z') + n * 86400000).toISOString().slice(0, 10);\nconst d = c.ded || {};\nconst yearLines = (c.yearsUsed || []).map(y => y.year + ': ' + y.days + ' days at ' + (y.rate * 100).toFixed(2) + '% = ' + money(c.deposit * y.rate * y.days / 365));\nconst title = 'Return security deposit - ' + c.pocName + ' - ' + money(c.returnAmt) + ' due back' + (c.owes > 0 ? ', tenant owes ' + money(c.owes) : '') + ' (' + c.decision + ')';\nconst lines = [\n  'Tenant: ' + c.tenantLine + (em.realTo ? ' <' + em.realTo + '>' : ' (no email on lease)'),\n  'Unit: ' + c.address,\n  'Move-out: ' + us(c.moveOut) + '   Legal deadline: ' + us(c.deadline),\n  '',\n  'THE MATH',\n  'Security deposit ' + money(c.deposit) + ' + pet deposit ' + money(c.petDep) + ' = held ' + money(c.held),\n  'Interest ' + money(c.interest) + (yearLines.length ? ' (' + yearLines.join('; ') + ')' : (c.interestRequired ? '' : ' (not required in ' + c.state + ')')),\n  'Deductions ' + money(c.deductions) + ' = R&M ' + money(d.repair) + ' + cleaning ' + money(d.cleaning) + ' + missing items ' + money(d.missing) + ' + damaged items ' + money(d.damaged) + ' + pet damage ' + money(d.pet) + ' + unpaid rent ' + money(d.rent),\n  money(c.held) + ' + ' + money(c.interest) + ' - ' + money(c.deductions) + ' = ' + money(c.net),\n  '',\n  'DUE BACK TO TENANT: ' + money(c.returnAmt) + (c.owes > 0 ? '   (tenant owes landlord ' + money(c.owes) + ')' : ''),\n  'Decision: ' + c.decision,\n  '',\n  'Statement PDF: ' + (pdf.webViewLink || ''),\n  'Statement emailed to ' + em.to + ' on ' + us(todayIso) + '.',\n  'When the money has gone out, mark this task 5. Complete - the lease flips to ' + (c.decision === 'Full Return' ? 'Full' : 'Partial') + ' automatically.',\n  'Lease: https://airtable.com/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + c.leaseId\n];\nconst daysLeft = Math.round((Date.parse(c.deadline + 'T00:00:00Z') - Date.parse(todayIso + 'T00:00:00Z')) / 86400000);\nconst taskFields = {\n  %%VAO::FLD::Tasks::Title%%: title,                                   // Title\n  %%VAO::FLD::Tasks::Task Description%%: lines.join(NL),                          // Task Description\n  %%VAO::FLD::Tasks::Status%%: '1. Not Started',                        // Status\n  %%VAO::FLD::Tasks::Assigned Employee%%: ['recvUw0UtI0IIZ281'],                        // Assigned Employee\n  %%VAO::FLD::Tasks::Priority Level%%: 100,                                     // Priority Level\n  %%VAO::FLD::Tasks::Related Lease%%: [c.leaseId],                             // Related Lease\n  %%VAO::FLD::Tasks::Due Date%%: addDays(todayIso, 2),                    // Due Date (our target)\n  %%VAO::FLD::Tasks::Deadline%%: c.deadline,                              // Deadline (legal)\n  %%VAO::FLD::Tasks::Immediate Need?%%: daysLeft <= 7                            // Immediate Need?\n};\nif (c.returnAmt > 0) taskFields.%%VAO::FLD::Tasks::Amount Owed%% = c.returnAmt;   // Amount Owed -> the money-owed chase in Deadline Watch\nreturn [{ json: { title, taskFields, daysLeft } }];\n"
+      },
+      "name": "Build Task",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        9620,
+        0
+      ],
+      "id": "640a5034-5395-4d46-8b25-b6142992e056"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Tasks%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: $json.taskFields, typecast: true }) }}",
+        "options": {}
+      },
+      "name": "Create Return Task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        9880,
+        0
+      ],
+      "id": "086e43a6-8ddd-4f9b-86c8-3957a909ebf6",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $('Compute & Validate').first().json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { %%VAO::FLD::Leases::Disposition Email Sent%%: 'Sent', %%VAO::FLD::Leases::Security Deposit Disposition%%: 'Statement Sent' } }) }}",
+        "options": {}
+      },
+      "name": "Mark Statement Sent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        10140,
+        0
+      ],
+      "id": "c230b71c-89bd-41e6-9f2e-015a1812ff84",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('Config').first().json.slackChannel }}"
+        },
+        "text": "={{ ':white_check_mark: Statement emailed to ' + $('Render Email').first().json.to + ' (' + $('Compute & Validate').first().json.decision + '). Lease is now *Statement Sent*.' + String.fromCharCode(10) + ':clipboard: Task created: *' + $('Build Task').first().json.title + '* - https://airtable.com/%%VAO::BASE_ID%%/%%VAO::TBL::Tasks%%/' + $('Create Return Task').first().json.id + String.fromCharCode(10) + 'Mark that task 5. Complete once the money has gone out and the lease flips to ' + ($('Compute & Validate').first().json.decision === 'Full Return' ? 'Full' : 'Partial') + ' on its own.' }}",
+        "otherOptions": {
+          "mrkdwn": true,
+          "includeLinkToWorkflow": false,
+          "unfurl_links": false,
+          "thread_ts": {
+            "replyValues": {
+              "thread_ts": "={{ $('Parse Reply').first().json.threadTs }}",
+              "reply_broadcast": false
+            }
+          }
+        }
+      },
+      "name": "Confirm in Thread",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        10400,
+        0
+      ],
+      "id": "c467d567-ce07-48d0-84a6-9b3523b763a9",
+      "credentials": {
+        "slackApi": {
+          "id": "",
+          "name": "SELECT YOUR Slack connection"
+        }
+      },
+      "webhookId": "82aeb77f-6b4f-4dea-a127-11b909d6532f"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Daily Summary%%",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { Summary: 'Security deposit disposition sent: ' + $('Compute & Validate').first().json.leaseName + ' (' + $('Compute & Validate').first().json.decision + ')', 'Source Flow': 'Security Deposit Disposition', Details: 'To ' + $('Render Email').first().json.to + '. Return ' + $('Compute & Validate').first().json.returnAmt + ', owes ' + $('Compute & Validate').first().json.owes + ', interest ' + $('Compute & Validate').first().json.interest + '. PDF ' + $('Upload PDF').first().json.webViewLink + '. Task ' + $('Create Return Task').first().json.id, Date: $today.toFormat('yyyy-MM-dd') } }) }}",
+        "options": {}
+      },
+      "name": "Log Sent",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        10660,
+        0
+      ],
+      "id": "370261a7-7566-4b4a-a21b-5c2f384f88e1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Security Deposit Disposition - one lease per execution\nReplaces Relay Automation A (interest + deadline) and B (disposition document), 09-02-2026.\n\n- Called by the parent with {leaseId}. Never runs on its own.\n- Status field = Leases.Security Deposit Disposition (%%VAO::FLD::Leases::Security Deposit Disposition%%): Prepare -> Awaiting Approval -> Statement Sent | Changes Requested | Needs Attention. Full / Partial are set by the Airtable automation when the Return task is completed. Withheld is manual.\n- Refuse-to-guess: no state row, missing rate year, no template ID, no leasing folder, $0 held -> Slack alert + Needs Attention.\n- Deposit Decision is DERIVED from the deductions (Full Return when $0, else Partial Return). Tenant-owes = Partial with $0 back.\n- Interest: pro-rated per calendar year, days/365, [accrual start, move-out). Accrual start = Interest Last Returned, else Lease Start Date.\n- Send-and-wait pauses THIS execution until Stephanie answers in the #finance thread. Approve is ONE click; Request changes opens a second wait that collects the note. Both are buttons - a plain thread reply is not heard.\n- After approval: tenant email (%%VAO::VAR::AGENT_NAME%%, PDF attached, BCC steph) + a Return security deposit task with the math, Amount Owed and Deadline (so the money-owed chase covers it).\n- Email copy lives on the Automations row (Email Subject / Email Template). Placeholders: {FirstName} {Address} {Unit} {MoveOutDate} {ReturnAmount} {OwedAmount} {Interest} {Deductions} {Held} {Deadline} {ResultBlock} {ReturnLine}\n- Slack channel lives in the Config node.",
+        "height": 460,
+        "width": 660
+      },
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -560
+      ],
+      "id": "2f6e8083-2f4a-4927-9f2e-653603e6265d"
+    }
+  ],
+  "connections": {
+    "When Called": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Get Lease",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Lease": {
+      "main": [
+        [
+          {
+            "node": "Prep Lookups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prep Lookups": {
+      "main": [
+        [
+          {
+            "node": "Get Unit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Unit": {
+      "main": [
+        [
+          {
+            "node": "Get Property",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Property": {
+      "main": [
+        [
+          {
+            "node": "Prep State Lookups",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prep State Lookups": {
+      "main": [
+        [
+          {
+            "node": "Get Policy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Policy": {
+      "main": [
+        [
+          {
+            "node": "Get Rates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Rates": {
+      "main": [
+        [
+          {
+            "node": "Get Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Settings": {
+      "main": [
+        [
+          {
+            "node": "Get AG by Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get AG by Link": {
+      "main": [
+        [
+          {
+            "node": "Find AG by Tenant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find AG by Tenant": {
+      "main": [
+        [
+          {
+            "node": "Compute & Validate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compute & Validate": {
+      "main": [
+        [
+          {
+            "node": "Preflight OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Alert: Needs Attention": {
+      "main": [
+        [
+          {
+            "node": "Mark Needs Attention",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Needs Attention": {
+      "main": [
+        [
+          {
+            "node": "Log Needs Attention",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Calc to Lease": {
+      "main": [
+        [
+          {
+            "node": "Copy Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copy Template": {
+      "main": [
+        [
+          {
+            "node": "Fill Doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fill Doc": {
+      "main": [
+        [
+          {
+            "node": "Export PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Export PDF": {
+      "main": [
+        [
+          {
+            "node": "Upload PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload PDF": {
+      "main": [
+        [
+          {
+            "node": "Write Doc to Lease",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Doc to Lease": {
+      "main": [
+        [
+          {
+            "node": "Build Proposal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Proposal": {
+      "main": [
+        [
+          {
+            "node": "Post Proposal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post Proposal": {
+      "main": [
+        [
+          {
+            "node": "Ask Approval (wait)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask Approval (wait)": {
+      "main": [
+        [
+          {
+            "node": "Parse Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Reply": {
+      "main": [
+        [
+          {
+            "node": "Approved?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preflight OK?": {
+      "main": [
+        [
+          {
+            "node": "Write Calc to Lease",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Alert: Needs Attention",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask What To Change (wait)": {
+      "main": [
+        [
+          {
+            "node": "Parse Change Note",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Change Note": {
+      "main": [
+        [
+          {
+            "node": "Mark Changes Requested",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Changes Requested": {
+      "main": [
+        [
+          {
+            "node": "Ack Changes in Thread",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Email Template": {
+      "main": [
+        [
+          {
+            "node": "Download PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download PDF": {
+      "main": [
+        [
+          {
+            "node": "Render Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render Email": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Build Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Task": {
+      "main": [
+        [
+          {
+            "node": "Create Return Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Return Task": {
+      "main": [
+        [
+          {
+            "node": "Mark Statement Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Statement Sent": {
+      "main": [
+        [
+          {
+            "node": "Confirm in Thread",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confirm in Thread": {
+      "main": [
+        [
+          {
+            "node": "Log Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approved?": {
+      "main": [
+        [
+          {
+            "node": "Fetch Email Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ask What To Change (wait)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "timezone": "America/New_York",
+    "executionOrder": "v1"
+  }
+}

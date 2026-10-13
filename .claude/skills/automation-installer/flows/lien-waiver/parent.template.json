@@ -1,0 +1,228 @@
+{
+ "name": "Lien Waiver",
+ "nodes": [
+  {
+   "parameters": {
+    "rule": {
+     "interval": [
+      {
+       "field": "hours",
+       "hoursInterval": 24,
+       "triggerAtHour": 9
+      }
+     ]
+    }
+   },
+   "id": "every-15-minutes",
+   "name": "Daily Backstop 9am",
+   "type": "n8n-nodes-base.scheduleTrigger",
+   "typeVersion": 1.2,
+   "position": [
+    -260,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "inputSource": "passthrough"
+   },
+   "id": "when-called",
+   "name": "When Called",
+   "type": "n8n-nodes-base.executeWorkflowTrigger",
+   "typeVersion": 1.2,
+   "position": [
+    -260,
+    180
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "\n// One place for the knobs. Change the channel here and nowhere else.\nreturn [{ json: {\n  slackChannel: '%%VAO::VAR::SLACK_CHANNEL%%',\n  templateName: '%%VAO::VAR::DOCUSIGN_TEMPLATE_NAME%%',\n  roleName: '%%VAO::VAR::DOCUSIGN_ROLE_NAME%%'\n} }];\n"
+   },
+   "id": "config",
+   "name": "Config",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    -60,
+    90
+   ]
+  },
+  {
+   "parameters": {
+    "url": "https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Maintenance%%",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "airtableTokenApi",
+    "sendQuery": true,
+    "specifyQuery": "keypair",
+    "queryParameters": {
+     "parameters": [
+      {
+       "name": "filterByFormula",
+       "value": "={{ \"{Lien Waiver Status}='Prepare'\" }}"
+      },
+      {
+       "name": "fields[0]",
+       "value": "Issue"
+      },
+      {
+       "name": "fields[1]",
+       "value": "Property"
+      },
+      {
+       "name": "fields[2]",
+       "value": "Unit"
+      },
+      {
+       "name": "fields[3]",
+       "value": "Vendor"
+      },
+      {
+       "name": "fields[4]",
+       "value": "Invoice Amount"
+      },
+      {
+       "name": "fields[5]",
+       "value": "Completed Date"
+      },
+      {
+       "name": "fields[6]",
+       "value": "Lien Waiver Exceptions"
+      },
+      {
+       "name": "fields[7]",
+       "value": "Lien Waiver Status"
+      },
+      {
+       "name": "fields[8]",
+       "value": "Invoice Number"
+      },
+      {
+       "name": "pageSize",
+       "value": "100"
+      }
+     ]
+    },
+    "options": {}
+   },
+   "id": "find-jobs-to-prepare",
+   "name": "Find Jobs to Prepare",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.4,
+   "position": [
+    140,
+    90
+   ],
+   "credentials": {
+    "airtableTokenApi": {
+     "id": "",
+     "name": ""
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// One item per job. The child does everything else, one execution each, so a Slack\n// approval that is waiting on one job can never freeze another.\nconst recs = ($input.first().json.records) || [];\nreturn recs.map(r => ({ json: { recordId: r.id } }));\n"
+   },
+   "id": "lw-split",
+   "name": "One Item Per Job",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    340,
+    90
+   ]
+  },
+  {
+   "parameters": {
+    "workflowId": {
+     "__rl": true,
+     "mode": "id",
+     "value": "%%VAO::VAR::CHILD_WORKFLOW_ID%%",
+     "cachedResultName": "Lien Waiver - Process One Job"
+    },
+    "mode": "each",
+    "workflowInputs": {
+     "mappingMode": "defineBelow",
+     "value": {},
+     "matchingColumns": [],
+     "schema": []
+    },
+    "options": {
+     "waitForSubWorkflow": false
+    }
+   },
+   "id": "lw-call-child",
+   "name": "Process One Job",
+   "type": "n8n-nodes-base.executeWorkflow",
+   "typeVersion": 1.3,
+   "position": [
+    540,
+    90
+   ],
+   "onError": "continueRegularOutput",
+   "alwaysOutputData": true
+  }
+ ],
+ "connections": {
+  "When Called": {
+   "main": [
+    [
+     {
+      "node": "Config",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Config": {
+   "main": [
+    [
+     {
+      "node": "Find Jobs to Prepare",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Find Jobs to Prepare": {
+   "main": [
+    [
+     {
+      "node": "One Item Per Job",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "One Item Per Job": {
+   "main": [
+    [
+     {
+      "node": "Process One Job",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Daily Backstop 9am": {
+   "main": [
+    [
+     {
+      "node": "Config",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "timezone": "America/New_York",
+  "executionOrder": "v1"
+ }
+}

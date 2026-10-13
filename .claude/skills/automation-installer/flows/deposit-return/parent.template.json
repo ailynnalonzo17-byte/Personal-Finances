@@ -1,0 +1,226 @@
+{
+  "name": "Security Deposit Disposition",
+  "nodes": [
+    {
+      "id": "a2041623-851c-4635-bb51-b7e770b89b25",
+      "name": "When Called",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {
+        "inputSource": "passthrough"
+      }
+    },
+    {
+      "id": "29cfec0f-b52c-4b80-a5b6-57ca80aed8d9",
+      "name": "Resolve Lease",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ],
+      "parameters": {
+        "jsCode": "// The dispatcher passes the webhook item through: { body: { table, recordId } }.\n// A manual call may pass { leaseId } instead. No id at all -> search every lease sitting at Prepare.\nconst AT = 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%';\nconst j = $json || {};\nconst id = String(((j.body || {}).recordId) || j.recordId || j.leaseId || '').trim();\nconst q = String.fromCharCode(39);\nreturn [{ json: {\n  url: id ? AT + '/' + id : AT + '?filterByFormula=' + encodeURIComponent('{Security Deposit Disposition}=' + q + 'Prepare' + q) + '&pageSize=50&fields%5B0%5D=Lease%20Name&fields%5B1%5D=Security%20Deposit%20Disposition',\n  single: !!id\n} }];\n"
+      }
+    },
+    {
+      "id": "92bbbee4-f43d-4361-8bf5-9abd9417e927",
+      "name": "Get Lease(s)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "position": [
+        780,
+        0
+      ],
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "options": {}
+      },
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "id": "af1c5f6e-9df2-4925-b689-5c748e2d67b9",
+      "name": "Gate: Prepare only",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1040,
+        0
+      ],
+      "parameters": {
+        "jsCode": "// Only leases whose field is exactly Prepare go on. Everything else (the watcher also fires when\n// the flow itself writes Awaiting Approval, or when the task automation writes Full) ends here.\nconst r = $json || {};\nconst recs = Array.isArray(r.records) ? r.records : (r.id ? [r] : []);\nconst out = [];\nfor (const rec of recs) {\n  const f = rec.fields || {};\n  if (String(f['Security Deposit Disposition'] || '') !== 'Prepare') continue;\n  out.push({ json: { leaseId: rec.id, leaseName: String(f['Lease Name'] || rec.id) } });\n}\nreturn out;\n"
+      }
+    },
+    {
+      "id": "785219f6-4528-4004-b041-cc3b7cb51e64",
+      "name": "Mark Awaiting Approval",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1300,
+        0
+      ],
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ 'https://api.airtable.com/v0/%%VAO::BASE_ID%%/%%VAO::TBL::Leases%%/' + $json.leaseId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableTokenApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ fields: { %%VAO::FLD::Leases::Security Deposit Disposition%%: 'Awaiting Approval' } }) }}",
+        "options": {}
+      },
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "",
+          "name": "SELECT YOUR Airtable connection"
+        }
+      }
+    },
+    {
+      "id": "f5fb178e-034d-4587-b304-23edfafb69e3",
+      "name": "Handoff",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        0
+      ],
+      "parameters": {
+        "jsCode": "// After the PATCH, $json is the Airtable record. Hand the child exactly what it needs.\nreturn [{ json: { leaseId: $json.id, leaseName: String(($json.fields || {})['Lease Name'] || $json.id) } }];\n"
+      }
+    },
+    {
+      "id": "5763da15-4fbd-4d02-ae30-43415e958421",
+      "name": "Process One Lease",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput",
+      "position": [
+        1820,
+        0
+      ],
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "%%VAO::VAR::CHILD_WORKFLOW_ID%%",
+          "cachedResultName": "Process One Lease (bind YOUR imported sub-flow)"
+        },
+        "mode": "each",
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      }
+    },
+    {
+      "id": "4110854b-719a-45fb-b59b-08b14cffd271",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -520
+      ],
+      "parameters": {
+        "content": "## Security Deposit Disposition - entry point\nTrigger: Leases.Security Deposit Disposition = Prepare, pushed by the Airtable watcher \"n8n push | Leases state changed\" through the Event Dispatcher (leases branch). No schedule, by design: a missed push means re-setting Prepare.\nThe watcher fires on EVERY change of the field, so the gate lets only Prepare through. It flips the lease to Awaiting Approval at once (cannot be picked twice) and starts ONE child execution per lease, because the child sleeps on a Slack reply and a sleeping execution can only hold one conversation.",
+        "height": 260,
+        "width": 640
+      }
+    }
+  ],
+  "connections": {
+    "When Called": {
+      "main": [
+        [
+          {
+            "node": "Resolve Lease",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resolve Lease": {
+      "main": [
+        [
+          {
+            "node": "Get Lease(s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Lease(s)": {
+      "main": [
+        [
+          {
+            "node": "Gate: Prepare only",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gate: Prepare only": {
+      "main": [
+        [
+          {
+            "node": "Mark Awaiting Approval",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Awaiting Approval": {
+      "main": [
+        [
+          {
+            "node": "Handoff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handoff": {
+      "main": [
+        [
+          {
+            "node": "Process One Lease",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "timezone": "America/New_York",
+    "executionOrder": "v1"
+  }
+}
