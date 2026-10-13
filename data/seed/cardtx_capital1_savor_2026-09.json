@@ -1,0 +1,43 @@
+{
+  "account": "capital1_savor",
+  "month": "2026-09",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_savor_2026-09_0",
+      "date": "2026-08-30",
+      "description": "IKEA LAS VEGAS LAS VEGAS NV",
+      "amount": 756.31,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "IKEA furniture",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_savor_2026-09_1",
+      "date": "2026-09-16",
+      "description": "NV DMV 198 HENDERSON NV",
+      "amount": 832.0,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "NV DMV",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_savor_2026-09_2",
+      "date": "2026-09-16",
+      "description": "NV DMV 198 HENDERSON NV",
+      "amount": 209.0,
+      "category": "For Car",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "NV DMV",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
