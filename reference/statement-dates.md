@@ -14,7 +14,7 @@ When you send one, update its "last statement on file" here and in data/seed.
 | CC - Aspire | 8 | 2026-10-08 ($0 balance, you told me) |
 | CC - Ollo | 9 | 2026-10-09 ($0 balance, you told me) |
 | CC - Credit 1 (...4352) | 10 | 2026-09-10 |
-| CC - Frontier card | 11 | 2026-09-11 |
+| CC - Frontier card | 11 | 2026-10-11 |
 | CC - AAA Visa (...8228) | 12 | 2026-10-12 |
 | Auto Loan - Honda | 13 | 2026-09-13 |
 | CC - One Pay | 17 | 2026-09-17 |
