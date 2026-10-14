@@ -8,12 +8,12 @@ When you send one, update its "last statement on file" here and in data/seed.
 |---|---|---|
 | CC - Capital 1 | 2 | 2026-10-02 |
 | NV Energy | 3 | 2026-10-03 |
-| CC - FPB | 4 | 2026-09-04 |
+| CC - FPB | 4 to 6 | 2026-10-06 (activity export) |
 | CC - Credit 1 (...4838) | 4 | 2026-10-04 ($0 balance, you told me) |
 | CC - Venmo | 4 | 2026-10-04 |
 | CC - Aspire | 8 | 2026-10-08 ($0 balance, you told me) |
 | CC - Ollo | 9 | 2026-10-09 ($0 balance, you told me) |
-| CC - Credit 1 (...4352) | 10 | 2026-09-10 |
+| CC - Credit 1 (...4352) | 10 | 2026-10-10 |
 | CC - Frontier card | 11 | 2026-10-11 |
 | CC - AAA Visa (...8228) | 12 | 2026-10-12 |
 | Auto Loan - Honda | 13 | 2026-09-13 |
