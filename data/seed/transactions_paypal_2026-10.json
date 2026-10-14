@@ -13,7 +13,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -1000.0,
+      "amount": -1000,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
       "date": "2026-10-13",
@@ -21,6 +21,17 @@
       "group": "Transfer",
       "id": "pp_2026-10-13",
       "note": "Matches the Chase PAYPAL TRANSFER +$1,000 pending 10/13",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -1000,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "Transfer to Chase checking (2nd)",
+      "group": "Transfer",
+      "id": "pp_2026-10-13b",
+      "note": "Matches the second Chase PAYPAL TRANSFER +$1,000 posted 10/13",
       "source": "Chase screenshot"
     }
   ],

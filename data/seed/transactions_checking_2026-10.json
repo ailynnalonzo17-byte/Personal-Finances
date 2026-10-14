@@ -1,4 +1,5 @@
 {
+  "account": "checking",
   "entries": [
     {
       "amount": 1828,
@@ -203,11 +204,11 @@
       "category": "National Life Ins",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-12",
+      "date": "2026-10-13",
       "description": "National Life Ins - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_national-life-ins_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/12 (LIFE INS OF SW)",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/12 (LIFE INS OF SW) | Posted in Chase 10/13 (LIFE INS OF SW)",
       "source": "Bill checklist payment"
     },
     {
@@ -215,11 +216,11 @@
       "category": "Affirm",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-12",
+      "date": "2026-10-13",
       "description": "Affirm - Pickleball - installment 3/4",
       "group": "Debt",
       "id": "loan_affirm-pickleball_3",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/12 (SP+AFF * CPX PICKLEBAL)",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/12 (SP+AFF * CPX PICKLEBAL) | Posted in Chase 10/13 (SP+AFF CPX Pickleba)",
       "source": "Loan schedule payment"
     },
     {
@@ -237,13 +238,13 @@
     {
       "amount": -53.97,
       "category": "Klarna",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-13",
       "description": "Klarna - Amazon (car computer) - installment 3/12",
       "group": "Debt",
       "id": "loan_klarna-amazon-car-computer_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/13 as AFFIRM.COM PAYME $53.97",
       "source": "Loan schedule payment"
     },
     {
@@ -263,11 +264,11 @@
       "category": "CC - Chase Amazon Visa",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-15",
+      "date": "2026-10-13",
       "description": "CC - Chase Amazon Visa - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-chase-amazon-visa_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/13 (Payment to Chase card ending 1755)",
       "source": "Bill checklist payment"
     },
     {
@@ -1023,6 +1024,129 @@
       "id": "loan_affirm-tiktok-entryway-table_2",
       "note": "From your Loan Payment Schedule - checked off by you",
       "source": "Loan schedule payment"
+    },
+    {
+      "amount": -797.31,
+      "category": "CC - Capital 1 (...9140)",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "CC - Capital 1 (...9140) - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-capital1-9140_2026-10",
+      "note": "Posted in Chase 10/13 (CAPITAL ONE ONLINE PMT) - pays off the rest of the Savor $1,797.31 Sep 18 statement balance after your $1,000+ payment",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -3.59,
+      "category": "Food - Misc",
+      "confidence": "D",
+      "date": "2026-10-13",
+      "description": "TERRIBLE HERBST LAS VEGAS NV 10/13 Purchase (...5851)",
+      "group": "Expenses",
+      "id": "0f6ec306-ab8a-43f7-a34a-a1c7df81e8f8",
+      "note": "Posted in Chase 10/13 - $3.59 purchase part of the $23.59 charge",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-13",
+      "description": "TERRIBLE HERBST LAS VEGAS NV 10/13 Cash Back (...5851)",
+      "group": "Expenses",
+      "id": "a092f9ce-433f-4c8c-a9ec-e0c8db05f219",
+      "note": "Posted in Chase 10/13 - $20 cash back part of the $23.59 charge",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -0.99,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-13",
+      "description": "PAYPAL PURCHASE APPLE.COM BILL WEB ID: PAYPALSI77",
+      "group": "Expenses",
+      "id": "18a02c39-a00e-439a-aeac-246f75ab2221",
+      "note": "Posted in Chase 10/13 - monthly Apple $0.99 (same as July/Aug)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 1000,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-13",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "9d216ccb-8842-41bd-ab06-9d4738028861",
+      "note": "Posted in Chase 10/13 - second $1,000 from PayPal Savings the same day",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22,
+      "category": "For Car",
+      "confidence": "D",
+      "date": "2026-10-14",
+      "description": "POS DEBIT WOW CARWASH LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "aa3ce56a-4221-4d48-aa2d-0b829439f954",
+      "note": "Pending in Chase 10/14",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -60.1,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-14",
+      "description": "AMAZON MARKETPLA INTERNET 043000098127690",
+      "group": "Expenses",
+      "id": "78f5a883-ceab-488d-8859-edb97a372617",
+      "note": "Pending in Chase 10/14",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -276.47,
+      "category": "Auto Loan - Miata",
+      "confidence": "H",
+      "date": "2026-10-14",
+      "description": "WestlakeSvcs 8887399192 C26101302001485 WEB ID: 4871475048",
+      "group": "Debt",
+      "id": "aceb6f6f-49aa-4eac-adda-6b92882383fc",
+      "note": "Pending in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -223.53,
+      "category": "Auto Loan - Miata",
+      "confidence": "H",
+      "date": "2026-10-14",
+      "description": "WestlakeSvcs 8887399192 C26101302001484 WEB ID: 4871475048",
+      "group": "Debt",
+      "id": "bb741f07-fa44-4e71-9da9-600e6b6bd9c4",
+      "note": "Pending in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -26.32,
+      "category": "Food - Eat Out",
+      "confidence": "D",
+      "date": "2026-10-14",
+      "description": "POS DEBIT SUBWAY 38519 LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "0d63fd5a-043a-4251-b442-2c901cb19805",
+      "note": "Pending in Chase 10/14",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -7.28,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-14",
+      "description": "POS DEBIT D1 HENDERSON HENDERSON NV (...5438)",
+      "group": "Expenses",
+      "id": "4b33a037-6041-484b-914c-1755c8cf0f2b",
+      "note": "Pending in Chase 10/14 - not sure what D1 is yet",
+      "source": "Chase screenshot"
     }
-  ]
+  ],
+  "month": "2026-10"
 }
