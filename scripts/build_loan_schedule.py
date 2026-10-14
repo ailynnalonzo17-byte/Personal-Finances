@@ -21,10 +21,10 @@ def plan(name, provider, amount, dates_amounts, account="checking"):
                               "paid": d < "2026-09-12"})
     PLANS.append({"name": name, "provider": provider, "account": account, "installments": installments})
 
-# 1. Klarna - Amazon - car computer (12 x 53.97)
+# 1. Affirm - Amazon - car computer (Chase shows AFFIRM.COM PAYME) (12 x 53.97)
 d = ["2026-08-13","2026-09-13","2026-10-13","2026-11-13","2026-12-13","2027-01-13",
      "2027-02-13","2027-03-13","2027-04-13","2027-05-13","2027-06-17","2027-07-13"]
-plan("Klarna - Amazon (car computer)", "Klarna", 53.97, [(x,53.97) for x in d])
+plan("Affirm - Amazon (car computer)", "Affirm", 53.97, [(x,53.97) for x in d])
 
 # 2. Affirm Eufy camera (4 x 88.24)
 d = ["2026-08-14","2026-08-28","2026-09-11","2026-09-25"]

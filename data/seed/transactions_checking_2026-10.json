@@ -237,13 +237,13 @@
     },
     {
       "amount": -53.97,
-      "category": "Klarna",
+      "category": "Affirm",
       "cleared": true,
       "confidence": "H",
       "date": "2026-10-13",
-      "description": "Klarna - Amazon (car computer) - installment 3/12",
+      "description": "Affirm - Amazon (car computer) - installment 3/12",
       "group": "Debt",
-      "id": "loan_klarna-amazon-car-computer_3",
+      "id": "loan_affirm-amazon-car-computer_3",
       "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/13 as AFFIRM.COM PAYME $53.97",
       "source": "Loan schedule payment"
     },
@@ -1038,25 +1038,14 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -3.59,
+      "amount": -23.59,
       "category": "Food - Misc",
-      "confidence": "D",
+      "confidence": "H",
       "date": "2026-10-13",
-      "description": "TERRIBLE HERBST LAS VEGAS NV 10/13 Purchase (...5851)",
+      "description": "TERRIBLE HERBST, LAS VEGAS NV 10/13 Purchase $3.59 Cash Back $20.00 (...5851)",
       "group": "Expenses",
       "id": "0f6ec306-ab8a-43f7-a34a-a1c7df81e8f8",
-      "note": "Posted in Chase 10/13 - $3.59 purchase part of the $23.59 charge",
-      "source": "Chase screenshot"
-    },
-    {
-      "amount": -20,
-      "category": "Others",
-      "confidence": "D",
-      "date": "2026-10-13",
-      "description": "TERRIBLE HERBST LAS VEGAS NV 10/13 Cash Back (...5851)",
-      "group": "Expenses",
-      "id": "a092f9ce-433f-4c8c-a9ec-e0c8db05f219",
-      "note": "Posted in Chase 10/13 - $20 cash back part of the $23.59 charge",
+      "note": "Posted in Chase 10/13 - convenience store (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1138,13 +1127,13 @@
     },
     {
       "amount": -7.28,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Gym",
+      "confidence": "H",
       "date": "2026-10-14",
       "description": "POS DEBIT D1 HENDERSON HENDERSON NV (...5438)",
       "group": "Expenses",
       "id": "4b33a037-6041-484b-914c-1755c8cf0f2b",
-      "note": "Pending in Chase 10/14 - not sure what D1 is yet",
+      "note": "Pending in Chase 10/14 - D1 gym (confirmed by you)",
       "source": "Chase screenshot"
     }
   ],
