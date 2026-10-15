@@ -244,7 +244,7 @@
       "description": "Affirm - Amazon (car computer) - installment 3/12",
       "group": "Debt",
       "id": "loan_affirm-amazon-car-computer_3",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/13 as AFFIRM.COM PAYME $53.97",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/13 as AFFIRM.COM PAYME $53.97 | Posted in Chase 10/14",
       "source": "Loan schedule payment"
     },
     {
@@ -1063,11 +1063,11 @@
       "amount": 1000,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
       "group": "Transfer",
       "id": "9d216ccb-8842-41bd-ab06-9d4738028861",
-      "note": "Posted in Chase 10/13 - second $1,000 from PayPal Savings the same day",
+      "note": "Posted in Chase 10/14 - second $1,000 from PayPal Savings",
       "source": "Chase screenshot"
     },
     {
@@ -1078,7 +1078,7 @@
       "description": "POS DEBIT WOW CARWASH LAS VEGAS NV (...5851)",
       "group": "Expenses",
       "id": "aa3ce56a-4221-4d48-aa2d-0b829439f954",
-      "note": "Pending in Chase 10/14",
+      "note": "Posted in Chase 10/14",
       "source": "Chase screenshot"
     },
     {
@@ -1089,7 +1089,7 @@
       "description": "AMAZON MARKETPLA INTERNET 043000098127690",
       "group": "Expenses",
       "id": "78f5a883-ceab-488d-8859-edb97a372617",
-      "note": "Pending in Chase 10/14",
+      "note": "Posted in Chase 10/14",
       "source": "Chase screenshot"
     },
     {
@@ -1100,7 +1100,7 @@
       "description": "WestlakeSvcs 8887399192 C26101302001485 WEB ID: 4871475048",
       "group": "Debt",
       "id": "aceb6f6f-49aa-4eac-adda-6b92882383fc",
-      "note": "Pending in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
+      "note": "Posted in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
       "source": "Chase screenshot"
     },
     {
@@ -1111,7 +1111,7 @@
       "description": "WestlakeSvcs 8887399192 C26101302001484 WEB ID: 4871475048",
       "group": "Debt",
       "id": "bb741f07-fa44-4e71-9da9-600e6b6bd9c4",
-      "note": "Pending in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
+      "note": "Posted in Chase 10/14 - October Miata payment (offset by Rhian's $500 on 10/8)",
       "source": "Chase screenshot"
     },
     {
@@ -1122,7 +1122,7 @@
       "description": "POS DEBIT SUBWAY 38519 LAS VEGAS NV (...5851)",
       "group": "Expenses",
       "id": "0d63fd5a-043a-4251-b442-2c901cb19805",
-      "note": "Pending in Chase 10/14",
+      "note": "Posted in Chase 10/14",
       "source": "Chase screenshot"
     },
     {
@@ -1133,7 +1133,51 @@
       "description": "POS DEBIT D1 HENDERSON HENDERSON NV (...5438)",
       "group": "Expenses",
       "id": "4b33a037-6041-484b-914c-1755c8cf0f2b",
-      "note": "Pending in Chase 10/14 - D1 gym (confirmed by you)",
+      "note": "Posted in Chase 10/14 - D1 gym (confirmed by you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -75.61,
+      "category": "Gas",
+      "confidence": "H",
+      "date": "2026-10-14",
+      "description": "COSTCO GAS #0673 HENDERSON NV 676989 10/14 (...5851)",
+      "group": "Expenses",
+      "id": "d3a7be46-2386-4d1a-bf7f-c162e2df4d28",
+      "note": "Posted in Chase 10/14",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -7.58,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-15",
+      "description": "AMAZON MARKETPLA INTERNET 043000099569334",
+      "group": "Expenses",
+      "id": "36023b14-e5f3-43fc-aaa6-5d5ad67804b9",
+      "note": "Pending in Chase 10/15",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-15",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "e1ba601b-663b-4a2b-b3f9-c991a9859a24",
+      "note": "Pending in Chase 10/15",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.62,
+      "category": "Food - Eat Out",
+      "confidence": "D",
+      "date": "2026-10-15",
+      "description": "POS DEBIT SUBWAY 12530 HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "a136d588-1f63-4e51-8353-dc9f8d2dfeb7",
+      "note": "Pending in Chase 10/15",
       "source": "Chase screenshot"
     }
   ],

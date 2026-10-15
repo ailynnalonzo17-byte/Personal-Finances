@@ -27,11 +27,11 @@
       "amount": -1000,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "description": "Transfer to Chase checking (2nd)",
       "group": "Transfer",
       "id": "pp_2026-10-13b",
-      "note": "Matches the second Chase PAYPAL TRANSFER +$1,000 posted 10/13",
+      "note": "Matches the second Chase PAYPAL TRANSFER +$1,000 posted 10/14",
       "source": "Chase screenshot"
     }
   ],
