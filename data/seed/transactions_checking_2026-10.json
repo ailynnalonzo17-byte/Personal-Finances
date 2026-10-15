@@ -1063,11 +1063,11 @@
       "amount": 1000,
       "category": "Transfer - PayPal to Checking",
       "confidence": "H",
-      "date": "2026-10-14",
+      "date": "2026-10-13",
       "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
       "group": "Transfer",
       "id": "9d216ccb-8842-41bd-ab06-9d4738028861",
-      "note": "Posted in Chase 10/14 - second $1,000 from PayPal Savings",
+      "note": "Posted in Chase 10/13 - second $1,000 from PayPal Savings the same day",
       "source": "Chase screenshot"
     },
     {
@@ -1178,6 +1178,17 @@
       "group": "Expenses",
       "id": "a136d588-1f63-4e51-8353-dc9f8d2dfeb7",
       "note": "Pending in Chase 10/15",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 1000,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-14",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "8744691f-4915-4d58-9de1-5d288d408624",
+      "note": "Posted in Chase 10/14 - third $1,000 from PayPal Savings (confirmed by you)",
       "source": "Chase screenshot"
     }
   ],
