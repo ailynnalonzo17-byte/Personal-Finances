@@ -16,7 +16,6 @@ When you send one, update its "last statement on file" here and in data/seed.
 | CC - Credit 1 (...4352) | 10 | 2026-10-10 |
 | CC - Frontier card | 11 | 2026-10-11 |
 | CC - AAA Visa (...8228) | 12 | 2026-10-12 |
-| Auto Loan - Honda | 13 | 2026-09-13 |
 | CC - One Pay | 17 | 2026-09-17 |
 | CC - Chase Amazon Visa | 18 | 2026-09-18 |
 | CC - Citibank | 18 | 2026-09-18 |
@@ -28,3 +27,7 @@ When you send one, update its "last statement on file" here and in data/seed.
 Bills not listed have no statement on file, so there is no known date. Vera does not chase their statements.
 
 A "$0 balance, you told me" counts as that month's statement on file. The next month is still asked for after its date.
+
+## Never chased
+
+- Auto Loan - Honda: on autopay ($709.90/mo). You said skip it (2026-10-15).
