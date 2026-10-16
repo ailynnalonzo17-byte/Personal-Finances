@@ -250,13 +250,13 @@
     {
       "amount": -200,
       "category": "Atty Chua",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-15",
+      "date": "2026-10-16",
       "description": "Atty Chua - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_atty-chua_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/16 (POS DEBIT Chua Tinsay Vega APL $200)",
       "source": "Bill checklist payment"
     },
     {
@@ -286,13 +286,13 @@
     {
       "amount": -75.2,
       "category": "Chase Pay in 4",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-16",
       "description": "Chase Pay in 4 - installment 4/4",
       "group": "Debt",
       "id": "loan_chase-pay-in-4_4",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/16 (AUTOPAY TO CHASE PAY IN 4 ...6737)",
       "source": "Loan schedule payment"
     },
     {
@@ -1189,6 +1189,39 @@
       "group": "Transfer",
       "id": "8744691f-4915-4d58-9de1-5d288d408624",
       "note": "Posted in Chase 10/14 - third $1,000 from PayPal Savings (confirmed by you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31146293286",
+      "group": "Transfer",
+      "id": "0d72507d-fc98-4270-bc7e-1b561111de80",
+      "note": "Pending in Chase 10/16",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.2,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "POS DEBIT JOLLIBEE LAS VEGAS NV 3454 (...5851)",
+      "group": "Expenses",
+      "id": "92c71b12-7082-4d03-8623-8697ca7f5b34",
+      "note": "Pending in Chase 10/16",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -16.25,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "POS DEBIT JOLLIBEE LAS VEGAS NV 3454 (...5851)",
+      "group": "Expenses",
+      "id": "edcde101-7fbf-49ec-a008-8351442cb81a",
+      "note": "Pending in Chase 10/16",
       "source": "Chase screenshot"
     }
   ],
