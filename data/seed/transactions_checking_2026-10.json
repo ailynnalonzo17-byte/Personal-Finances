@@ -256,7 +256,7 @@
       "description": "Atty Chua - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_atty-chua_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/16 (POS DEBIT Chua Tinsay Vega APL $200)",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/16 (POS DEBIT Chua Tinsay Vega APL $200)",
       "source": "Bill checklist payment"
     },
     {
@@ -292,7 +292,7 @@
       "description": "Chase Pay in 4 - installment 4/4",
       "group": "Debt",
       "id": "loan_chase-pay-in-4_4",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/16 (AUTOPAY TO CHASE PAY IN 4 ...6737)",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 10/16 (AUTOPAY TO CHASE PAY IN 4 ...6737)",
       "source": "Loan schedule payment"
     },
     {
@@ -1199,7 +1199,7 @@
       "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31146293286",
       "group": "Transfer",
       "id": "0d72507d-fc98-4270-bc7e-1b561111de80",
-      "note": "Pending in Chase 10/16",
+      "note": "Posted in Chase 10/16",
       "source": "Chase screenshot"
     },
     {
@@ -1210,7 +1210,7 @@
       "description": "POS DEBIT JOLLIBEE LAS VEGAS NV 3454 (...5851)",
       "group": "Expenses",
       "id": "92c71b12-7082-4d03-8623-8697ca7f5b34",
-      "note": "Pending in Chase 10/16",
+      "note": "Posted in Chase 10/16",
       "source": "Chase screenshot"
     },
     {
@@ -1221,7 +1221,95 @@
       "description": "POS DEBIT JOLLIBEE LAS VEGAS NV 3454 (...5851)",
       "group": "Expenses",
       "id": "edcde101-7fbf-49ec-a008-8351442cb81a",
-      "note": "Pending in Chase 10/16",
+      "note": "Posted in Chase 10/16",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -178.55,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "WM SUPERCENTER #2838 HENDERSON NV 10/16",
+      "group": "Expenses",
+      "id": "33d8b316-a2e2-4a8c-bb1e-7874a6f9e452",
+      "note": "Posted in Chase 10/16",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-16",
+      "description": "PAYPAL TRANSFER ADD TO BALANCE WEB ID: PAYPALSD22",
+      "group": "Transfer",
+      "id": "d2173583-0b56-4d97-91e6-c57ba1ab0f21",
+      "note": "Posted in Chase 10/16 - weekly $50 to PayPal Savings",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -11.79,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-17",
+      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829",
+      "group": "Expenses",
+      "id": "3182039e-c438-41c3-8b0c-6861a1f6a124",
+      "note": "Pending in Chase 10/17 - UPS shipping",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -30,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV",
+      "group": "Expenses",
+      "id": "5928538b-029c-4923-b0ac-b98e6505eaba",
+      "note": "Pending in Chase 10/17",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -14,
+      "category": "Remittance - Aron",
+      "confidence": "D",
+      "date": "2026-10-17",
+      "description": "POS DEBIT LBC HENDERSON NV HENDERSON NV",
+      "group": "Expenses",
+      "id": "b4ac63cb-474d-43ff-a406-4c25f786266f",
+      "note": "Pending in Chase 10/17 - LBC (same category as the 8/18 LBC charge)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV",
+      "group": "Expenses",
+      "id": "77caf368-a3e6-4867-92a5-f1e6025bea69",
+      "note": "Pending in Chase 10/17",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -2.17,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "POS DEBIT Dinkers Henderson NV",
+      "group": "Expenses",
+      "id": "5654dc26-f45b-4a02-aa9c-9ebd3c2a7b1c",
+      "note": "Pending in Chase 10/17",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -301.01,
+      "category": "Car insurance",
+      "confidence": "R",
+      "date": "2026-10-17",
+      "description": "POS DEBIT CSAA INSURANCE GROUP PR WALNUT CREEK CA",
+      "group": "Monthly Bills",
+      "id": "f780beb4-2c4d-471d-a42a-2571276bfb34",
+      "note": "Pending in Chase 10/17 - CSAA (AAA) insurance; not sure which policy yet",
       "source": "Chase screenshot"
     }
   ],
