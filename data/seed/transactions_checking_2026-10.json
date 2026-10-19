@@ -298,13 +298,13 @@
     {
       "amount": -68.11,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-18",
+      "date": "2026-10-19",
       "description": "Affirm - Amazon (5 mo) - installment 3/5",
       "group": "Debt",
       "id": "loan_affirm-amazon-5-mo_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/19 (AFFIRM.COM PAYME $68.11)",
       "source": "Loan schedule payment"
     },
     {
@@ -1254,7 +1254,7 @@
       "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829",
       "group": "Expenses",
       "id": "3182039e-c438-41c3-8b0c-6861a1f6a124",
-      "note": "Pending in Chase 10/17 - UPS shipping",
+      "note": "Posted in Chase - UPS shipping",
       "source": "Chase screenshot"
     },
     {
@@ -1265,7 +1265,7 @@
       "description": "POS DEBIT DINKERS LLC HENDERSON NV",
       "group": "Expenses",
       "id": "5928538b-029c-4923-b0ac-b98e6505eaba",
-      "note": "Pending in Chase 10/17",
+      "note": "Posted in Chase",
       "source": "Chase screenshot"
     },
     {
@@ -1276,7 +1276,7 @@
       "description": "POS DEBIT LBC HENDERSON NV HENDERSON NV",
       "group": "Expenses",
       "id": "b4ac63cb-474d-43ff-a406-4c25f786266f",
-      "note": "Pending in Chase 10/17 - LBC (same category as the 8/18 LBC charge)",
+      "note": "Posted in Chase - LBC (same category as the 8/18 LBC charge)",
       "source": "Chase screenshot"
     },
     {
@@ -1287,7 +1287,7 @@
       "description": "POS DEBIT DINKERS LLC HENDERSON NV",
       "group": "Expenses",
       "id": "77caf368-a3e6-4867-92a5-f1e6025bea69",
-      "note": "Pending in Chase 10/17",
+      "note": "Posted in Chase",
       "source": "Chase screenshot"
     },
     {
@@ -1298,7 +1298,7 @@
       "description": "POS DEBIT Dinkers Henderson NV",
       "group": "Expenses",
       "id": "5654dc26-f45b-4a02-aa9c-9ebd3c2a7b1c",
-      "note": "Pending in Chase 10/17",
+      "note": "Posted in Chase",
       "source": "Chase screenshot"
     },
     {
@@ -1309,7 +1309,117 @@
       "description": "POS DEBIT CSAA INSURANCE GROUP PR WALNUT CREEK CA",
       "group": "Monthly Bills",
       "id": "f780beb4-2c4d-471d-a42a-2571276bfb34",
-      "note": "Pending in Chase 10/17 - CSAA (AAA) insurance; not sure which policy yet",
+      "note": "Posted in Chase - CSAA (AAA) insurance; not sure which policy yet",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -109,
+      "category": "Shop - Others",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "ZELLE PAYMENT TO RHIAN ALMO 31266808998",
+      "group": "Expenses",
+      "id": "c608acc9-48f9-4b94-b06f-06582c600736",
+      "note": "Posted in Chase - Zelle to Gail, Shop - Others (per you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Compass",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "POS DEBIT GIV*FIRST PRESBY 831-4227811 CA (...5438)",
+      "group": "Expenses",
+      "id": "35c02fc5-3cc5-4d4d-804e-00dd37412753",
+      "note": "Posted in Chase",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "For Car",
+      "confidence": "D",
+      "date": "2026-10-17",
+      "description": "POS DEBIT CALIFORNIA GARAGE LAS VEGAS NV (...5851)",
+      "group": "Expenses",
+      "id": "b3f52533-258e-489e-8c4f-5381a3b0b7f0",
+      "note": "Posted in Chase - parking",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -3.49,
+      "category": "Gas",
+      "confidence": "D",
+      "date": "2026-10-17",
+      "description": "POS DEBIT SHELL/SHELL NORTH LAS VE NV (...5851)",
+      "group": "Expenses",
+      "id": "929fd9b2-21f7-47e0-8c33-92a8d7542354",
+      "note": "Posted in Chase",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 200,
+      "category": "Chase Pay in 4",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "PAY IN 4 DEPOSIT - CHUA TINSAY VEGA APL (...8456)",
+      "group": "Debt",
+      "id": "c700da64-2a40-466c-bf53-90caf64ec62d",
+      "note": "Posted in Chase - Chase refunded the $200 Atty Chua charge and turned it into a Pay in 4 plan (4 payments); the $200 to Atty Chua still counts as October spending",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 69,
+      "category": "Transfer - Savings to Checking",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "ONLINE TRANSFER FROM SAV ...5953 TRANSACTION#: 31261656916",
+      "group": "Transfer",
+      "id": "bfe9e7db-eefc-40e0-88e9-594affc76e55",
+      "note": "Posted in Chase",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "For Car",
+      "confidence": "D",
+      "date": "2026-10-17",
+      "description": "POS DEBIT PARKWHIZ, INC. AUSTIN TX 3454 (...5851)",
+      "group": "Expenses",
+      "id": "7a466653-1b1f-459a-97b7-0b308d0f4b79",
+      "note": "Posted in Chase - parking",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -125,
+      "category": "Remittance - Aron",
+      "confidence": "H",
+      "date": "2026-10-17",
+      "description": "ZELLE PAYMENT TO ARON JPM99D06X5TT",
+      "group": "Expenses",
+      "id": "cb268bfa-2e17-4c4b-a96c-235206f59769",
+      "note": "Posted in Chase",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 2008,
+      "category": "Kristin - COO Income",
+      "confidence": "H",
+      "date": "2026-10-19",
+      "description": "ORIG CO NAME:PAYPAL CO ENTRY DESCR:TRANSFER SEC:PPD ORIG ID:PAYPALSD11",
+      "group": "Income",
+      "id": "23486c56-8076-48b2-acf3-f6763b1d0e1e",
+      "note": "Pending in Chase 10/19 - your salary (confirmed by you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5.07,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-19",
+      "description": "POS DEBIT PP*METAPLATFOR PALO ALTO CA 0829 (...5851)",
+      "group": "Expenses",
+      "id": "45828043-9bf3-47e3-9f71-c6eda5a5bc1c",
+      "note": "Pending in Chase 10/19 - Meta",
       "source": "Chase screenshot"
     }
   ],
