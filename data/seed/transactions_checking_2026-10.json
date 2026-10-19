@@ -274,13 +274,13 @@
     {
       "amount": -41,
       "category": "CC - Citibank",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-16",
+      "date": "2026-10-19",
       "description": "CC - Citibank - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-citibank_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Minimum payment only (changed from $500 per you 10/12)",
+      "note": "From This month's bills & loans - checked off by you | Minimum payment only (changed from $500 per you 10/12) | Pending in Chase 10/19 (CITI CARD ONLINE PAYMENT $41)",
       "source": "Bill checklist payment"
     },
     {
