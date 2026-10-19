@@ -1270,13 +1270,13 @@
     },
     {
       "amount": -14,
-      "category": "Remittance - Aron",
-      "confidence": "D",
+      "category": "Shop - Others",
+      "confidence": "H",
       "date": "2026-10-17",
       "description": "POS DEBIT LBC HENDERSON NV HENDERSON NV",
       "group": "Expenses",
       "id": "b4ac63cb-474d-43ff-a406-4c25f786266f",
-      "note": "Posted in Chase - LBC (same category as the 8/18 LBC charge)",
+      "note": "Posted in Chase - 2 balikbayan boxes (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1304,12 +1304,12 @@
     {
       "amount": -301.01,
       "category": "Car insurance",
-      "confidence": "R",
+      "confidence": "H",
       "date": "2026-10-17",
       "description": "POS DEBIT CSAA INSURANCE GROUP PR WALNUT CREEK CA",
       "group": "Monthly Bills",
       "id": "f780beb4-2c4d-471d-a42a-2571276bfb34",
-      "note": "Posted in Chase - CSAA (AAA) insurance; not sure which policy yet",
+      "note": "Posted in Chase - CSAA car insurance (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1391,13 +1391,13 @@
     },
     {
       "amount": -125,
-      "category": "Remittance - Aron",
+      "category": "Shop - Others",
       "confidence": "H",
       "date": "2026-10-17",
       "description": "ZELLE PAYMENT TO ARON JPM99D06X5TT",
       "group": "Expenses",
       "id": "cb268bfa-2e17-4c4b-a96c-235206f59769",
-      "note": "Posted in Chase",
+      "note": "Posted in Chase - payment to Aron for an Xbox (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
