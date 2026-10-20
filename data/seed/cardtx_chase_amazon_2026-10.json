@@ -1,0 +1,55 @@
+{
+  "account": "chase_amazon",
+  "month": "2026-10",
+  "cardCategory": "CC - Chase Amazon Visa",
+  "entries": [
+    {
+      "id": "chase_amazon_2026-10_0",
+      "date": "2026-10-13",
+      "description": "Payment Thank You - Web",
+      "amount": -286.75,
+      "category": "CC - Chase Amazon Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Card payment",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-10_1",
+      "date": "2026-09-21",
+      "description": "PHILIPPINES AIRASIA INC https://www.a",
+      "amount": 1009.92,
+      "category": "Vacation",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Airfare - converted to Chase Pay Over Time (12 x $95.74 incl. $11.58 monthly plan fee, first due 11/15)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-10_2",
+      "date": "2026-10-14",
+      "description": "CARE USA CARE.ORG GA",
+      "amount": 30.0,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Monthly $30 CARE.org donation - confirmed by you",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "chase_amazon_2026-10_3",
+      "date": "2026-10-18",
+      "description": "PLAN FEE - PHILIPPINES AI",
+      "amount": 11.58,
+      "category": "CC - Chase Amazon Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Monthly Pay Over Time plan fee (AirAsia)",
+      "type": "fee",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
