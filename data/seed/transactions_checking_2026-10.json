@@ -1127,13 +1127,13 @@
     },
     {
       "amount": -7.28,
-      "category": "Gym",
+      "category": "Health",
       "confidence": "H",
       "date": "2026-10-14",
       "description": "POS DEBIT D1 HENDERSON HENDERSON NV (...5438)",
       "group": "Expenses",
       "id": "4b33a037-6041-484b-914c-1755c8cf0f2b",
-      "note": "Posted in Chase 10/14 - D1 gym (confirmed by you)",
+      "note": "Posted in Chase 10/14 - D1 gym, Health (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
