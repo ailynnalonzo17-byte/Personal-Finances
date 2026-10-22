@@ -80,10 +80,10 @@
       "date": "2026-10-01",
       "description": "D24*4CVY39LX 8007457496 FL",
       "amount": 25.99,
-      "category": "Others",
+      "category": "Health",
       "group": "Expenses",
-      "confidence": "D",
-      "note": "Unrecognized - please tell me what this is",
+      "confidence": "H",
+      "note": "Digistore24 order 4CVY39LX - MetaBoost Connection course (keeping it, per you). Subscription: $25.99 first, then $66.65 every 3 months (next ~1/1/2027)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },

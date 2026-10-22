@@ -154,8 +154,8 @@
       "amount": 160.0,
       "category": "Food - Eat Out",
       "group": "Expenses",
-      "confidence": "R",
-      "note": "Mount Charleston - restaurant (Toast); confirm",
+      "confidence": "H",
+      "note": "Mount Charleston - eat out (confirmed by you)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },
