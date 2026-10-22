@@ -1544,13 +1544,13 @@
     },
     {
       "amount": -30,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Health",
+      "confidence": "H",
       "date": "2026-10-22",
       "description": "ZELLE PAYMENT TO MARK GUTIERREZ 31302368025",
       "group": "Expenses",
       "id": "a3c053d7-9a62-4598-9a5a-f5209af4f2ae",
-      "note": "Pending in Chase 10/22 - not sure what this is yet",
+      "note": "Pending in Chase 10/22 - Mark, barbell training (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
