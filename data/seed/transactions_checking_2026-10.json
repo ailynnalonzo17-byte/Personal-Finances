@@ -1461,7 +1461,7 @@
     {
       "amount": -190.07,
       "category": "NV Energy",
-      "cleared": true,
+      "cleared": false,
       "confidence": "H",
       "date": "2026-10-21",
       "description": "NV Energy - checked off as paid",
