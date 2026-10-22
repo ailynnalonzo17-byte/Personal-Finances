@@ -1566,13 +1566,13 @@
     },
     {
       "amount": -29.99,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Cove Smart",
+      "confidence": "H",
       "date": "2026-10-22",
       "description": "POS DEBIT COVE SMART- NO AVS 855-2683669 UT (...5851)",
-      "group": "Expenses",
+      "group": "Monthly Bills",
       "id": "f1d5e038-217f-4fa9-be4d-f71388a59fc2",
-      "note": "Pending in Chase 10/22 - Cove Smart (home security monitoring?) - confirm",
+      "note": "Pending in Chase 10/22 - Cove home security, \\$29.99 monthly (confirmed by you)",
       "source": "Chase screenshot"
     }
   ],
