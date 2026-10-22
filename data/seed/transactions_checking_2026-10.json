@@ -1427,23 +1427,23 @@
       "category": "Affirm",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-22",
+      "date": "2026-10-21",
       "description": "Affirm - Expedia (Avila Beach) - installment 3/3",
       "group": "Debt",
       "id": "loan_affirm-expedia-avila-beach_3",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/22 (AFFIRM.COM PAYME $141.08)",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 10/21 (AFFIRM.COM PAYME $141.08)",
       "source": "Loan schedule payment"
     },
     {
-      "amount": -45.25,
+      "amount": -49.03,
       "category": "PayPal Pay Monthly",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-20",
+      "date": "2026-10-22",
       "description": "Home Depot - Grill (PayPal Pay Monthly) - installment 1/6",
       "group": "Debt",
       "id": "loan_paypal-pay-monthly-home-depot-grill_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/22 (PAYPAL INST XFER PYPL PAYMTHLY $49.03 - not the $45.25 in the plan)",
       "source": "Loan schedule payment"
     },
     {
@@ -1451,23 +1451,23 @@
       "category": "Jonathan Neil & Associates",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-22",
+      "date": "2026-10-21",
       "description": "Jonathan Neil & Associates - installment 1/5",
       "group": "Debt",
       "id": "loan_jonathan-neil-associates_1",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/22 (Jonathan Neil & CO $100)",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 10/21 (Jonathan Neil & CO $100)",
       "source": "Loan schedule payment"
     },
     {
       "amount": -190.07,
       "category": "NV Energy",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-21",
+      "date": "2026-10-22",
       "description": "NV Energy - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_nv-energy_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/22 (NV ENERGY SOUTH NPC PYMT $190.07)",
       "source": "Bill checklist payment"
     },
     {
@@ -1475,11 +1475,11 @@
       "category": "Affirm",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-10-22",
+      "date": "2026-10-21",
       "description": "Affirm - WRX - installment 5/6",
       "group": "Debt",
       "id": "loan_affirm-wrx_5",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/22 (SP+AFF * WRXDAILY $220.95)",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 10/21 (SP+AFF * WRXDAILY $220.95)",
       "source": "Loan schedule payment"
     },
     {
@@ -1546,11 +1546,11 @@
       "amount": -30,
       "category": "Health",
       "confidence": "H",
-      "date": "2026-10-22",
+      "date": "2026-10-21",
       "description": "ZELLE PAYMENT TO MARK GUTIERREZ 31302368025",
       "group": "Expenses",
       "id": "a3c053d7-9a62-4598-9a5a-f5209af4f2ae",
-      "note": "Pending in Chase 10/22 - Mark, barbell training (confirmed by you)",
+      "note": "Posted in Chase 10/21 - Mark, barbell training (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1562,6 +1562,17 @@
       "group": "Expenses",
       "id": "dd08eae7-0287-46b2-b2d3-3f4a5d2d2218",
       "note": "Pending in Chase 10/22 - a second charge (the 10/17 one already posted 10/19)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -29.99,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-22",
+      "description": "POS DEBIT COVE SMART- NO AVS 855-2683669 UT (...5851)",
+      "group": "Expenses",
+      "id": "f1d5e038-217f-4fa9-be4d-f71388a59fc2",
+      "note": "Pending in Chase 10/22 - Cove Smart (home security monitoring?) - confirm",
       "source": "Chase screenshot"
     }
   ],
