@@ -1552,6 +1552,28 @@
       "id": "a3c053d7-9a62-4598-9a5a-f5209af4f2ae",
       "note": "Pending in Chase 10/22 - not sure what this is yet",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-22",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "dd08eae7-0287-46b2-b2d3-3f4a5d2d2218",
+      "note": "Pending in Chase 10/22 - a second charge (the 10/17 one already posted 10/19)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -11.79,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-22",
+      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829 (...5851)",
+      "group": "Expenses",
+      "id": "7df47303-e57e-4aa3-ac7b-2758d107c9cf",
+      "note": "Pending in Chase 10/22 - a second charge (the 10/17 one already posted 10/19)",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-10"
