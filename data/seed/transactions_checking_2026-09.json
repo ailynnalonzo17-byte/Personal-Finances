@@ -333,13 +333,13 @@
     },
     {
       "amount": -16.25,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Food - Eat Out",
+      "confidence": "H",
       "date": "2026-09-04",
       "description": "CLUB FORTUNE CASINO CLU DAYTON NV            09/03",
       "group": "Expenses",
       "id": "chk_new_0467",
-      "note": "Unrecognized charge - please tell me what this is",
+      "note": "Club Fortune Casino, eat out (confirmed by you)",
       "source": "Chase CSV import"
     },
     {

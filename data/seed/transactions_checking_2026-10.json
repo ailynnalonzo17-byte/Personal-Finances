@@ -1247,17 +1247,6 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -11.79,
-      "category": "Others",
-      "confidence": "D",
-      "date": "2026-10-17",
-      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829",
-      "group": "Expenses",
-      "id": "3182039e-c438-41c3-8b0c-6861a1f6a124",
-      "note": "Posted in Chase - UPS shipping (still showing as pending in Chase on 10/22)",
-      "source": "Chase screenshot"
-    },
-    {
       "amount": -30,
       "category": "Dinkers",
       "confidence": "H",
@@ -1576,7 +1565,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -1.0,
+      "amount": -1,
       "category": "Others",
       "confidence": "D",
       "date": "2026-10-22",
@@ -1621,13 +1610,13 @@
     },
     {
       "amount": -33.55,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Food - Eat Out",
+      "confidence": "H",
       "date": "2026-10-23",
       "description": "POS DEBIT CLUB FORTUNE CASINO CLU DAYTON NV (...5851)",
       "group": "Expenses",
       "id": "02f31ef5-558c-46b8-b486-fc62ca366c19",
-      "note": "Pending in Chase 10/23 - Club Fortune Casino (also $16.25 on 9/3); what for?",
+      "note": "Pending in Chase 10/23 - Club Fortune Casino, eat out (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
