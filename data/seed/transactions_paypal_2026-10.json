@@ -55,6 +55,17 @@
       "id": "pp_2026-10-16",
       "note": "Matches the Chase PAYPAL TRANSFER ADD TO BALANCE -$50 on 10/16",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": 50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-23",
+      "description": "Weekly transfer from Chase checking",
+      "group": "Transfer",
+      "id": "pp_2026-10-23",
+      "note": "Matches the Chase PAYPAL TRANSFER ADD TO BALANCE -$50 pending 10/23",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-10"

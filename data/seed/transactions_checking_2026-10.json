@@ -1443,7 +1443,7 @@
       "description": "Home Depot - Grill (PayPal Pay Monthly) - installment 1/6",
       "group": "Debt",
       "id": "loan_paypal-pay-monthly-home-depot-grill_1",
-      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/22 (PAYPAL INST XFER PYPL PAYMTHLY $49.03 - not the $45.25 in the plan)",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 10/22 (PAYPAL INST XFER PYPL PAYMTHLY $49.03 - not the $45.25 in the plan)",
       "source": "Loan schedule payment"
     },
     {
@@ -1467,7 +1467,7 @@
       "description": "NV Energy - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_nv-energy_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/22 (NV ENERGY SOUTH NPC PYMT $190.07)",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/22 (NV ENERGY SOUTH NPC PYMT $190.07)",
       "source": "Bill checklist payment"
     },
     {
@@ -1561,7 +1561,7 @@
       "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
       "group": "Expenses",
       "id": "dd08eae7-0287-46b2-b2d3-3f4a5d2d2218",
-      "note": "Pending in Chase 10/22 - a second charge (the 10/17 one already posted 10/19)",
+      "note": "Posted in Chase 10/22 - a second charge (the 10/17 one already posted 10/19)",
       "source": "Chase screenshot"
     },
     {
@@ -1573,6 +1573,72 @@
       "group": "Monthly Bills",
       "id": "f1d5e038-217f-4fa9-be4d-f71388a59fc2",
       "note": "Pending in Chase 10/22 - Cove home security, \\$29.99 monthly (confirmed by you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -1.0,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-22",
+      "description": "PAYPAL PURCHASE MICROSOFT WEB ID: PAYPALSI77",
+      "group": "Expenses",
+      "id": "4bc904da-f4a3-4f20-b857-6e33cff68096",
+      "note": "Posted in Chase 10/22 - Microsoft $1 (trial?)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.75,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-22",
+      "description": "Zelle payment to Katrina JPM99d0pbrr2",
+      "group": "Expenses",
+      "id": "c1b8c6c1-63bb-4b90-a49e-d6fd1d35e630",
+      "note": "Posted in Chase 10/22 - Zelle to Katrina; what for?",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-23",
+      "description": "PAYPAL TRANSFER ADD TO BALANCE PAYPALSD22",
+      "group": "Transfer",
+      "id": "3ff13ca3-68e5-488e-bb01-d34fa8a0d9ef",
+      "note": "Pending in Chase 10/23 - weekly $50 to PayPal Savings",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-10-23",
+      "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31236337093",
+      "group": "Transfer",
+      "id": "c5de6721-19ad-4800-bab0-20e933522c62",
+      "note": "Pending in Chase 10/23",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -33.55,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-23",
+      "description": "POS DEBIT CLUB FORTUNE CASINO CLU DAYTON NV (...5851)",
+      "group": "Expenses",
+      "id": "02f31ef5-558c-46b8-b486-fc62ca366c19",
+      "note": "Pending in Chase 10/23 - Club Fortune Casino (also $16.25 on 9/3); what for?",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -142.6,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-10-23",
+      "description": "POS DEBIT WM SUPERCENTER #2050 HENDERSON NV (...5438)",
+      "group": "Expenses",
+      "id": "e4ebd110-20b1-4b13-a8bf-ed571e4ff5b5",
+      "note": "Pending in Chase 10/23",
       "source": "Chase screenshot"
     }
   ],
