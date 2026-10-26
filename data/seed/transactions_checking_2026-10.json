@@ -1498,37 +1498,37 @@
     {
       "amount": -49.17,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-24",
+      "date": "2026-10-26",
       "description": "Affirm - Amazon (12 mo) - installment 2/12",
       "group": "Debt",
       "id": "loan_affirm-amazon-12-mo_2",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/26 (AFFIRM.COM PAYME $49.17)",
       "source": "Loan schedule payment"
     },
     {
-      "amount": -401.75,
+      "amount": -402.31,
       "category": "Verizon",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-25",
+      "date": "2026-10-26",
       "description": "Verizon - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_verizon_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/26 (VERIZON WIRELESS $402.31)",
       "source": "Bill checklist payment"
     },
     {
-      "amount": -15.99,
+      "amount": -15.19,
       "category": "YT Premium",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-25",
+      "date": "2026-10-26",
       "description": "YT Premium - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_yt-premium_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/26 (PAYPAL GOOGLE YOUTUBE $15.19)",
       "source": "Bill checklist payment"
     },
     {
@@ -1561,7 +1561,7 @@
       "description": "POS DEBIT COVE SMART- NO AVS 855-2683669 UT (...5851)",
       "group": "Monthly Bills",
       "id": "f1d5e038-217f-4fa9-be4d-f71388a59fc2",
-      "note": "Pending in Chase 10/22 - Cove home security, \\$29.99 monthly (confirmed by you)",
+      "note": "Posted in Chase - Cove home security, \\$29.99 monthly (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1594,7 +1594,7 @@
       "description": "PAYPAL TRANSFER ADD TO BALANCE PAYPALSD22",
       "group": "Transfer",
       "id": "3ff13ca3-68e5-488e-bb01-d34fa8a0d9ef",
-      "note": "Pending in Chase 10/23 - weekly $50 to PayPal Savings",
+      "note": "Posted in Chase 10/23 - weekly $50 to PayPal Savings",
       "source": "Chase screenshot"
     },
     {
@@ -1605,7 +1605,7 @@
       "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31236337093",
       "group": "Transfer",
       "id": "c5de6721-19ad-4800-bab0-20e933522c62",
-      "note": "Pending in Chase 10/23",
+      "note": "Posted in Chase 10/23",
       "source": "Chase screenshot"
     },
     {
@@ -1616,7 +1616,7 @@
       "description": "POS DEBIT CLUB FORTUNE CASINO CLU DAYTON NV (...5851)",
       "group": "Expenses",
       "id": "02f31ef5-558c-46b8-b486-fc62ca366c19",
-      "note": "Pending in Chase 10/23 - Club Fortune Casino, eat out (confirmed by you)",
+      "note": "Posted in Chase 10/23 - Club Fortune Casino, eat out (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1627,7 +1627,194 @@
       "description": "POS DEBIT WM SUPERCENTER #2050 HENDERSON NV (...5438)",
       "group": "Expenses",
       "id": "e4ebd110-20b1-4b13-a8bf-ed571e4ff5b5",
-      "note": "Pending in Chase 10/23",
+      "note": "Posted in Chase 10/23",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -11.79,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-23",
+      "description": "PAYPAL *UPS US SHIP 800-742-5877 GA 10/22 (...5851)",
+      "group": "Expenses",
+      "id": "98414da0-2591-4330-af54-32d31f1fedf9",
+      "note": "Posted in Chase 10/23 - UPS shipping (the hold came back and posted)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 42,
+      "category": "Others - Income",
+      "confidence": "R",
+      "date": "2026-10-23",
+      "description": "Zelle payment from RHIAN ABIGAIL ALMO 31336664983",
+      "group": "Income",
+      "id": "6c2db423-74fa-478d-b7be-37bb10e5afaf",
+      "note": "Posted in Chase 10/23 - from Rhian; what for?",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -24.38,
+      "category": "Affirm",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "SP+AFF * CPX PICKLEBAL 855-423-3729 CA (...5851)",
+      "group": "Debt",
+      "id": "loan_affirm-pickleball_4",
+      "note": "Pending in Chase 10/26 - Pickleball payment 4/4 (last)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -94.46,
+      "category": "Water",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "HENDERSON NV UTILITY (City of Henderson water)",
+      "group": "Expenses",
+      "id": "bill_city-of-henderson-water_2026-10",
+      "note": "Pending in Chase 10/26 - missed 9/14 bill $85.87 + $8.59 late fee (the $95.51 Oct bill is still due 11/3)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -13.99,
+      "category": "Yesoulfitness",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "PAYPAL PURCHASE GOOGLE YESOULFI",
+      "group": "Monthly Bills",
+      "id": "bill_yesoulfitness_2026-10",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -12.37,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "AMAZON MARKETPLA INTERNET 043000094266020",
+      "group": "Expenses",
+      "id": "a2f3df4a-0bd0-4d84-b5d1-249ae2db9d92",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 50,
+      "category": "Others - Income",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "ZELLE PAYMENT FROM KATRINA T PEREZ USBJMM7SQRNT",
+      "group": "Income",
+      "id": "be2cf2af-6741-4a05-a7d0-ef7f299412cf",
+      "note": "Pending in Chase 10/26 - Katrina, phone bill (like 9/25)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -24.36,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "POS DEBIT PAR*A&W RESTAURANTS - B BOULDER CITY NV (...5851)",
+      "group": "Expenses",
+      "id": "776d39af-cc76-42c2-9dd0-f0bca844c328",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -34.13,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "POS DEBIT WINGSTOP 1249 HENDERSON NV 3454 (...5851)",
+      "group": "Expenses",
+      "id": "a5944683-77b3-427f-b2ba-da94d69870e4",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -1.45,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-26",
+      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829 (...5851)",
+      "group": "Expenses",
+      "id": "6a30e9bb-a5d2-48c7-9c7b-d96c181ee79a",
+      "note": "Pending in Chase 10/26 - UPS",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -0.1,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-26",
+      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829 (...5851)",
+      "group": "Expenses",
+      "id": "05422c99-26f9-45ef-a076-eb1ec0848b8a",
+      "note": "Pending in Chase 10/26 - UPS",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -1.4,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-26",
+      "description": "POS DEBIT PAYPAL *UPS US SHIP ATLANTA GA 0829 (...5851)",
+      "group": "Expenses",
+      "id": "3a0b9ade-d2c1-4a43-bc43-4d5e01ff69fc",
+      "note": "Pending in Chase 10/26 - UPS",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Compass",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "POS DEBIT GIV*FIRST PRESBY 831-4227811 CA (...5438)",
+      "group": "Expenses",
+      "id": "bd49897c-1bb0-4a12-bad0-3434577e3b10",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -26.96,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-26",
+      "description": "POS DEBIT LOWE'S #1033 HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "9ba03b18-c44b-4a8e-9d56-748e1e7668f1",
+      "note": "Pending in Chase 10/26 - home improvement",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.48,
+      "category": "Groceries - Filipino Store",
+      "confidence": "H",
+      "date": "2026-10-26",
+      "description": "POS DEBIT JOSHAN FILIPINO ORIENT HENDERSON NV (...5851)",
+      "group": "Expenses",
+      "id": "3ddd8367-2dd2-447f-8e6c-6459d491e410",
+      "note": "Pending in Chase 10/26",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -28.28,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-10-26",
+      "description": "ZELLE PAYMENT TO KATRINA JPM99D0W6W4G",
+      "group": "Expenses",
+      "id": "293b173c-feb9-4c98-8635-c8d229f76d3c",
+      "note": "Pending in Chase 10/26 - what for?",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -37.93,
+      "category": "Klarna",
+      "confidence": "D",
+      "date": "2026-10-26",
+      "description": "POS DEBIT Klarna*Klarna Columbus OH 5299 (...5851)",
+      "group": "Debt",
+      "id": "c56a583a-d034-4394-ac4d-ef63cf3ce1f7",
+      "note": "Pending in Chase 10/26 - which Klarna plan?",
       "source": "Chase screenshot"
     }
   ],
