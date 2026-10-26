@@ -1014,15 +1014,15 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -37.92,
+      "amount": -37.93,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-16",
+      "date": "2026-10-26",
       "description": "Affirm - TikTok (entryway table) - installment 2/4",
       "group": "Debt",
       "id": "loan_affirm-tiktok-entryway-table_2",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Pending in Chase 10/26 as Klarna*Klarna $37.93 (confirmed by you)",
       "source": "Loan schedule payment"
     },
     {
@@ -1643,13 +1643,13 @@
     },
     {
       "amount": 42,
-      "category": "Others - Income",
-      "confidence": "R",
+      "category": "Shop - Others",
+      "confidence": "H",
       "date": "2026-10-23",
       "description": "Zelle payment from RHIAN ABIGAIL ALMO 31336664983",
-      "group": "Income",
+      "group": "Expenses",
       "id": "6c2db423-74fa-478d-b7be-37bb10e5afaf",
-      "note": "Posted in Chase 10/23 - from Rhian; what for?",
+      "note": "Posted in Chase 10/23 - Rhian paying you back for her Ulta purchase (offsets shopping)",
       "source": "Chase screenshot"
     },
     {
@@ -1797,24 +1797,13 @@
     },
     {
       "amount": -28.28,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Shop - Amazon",
+      "confidence": "H",
       "date": "2026-10-26",
       "description": "ZELLE PAYMENT TO KATRINA JPM99D0W6W4G",
       "group": "Expenses",
       "id": "293b173c-feb9-4c98-8635-c8d229f76d3c",
-      "note": "Pending in Chase 10/26 - what for?",
-      "source": "Chase screenshot"
-    },
-    {
-      "amount": -37.93,
-      "category": "Klarna",
-      "confidence": "D",
-      "date": "2026-10-26",
-      "description": "POS DEBIT Klarna*Klarna Columbus OH 5299 (...5851)",
-      "group": "Debt",
-      "id": "c56a583a-d034-4394-ac4d-ef63cf3ce1f7",
-      "note": "Pending in Chase 10/26 - which Klarna plan?",
+      "note": "Pending in Chase 10/26 - paying Katrina back for an Amazon order accidentally charged to her card",
       "source": "Chase screenshot"
     }
   ],
