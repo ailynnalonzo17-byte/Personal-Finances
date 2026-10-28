@@ -1472,9 +1472,9 @@
       "source": "Loan schedule payment"
     },
     {
-      "amount": -59.67,
+      "amount": -58.17,
       "category": "Prulife",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-23",
       "description": "Prulife - checked off as paid",
@@ -1852,13 +1852,13 @@
     },
     {
       "amount": -38,
-      "category": "Others",
-      "confidence": "R",
+      "category": "Shop - Others",
+      "confidence": "H",
       "date": "2026-10-28",
       "description": "ZELLE PAYMENT TO TESS DIEL JPM99D181O88",
       "group": "Expenses",
       "id": "7bc4b7d1-564d-412f-8b0b-9ffdb00cfa80",
-      "note": "Pending in Chase 10/28 - what for?",
+      "note": "Pending in Chase 10/28 - online clothes (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -1904,6 +1904,66 @@
       "id": "8ef0852d-74c2-4aef-b659-39a2997a9170",
       "note": "Pending in Chase 10/28 - airport parking",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -30,
+      "category": "CC - Venmo",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-10-27",
+      "description": "CC - Venmo - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-venmo_2026-10",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -157.23,
+      "category": "Remittance - Aron",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-10-28",
+      "description": "Remittance - Aron - checked off as paid",
+      "group": "Expenses",
+      "id": "bill_remittance-aron_2026-10",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -37.92,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "Affirm - TikTok (entryway table) - installment 3/4",
+      "group": "Debt",
+      "id": "loan_affirm-tiktok-entryway-table_3",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -39.33,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "Affirm - Wayfair (2nd plan) - installment 2/3",
+      "group": "Debt",
+      "id": "loan_affirm-wayfair-2nd-plan_2",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -50,
+      "category": "Chase Pay in 4",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-10-31",
+      "description": "Chase Pay in 4 - Atty Chua - installment 1/4",
+      "group": "Debt",
+      "id": "loan_chase-pay-in-4-atty-chua_1",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
     }
   ],
   "month": "2026-10"
