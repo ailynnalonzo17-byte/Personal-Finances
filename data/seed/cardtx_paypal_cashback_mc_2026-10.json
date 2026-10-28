@@ -1,0 +1,31 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-10",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-10_0",
+      "date": "2026-10-09",
+      "description": "PAYPAL PURCHASE FLOVITAMINS",
+      "amount": 20.58,
+      "category": "Health",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Vitamins",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-10_1",
+      "date": "2026-10-22",
+      "description": "PAYPAL PURCHASE MICROSOFT",
+      "amount": 69.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "R",
+      "note": "Microsoft $69.99 - likely Microsoft 365 yearly plan after the $1 trial on 10/22 (Chase); confirm",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
