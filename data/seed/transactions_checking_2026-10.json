@@ -1908,7 +1908,7 @@
     {
       "amount": -30,
       "category": "CC - Venmo",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-27",
       "description": "CC - Venmo - checked off as paid",
