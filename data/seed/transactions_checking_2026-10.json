@@ -1480,7 +1480,7 @@
       "description": "Prulife - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_prulife_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/28 (TAPTAP SEND $58.17)",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/28 (TAPTAP SEND $58.17)",
       "source": "Bill checklist payment"
     },
     {
@@ -1832,11 +1832,11 @@
       "amount": -10,
       "category": "Dinkers",
       "confidence": "H",
-      "date": "2026-10-28",
+      "date": "2026-10-29",
       "description": "POS DEBIT DINKERS LLC HENDERSON NV (...5851)",
       "group": "Expenses",
       "id": "ff767749-c2ca-4265-9641-f9f8ecdb49e0",
-      "note": "Pending in Chase 10/28",
+      "note": "Posted in Chase 10/29",
       "source": "Chase screenshot"
     },
     {
@@ -1908,13 +1908,13 @@
     {
       "amount": -30,
       "category": "CC - Venmo",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-10-27",
+      "date": "2026-10-29",
       "description": "CC - Venmo - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-venmo_2026-10",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/29 (VENMO REPAYMENT $30)",
       "source": "Bill checklist payment"
     },
     {
@@ -1926,7 +1926,7 @@
       "description": "Remittance - Aron - checked off as paid",
       "group": "Expenses",
       "id": "bill_remittance-aron_2026-10",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 10/28 (TAPTAP SEND $157.23)",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 10/28 (TAPTAP SEND $157.23)",
       "source": "Bill checklist payment"
     },
     {
@@ -1964,6 +1964,61 @@
       "id": "loan_chase-pay-in-4-atty-chua_1",
       "note": "From your Loan Payment Schedule - checked off by you",
       "source": "Loan schedule payment"
+    },
+    {
+      "amount": 500,
+      "category": "Transfer - PayPal to Checking",
+      "confidence": "H",
+      "date": "2026-10-28",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "7654209e-3a2a-4bf7-8d49-496630c7a522",
+      "note": "Posted in Chase 10/28 - $500 from PayPal Savings",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -24.25,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-10-29",
+      "description": "NON-CHASE ATM WITHDRAW 008415 10/29 4925 SOUT (...5851)",
+      "group": "Expenses",
+      "id": "a77f5199-e3e1-46a7-aabf-c4a4ab6fb112",
+      "note": "Posted in Chase 10/29 - cash",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -3,
+      "category": "Others",
+      "confidence": "H",
+      "date": "2026-10-29",
+      "description": "NON-CHASE ATM FEE-WITH",
+      "group": "Expenses",
+      "id": "e77ebec8-d208-40e1-b8f8-de95203e233a",
+      "note": "Posted in Chase 10/29 - Chase fee for using another bank ATM",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-29",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "3c8aec07-01da-4085-b078-43b48f730b03",
+      "note": "Posted in Chase 10/29",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -3.85,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-29",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "af971685-91a3-41e2-9ea5-ac7be24f0d76",
+      "note": "Posted in Chase 10/29",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-10"
