@@ -2019,6 +2019,39 @@
       "id": "af971685-91a3-41e2-9ea5-ac7be24f0d76",
       "note": "Posted in Chase 10/29",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.14,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "POS DEBIT MCDONALD'S F19452 HENDERSON NV 3454",
+      "group": "Expenses",
+      "id": "9b9e112b-e9c9-4ea7-b248-c93c6549ca3c",
+      "note": "Pending in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31324590443",
+      "group": "Transfer",
+      "id": "f2ce050f-e5d0-4485-95f9-6359982076cf",
+      "note": "Pending in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -15,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "POS DEBIT DINKERS LLC HENDERSON NV",
+      "group": "Expenses",
+      "id": "47ff6b19-4115-4d2b-80e3-d9bd67b34a73",
+      "note": "Pending in Chase 10/30",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-10"
