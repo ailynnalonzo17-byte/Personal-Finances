@@ -1944,25 +1944,25 @@
     {
       "amount": -39.33,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-30",
       "description": "Affirm - Wayfair (2nd plan) - installment 2/3",
       "group": "Debt",
       "id": "loan_affirm-wayfair-2nd-plan_2",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 11/2 (AFFIRM.COM PAYME $39.33)",
       "source": "Loan schedule payment"
     },
     {
       "amount": -50,
       "category": "Chase Pay in 4",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-10-31",
       "description": "Chase Pay in 4 - Atty Chua - installment 1/4",
       "group": "Debt",
       "id": "loan_chase-pay-in-4-atty-chua_1",
-      "note": "From your Loan Payment Schedule - checked off by you",
+      "note": "From your Loan Payment Schedule - checked off by you | Posted in Chase 11/2 (AUTOPAY TO CHASE PAY IN 4 ...8456)",
       "source": "Loan schedule payment"
     },
     {
@@ -2028,7 +2028,7 @@
       "description": "POS DEBIT MCDONALD'S F19452 HENDERSON NV 3454",
       "group": "Expenses",
       "id": "9b9e112b-e9c9-4ea7-b248-c93c6549ca3c",
-      "note": "Pending in Chase 10/30",
+      "note": "Posted in Chase 10/30",
       "source": "Chase screenshot"
     },
     {
@@ -2039,7 +2039,7 @@
       "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31324590443",
       "group": "Transfer",
       "id": "f2ce050f-e5d0-4485-95f9-6359982076cf",
-      "note": "Pending in Chase 10/30",
+      "note": "Posted in Chase 10/30",
       "source": "Chase screenshot"
     },
     {
@@ -2050,7 +2050,51 @@
       "description": "POS DEBIT DINKERS LLC HENDERSON NV",
       "group": "Expenses",
       "id": "47ff6b19-4115-4d2b-80e3-d9bd67b34a73",
-      "note": "Pending in Chase 10/30",
+      "note": "Posted in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -42.65,
+      "category": "Food - Eat Out",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "L AND L HAWAIIAN BBQ (...5851)",
+      "group": "Expenses",
+      "id": "a6e85fc0-b850-4d00-b049-a5192c3cf081",
+      "note": "Posted in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "9c32fb97-ed3e-4924-a982-8e81b2c01ab4",
+      "note": "Posted in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -15.16,
+      "category": "Shop - Others",
+      "confidence": "D",
+      "date": "2026-10-30",
+      "description": "Target (...5851)",
+      "group": "Expenses",
+      "id": "41266a40-1909-4ef6-b49b-fe995e7dc2ea",
+      "note": "Posted in Chase 10/30",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -50,
+      "category": "Transfer - Checking to PayPal",
+      "confidence": "H",
+      "date": "2026-10-30",
+      "description": "PAYPAL TRANSFER ADD TO BALANCE WEB ID: PAYPALSD22",
+      "group": "Transfer",
+      "id": "bf1d809e-0e2a-4231-bd68-1130f62c1753",
+      "note": "Posted in Chase 10/30 - weekly $50 to PayPal Savings",
       "source": "Chase screenshot"
     }
   ],

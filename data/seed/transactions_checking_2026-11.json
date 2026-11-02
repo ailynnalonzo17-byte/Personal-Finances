@@ -1,0 +1,105 @@
+{
+  "account": "checking",
+  "entries": [
+    {
+      "amount": 4355.12,
+      "category": "Chris - Pension",
+      "confidence": "H",
+      "date": "2026-11-02",
+      "description": "ORIG CO NAME:TEAMSTERS CO ENTRY DESCR:PAYMENTS",
+      "group": "Income",
+      "id": "b6466b26-50e1-47fc-9c70-fe7e21fc3388",
+      "note": "Posted in Chase 11/2 - Chris' pension",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -47.93,
+      "category": "Affirm",
+      "confidence": "H",
+      "date": "2026-11-02",
+      "description": "AFF HOWLER BIKE P (...5851) Shop Pay",
+      "group": "Debt",
+      "id": "loan_affirm-howler-bike-park_5",
+      "note": "Posted in Chase 11/2 - Affirm Howler Bike Park 5/12",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -67.17,
+      "category": "Others",
+      "confidence": "R",
+      "date": "2026-11-02",
+      "description": "PAYPAL PURCHASE MTRBRANDSLL MTR",
+      "group": "Expenses",
+      "id": "1488565a-bcf4-4135-a5c3-42d31fa518e9",
+      "note": "Posted in Chase 11/2 - MTR Brands via PayPal; what is it?",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -8.23,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-11-02",
+      "description": "AMAZON MARKETPLA INTERNET 043000099144182",
+      "group": "Expenses",
+      "id": "51c39d73-b271-4ce3-9e61-3cdac44be1dc",
+      "note": "Posted in Chase 11/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -27.08,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-11-02",
+      "description": "AMAZON MARKETPLA INTERNET 043000092193862",
+      "group": "Expenses",
+      "id": "119f6613-2d73-4450-ae1e-ec0d903248c8",
+      "note": "Posted in Chase 11/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.25,
+      "category": "Shop - Others",
+      "confidence": "D",
+      "date": "2026-11-02",
+      "description": "SP MISS A STORE (...5438) Shop Pay",
+      "group": "Expenses",
+      "id": "b9bdabbc-0bfd-4f7e-a3d4-f954793dee59",
+      "note": "Posted in Chase 11/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10,
+      "category": "Food - Eat Out",
+      "confidence": "D",
+      "date": "2026-11-02",
+      "description": "Coca-Cola (...5851)",
+      "group": "Expenses",
+      "id": "7be554a0-a626-4535-97f7-cdcc667a3d4f",
+      "note": "Posted in Chase 11/2 - same as the 9/5 Coca-Cola store charge",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Compass",
+      "confidence": "H",
+      "date": "2026-11-02",
+      "description": "GIV FIRST PRESBY (...5438)",
+      "group": "Expenses",
+      "id": "5a4c5b9f-75ed-4033-b067-27b1bf9943dc",
+      "note": "Posted in Chase 11/2",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -3.59,
+      "category": "Gas",
+      "confidence": "D",
+      "date": "2026-11-02",
+      "description": "Chevron (...5851)",
+      "group": "Expenses",
+      "id": "7feaa3a5-fb26-4859-9ca2-0f5679707865",
+      "note": "Posted in Chase 11/2",
+      "source": "Chase screenshot"
+    }
+  ],
+  "month": "2026-11"
+}
