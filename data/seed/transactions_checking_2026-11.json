@@ -25,13 +25,13 @@
     },
     {
       "amount": -67.17,
-      "category": "Others",
-      "confidence": "R",
+      "category": "For Car",
+      "confidence": "H",
       "date": "2026-11-02",
       "description": "PAYPAL PURCHASE MTRBRANDSLL MTR",
       "group": "Expenses",
       "id": "1488565a-bcf4-4135-a5c3-42d31fa518e9",
-      "note": "Posted in Chase 11/2 - MTR Brands via PayPal; what is it?",
+      "note": "Posted in Chase 11/2 - MTR Brands, for the car (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
@@ -99,6 +99,18 @@
       "id": "7feaa3a5-fb26-4859-9ca2-0f5679707865",
       "note": "Posted in Chase 11/2",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -500,
+      "category": "BADD Insurance",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-01",
+      "description": "BADD Insurance - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_badd-insurance_2026-11",
+      "note": "November cheque mailed (confirmed by you 11/2) - counts once it clears Chase",
+      "source": "Bill checklist payment"
     }
   ],
   "month": "2026-11"
