@@ -103,14 +103,69 @@
     {
       "amount": -500,
       "category": "BADD Insurance",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-01",
+      "date": "2026-11-03",
       "description": "BADD Insurance - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_badd-insurance_2026-11",
-      "note": "November cheque mailed (confirmed by you 11/2) - counts once it clears Chase",
+      "note": "November cheque #360 - Posted in Chase 11/3",
       "source": "Bill checklist payment"
+    },
+    {
+      "amount": 1828,
+      "category": "Kristin - COO Income",
+      "confidence": "H",
+      "date": "2026-11-03",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Income",
+      "id": "4c185ade-05a2-4634-a96d-68e6caf9664f",
+      "note": "Posted in Chase 11/3 - your pay",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -6.31,
+      "category": "CC - FPB",
+      "confidence": "H",
+      "date": "2026-11-03",
+      "description": "PREMIER BANKCARD AUTOPAY G 340211807",
+      "group": "Debt",
+      "id": "bill_cc-fpb_2026-11",
+      "note": "Posted in Chase 11/3 - AutoPay",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -709.9,
+      "category": "Auto Loan - Honda",
+      "confidence": "H",
+      "date": "2026-11-03",
+      "description": "CAPITAL ONE AUTO CARPAY CP070999754C228",
+      "group": "Debt",
+      "id": "bill_auto-loan-honda_2026-11",
+      "note": "Posted in Chase 11/3",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -150.74,
+      "category": "Groceries - Walmart",
+      "confidence": "H",
+      "date": "2026-11-03",
+      "description": "WM SUPERCENTER #3350 LAS VEGAS NV 11/02 (...5438)",
+      "group": "Expenses",
+      "id": "7a4d74f5-f439-4f38-ac86-c4e30b0be33a",
+      "note": "Posted in Chase 11/3",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -82.2,
+      "category": "Shop - Others",
+      "confidence": "D",
+      "date": "2026-11-03",
+      "description": "FUN GIFTS LAS VEGAS NV 11/03 (...5438)",
+      "group": "Expenses",
+      "id": "f8e2c60a-a73a-41cd-9f9d-a101265a57a7",
+      "note": "Posted in Chase 11/3 - gift shop; confirm",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
