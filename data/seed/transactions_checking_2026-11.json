@@ -192,12 +192,12 @@
     {
       "amount": -30.47,
       "category": "Affirm",
-      "confidence": "D",
+      "confidence": "H",
       "date": "2026-11-03",
-      "description": "AFF SELKIRK SPORT (...5851) Shop Pay",
+      "description": "Affirm - Selkirk Sport - installment 1/4 (down payment) - AFF SELKIRK SPORT Shop Pay",
       "group": "Debt",
-      "id": "4118da60-0199-4c30-8fd3-744aa188166a",
-      "note": "Pending in Chase 11/3 - Selkirk (pickleball) via Shop Pay/Affirm - new plan? confirm",
+      "id": "loan_affirm-selkirk-sport_1",
+      "note": "Pending in Chase 11/3 - down payment; plan 4 x ~$30.47 (11/3, 11/18, 12/2, 12/16)",
       "source": "Chase screenshot"
     }
   ],
