@@ -340,6 +340,18 @@
     </div>
   </div>
 
+  <div class="panel" id="payoffPanel" style="display:none">
+    <h2>Debt payoff plan</h2>
+    <div class="sub" id="payoffSub"></div>
+    <div id="payoffSteps" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Card</th><th>What to do</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Interest / mo</th><th style="text-align:right">Min. payment</th></tr></thead>
+        <tbody id="payoffList"></tbody>
+      </table>
+    </div>
+  </div>
+
   <div class="panel">
     <h2>Spending by category</h2>
     <div class="sub" id="catSub">This period</div>
@@ -418,7 +430,7 @@ const money = n => (n<0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US",{mini
 const todayISO = () => new Date().toISOString().slice(0,10);
 
 let db = null;
-let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{}, loanSchedule:{}, cardTransactions:{} };
+let state = { accounts:{}, transactions:{}, bills:{}, creditCards:{}, budgets:{}, checked:{}, loanSchedule:{}, cardTransactions:{}, payoffPlan:null };
 // Card categories we have full itemized statements for - their checking-side "CC - X" Debt
 // entries (the lump-sum payment) are excluded from the combined category view below, since
 // the card's own purchases/fees now represent that spend at the category level instead.
@@ -566,6 +578,12 @@ function subscribe(){
   unsubs.push(db.collection("card_transactions").onSnapshot(snap=>{
     state.cardTransactions = {};
     snap.docs.forEach(d=> state.cardTransactions[d.id] = d.data());
+    scheduleRender();
+  }, err=> setSync(false, "Connection lost")));
+
+  unsubs.push(db.collection("payoff_plan").onSnapshot(snap=>{
+    const d = snap.docs.find(x=> x.id==="current");
+    state.payoffPlan = d ? d.data() : null;
     scheduleRender();
   }, err=> setSync(false, "Connection lost")));
 }
@@ -1670,6 +1688,41 @@ function renderCreditCards(){
       <td class="num">${money(totalBalance)}</td><td class="num">${money(totalMin)}</td><td></td></tr>`;
 }
 
+/* ---------------- render: debt payoff plan (avalanche) ---------------- */
+// Plan lives in payoff_plan/current: {method, note, steps[], cards:[{id, role, note}]}.
+// role: "pay_in_full" | "no_interest" | "avalanche" | "later". Balances/APRs come live
+// from credit_cards, so the table updates itself as new statements are logged. The
+// current target is the first "avalanche" card that still has a balance.
+function renderPayoffPlan(){
+  const panel = document.getElementById("payoffPanel");
+  const plan = state.payoffPlan;
+  if(!plan || !(plan.cards||[]).length){ panel.style.display = "none"; return; }
+  panel.style.display = "block";
+  const target = (plan.cards||[]).find(p=> p.role==="avalanche" && ((state.creditCards[p.id]||{}).balance||0) > 0);
+  let totBal = 0, totInt = 0, totMin = 0;
+  const rows = (plan.cards||[]).map((p,i)=>{
+    const c = state.creditCards[p.id] || {};
+    const bal = c.balance||0, apr = c.apr;
+    const int = (apr!=null && p.role!=="no_interest") ? bal*apr/100/12 : 0;
+    totBal += bal; totInt += int; totMin += c.minPayment||0;
+    const isTarget = target && target.id===p.id;
+    const label = {pay_in_full:"Pay in full", no_interest:"Pay the interest-saving amount", avalanche: isTarget ? "TARGET: minimum + all extra money" : "Minimum for now", later:"Minimum for now"}[p.role] || "";
+    return `<tr${isTarget?' class="has-actual"':''}>
+      <td>${i+1}</td>
+      <td><div class="bill-name">${c.name||p.id}${c.last4?` ···${c.last4}`:""}</div>${p.note?`<div class="bill-note">${p.note}</div>`:""}</td>
+      <td>${isTarget?`<span class="pill bad">${label}</span>`:label}</td>
+      <td class="amt num">${apr!=null?apr+"%":"–"}</td>
+      <td class="amt num">${money(bal)}</td>
+      <td class="amt num">${int?money(int):"–"}</td>
+      <td class="amt num">${c.minPayment!=null?money(c.minPayment):"–"}</td>
+    </tr>`;
+  }).join("");
+  document.getElementById("payoffList").innerHTML = rows + `<tr class="budget-totals"><td></td><td>Total</td><td></td><td></td>
+      <td class="num">${money(totBal)}</td><td class="num">${money(totInt)}</td><td class="num">${money(totMin)}</td></tr>`;
+  document.getElementById("payoffSub").textContent = (plan.method||"Avalanche") + (target ? ` · current target: ${(state.creditCards[target.id]||{}).name||target.id}` : " · all target cards paid off") + (plan.updated?` · updated ${plan.updated}`:"");
+  document.getElementById("payoffSteps").innerHTML = (plan.steps||[]).map(t=> `<div class="bill-note">• ${t}</div>`).join("");
+}
+
 /* ---------------- render: combined monthly category (cash + cards) ---------------- */
 function allCardEntries(){
   const out = [];
@@ -1747,6 +1800,7 @@ function renderAll(){
   renderDueSoon();
   renderAccounts();
   renderCreditCards();
+  renderPayoffPlan();
   renderRegister();
   renderPeriodOptions();
   renderSummary();

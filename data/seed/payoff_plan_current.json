@@ -1,0 +1,64 @@
+{
+  "method": "Avalanche - minimums on every card, all extra money to the highest-APR card",
+  "updated": "2026-11-04",
+  "steps": [
+    "Stop new charges on cards and new pay-later plans - use the Chase debit card day to day.",
+    "Pay PayPal Cashback ($90.57, 34%) and AAA Visa ($250.49) in full every month so they never charge interest.",
+    "Chase Amazon: always pay the Interest Saving Balance (now $295.33) - that keeps it at 0% interest.",
+    "Put every card's minimum on AutoPay so there are never late fees or penalty APRs.",
+    "As pay-later plans end (about $450/mo freed by January, about $820/mo by March), keep paying the same amount - just to the TARGET card.",
+    "Optional: a 0% balance-transfer card for Frontier/Capital One/Citi, or call Barclays and Capital One to ask for a lower APR."
+  ],
+  "cards": [
+    {
+      "id": "paypal_cashback_mc",
+      "role": "pay_in_full",
+      "note": "34.24% - pay the full statement ($90.57) by 11/17"
+    },
+    {
+      "id": "aaa_visa",
+      "role": "pay_in_full",
+      "note": "New card, $10,000 limit - pay the full statement ($250.49) by 11/6"
+    },
+    {
+      "id": "chase_amazon",
+      "role": "no_interest",
+      "note": "China Air + AirAsia Pay Over Time plans - pay $295.33 by 11/15 = no interest"
+    },
+    {
+      "id": "venmo",
+      "role": "avalanche",
+      "note": "34.24% - highest rate, small - clear it first"
+    },
+    {
+      "id": "onepay",
+      "role": "avalanche",
+      "note": "30.74% - small, clear it next"
+    },
+    {
+      "id": "frontier",
+      "role": "avalanche",
+      "note": "29.49%, biggest interest cost (~$100/mo)"
+    },
+    {
+      "id": "capital1",
+      "role": "avalanche",
+      "note": "Quicksilver 28.49% (AutoPay $100)"
+    },
+    {
+      "id": "capital1_savor",
+      "role": "avalanche",
+      "note": "Savor 28.49%"
+    },
+    {
+      "id": "credit1_4352",
+      "role": "avalanche",
+      "note": "Credit One 27.9%"
+    },
+    {
+      "id": "citi",
+      "role": "avalanche",
+      "note": "Costco Citi 26.99%"
+    }
+  ]
+}
