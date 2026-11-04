@@ -1,0 +1,55 @@
+{
+  "account": "frontier",
+  "month": "2026-10",
+  "cardCategory": "CC - Frontier card",
+  "entries": [
+    {
+      "id": "frontier_2026-10_0",
+      "date": "2026-10-07",
+      "description": "Payment Received JPMORGAN CHAS",
+      "amount": -800.0,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-10_1",
+      "date": "2026-09-15",
+      "description": "WAL-MART #2838 HENDERSON NV",
+      "amount": 178.5,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-10_2",
+      "date": "2026-09-28",
+      "description": "SHAPERMINT LAS VEGAS NV",
+      "amount": 4.99,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "D",
+      "note": "Shapermint (clothing)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "frontier_2026-10_3",
+      "date": "2026-10-11",
+      "description": "INTEREST CHARGE",
+      "amount": 102.33,
+      "category": "CC - Frontier card",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest on the carried balance",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
