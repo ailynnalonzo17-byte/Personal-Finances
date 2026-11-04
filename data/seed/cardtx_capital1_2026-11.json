@@ -1,0 +1,55 @@
+{
+  "account": "capital1",
+  "month": "2026-11",
+  "cardCategory": "CC - Capital 1",
+  "entries": [
+    {
+      "id": "capital1_2026-11_0",
+      "date": "2026-10-27",
+      "description": "CAPITAL ONE AUTOPAY PYMT",
+      "amount": -100.0,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment toward this card - already booked on the checking side, excluded from category spend",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-11_1",
+      "date": "2026-10-29",
+      "description": "METAPAY*99BDJCW6N4 MENLO PARK CA",
+      "amount": 1.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Meta (same as the monthly $1.99 Metapay)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-11_2",
+      "date": "2026-10-31",
+      "description": "WM SUPERCENTER #2050 HENDERSON NV",
+      "amount": 94.18,
+      "category": "Groceries - Walmart",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "capital1_2026-11_3",
+      "date": "2026-11-02",
+      "description": "INTEREST CHARGE ON PURCHASES",
+      "amount": 25.3,
+      "category": "CC - Capital 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest on the carried balance",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

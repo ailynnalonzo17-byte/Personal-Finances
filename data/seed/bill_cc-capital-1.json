@@ -1,1 +1,1 @@
-{"name": "CC - Capital 1", "group": "Debt", "type": "debt", "amount": 50, "dueDay": 27, "account": "checking", "active": true, "note": "Capital One Quicksilver ...5643 minimum: $50 due 10/27 (Oct 2 statement, balance $1,046.35)."}
+{"name": "CC - Capital 1", "group": "Debt", "type": "debt", "amount": 100, "dueDay": 27, "account": "checking", "active": true, "note": "Capital One Quicksilver ...5643: AutoPay $100 on the 27th (minimum $35 due 11/27, Nov 2 statement balance $1,067.82)."}
