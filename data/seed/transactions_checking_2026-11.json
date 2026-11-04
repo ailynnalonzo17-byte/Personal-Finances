@@ -68,14 +68,14 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -10,
+      "amount": -4.25,
       "category": "Food - Eat Out",
-      "confidence": "D",
+      "confidence": "H",
       "date": "2026-11-02",
       "description": "Coca-Cola (...5851)",
       "group": "Expenses",
       "id": "7be554a0-a626-4535-97f7-cdcc667a3d4f",
-      "note": "Posted in Chase 11/2 - same as the 9/5 Coca-Cola store charge",
+      "note": "Posted in Chase at $4.25 (the $10 was a vending hold)",
       "source": "Chase screenshot"
     },
     {
