@@ -166,6 +166,39 @@
       "id": "f8e2c60a-a73a-41cd-9f9d-a101265a57a7",
       "note": "Posted in Chase 11/3 - gift shop (confirmed by you)",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -706.36,
+      "category": "Auto Loan - WRX",
+      "confidence": "H",
+      "date": "2026-11-04",
+      "description": "ONLINE PAYMENT 31493159296 TO ALA 0908 11/04",
+      "group": "Debt",
+      "id": "bill_auto-loan-wrx_2026-11",
+      "note": "Pending in Chase 11/4 - November WRX payment",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20.04,
+      "category": "Shop - Amazon",
+      "confidence": "H",
+      "date": "2026-11-04",
+      "description": "AMAZON MARKETPLA INTERNET 043000094135170",
+      "group": "Expenses",
+      "id": "42552d1d-bacf-446b-ae98-7ff7b02ba97c",
+      "note": "Pending in Chase 11/4",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -30.47,
+      "category": "Affirm",
+      "confidence": "D",
+      "date": "2026-11-03",
+      "description": "AFF SELKIRK SPORT (...5851) Shop Pay",
+      "group": "Debt",
+      "id": "4118da60-0199-4c30-8fd3-744aa188166a",
+      "note": "Pending in Chase 11/3 - Selkirk (pickleball) via Shop Pay/Affirm - new plan? confirm",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
