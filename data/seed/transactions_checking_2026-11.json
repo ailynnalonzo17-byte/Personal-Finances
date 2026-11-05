@@ -213,18 +213,6 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -2000,
-      "category": "Rent",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-11-05",
-      "description": "Rent - checked off as paid",
-      "group": "Monthly Bills",
-      "id": "bill_rent_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
-    },
-    {
       "amount": -30,
       "category": "CC - AAA Visa (...8228)",
       "cleared": false,
@@ -250,13 +238,13 @@
     },
     {
       "amount": -2000,
-      "category": "Transfer - Checking to Savings",
-      "confidence": "D",
+      "category": "Rent",
+      "confidence": "H",
       "date": "2026-11-04",
       "description": "Online Transfer to SAV ...5953 transaction#: 31493634968 11/04",
-      "group": "Transfer",
-      "id": "ea1b58b9-5777-42b1-b086-7a0e53a64192",
-      "note": "Posted in Chase 11/4 - $2,000 to savings (for November rent?)",
+      "group": "Monthly Bills",
+      "id": "bill_rent_2026-11",
+      "note": "Posted in Chase 11/4 - November rent: $2,000 moved to savings to pay Greg (confirmed by you)",
       "source": "Chase screenshot"
     },
     {
