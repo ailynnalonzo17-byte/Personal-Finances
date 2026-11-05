@@ -175,7 +175,7 @@
       "description": "ONLINE PAYMENT 31493159296 TO ALA 0908 11/04",
       "group": "Debt",
       "id": "bill_auto-loan-wrx_2026-11",
-      "note": "Pending in Chase 11/4 - November WRX payment",
+      "note": "Posted in Chase 11/4 - November WRX payment",
       "source": "Chase screenshot"
     },
     {
@@ -186,7 +186,7 @@
       "description": "AMAZON MARKETPLA INTERNET 043000094135170",
       "group": "Expenses",
       "id": "42552d1d-bacf-446b-ae98-7ff7b02ba97c",
-      "note": "Pending in Chase 11/4",
+      "note": "Posted in Chase 11/4",
       "source": "Chase screenshot"
     },
     {
@@ -197,7 +197,77 @@
       "description": "Affirm - Selkirk Sport - installment 1/4 (down payment) - AFF SELKIRK SPORT Shop Pay",
       "group": "Debt",
       "id": "loan_affirm-selkirk-sport_1",
-      "note": "Pending in Chase 11/3 - down payment; plan 4 x ~$30.47 (11/3, 11/18, 12/2, 12/16)",
+      "note": "Posted in Chase 11/4 - down payment; plan 4 x ~$30.47 (11/3, 11/18, 12/2, 12/16)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -14.99,
+      "category": "Amazon Prime",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-05",
+      "description": "Amazon Prime - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_amazon-prime_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -2000,
+      "category": "Rent",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-05",
+      "description": "Rent - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_rent_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -30,
+      "category": "CC - AAA Visa (...8228)",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "CC - AAA Visa (...8228) - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-aaa-visa-8228_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -90,
+      "category": "CC - Credit 1 (...4352)",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "CC - Credit 1 (...4352) - checked off as paid",
+      "group": "Debt",
+      "id": "bill_cc-credit1-4352_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -2000,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "D",
+      "date": "2026-11-04",
+      "description": "Online Transfer to SAV ...5953 transaction#: 31493634968 11/04",
+      "group": "Transfer",
+      "id": "ea1b58b9-5777-42b1-b086-7a0e53a64192",
+      "note": "Posted in Chase 11/4 - $2,000 to savings (for November rent?)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -181.42,
+      "category": "Shop - Tiktok",
+      "confidence": "H",
+      "date": "2026-11-04",
+      "description": "PAYPAL PURCHASE TIKTOK SHOP WEB ID: PAYPALSI77",
+      "group": "Expenses",
+      "id": "beed364e-9861-4b8d-a423-72148b1a0c63",
+      "note": "Posted in Chase 11/4",
       "source": "Chase screenshot"
     }
   ],
