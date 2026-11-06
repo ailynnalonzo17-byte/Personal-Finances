@@ -209,7 +209,7 @@
       "description": "Amazon Prime - checked off as paid",
       "group": "Monthly Bills",
       "id": "bill_amazon-prime_2026-11",
-      "note": "From This month's bills & loans - checked off by you | Pending in Chase 11/5 (Amazon Prime Membership $14.99)",
+      "note": "From This month's bills & loans - checked off by you | Posted in Chase 11/5 (Amazon Prime Membership $14.99)",
       "source": "Bill checklist payment"
     },
     {
@@ -266,7 +266,7 @@
       "description": "ZELLE PAYMENT FROM RHIAN ABIGAIL ALMO 31504238022",
       "group": "Debt",
       "id": "9d606b65-5dff-443a-bc97-04d061146935",
-      "note": "Pending in Chase 11/5 - Rhian's November Miata payment (offsets the Westlake payment)",
+      "note": "Posted in Chase 11/5 - Rhian's November Miata payment (offsets the Westlake payment)",
       "source": "Chase screenshot"
     },
     {
@@ -277,7 +277,7 @@
       "description": "PAYPAL PURCHASE TIKTOK SHOP",
       "group": "Expenses",
       "id": "9cad367e-ea12-41c4-a3e0-ac9e578ed46e",
-      "note": "Pending in Chase 11/5",
+      "note": "Posted in Chase 11/5",
       "source": "Chase screenshot"
     },
     {
@@ -288,7 +288,7 @@
       "description": "AMAZON MARKETPLA INTERNET 043000095317268",
       "group": "Expenses",
       "id": "47b81571-5601-48d6-8ca1-902b61abb119",
-      "note": "Pending in Chase 11/5",
+      "note": "Posted in Chase 11/5",
       "source": "Chase screenshot"
     },
     {
@@ -299,7 +299,40 @@
       "description": "AMAZON MARKETPLA ADJUSTMENT (refund)",
       "group": "Expenses",
       "id": "2054a09f-2b9f-4d8b-a11a-9435822a24d8",
-      "note": "Pending in Chase 11/5 - Amazon refund (same amount as the 10/13 $119.20 order)",
+      "note": "Posted in Chase 11/5 - Amazon refund (same amount as the 10/13 $119.20 order)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -9.99,
+      "category": "Others",
+      "confidence": "D",
+      "date": "2026-11-05",
+      "description": "PAYPAL PURCHASE MICROSOFT WEB ID: PAYPALSI77",
+      "group": "Expenses",
+      "id": "3ba8670d-a032-47ca-9a27-8db1a884df04",
+      "note": "Posted in Chase 11/5 - Microsoft $9.99 (monthly plan?)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "confidence": "H",
+      "date": "2026-11-05",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "922b593f-73be-4e82-b18d-c361f6211a75",
+      "note": "Posted in Chase 11/5",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31413165189",
+      "group": "Transfer",
+      "id": "cd9fb339-9e6e-4443-8fa4-0824f61afbf2",
+      "note": "Posted in Chase 11/6",
       "source": "Chase screenshot"
     }
   ],
