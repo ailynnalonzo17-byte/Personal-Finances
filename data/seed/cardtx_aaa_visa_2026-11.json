@@ -10,8 +10,8 @@
       "amount": 330.39,
       "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "R",
-      "note": "Victra = Verizon store (phone/accessories?) - confirm",
+      "confidence": "H",
+      "note": "Verizon Victra store - phone (confirmed by you)",
       "type": "purchase",
       "source": "Account screenshot you sent"
     },
@@ -32,10 +32,10 @@
       "date": "2026-10-24",
       "description": "COVE 855-2683669 UT",
       "amount": 209.99,
-      "category": "Cove Smart",
-      "group": "Monthly Bills",
-      "confidence": "D",
-      "note": "Cove home security - equipment?",
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Cove home security equipment (confirmed by you)",
       "type": "purchase",
       "source": "Account screenshot you sent"
     }
