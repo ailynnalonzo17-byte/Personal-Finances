@@ -1930,18 +1930,6 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -37.92,
-      "category": "Affirm",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-10-30",
-      "description": "Affirm - TikTok (entryway table) - installment 3/4",
-      "group": "Debt",
-      "id": "loan_affirm-tiktok-entryway-table_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
-    },
-    {
       "amount": -39.33,
       "category": "Affirm",
       "cleared": true,
