@@ -387,7 +387,7 @@
     },
     {
       "amount": -11.91,
-      "category": "Shop - Others",
+      "category": "Shop - Target",
       "confidence": "H",
       "date": "2026-10-02",
       "description": "TARGET T-0680 HENDERSON NV 10/02 (...5851)",
@@ -552,7 +552,7 @@
     },
     {
       "amount": -37.65,
-      "category": "Shop - Others",
+      "category": "Shop - Nespresso",
       "confidence": "H",
       "date": "2026-10-06",
       "description": "POS DEBIT NESPRESSO USA INC WILMINGTON DE (...5851)",
@@ -641,7 +641,7 @@
     },
     {
       "amount": -41.16,
-      "category": "Shop - Others",
+      "category": "Shop - HomeGoods",
       "confidence": "H",
       "date": "2026-10-06",
       "description": "HOMEGOODS #0768 HENDERSON NV 10/06 (...5438)",
@@ -806,7 +806,7 @@
     },
     {
       "amount": -16,
-      "category": "Shop - Others",
+      "category": "Shop - Hella Kulit",
       "confidence": "H",
       "date": "2026-10-10",
       "description": "POS DEBIT SP HELLA KULIT LAKESIDE CA (...5851)",
@@ -1259,7 +1259,7 @@
     },
     {
       "amount": -14,
-      "category": "Shop - Others",
+      "category": "Shop - LBC",
       "confidence": "H",
       "date": "2026-10-17",
       "description": "POS DEBIT LBC HENDERSON NV HENDERSON NV",
@@ -2077,7 +2077,7 @@
     },
     {
       "amount": -15.16,
-      "category": "Shop - Others",
+      "category": "Shop - Target",
       "confidence": "D",
       "date": "2026-10-30",
       "description": "Target (...5851)",

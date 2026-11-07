@@ -476,7 +476,7 @@
     },
     {
       "amount": -21.66,
-      "category": "Shop - Others",
+      "category": "Shop - LEGO",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "LEGO Fashion Show Las Vegas NV               09/07",
@@ -520,7 +520,7 @@
     },
     {
       "amount": -48.78,
-      "category": "Shop - Others",
+      "category": "Shop - Hurley",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "HURLEYLVSXXX089 LAS VEGAS NV                 09/05",
@@ -542,7 +542,7 @@
     },
     {
       "amount": -95.91,
-      "category": "Shop - Others",
+      "category": "Shop - Tommy Hilfiger",
       "confidence": "D",
       "date": "2026-09-08",
       "description": "Tommy Hilfiger Las Vegas NV                  09/06",
@@ -564,7 +564,7 @@
     },
     {
       "amount": -141.39,
-      "category": "Shop - Others",
+      "category": "Shop - Nike",
       "confidence": "R",
       "date": "2026-09-08",
       "description": "NikePOS_US Las Vegas NV                      09/06",
@@ -993,7 +993,7 @@
     },
     {
       "amount": -39.63,
-      "category": "Shop - Others",
+      "category": "Shop - AliExpress",
       "confidence": "H",
       "date": "2026-09-14",
       "description": "Aliepay - sheet for couch",
@@ -1004,7 +1004,7 @@
     },
     {
       "amount": -0.99,
-      "category": "Shop - Others",
+      "category": "Shop - Apple",
       "confidence": "H",
       "date": "2026-09-14",
       "description": "paypal apple",
@@ -1453,7 +1453,7 @@
     },
     {
       "amount": -20,
-      "category": "Shop - Others",
+      "category": "Shop - Tigresa Beauty",
       "cleared": true,
       "confidence": "H",
       "date": "2026-09-21",
@@ -1477,7 +1477,7 @@
     },
     {
       "amount": -60,
-      "category": "Shop - Others",
+      "category": "Shop - Tigresa Beauty",
       "cleared": true,
       "confidence": "H",
       "date": "2026-09-21",
@@ -2236,7 +2236,7 @@
     },
     {
       "amount": -55,
-      "category": "Shop - Others",
+      "category": "Shop - Pickleball",
       "confidence": "H",
       "date": "2026-09-29",
       "description": "zelle to buy pickleball",

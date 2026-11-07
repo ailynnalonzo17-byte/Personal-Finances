@@ -1,43 +1,43 @@
 {
   "account": "aaa_visa",
-  "month": "2026-11",
   "cardCategory": "CC - AAA Visa",
   "entries": [
     {
-      "id": "aaa_visa_2026-11_0",
+      "amount": 330.39,
+      "category": "Shop - Verizon",
+      "confidence": "H",
       "date": "2026-10-17",
       "description": "VERIZON VICTRA NV HNDSNLMHENDERSON NV",
-      "amount": 330.39,
-      "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "H",
+      "id": "aaa_visa_2026-11_0",
       "note": "Verizon Victra store - phone (confirmed by you)",
-      "type": "purchase",
-      "source": "Account screenshot you sent"
+      "source": "Account screenshot you sent",
+      "type": "purchase"
     },
     {
-      "id": "aaa_visa_2026-11_1",
-      "date": "2026-10-18",
-      "description": "CHEESECAKE N LAS VEGAS LAS VEGAS NV",
       "amount": 54.49,
       "category": "Food - Eat Out",
-      "group": "Expenses",
       "confidence": "H",
+      "date": "2026-10-18",
+      "description": "CHEESECAKE N LAS VEGAS LAS VEGAS NV",
+      "group": "Expenses",
+      "id": "aaa_visa_2026-11_1",
       "note": "Cheesecake Factory",
-      "type": "purchase",
-      "source": "Account screenshot you sent"
+      "source": "Account screenshot you sent",
+      "type": "purchase"
     },
     {
-      "id": "aaa_visa_2026-11_2",
+      "amount": 209.99,
+      "category": "Shop - Cove",
+      "confidence": "H",
       "date": "2026-10-24",
       "description": "COVE 855-2683669 UT",
-      "amount": 209.99,
-      "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "H",
+      "id": "aaa_visa_2026-11_2",
       "note": "Cove home security equipment (confirmed by you)",
-      "type": "purchase",
-      "source": "Account screenshot you sent"
+      "source": "Account screenshot you sent",
+      "type": "purchase"
     }
-  ]
+  ],
+  "month": "2026-11"
 }

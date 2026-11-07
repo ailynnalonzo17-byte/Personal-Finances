@@ -58,7 +58,7 @@
     },
     {
       "amount": -20.25,
-      "category": "Shop - Others",
+      "category": "Shop - Miss A",
       "confidence": "D",
       "date": "2026-11-02",
       "description": "SP MISS A STORE (...5438) Shop Pay",
@@ -158,7 +158,7 @@
     },
     {
       "amount": -82.2,
-      "category": "Shop - Others",
+      "category": "Shop - Fun Gifts",
       "confidence": "H",
       "date": "2026-11-03",
       "description": "FUN GIFTS LAS VEGAS NV 11/03 (...5438)",

@@ -17,7 +17,8 @@ EXPENSES = [
     "Remittance - Aron","Remittance - Aron tuition","Remittance - others",
     "Salinas Valley Dr","Shop - Amazon","Shop - Amazon returns","Shop - Goodwill",
     "Shop - Others","Shop - Marketplace","Shop - Paypal","Shop - Ross","Shop - Shein","Shop - Temu","Shop - Tiktok",
-    "Shop - Whatnot","VA expense","Vacation","Water",
+    "Shop - Whatnot",
+    "Shop - AeroFlowDynamics","Shop - AliExpress","Shop - Alloyman Tools","Shop - Ambercup","Shop - Apple","Shop - Billetworkz","Shop - CM9S","Shop - Chic and Cozy Consignment","Shop - Cove","Shop - Crocs","Shop - Daiso","Shop - Dollar Tree","Shop - Fluxion","Shop - Fun Gifts","Shop - Groupon","Shop - Hella Kulit","Shop - HomeGoods","Shop - Hurley","Shop - IKEA","Shop - Kipling","Shop - LA Salon and Spa","Shop - LBC","Shop - LEGO","Shop - Lacoste","Shop - Life Time Off-Road","Shop - Limitless","Shop - Mac.bid","Shop - Marc Jacobs","Shop - Marshalls","Shop - Miss A","Shop - Nespresso","Shop - Nike","Shop - Old Navy","Shop - Original Deal Shop","Shop - Pickleball","Shop - Quality Prints USA","Shop - REI","Shop - Salinas Liquidations","Shop - Shapermint","Shop - Shoppawvia","Shop - Sudz","Shop - TJ Maxx","Shop - Target","Shop - The North Face","Shop - Tigresa Beauty","Shop - Tommy Hilfiger","Shop - Ulta","Shop - Uniqlo","Shop - Verizon","Shop - Victoria's Secret","Shop - eBay","VA expense","Vacation","Water",
 ]
 
 DEBT = [

@@ -1,43 +1,43 @@
 {
   "account": "venmo",
-  "month": "2026-09",
   "cardCategory": "CC - Venmo",
   "entries": [
     {
-      "id": "venmo_2026-09_0",
+      "amount": 27.7,
+      "category": "Shop - Mac.bid",
+      "confidence": "H",
       "date": "2026-08-27",
       "description": "WWW.MAC.BID WWW.MAC.BID PA",
-      "amount": 27.7,
-      "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "H",
+      "id": "venmo_2026-09_0",
       "note": "Mac.bid online auction purchase",
-      "type": "purchase",
-      "source": "Card statement PDF you uploaded"
+      "source": "Card statement PDF you uploaded",
+      "type": "purchase"
     },
     {
-      "id": "venmo_2026-09_1",
+      "amount": 0.74,
+      "category": "Shop - Mac.bid",
+      "confidence": "H",
       "date": "2026-08-31",
       "description": "WWW.MAC.BID WWW.MAC.BID PA",
-      "amount": 0.74,
-      "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "H",
+      "id": "venmo_2026-09_1",
       "note": "Mac.bid online auction purchase",
-      "type": "purchase",
-      "source": "Card statement PDF you uploaded"
+      "source": "Card statement PDF you uploaded",
+      "type": "purchase"
     },
     {
-      "id": "venmo_2026-09_2",
+      "amount": 53.38,
+      "category": "Shop - Mac.bid",
+      "confidence": "H",
       "date": "2026-09-02",
       "description": "WWW.MAC.BID WWW.MAC.BID PA",
-      "amount": 53.38,
-      "category": "Shop - Others",
       "group": "Expenses",
-      "confidence": "H",
+      "id": "venmo_2026-09_2",
       "note": "Mac.bid online auction purchase",
-      "type": "purchase",
-      "source": "Card statement PDF you uploaded"
+      "source": "Card statement PDF you uploaded",
+      "type": "purchase"
     }
-  ]
+  ],
+  "month": "2026-09"
 }

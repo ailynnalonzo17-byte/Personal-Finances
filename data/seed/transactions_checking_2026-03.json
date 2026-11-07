@@ -1,4 +1,5 @@
 {
+  "account": "checking",
   "entries": [
     {
       "amount": -39.87,
@@ -112,7 +113,7 @@
     },
     {
       "amount": -19.89,
-      "category": "Shop - Others",
+      "category": "Shop - AeroFlowDynamics",
       "confidence": "R",
       "date": "2026-03-02",
       "description": "SP AFDOVERLAYS AEROFLOWDYNAM CA              03/01",
@@ -695,7 +696,7 @@
     },
     {
       "amount": -29.3,
-      "category": "Shop - Others",
+      "category": "Shop - Billetworkz",
       "confidence": "R",
       "date": "2026-03-09",
       "description": "SP BILLETWORKZ BILLETWORKZ.C PA              03/07",
@@ -728,7 +729,7 @@
     },
     {
       "amount": -27,
-      "category": "Shop - Others",
+      "category": "Shop - LA Salon and Spa",
       "confidence": "D",
       "date": "2026-03-09",
       "description": "LA SALON AND SPA SALINAS CA                  03/06",
@@ -761,7 +762,7 @@
     },
     {
       "amount": -58.7,
-      "category": "Shop - Others",
+      "category": "Shop - Nespresso",
       "confidence": "D",
       "date": "2026-03-10",
       "description": "NESPRESSO USA INC Wilmington DE              03/10",
@@ -794,7 +795,7 @@
     },
     {
       "amount": -11.25,
-      "category": "Shop - Others",
+      "category": "Shop - Sudz",
       "confidence": "D",
       "date": "2026-03-10",
       "description": "SUDZ LLC SALINAS CA                          03/09",
@@ -1168,7 +1169,7 @@
     },
     {
       "amount": -10.86,
-      "category": "Shop - Others",
+      "category": "Shop - eBay",
       "confidence": "D",
       "date": "2026-03-16",
       "description": "EBAY COMMERCE INC. SAN JOSE CA               03/15",
@@ -2334,7 +2335,7 @@
     },
     {
       "amount": -8,
-      "category": "Shop - Others",
+      "category": "Shop - Sudz",
       "confidence": "D",
       "date": "2026-03-30",
       "description": "SUDZ LLC SALINAS CA                          03/27",
@@ -2431,5 +2432,6 @@
       "note": "",
       "source": "Chase CSV import"
     }
-  ]
+  ],
+  "month": "2026-03"
 }

@@ -1,4 +1,5 @@
 {
+  "account": "checking",
   "entries": [
     {
       "amount": -2500,
@@ -717,7 +718,7 @@
     },
     {
       "amount": -16.32,
-      "category": "Shop - Others",
+      "category": "Shop - Quality Prints USA",
       "confidence": "R",
       "date": "2026-04-08",
       "description": "SP QUALITYPRINTSUSA. QUALITYPRINTS CA        04/08",
@@ -805,7 +806,7 @@
     },
     {
       "amount": -81.39,
-      "category": "Shop - Others",
+      "category": "Shop - eBay",
       "confidence": "D",
       "date": "2026-04-10",
       "description": "EBAY COMMERCE INC. SAN JOSE CA               04/10",
@@ -1025,7 +1026,7 @@
     },
     {
       "amount": -125.68,
-      "category": "Shop - Others",
+      "category": "Shop - TJ Maxx",
       "confidence": "D",
       "date": "2026-04-13",
       "description": "T.J. MAXX #1604 HOLLISTER CA                 04/12",
@@ -1333,7 +1334,7 @@
     },
     {
       "amount": -8.75,
-      "category": "Shop - Others",
+      "category": "Shop - Sudz",
       "confidence": "D",
       "date": "2026-04-17",
       "description": "SUDZ LLC SALINAS CA                          04/16",
@@ -1564,7 +1565,7 @@
     },
     {
       "amount": -45,
-      "category": "Shop - Others",
+      "category": "Shop - Life Time Off-Road",
       "confidence": "R",
       "date": "2026-04-20",
       "description": "SP LIFE TIME OFF-ROA 161-68360573 KS         04/18",
@@ -2376,5 +2377,6 @@
       "note": "UPS payroll deposit - assumed this is your own Key Salary income, please confirm",
       "source": "Chase CSV import"
     }
-  ]
+  ],
+  "month": "2026-04"
 }
