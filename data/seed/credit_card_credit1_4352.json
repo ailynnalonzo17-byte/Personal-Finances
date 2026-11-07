@@ -1,14 +1,16 @@
 {
   "apr": 27.9,
-  "balance": 603.07,
+  "balance": 881.93,
   "category": "CC - Credit 1",
-  "dueDate": "2026-10-06",
+  "creditLimit": 950,
+  "dueDate": "2026-11-06",
   "holder": "Christopher",
   "issuer": "Credit One Bank",
   "last4": "4352",
-  "minPayment": 90.0,
+  "minPayment": 30.0,
   "name": "Credit One Bank (...4352)",
-  "note": "NOT paid off (the 11/7 $268.27 went to AAA). $603.07 = charges since the last statement only (Mac.bid, Ulta, LillyDirect, North Face); the last statement balance isn't on file yet, so the real total is higher.",
-  "source": "Statement PDF you uploaded (5 month(s) on file)",
+  "note": "11/7: current $881.93 = last statement $278.86 + $603.07 new charges; no payment yet. Min $30 was due 11/6 (late). Only $68 available of $950.",
+  "source": "Credit One account screenshot 11/7",
+  "statementBalance": 278.86,
   "statementDate": "2026-09-10"
 }
