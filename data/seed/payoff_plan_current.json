@@ -1,6 +1,6 @@
 {
   "method": "Avalanche - minimums on every card, all extra money to the highest-APR card",
-  "updated": "2026-11-04",
+  "updated": "2026-11-06",
   "steps": [
     "Stop new charges on cards and new pay-later plans - use the Chase debit card day to day.",
     "Pay PayPal Cashback ($90.57, 34%) and AAA Visa ($250.49) in full every month so they never charge interest.",
@@ -18,7 +18,7 @@
     {
       "id": "aaa_visa",
       "role": "pay_in_full",
-      "note": "New card, $10,000 limit - pay the full statement ($250.49) by 11/6"
+      "note": "Pay each statement in full: $250.49 due 11/6, then ~$594.87 (phone, Cove, Cheesecake) on the next one"
     },
     {
       "id": "chase_amazon",
@@ -28,7 +28,7 @@
     {
       "id": "venmo",
       "role": "avalanche",
-      "note": "34.24% - highest rate, small - clear it first"
+      "note": "34.49% - highest rate - TARGET #1 (balance jumped to $1,210 from mac.bid)"
     },
     {
       "id": "onepay",
@@ -59,6 +59,11 @@
       "id": "citi",
       "role": "avalanche",
       "note": "Costco Citi 26.99%"
+    },
+    {
+      "id": "victorias_secret",
+      "role": "later",
+      "note": "APR not on file yet (store cards are usually 30%+) - send the statement"
     }
   ]
 }
