@@ -1,0 +1,55 @@
+{
+  "account": "credit1_4352",
+  "month": "2026-11",
+  "cardCategory": "CC - Credit 1",
+  "entries": [
+    {
+      "id": "credit1_4352_2026-11_0",
+      "date": "2026-10-21",
+      "description": "WWW.MAC.BID WWW.MAC.BID PA",
+      "amount": 66.81,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Posted since last statement (assumed Credit One ...4352)",
+      "type": "purchase",
+      "source": "Account screenshot you sent"
+    },
+    {
+      "id": "credit1_4352_2026-11_1",
+      "date": "2026-10-23",
+      "description": "ULTA #1097 HENDERSON NV",
+      "amount": 101.79,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Posted since last statement (assumed Credit One ...4352)",
+      "type": "purchase",
+      "source": "Account screenshot you sent"
+    },
+    {
+      "id": "credit1_4352_2026-11_2",
+      "date": "2026-10-27",
+      "description": "GIFTHEALTH*LILLYDIRECT GIFTHEALTH.COOH",
+      "amount": 304.42,
+      "category": "Medical",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Posted since last statement (assumed Credit One ...4352)",
+      "type": "purchase",
+      "source": "Account screenshot you sent"
+    },
+    {
+      "id": "credit1_4352_2026-11_3",
+      "date": "2026-11-02",
+      "description": "The North Face 346 Las Vegas NV",
+      "amount": 130.05,
+      "category": "Shop - Others",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Posted since last statement (assumed Credit One ...4352)",
+      "type": "purchase",
+      "source": "Account screenshot you sent"
+    }
+  ]
+}
