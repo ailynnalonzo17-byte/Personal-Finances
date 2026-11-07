@@ -225,16 +225,16 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -90,
+      "amount": -268.27,
       "category": "CC - Credit 1 (...4352)",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-06",
-      "description": "CC - Credit 1 (...4352) - checked off as paid",
+      "date": "2026-11-07",
+      "description": "Credit One (...4352) payment - paid off",
       "group": "Debt",
       "id": "bill_cc-credit1-4352_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Paid off from Chase 11/7 ($268.27, per you)",
+      "source": "User report"
     },
     {
       "amount": -2000,
