@@ -213,28 +213,28 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -30,
-      "category": "CC - AAA Visa (...8228)",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-11-06",
-      "description": "CC - AAA Visa (...8228) - checked off as paid",
-      "group": "Debt",
-      "id": "bill_cc-aaa-visa-8228_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
-    },
-    {
       "amount": -268.27,
-      "category": "CC - Credit 1 (...4352)",
+      "category": "CC - AAA Visa (...8228)",
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-07",
-      "description": "Credit One (...4352) payment - paid off",
+      "description": "AAA Visa (...8228) payment",
+      "group": "Debt",
+      "id": "bill_cc-aaa-visa-8228_2026-11",
+      "note": "Paid from Chase 11/7 ($268.27, per you) - covers the $250.49 statement in full + $17.78 extra",
+      "source": "User report"
+    },
+    {
+      "amount": -90,
+      "category": "CC - Credit 1 (...4352)",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "CC - Credit 1 (...4352) - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-credit1-4352_2026-11",
-      "note": "Paid off from Chase 11/7 ($268.27, per you)",
-      "source": "User report"
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
     },
     {
       "amount": -2000,

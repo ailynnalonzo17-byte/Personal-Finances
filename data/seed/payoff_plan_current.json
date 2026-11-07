@@ -1,1 +1,69 @@
-{"method": "Snowball (your choice) - minimums on every card, all extra money to the SMALLEST balance first", "updated": "2026-11-07", "steps": ["Stop new charges on cards and new pay-later plans - use the Chase debit card day to day.", "Pay PayPal Cashback ($90.57, 34%) and AAA Visa ($250.49) in full every month so they never charge interest.", "Chase Amazon: always pay the Interest Saving Balance (now $295.33) - that keeps it at 0% interest.", "Put every card's minimum on AutoPay so there are never late fees or penalty APRs.", "Optional: a 0% balance-transfer card for Frontier/Capital One/Citi, or call Barclays and Capital One to ask for a lower APR.", "As each card hits $0, roll its whole payment onto the next-smallest balance. As pay-later plans end (about $450/mo freed by January, about $820/mo by March), add that money too."], "cards": [{"id": "paypal_cashback_mc", "role": "pay_in_full", "note": "34.24% - pay the full statement ($90.57) by 11/17"}, {"id": "aaa_visa", "role": "pay_in_full", "note": "Pay each statement in full: $250.49 (11/6), then ~$594.87 on the next one"}, {"id": "chase_amazon", "role": "no_interest", "note": "China Air + AirAsia Pay Over Time plans - pay the Interest Saving Balance ($295.33) = no interest"}, {"id": "victorias_secret", "role": "avalanche", "note": "Now the smallest (~$304) - clear it first"}, {"id": "credit1_4352", "role": "avalanche", "note": "Statement paid 11/7; $603.07 new charges (27.9%) - next after Victoria's Secret"}, {"id": "onepay", "role": "avalanche", "note": "30.74%"}, {"id": "capital1_savor", "role": "avalanche", "note": "Savor 28.49%"}, {"id": "capital1", "role": "avalanche", "note": "Quicksilver 28.49% (AutoPay $100)"}, {"id": "venmo", "role": "avalanche", "note": "34.49% - highest rate"}, {"id": "citi", "role": "avalanche", "note": "Costco Citi 26.99%"}, {"id": "frontier", "role": "avalanche", "note": "29.49% - biggest balance, last"}]}
+{
+  "method": "Snowball (your choice) - minimums on every card, all extra money to the SMALLEST balance first",
+  "updated": "2026-11-07",
+  "steps": [
+    "Stop new charges on cards and new pay-later plans - use the Chase debit card day to day.",
+    "Pay PayPal Cashback ($90.57, 34%) and AAA Visa ($250.49) in full every month so they never charge interest.",
+    "Chase Amazon: always pay the Interest Saving Balance (now $295.33) - that keeps it at 0% interest.",
+    "Put every card's minimum on AutoPay so there are never late fees or penalty APRs.",
+    "Optional: a 0% balance-transfer card for Frontier/Capital One/Citi, or call Barclays and Capital One to ask for a lower APR.",
+    "As each card hits $0, roll its whole payment onto the next-smallest balance. As pay-later plans end (about $450/mo freed by January, about $820/mo by March), add that money too."
+  ],
+  "cards": [
+    {
+      "id": "paypal_cashback_mc",
+      "role": "pay_in_full",
+      "note": "34.24% - pay the full statement ($90.57) by 11/17"
+    },
+    {
+      "id": "aaa_visa",
+      "role": "pay_in_full",
+      "note": "Oct statement paid 11/7 ($268.27). Pay the next statement (~$577) in full"
+    },
+    {
+      "id": "chase_amazon",
+      "role": "no_interest",
+      "note": "China Air + AirAsia Pay Over Time plans - pay the Interest Saving Balance ($295.33) = no interest"
+    },
+    {
+      "id": "victorias_secret",
+      "role": "avalanche",
+      "note": "Now the smallest (~$304) - clear it first"
+    },
+    {
+      "id": "credit1_4352",
+      "role": "avalanche",
+      "note": "NOT paid yet - at least $603.07 (27.9%); next after Victoria's Secret"
+    },
+    {
+      "id": "onepay",
+      "role": "avalanche",
+      "note": "30.74%"
+    },
+    {
+      "id": "capital1_savor",
+      "role": "avalanche",
+      "note": "Savor 28.49%"
+    },
+    {
+      "id": "capital1",
+      "role": "avalanche",
+      "note": "Quicksilver 28.49% (AutoPay $100)"
+    },
+    {
+      "id": "venmo",
+      "role": "avalanche",
+      "note": "34.49% - highest rate"
+    },
+    {
+      "id": "citi",
+      "role": "avalanche",
+      "note": "Costco Citi 26.99%"
+    },
+    {
+      "id": "frontier",
+      "role": "avalanche",
+      "note": "29.49% - biggest balance, last"
+    }
+  ]
+}
