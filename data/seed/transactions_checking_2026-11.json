@@ -358,6 +358,18 @@
       "id": "chase_2026-11-06_paypal50",
       "note": "Weekly $50 to PayPal",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -137.21,
+      "category": "CC - Frontier card",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-07",
+      "description": "Frontier card (...6936) payment",
+      "group": "Debt",
+      "id": "bill_cc-frontier-card_2026-11",
+      "note": "Paid $137.21 minimum from Chase 11/7 (due 11/8), per you. Not out of Chase yet.",
+      "source": "User report"
     }
   ],
   "month": "2026-11"

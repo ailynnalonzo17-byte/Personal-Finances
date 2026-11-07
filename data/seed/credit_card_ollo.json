@@ -5,10 +5,10 @@
   "last4": "3450",
   "category": "CC - Ollo",
   "statementDate": "2026-09-09",
-  "balance": 27,
-  "minPayment": 27,
+  "balance": 0,
+  "minPayment": 0,
   "dueDate": "2026-10-04",
   "apr": 30.49,
   "source": "Statement PDF you uploaded (3 month(s) on file)",
-  "note": "The $27 balance is a late fee - the $129 payment posted 9/6, after the 9/4 due date. Pay it by 10/4 and the card is at $0."
+  "note": "Confirmed by you 11/7: $0 balance (the $27 late fee is paid)."
 }
