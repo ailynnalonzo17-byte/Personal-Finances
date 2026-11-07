@@ -1,1 +1,1 @@
-{"account": "checking", "active": true, "amount": 30, "dueDay": 6, "group": "Debt", "name": "CC - Credit 1 (...4352)", "note": "Credit One ...4352 minimum $30, due the 6th. Nov: NOT paid by 11/6 - pay $30 ASAP (statement balance $278.86).", "type": "debt"}
+{"account": "checking", "active": true, "amount": 30, "dueDay": 6, "group": "Debt", "name": "CC - Credit 1 (...4352)", "note": "Credit One ...4352 minimum $30, due the 6th. Nov: paid $30 on 11/7 (1 day late).", "type": "debt"}

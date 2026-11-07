@@ -227,14 +227,14 @@
     {
       "amount": -30,
       "category": "CC - Credit 1 (...4352)",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-06",
-      "description": "CC - Credit 1 (...4352) - checked off as paid",
+      "date": "2026-11-07",
+      "description": "Credit One (...4352) payment",
       "group": "Debt",
       "id": "bill_cc-credit1-4352_2026-11",
-      "note": "Minimum $30 (due 11/6) - not paid yet as of 11/7",
-      "source": "Bill checklist payment"
+      "note": "Paid $30 minimum from Chase 11/7 (due 11/6), per you",
+      "source": "User report"
     },
     {
       "amount": -2000,

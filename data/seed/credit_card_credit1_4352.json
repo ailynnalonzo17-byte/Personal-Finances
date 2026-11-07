@@ -1,6 +1,6 @@
 {
   "apr": 27.9,
-  "balance": 881.93,
+  "balance": 851.93,
   "category": "CC - Credit 1",
   "creditLimit": 950,
   "dueDate": "2026-11-06",
@@ -9,7 +9,7 @@
   "last4": "4352",
   "minPayment": 30.0,
   "name": "Credit One Bank (...4352)",
-  "note": "11/7: current $881.93 = last statement $278.86 + $603.07 new charges; no payment yet. Min $30 was due 11/6 (late). Only $68 available of $950.",
+  "note": "11/7: $881.93 (last statement $278.86 + $603.07 new charges) minus $30 paid 11/7 = $851.93. Min was due 11/6 (paid 1 day late). Limit $950.",
   "source": "Credit One account screenshot 11/7",
   "statementBalance": 278.86,
   "statementDate": "2026-09-10"
