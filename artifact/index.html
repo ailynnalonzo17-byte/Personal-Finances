@@ -249,6 +249,19 @@
 
   <section class="accounts" id="accountsGrid"></section>
 
+  <div class="panel" id="payoffPanel" style="display:none">
+    <h2>Debt payoff plan</h2>
+    <div class="sub" id="payoffSub"></div>
+    <div id="payoffSteps" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll">
+      <table>
+        <thead><tr><th>#</th><th>Card</th><th>What to do</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Interest / mo</th><th style="text-align:right">Min. payment</th></tr></thead>
+        <tbody id="payoffList"></tbody>
+      </table>
+    </div>
+  </div>
+
+
   <div class="panel">
     <h2>Add a transaction</h2>
     <div class="sub">Logs to the right account &amp; month, and updates every balance below immediately.</div>
@@ -336,18 +349,6 @@
       <table>
         <thead><tr><th>Card</th><th>Statement date</th><th>Due date</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Min. payment</th><th style="text-align:center">Paid</th></tr></thead>
         <tbody id="ccList"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="panel" id="payoffPanel" style="display:none">
-    <h2>Debt payoff plan</h2>
-    <div class="sub" id="payoffSub"></div>
-    <div id="payoffSteps" class="summary" style="margin-bottom:14px;"></div>
-    <div class="tx-scroll">
-      <table>
-        <thead><tr><th>#</th><th>Card</th><th>What to do</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Interest / mo</th><th style="text-align:right">Min. payment</th></tr></thead>
-        <tbody id="payoffList"></tbody>
       </table>
     </div>
   </div>
