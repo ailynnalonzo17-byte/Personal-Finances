@@ -661,14 +661,14 @@
     },
     {
       "amount": -66.12,
-      "category": "Remittance - Aron",
+      "category": "Key Salary",
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-10",
       "description": "Taptap Send (...5438)",
       "group": "Expenses",
       "id": "chase_2026-11-10_taptap",
-      "note": "Taptap Send - filed as Remittance - Aron like past Taptap sends; confirm",
+      "note": "Taptap Send - Key salary (per you)",
       "source": "Chase screenshot"
     }
   ],
