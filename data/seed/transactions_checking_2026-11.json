@@ -370,6 +370,42 @@
       "id": "bill_cc-frontier-card_2026-11",
       "note": "Paid $137.21 minimum from Chase 11/7 (due 11/8), per you. Not out of Chase yet.",
       "source": "User report"
+    },
+    {
+      "amount": -33.17,
+      "category": "Affirm",
+      "cleared": true,
+      "confidence": "M",
+      "date": "2026-11-06",
+      "description": "AFF SELKIRK SPORT (...5851) Shop Pay",
+      "group": "Debt",
+      "id": "chase_2026-11-06_selkirk3317",
+      "note": "Pending in Chase 11/6. Not part of the $121.89 Selkirk plan (that one is $30.47 payments) - looks like a 2nd Selkirk/Affirm purchase; confirm.",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -31.76,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "Smoothie King (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-06_smoothie3176",
+      "note": "Pending in Chase 11/6",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.11,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-06",
+      "description": "Smoothie King (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-06_smoothie2211",
+      "note": "Pending in Chase 11/6",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
