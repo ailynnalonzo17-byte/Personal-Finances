@@ -411,12 +411,12 @@
       "amount": -49.99,
       "category": "Shop - Cove",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-09",
       "description": "COVE (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-09_cove4999",
-      "note": "Not the $29.99 monthly plan (due the 22nd) - confirm what this is",
+      "note": "Cove CCTV equipment (per you) - separate from the $29.99 monthly plan",
       "source": "Chase screenshot"
     },
     {
