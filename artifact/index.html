@@ -249,18 +249,25 @@
 
   <section class="accounts" id="accountsGrid"></section>
 
-  <div class="panel" id="payoffPanel" style="display:none">
-    <h2>Debt payoff plan</h2>
-    <div class="sub" id="payoffSub"></div>
-    <div id="payoffSteps" class="summary" style="margin-bottom:14px;"></div>
-    <div class="tx-scroll">
+  <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+      <div><h2>Running balance</h2><div class="sub" id="registerSub">Unchecked transactions first, then newest first, with the balance right after each one</div></div>
+      <select id="registerAcct">
+        <option value="checking">Checking</option>
+        <option value="savings">Savings</option>
+        <option value="paypal">PayPal</option>
+        <option value="sofi_savings">SoFi Savings</option>
+      </select>
+    </div>
+    <div id="registerSummary" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll" id="registerScroll">
       <table>
-        <thead><tr><th>#</th><th>Card</th><th>What to do</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Interest / mo</th><th style="text-align:right">Min. payment</th></tr></thead>
-        <tbody id="payoffList"></tbody>
+        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:center" title="Whether this entry counts toward the balance to the right">Counts</th><th style="text-align:right">Balance</th><th></th></tr></thead>
+        <tbody id="registerBody"></tbody>
       </table>
     </div>
+    <div class="row-count" id="registerCount"></div>
   </div>
-
 
   <div class="panel">
     <h2>Add a transaction</h2>
@@ -290,24 +297,16 @@
     </form>
   </div>
 
-  <div class="panel">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-      <div><h2>Running balance</h2><div class="sub" id="registerSub">Unchecked transactions first, then newest first, with the balance right after each one</div></div>
-      <select id="registerAcct">
-        <option value="checking">Checking</option>
-        <option value="savings">Savings</option>
-        <option value="paypal">PayPal</option>
-        <option value="sofi_savings">SoFi Savings</option>
-      </select>
-    </div>
-    <div id="registerSummary" class="summary" style="margin-bottom:14px;"></div>
-    <div class="tx-scroll" id="registerScroll">
+  <div class="panel" id="payoffPanel" style="display:none">
+    <h2>Debt payoff plan</h2>
+    <div class="sub" id="payoffSub"></div>
+    <div id="payoffSteps" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll">
       <table>
-        <thead><tr><th>Date</th><th>Description</th><th>Category</th><th style="text-align:right">Amount</th><th style="text-align:center" title="Whether this entry counts toward the balance to the right">Counts</th><th style="text-align:right">Balance</th><th></th></tr></thead>
-        <tbody id="registerBody"></tbody>
+        <thead><tr><th>#</th><th>Card</th><th>What to do</th><th style="text-align:right">APR</th><th style="text-align:right">Balance</th><th style="text-align:right">Interest / mo</th><th style="text-align:right">Min. payment</th></tr></thead>
+        <tbody id="payoffList"></tbody>
       </table>
     </div>
-    <div class="row-count" id="registerCount"></div>
   </div>
 
   <div class="panel" id="monthListPanel">
