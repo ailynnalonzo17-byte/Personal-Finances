@@ -468,15 +468,15 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -44.51,
+      "amount": -50.67,
       "category": "Food - Eat Out",
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-09",
-      "description": "IHOP (...5851)",
+      "description": "IHOP # 1615 HENDERSON NV 11/08 (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-09_ihop",
-      "note": "",
+      "note": "Pending $44.51, posted $50.67 (tip added)",
       "source": "Chase screenshot"
     },
     {
@@ -508,7 +508,7 @@
       "category": "Shop - Temu",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-11-07",
+      "date": "2026-11-09",
       "description": "TEMU (...5851) PayPal",
       "group": "Expenses",
       "id": "chase_2026-11-09_temu",
