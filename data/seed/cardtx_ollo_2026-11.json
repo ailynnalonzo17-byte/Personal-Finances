@@ -1,0 +1,19 @@
+{
+  "account": "ollo",
+  "month": "2026-11",
+  "cardCategory": "CC - Ollo",
+  "entries": [
+    {
+      "id": "ollo_2026-11_0",
+      "date": "2026-10-11",
+      "description": "HIMS & HERS HEALTH SAN FRANCISCO CA",
+      "amount": 129.0,
+      "category": "Health",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Telehealth - may be a monthly subscription; confirm",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
