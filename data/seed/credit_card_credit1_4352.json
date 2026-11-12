@@ -1,5 +1,5 @@
 {
-  "apr": 27.9,
+  "apr": 28.15,
   "balance": 851.93,
   "category": "CC - Credit 1",
   "creditLimit": 950,
@@ -9,8 +9,8 @@
   "last4": "4352",
   "minPayment": 30.0,
   "name": "Credit One Bank (...4352)",
-  "note": "11/7: $881.93 (last statement $278.86 + $603.07 new charges) minus $30 paid 11/7 = $851.93. Min was due 11/6 (paid 1 day late). Limit $950.",
-  "source": "Credit One account screenshot 11/7",
+  "note": "Oct 10 statement: $278.86 ($10.59 interest; $250 paid 10/3), min $30 due 11/6 - paid $30 (posted 11/10, 4 days late). Plus $603.07 new charges since -> about $851.93. Next statement closed 11/10 (due ~12/6). APR 28.15% variable. Limit $950.",
+  "source": "Statement PDF you uploaded (Oct 10 statement) + account screenshot 11/7",
   "statementBalance": 278.86,
-  "statementDate": "2026-09-10"
+  "statementDate": "2026-10-10"
 }

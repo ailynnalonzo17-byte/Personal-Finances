@@ -1,0 +1,31 @@
+{
+  "account": "credit1_4352",
+  "month": "2026-10",
+  "cardCategory": "CC - Credit 1",
+  "entries": [
+    {
+      "id": "credit1_4352_2026-10_0",
+      "date": "2026-10-03",
+      "description": "PAYMENT - MOBILE APP LAS VEGAS NV",
+      "amount": -250.0,
+      "category": "CC - Credit 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Payment from Chase (ledger 10/6)",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "credit1_4352_2026-10_1",
+      "date": "2026-10-10",
+      "description": "Interest Charge on Purchases",
+      "amount": 10.59,
+      "category": "CC - Credit 1",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest charged by this card",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}
