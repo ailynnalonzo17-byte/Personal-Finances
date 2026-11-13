@@ -10,8 +10,8 @@
       "amount": 129.0,
       "category": "Health",
       "group": "Expenses",
-      "confidence": "M",
-      "note": "Telehealth - may be a monthly subscription; confirm",
+      "confidence": "H",
+      "note": "One-time purchase, not a subscription (per you)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     }
