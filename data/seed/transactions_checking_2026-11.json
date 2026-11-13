@@ -554,14 +554,14 @@
     {
       "amount": -205.62,
       "category": "National Life Ins",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-11",
-      "description": "National Life Ins - checked off as paid",
+      "date": "2026-11-12",
+      "description": "ORIG CO NAME:LIFE INS OF SW CO ENTRY (National Life)",
       "group": "Monthly Bills",
       "id": "bill_national-life-ins_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Checked off by you; posted in Chase 11/12",
+      "source": "Chase screenshot"
     },
     {
       "amount": -34,
@@ -669,6 +669,90 @@
       "group": "Expenses",
       "id": "chase_2026-11-10_taptap",
       "note": "Taptap Send - Key salary (per you)",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -31.18,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "FREDDYS 07 0009 (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_freddys",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -9.74,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "AMAZON MARKETPLA INTERNET 043000093265922",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_amzn974",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -21.66,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "AMAZON MARKETPLA INTERNET 043000092964228",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_amzn2166",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -14.55,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "85C Bakery Cafe (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_85c",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -31.98,
+      "category": "Shop - Target",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "Target (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_target",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_dinkers",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "VA expense",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "Claude (...5438)",
+      "group": "Expenses",
+      "id": "chase_2026-11-12_claude",
+      "note": "",
       "source": "Chase screenshot"
     }
   ],
