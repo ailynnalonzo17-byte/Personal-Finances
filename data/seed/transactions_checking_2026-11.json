@@ -626,14 +626,14 @@
     {
       "amount": -295.33,
       "category": "CC - Chase Amazon Visa",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-15",
-      "description": "CC - Chase Amazon Visa - checked off as paid",
+      "date": "2026-11-13",
+      "description": "PAYMENT TO CHASE CARD ENDING IN 1755 11/13",
       "group": "Debt",
       "id": "bill_cc-chase-amazon-visa_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Checked off by you; Interest Saving Balance $295.33 - posted in Chase 11/13",
+      "source": "Chase screenshot"
     },
     {
       "amount": -32.83,
@@ -765,6 +765,30 @@
       "group": "Transfer",
       "id": "chase_2026-11-12_paypal700",
       "note": "From PayPal Savings to cover bills until payday",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -9,
+      "category": "Medical",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-13",
+      "description": "LOY ATIPHYSICALTHERAPY (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-13_ati",
+      "note": "ATI Physical Therapy",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -25,
+      "category": "Transfer - Checking to Savings",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-13",
+      "description": "ONLINE TRANSFER TO SAV ...5953 TRANSACTION#: 31516365682",
+      "group": "Transfer",
+      "id": "chase_2026-11-13_sav25",
+      "note": "Weekly $25 to savings",
       "source": "Chase screenshot"
     }
   ],
