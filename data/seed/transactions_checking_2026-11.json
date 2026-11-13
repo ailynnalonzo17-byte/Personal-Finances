@@ -754,6 +754,18 @@
       "id": "chase_2026-11-12_claude",
       "note": "",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": 700,
+      "category": "Transfer - PayPal to Checking",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-12",
+      "description": "PAYPAL TRANSFER PPD ID: PAYPALSD11",
+      "group": "Transfer",
+      "id": "chase_2026-11-12_paypal700",
+      "note": "From PayPal Savings to cover bills until payday",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
