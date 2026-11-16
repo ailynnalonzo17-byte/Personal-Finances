@@ -578,14 +578,14 @@
     {
       "amount": -53.97,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-13",
-      "description": "Affirm - Amazon (car computer) - installment 4/12",
+      "date": "2026-11-16",
+      "description": "ORIG CO NAME:AFFIRM.COM PAYME - Affirm Amazon (car computer) 4/12",
       "group": "Debt",
       "id": "loan_affirm-amazon-car-computer_4",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
+      "note": "Checked off by you; posted in Chase 11/16",
+      "source": "Chase screenshot"
     },
     {
       "amount": -37.95,
@@ -614,14 +614,14 @@
     {
       "amount": -200,
       "category": "Atty Chua",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-15",
-      "description": "Atty Chua - checked off as paid",
+      "date": "2026-11-16",
+      "description": "CHUA TINSAY VEGA APL (...5438)",
       "group": "Monthly Bills",
       "id": "bill_atty-chua_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Checked off by you; posted in Chase 11/16",
+      "source": "Chase screenshot"
     },
     {
       "amount": -295.33,
@@ -969,6 +969,126 @@
       "group": "Expenses",
       "id": "chase_2026-11-14_nayax",
       "note": "Pending - vending machine (car wash vacuum?) confirm",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -5,
+      "category": "Dinkers",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "DINKERS (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_dinkers",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -9,
+      "category": "Medical",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "LOY ATIPHYSICALTHERAPY (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_ati",
+      "note": "ATI Physical Therapy",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -21.66,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "AMAZON MARKETPLA INTERNET 043000098983470",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_amzn2166",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 580.3,
+      "category": "Transfer - PayPal to Checking",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "ORIG CO NAME:PAYPAL CO ENTRY DESCR:TRANSFER PAYPALSD11",
+      "group": "Transfer",
+      "id": "chase_2026-11-16_paypal580",
+      "note": "From PayPal Savings to cover bills until payday",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -22.86,
+      "category": "Shop - Temu",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "TEMU (...5851) PayPal",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_temu",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 106.3,
+      "category": "Transfer - Savings to Checking",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "ONLINE TRANSFER FROM SAV ...5953 TRANSACTION#: 31638975402",
+      "group": "Transfer",
+      "id": "chase_2026-11-16_sav106",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -44.38,
+      "category": "Groceries - Seafood City",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "SFC LAS VEGAS MARYLA (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_sfc",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -19.92,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "McDonald's (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_mcd",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 10,
+      "category": "Others - Income",
+      "cleared": true,
+      "confidence": "M",
+      "date": "2026-11-16",
+      "description": "ZELLE PAYMENT FROM GUSTAVO LEMUS WFCT22WLMZT4",
+      "group": "Income",
+      "id": "chase_2026-11-16_zelle_gustavo",
+      "note": "Who is this from / what for? confirm",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -20,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "GIV FIRST PRESBY (...5438)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_presby",
+      "note": "First Presbyterian giving",
       "source": "Chase screenshot"
     }
   ],
