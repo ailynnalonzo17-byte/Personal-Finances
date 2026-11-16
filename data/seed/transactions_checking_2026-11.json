@@ -572,7 +572,7 @@
       "description": "CC - Capital 1 (...9140) - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-capital1-9140_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "Checked off on the page, but NO Capital One payment has come out of Chase as of 11/16 - Savor has no AutoPay. Pay $34 ASAP.",
       "source": "Bill checklist payment"
     },
     {
@@ -939,36 +939,36 @@
       "amount": -15,
       "category": "For Car",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-13",
       "description": "POS DEBIT MR TERRIBLE SELF SERVICE HENDERSON NV",
       "group": "Expenses",
       "id": "chase_2026-11-14_terrible1",
-      "note": "Pending - self-serve car wash? confirm",
+      "note": "Car wash (per you)",
       "source": "Chase screenshot"
     },
     {
       "amount": -15,
       "category": "For Car",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-13",
       "description": "POS DEBIT MR TERRIBLE SELF SERVICE HENDERSON NV (2nd)",
       "group": "Expenses",
       "id": "chase_2026-11-14_terrible2",
-      "note": "Pending - self-serve car wash? confirm",
+      "note": "Car wash (per you)",
       "source": "Chase screenshot"
     },
     {
       "amount": -11.1,
       "category": "For Car",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-13",
       "description": "POS DEBIT NAYAX VENDING 103 HUNT VALLEY MD",
       "group": "Expenses",
       "id": "chase_2026-11-14_nayax",
-      "note": "Pending - vending machine (car wash vacuum?) confirm",
+      "note": "Car wash (per you)",
       "source": "Chase screenshot"
     },
     {
@@ -1071,12 +1071,12 @@
       "amount": 10,
       "category": "Others - Income",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-16",
       "description": "ZELLE PAYMENT FROM GUSTAVO LEMUS WFCT22WLMZT4",
       "group": "Income",
       "id": "chase_2026-11-16_zelle_gustavo",
-      "note": "Who is this from / what for? confirm",
+      "note": "Gustavo bought our couch for $150: $140 cash (not in Chase) + $10 Zelle",
       "source": "Chase screenshot"
     },
     {
