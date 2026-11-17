@@ -564,16 +564,16 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -34,
+      "amount": -50,
       "category": "CC - Capital 1 (...9140)",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-13",
-      "description": "CC - Capital 1 (...9140) - checked off as paid",
+      "date": "2026-11-16",
+      "description": "ORIG CO NAME:CAPITAL ONE CO ENTRY DESCR:ONLINE PMT (Savor ...9140)",
       "group": "Debt",
       "id": "bill_cc-capital1-9140_2026-11",
-      "note": "Checked off on the page, but NO Capital One payment has come out of Chase as of 11/16 - Savor has no AutoPay. Pay $34 ASAP.",
-      "source": "Bill checklist payment"
+      "note": "Savor $34 minimum was due 11/13 - paid $50 online 11/16 (3 days late)",
+      "source": "Chase screenshot"
     },
     {
       "amount": -53.97,
@@ -1089,6 +1089,42 @@
       "group": "Expenses",
       "id": "chase_2026-11-16_presby",
       "note": "First Presbyterian giving",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -16.13,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "FREDDYS 07 0008 (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_freddys1613",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -32.91,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "FREDDYS 07 0008 (...5851) (2nd)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_freddys3291",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -12.96,
+      "category": "Dinkers",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "DINKERS (...5851) $12.96",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_dinkers1296",
+      "note": "",
       "source": "Chase screenshot"
     }
   ],
