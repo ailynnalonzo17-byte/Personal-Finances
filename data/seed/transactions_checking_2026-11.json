@@ -588,18 +588,6 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -37.95,
-      "category": "Affirm",
-      "cleared": false,
-      "confidence": "H",
-      "date": "2026-11-13",
-      "description": "Affirm - TikTok (entryway table) - installment 4/4",
-      "group": "Debt",
-      "id": "loan_affirm-tiktok-entryway-table_4",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
-    },
-    {
       "amount": -50,
       "category": "Chase Pay in 4",
       "cleared": true,
