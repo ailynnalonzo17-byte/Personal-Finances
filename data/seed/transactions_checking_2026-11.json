@@ -776,7 +776,7 @@
       "description": "LOY ATIPHYSICALTHERAPY (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-13_ati",
-      "note": "ATI Physical Therapy - pending 11/13, posted 11/16 (same charge)",
+      "note": "ATI Physical Therapy 11/13",
       "source": "Chase screenshot"
     },
     {
@@ -936,27 +936,27 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -15,
+      "amount": -3,
       "category": "For Car",
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-13",
-      "description": "POS DEBIT MR TERRIBLE SELF SERVICE HENDERSON NV",
+      "description": "MR TERRIBLE SELF-SERVE HENDERSON NV 11/13 (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-14_terrible1",
-      "note": "Car wash (per you)",
+      "note": "Car wash - $15 hold, posted at $3",
       "source": "Chase screenshot"
     },
     {
-      "amount": -15,
+      "amount": -3,
       "category": "For Car",
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-13",
-      "description": "POS DEBIT MR TERRIBLE SELF SERVICE HENDERSON NV (2nd)",
+      "description": "MR TERRIBLE SELF-SERVE HENDERSON NV 11/13 (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-14_terrible2",
-      "note": "Car wash (per you)",
+      "note": "Car wash - $15 hold, posted at $3",
       "source": "Chase screenshot"
     },
     {
@@ -1125,6 +1125,18 @@
       "group": "Expenses",
       "id": "chase_2026-11-17_amzn2166",
       "note": "3rd Amazon $21.66 since 11/12 (different order IDs) - check it is not a repeat charge",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -9,
+      "category": "Medical",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-16",
+      "description": "LOY*ATIPHYSICALTHERA DOWNERS GROVE IL 11/16 (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-16_ati",
+      "note": "ATI Physical Therapy 11/16 (separate from the 11/13 one)",
       "source": "Chase screenshot"
     }
   ],
