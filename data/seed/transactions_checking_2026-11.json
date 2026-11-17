@@ -794,14 +794,14 @@
     {
       "amount": -301.01,
       "category": "Car insurance",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-16",
-      "description": "Car insurance - checked off as paid",
+      "date": "2026-11-17",
+      "description": "Csaa Insurance Group (...5851)",
       "group": "Monthly Bills",
       "id": "bill_car-insurance_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Checked off by you; posted in Chase 11/17",
+      "source": "Chase screenshot"
     },
     {
       "amount": -65.44,
@@ -816,16 +816,16 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -90.57,
+      "amount": -40,
       "category": "CC - cashback MC",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-11-17",
-      "description": "CC - cashback MC - checked off as paid",
+      "description": "ORIG CO NAME:PAYPAL CO ENTRY DESCR:INST XFER PPCR CC REPAYMENT",
       "group": "Debt",
       "id": "bill_cc-cashback-mc_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "PayPal Cashback MC minimum $40 paid 11/17 (on time). $50.57 left will carry interest.",
+      "source": "Chase screenshot"
     },
     {
       "amount": -68.11,
@@ -1024,7 +1024,7 @@
       "category": "Shop - Temu",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-11-16",
+      "date": "2026-11-15",
       "description": "TEMU (...5851) PayPal",
       "group": "Expenses",
       "id": "chase_2026-11-16_temu",
@@ -1125,6 +1125,18 @@
       "group": "Expenses",
       "id": "chase_2026-11-16_dinkers1296",
       "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -21.66,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "M",
+      "date": "2026-11-17",
+      "description": "AMAZON MARKETPLA INTERNET 043000099629134",
+      "group": "Expenses",
+      "id": "chase_2026-11-17_amzn2166",
+      "note": "3rd Amazon $21.66 since 11/12 (different order IDs) - check it is not a repeat charge",
       "source": "Chase screenshot"
     }
   ],
