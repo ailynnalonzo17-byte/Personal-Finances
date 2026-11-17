@@ -808,11 +808,11 @@
       "category": "CC - Citibank",
       "cleared": false,
       "confidence": "H",
-      "date": "2026-11-16",
+      "date": "2026-11-17",
       "description": "CC - Citibank - checked off as paid",
       "group": "Debt",
       "id": "bill_cc-citibank_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
+      "note": "Citi minimum $65.44 (due 11/16) paid 11/17 per you, 1 day late - not out of Chase yet",
       "source": "Bill checklist payment"
     },
     {
