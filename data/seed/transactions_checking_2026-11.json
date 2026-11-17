@@ -1138,6 +1138,42 @@
       "id": "chase_2026-11-16_ati",
       "note": "ATI Physical Therapy 11/16 (separate from the 11/13 one)",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -51.97,
+      "category": "Food - Eat Out",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-17",
+      "description": "Oming's Kitchen (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-17_omings",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -41.5,
+      "category": "For Car",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-17",
+      "description": "NV DMV (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-17_dmv4150",
+      "note": "NV DMV",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -10,
+      "category": "For Car",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-17",
+      "description": "NV DMV (...5851) $10",
+      "group": "Expenses",
+      "id": "chase_2026-11-17_dmv10",
+      "note": "NV DMV",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
