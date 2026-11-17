@@ -1162,6 +1162,18 @@
       "id": "chase_2026-11-17_dmv10",
       "note": "NV DMV",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": 177,
+      "category": "Transfer - SoFi Savings to Checking",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-17",
+      "description": "Transfer from SoFi Savings",
+      "group": "Transfer",
+      "id": "user_2026-11-17_sofi177",
+      "note": "Moved by you 11/17 to cover bills until payday - not in Chase yet",
+      "source": "User report"
     }
   ],
   "month": "2026-11"
