@@ -776,7 +776,7 @@
       "description": "LOY ATIPHYSICALTHERAPY (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-13_ati",
-      "note": "ATI Physical Therapy",
+      "note": "ATI Physical Therapy - pending 11/13, posted 11/16 (same charge)",
       "source": "Chase screenshot"
     },
     {
@@ -981,18 +981,6 @@
       "group": "Expenses",
       "id": "chase_2026-11-16_dinkers",
       "note": "",
-      "source": "Chase screenshot"
-    },
-    {
-      "amount": -9,
-      "category": "Medical",
-      "cleared": true,
-      "confidence": "H",
-      "date": "2026-11-16",
-      "description": "LOY ATIPHYSICALTHERAPY (...5851)",
-      "group": "Expenses",
-      "id": "chase_2026-11-16_ati",
-      "note": "ATI Physical Therapy",
       "source": "Chase screenshot"
     },
     {
