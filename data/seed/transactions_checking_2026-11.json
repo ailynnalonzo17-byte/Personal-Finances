@@ -794,14 +794,14 @@
     {
       "amount": -65.44,
       "category": "CC - Citibank",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-17",
-      "description": "CC - Citibank - checked off as paid",
+      "date": "2026-11-18",
+      "description": "ORIG CO NAME:CITI CARD ONLINE CO ENTRY DESCR:PAYMENT",
       "group": "Debt",
       "id": "bill_cc-citibank_2026-11",
-      "note": "Citi minimum $65.44 (due 11/16) paid 11/17 per you, 1 day late - not out of Chase yet",
-      "source": "Bill checklist payment"
+      "note": "Citi minimum $65.44 (due 11/16) - paid 11/17, posted 11/18",
+      "source": "Chase screenshot"
     },
     {
       "amount": -40,
@@ -1174,6 +1174,78 @@
       "id": "user_2026-11-17_sofi177",
       "note": "Moved by you 11/17 to cover bills until payday - not in Chase yet",
       "source": "User report"
+    },
+    {
+      "amount": -23,
+      "category": "Haircut",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "Great Clips (...5851)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_greatclips",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 893.25,
+      "category": "Others - Income",
+      "cleared": true,
+      "confidence": "M",
+      "date": "2026-11-18",
+      "description": "FEDWIRE CREDIT VIA BANK OF AMERICA B/O AILYNN PEREZ HENDERSON NV",
+      "group": "Income",
+      "id": "chase_2026-11-18_wire89325",
+      "note": "Incoming wire from Ailynn's Bank of America - what is it? confirm",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 27.08,
+      "category": "Shop - Amazon returns",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "AMAZON MARKETPLA ADJUSTMENT (refund)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_amzn_refund2708",
+      "note": "Amazon refund",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -0.92,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "MERRILL LYNCH ACCTVERIFY (debit)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_merrill092",
+      "note": "Merrill account-verification test; nets to $0 with the two credits",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 0.36,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "MERRILL LYNCH ACCTVERIFY (credit)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_merrill036",
+      "note": "Merrill account-verification test deposit",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 0.56,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "MERRILL LYNCH ACCTVERIFY (credit)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_merrill056",
+      "note": "Merrill account-verification test deposit",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
