@@ -1166,13 +1166,13 @@
     {
       "amount": 177,
       "category": "Transfer - SoFi Savings to Checking",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-11-17",
-      "description": "Transfer from SoFi Savings",
+      "description": "Zelle from SoFi to Chase",
       "group": "Transfer",
       "id": "user_2026-11-17_sofi177",
-      "note": "Moved by you 11/17 to cover bills until payday - not in Chase yet",
+      "note": "Moved by you 11/17 by Zelle from SoFi to cover bills until payday - went through (per you)",
       "source": "User report"
     },
     {
@@ -1191,12 +1191,12 @@
       "amount": 893.25,
       "category": "Others - Income",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-18",
       "description": "FEDWIRE CREDIT VIA BANK OF AMERICA B/O AILYNN PEREZ HENDERSON NV",
       "group": "Income",
       "id": "chase_2026-11-18_wire89325",
-      "note": "Incoming wire from Ailynn's Bank of America - what is it? confirm",
+      "note": "Sold Walmart shares (per you) - wired from Bank of America",
       "source": "Chase screenshot"
     },
     {
