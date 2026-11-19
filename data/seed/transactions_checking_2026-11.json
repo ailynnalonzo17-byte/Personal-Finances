@@ -1246,6 +1246,30 @@
       "id": "chase_2026-11-18_merrill056",
       "note": "Merrill account-verification test deposit",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -15,
+      "category": "Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "DOMESTIC INCOMING WIRE FEE",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_wirefee",
+      "note": "Chase fee for the $893.25 Walmart-shares wire",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -81,
+      "category": "Groceries - Others",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-18",
+      "description": "WINCO FOODS #112 80 N HENDERSON NV 11/18 (...5438)",
+      "group": "Expenses",
+      "id": "chase_2026-11-18_winco",
+      "note": "WinCo Foods",
+      "source": "Chase screenshot"
     }
   ],
   "month": "2026-11"
