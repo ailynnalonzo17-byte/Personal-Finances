@@ -818,26 +818,26 @@
     {
       "amount": -68.11,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-18",
-      "description": "Affirm - Amazon (5 mo) - installment 4/5",
+      "date": "2026-11-19",
+      "description": "ORIG CO NAME:AFFIRM.COM PAYME - Affirm Amazon (5 mo) 4/5",
       "group": "Debt",
       "id": "loan_affirm-amazon-5-mo_4",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
+      "note": "Posted in Chase 11/19",
+      "source": "Chase screenshot"
     },
     {
       "amount": -30.47,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-18",
-      "description": "Affirm - Selkirk Sport - installment 2/4",
+      "date": "2026-11-19",
+      "description": "AFF SELKIRK SPORT (...5851) Shop Pay - Selkirk 2/4",
       "group": "Debt",
       "id": "loan_affirm-selkirk-sport_2",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
+      "note": "Posted in Chase 11/19",
+      "source": "Chase screenshot"
     },
     {
       "amount": -50,
@@ -1269,6 +1269,18 @@
       "group": "Expenses",
       "id": "chase_2026-11-18_winco",
       "note": "WinCo Foods",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -39,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-19",
+      "description": "AMAZON MARKETPLA INTERNET 043000092885654",
+      "group": "Expenses",
+      "id": "chase_2026-11-19_amzn39",
+      "note": "",
       "source": "Chase screenshot"
     }
   ],
