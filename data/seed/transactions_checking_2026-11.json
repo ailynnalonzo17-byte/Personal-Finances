@@ -604,7 +604,7 @@
       "category": "Atty Chua",
       "cleared": true,
       "confidence": "H",
-      "date": "2026-11-16",
+      "date": "2026-11-17",
       "description": "CHUA TINSAY VEGA APL (...5438)",
       "group": "Monthly Bills",
       "id": "bill_atty-chua_2026-11",
@@ -1169,11 +1169,11 @@
       "cleared": true,
       "confidence": "H",
       "date": "2026-11-17",
-      "description": "Zelle from SoFi to Chase",
+      "description": "Zelle payment from Ailynn Perez 0PE0QBM1OURW (from SoFi)",
       "group": "Transfer",
       "id": "user_2026-11-17_sofi177",
-      "note": "Moved by you 11/17 by Zelle from SoFi to cover bills until payday - went through (per you)",
-      "source": "User report"
+      "note": "Moved by you 11/17 by Zelle from SoFi - posted in Chase 11/17",
+      "source": "Chase screenshot"
     },
     {
       "amount": -23,
