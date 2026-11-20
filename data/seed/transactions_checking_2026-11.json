@@ -1282,6 +1282,90 @@
       "id": "chase_2026-11-19_amzn39",
       "note": "",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -64.9,
+      "category": "Republic Services",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-20",
+      "description": "Republic Services - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_republic-services_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -100,
+      "category": "Jonathan Neil & Associates",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-20",
+      "description": "Jonathan Neil & Associates - installment 2/5",
+      "group": "Debt",
+      "id": "loan_jonathan-neil-associates_2",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -49.03,
+      "category": "PayPal Pay Monthly",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-20",
+      "description": "Home Depot - Grill (PayPal Pay Monthly) - installment 2/6",
+      "group": "Debt",
+      "id": "loan_paypal-pay-monthly-home-depot-grill_2",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -190.07,
+      "category": "NV Energy",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-21",
+      "description": "NV Energy - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_nv-energy_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -220.95,
+      "category": "Affirm",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-21",
+      "description": "Affirm - WRX - installment 6/6",
+      "group": "Debt",
+      "id": "loan_affirm-wrx_6",
+      "note": "From your Loan Payment Schedule - checked off by you",
+      "source": "Loan schedule payment"
+    },
+    {
+      "amount": -29.99,
+      "category": "Cove Smart",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-22",
+      "description": "Cove Smart - checked off as paid",
+      "group": "Monthly Bills",
+      "id": "bill_cove-smart_2026-11",
+      "note": "From This month's bills & loans - checked off by you",
+      "source": "Bill checklist payment"
+    },
+    {
+      "amount": -30,
+      "category": "CC - Credit 1 (...4352)",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-20",
+      "description": "Credit One (...4352) payment",
+      "group": "Debt",
+      "id": "user_2026-11-20_credit1_30",
+      "note": "Paid $30 minimum 11/20 (was due 11/19, 1 day late), per you - not in Chase yet",
+      "source": "User report"
     }
   ],
   "month": "2026-11"
