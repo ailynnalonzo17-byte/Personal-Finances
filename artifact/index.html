@@ -222,6 +222,18 @@
   tr.loan-overdue td.due-cell{color:var(--critical); font-weight:600;}
   input.loan-check{width:15px; height:15px; accent-color:var(--accent);}
 
+
+  /* ---------- view tabs + installments ledger ---------- */
+  .view-tabs{display:flex; gap:6px; margin-bottom:18px; border-bottom:1px solid var(--border); flex-wrap:wrap;}
+  .view-tabs button{background:none; border:none; border-bottom:3px solid transparent; padding:9px 14px; font-size:14px;
+    font-weight:600; color:var(--ink-dim); cursor:pointer; margin-bottom:-1px;}
+  .view-tabs button.active{color:var(--accent-ink); border-bottom-color:var(--accent);}
+  .view-tabs button:hover{color:var(--accent);}
+  .inst-prog{height:8px; background:var(--surface-2); border-radius:5px; overflow:hidden; min-width:70px;}
+  .inst-prog > div{height:100%; background:var(--accent); border-radius:5px;}
+  tr.inst-done td{color:var(--ink-faint);}
+  tr.inst-ending td:first-child{font-weight:600;}
+
   footer{text-align:center; font-size:11.5px; color:var(--ink-faint); margin-top:30px;}
   .banner{background:var(--gold-soft); border:1px solid var(--gold-soft-border); color:var(--gold); border-radius:10px;
     padding:12px 16px; font-size:13px; margin-bottom:18px;}
@@ -247,6 +259,12 @@
 
   <div id="dueSoonBanner" class="due-soon-banner" style="display:none"></div>
 
+  <nav class="view-tabs" role="tablist">
+    <button type="button" class="active" data-view="household" role="tab">Household ledger</button>
+    <button type="button" data-view="installments" role="tab">Installments ledger</button>
+  </nav>
+
+  <div id="viewHousehold">
   <section class="accounts" id="accountsGrid"></section>
 
   <div class="panel">
@@ -366,23 +384,6 @@
   </div>
 
   <div class="panel">
-    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-      <div><h2>Loan payment schedule</h2><div class="sub" id="loanSchedSub">Every installment you gave me, oldest to newest - check one off when it posts</div></div>
-      <label style="display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-dim);">
-        <input type="checkbox" id="loanSchedHidePaid"> hide paid
-      </label>
-    </div>
-    <div id="loanSchedSummary" class="summary" style="margin-bottom:14px;"></div>
-    <div class="tx-scroll" style="max-height:600px;">
-      <table>
-        <thead><tr><th></th><th>Date</th><th>Plan</th><th>Installment</th><th style="text-align:right">Amount</th><th style="text-align:right">Projected balance</th></tr></thead>
-        <tbody id="loanSchedBody"></tbody>
-      </table>
-    </div>
-    <div class="row-count" id="loanSchedCount"></div>
-  </div>
-
-  <div class="panel">
     <h2>Category by month</h2>
     <div class="sub">Every category with any activity, month by month. Categories with nothing in any month are left out.</div>
     <div class="pivot-wrap">
@@ -414,6 +415,52 @@
       </table>
     </div>
     <div class="row-count" id="txCount"></div>
+  </div>
+
+  </div>
+
+  <div id="viewInstall" hidden>
+  <div class="panel">
+    <h2>Installments ledger</h2>
+    <div class="sub" id="instSub">Every Affirm, Klarna, Chase Pay in 4, PayPal Pay Monthly and payment plan - what's left on each</div>
+    <div id="instSummary" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll" style="max-height:none;">
+      <table>
+        <thead><tr><th>Plan</th><th style="text-align:right">Payment</th><th>Progress</th><th style="text-align:right">Left to pay</th><th>Next due</th><th>Last payment</th><th>Paid from</th></tr></thead>
+        <tbody id="instPlans"></tbody>
+      </table>
+    </div>
+    <div class="row-count" id="instPlansCount"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Month by month</h2>
+    <div class="sub">What the installments take out of each month, and which plans finish</div>
+    <div class="tx-scroll" style="max-height:none;">
+      <table>
+        <thead><tr><th>Month</th><th style="text-align:right">From checking</th><th style="text-align:right">On Chase Amazon card</th><th style="text-align:right">Payments</th><th>Plans ending</th></tr></thead>
+        <tbody id="instMonths"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
+      <div><h2>Loan payment schedule</h2><div class="sub" id="loanSchedSub">Every installment you gave me, oldest to newest - check one off when it posts</div></div>
+      <label style="display:flex; align-items:center; gap:6px; font-size:12.5px; color:var(--ink-dim);">
+        <input type="checkbox" id="loanSchedHidePaid"> hide paid
+      </label>
+    </div>
+    <div id="loanSchedSummary" class="summary" style="margin-bottom:14px;"></div>
+    <div class="tx-scroll" style="max-height:600px;">
+      <table>
+        <thead><tr><th></th><th>Date</th><th>Plan</th><th>Installment</th><th style="text-align:right">Amount</th><th style="text-align:right">Projected balance</th></tr></thead>
+        <tbody id="loanSchedBody"></tbody>
+      </table>
+    </div>
+    <div class="row-count" id="loanSchedCount"></div>
+  </div>
+
   </div>
 
   <footer>Private household ledger · data lives only in this artifact's store</footer>
@@ -505,6 +552,7 @@ async function init(){
   document.getElementById("txConf").addEventListener("change", resetTxPageAnd(renderTransactions));
   document.getElementById("registerAcct").addEventListener("change", ()=>{ registerVisibleCount = REGISTER_PAGE; renderRegister(); });
   document.getElementById("loanSchedHidePaid").addEventListener("change", renderLoanSchedule);
+  setupViewTabs();
 
   const groupSel = document.getElementById("txGroup");
   Object.keys(GROUP_COLOR).forEach(g=>{
@@ -1795,6 +1843,84 @@ function renderCombinedCategory(){
 }
 
 /* ---------------- render all ---------------- */
+
+/* ---------------- installments ledger (separate tab) ---------------- */
+const escH = v => String(v==null?"":v).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function setupViewTabs(){
+  const btns = document.querySelectorAll(".view-tabs button");
+  const show = view=>{
+    btns.forEach(b=> b.classList.toggle("active", b.dataset.view===view));
+    document.getElementById("viewHousehold").hidden = view!=="household";
+    document.getElementById("viewInstall").hidden = view!=="installments";
+    try{ localStorage.setItem("ledgerView", view); }catch(e){}
+  };
+  btns.forEach(b=> b.addEventListener("click", ()=> show(b.dataset.view)));
+  let saved = null;
+  try{ saved = localStorage.getItem("ledgerView"); }catch(e){}
+  if(saved==="installments") show("installments");
+}
+function renderInstallments(){
+  const body = document.getElementById("instPlans");
+  if(!body) return;
+  const todayISO = new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const plans = Object.entries(state.loanSchedule).map(([id, p])=>{
+    const inst = (p.installments||[]).slice().sort((a,b)=> a.dueDate<b.dueDate?-1:a.dueDate>b.dueDate?1:0);
+    // Plans billed onto a card are paid by that card's statement payment, so anything
+    // already due counts as paid even if nobody ticked it.
+    const left = inst.filter(i=> !(i.paid || (p.billedTo && i.dueDate<=todayISO)));
+    const paid = inst.length - left.length;
+    return {id, name:p.name, provider:p.provider||"", billedTo:p.billedTo||null, inst, left, paid,
+      total: inst.length, leftAmt: left.reduce((t,i)=>t+(+i.amount||0),0),
+      next: left[0]||null, last: inst[inst.length-1]||null};
+  });
+  const active = plans.filter(p=> p.left.length).sort((a,b)=> (a.last.dueDate<b.last.dueDate?-1:1));
+  const done = plans.filter(p=> !p.left.length).sort((a,b)=> (a.last?.dueDate<b.last?.dueDate?1:-1));
+  const fromChk = active.filter(p=> !p.billedTo);
+  const onCard = active.filter(p=> p.billedTo);
+  const sum = arr=> arr.reduce((t,p)=>t+p.leftAmt,0);
+  const curYM = todayISO.slice(0,7);
+  const thisMonthLeft = fromChk.reduce((t,p)=> t + p.left.filter(i=> i.dueDate.slice(0,7)===curYM).reduce((u,i)=>u+(+i.amount||0),0),0);
+  const nextAll = fromChk.filter(p=>p.next).map(p=>({...p.next, name:p.name})).sort((a,b)=> a.dueDate<b.dueDate?-1:1)[0];
+  document.getElementById("instSummary").innerHTML = `
+    <div class="stile"><div class="k">Active plans</div><div class="v">${fromChk.length}${onCard.length?` <span style="font-size:12px;color:var(--ink-faint)">+${onCard.length} on card</span>`:""}</div></div>
+    <div class="stile"><div class="k">Payments left</div><div class="v num">${fromChk.reduce((t,p)=>t+p.left.length,0)}</div></div>
+    <div class="stile debt"><div class="k">Left to pay (checking)</div><div class="v num">${money(sum(fromChk))}</div></div>
+    <div class="stile expenses"><div class="k">Still due this month</div><div class="v num">${money(thisMonthLeft)}</div></div>
+    <div class="stile net"><div class="k">Next payment</div><div class="v" style="font-size:14px">${nextAll?`${escH(nextAll.dueDate.slice(5))} · ${money(+nextAll.amount)}<div style="font-size:11.5px;color:var(--ink-faint);font-weight:500">${escH(nextAll.name)}</div>`:"None"}</div></div>`;
+  const row = (p, cls)=>{
+    const pct = p.total ? Math.round(p.paid/p.total*100) : 0;
+    const ending = p.left.length===1;
+    const card = p.billedTo ? (state.bills[p.billedTo]?.name || "card") : "";
+    return `<tr class="${cls}${ending?' inst-ending':''}">
+      <td>${escH(p.name)}${ending?' <span class="pill ok">last one</span>':''}</td>
+      <td class="amt num">${p.next?money(+p.next.amount):"—"}</td>
+      <td><div style="display:flex;align-items:center;gap:8px"><div class="inst-prog"><div style="width:${pct}%"></div></div><span class="num" style="font-size:12px">${p.paid}/${p.total}</span></div></td>
+      <td class="amt num">${money(p.leftAmt)}</td>
+      <td class="${p.next && p.next.dueDate<todayISO?'due-cell':''}" style="${p.next && p.next.dueDate<todayISO?'color:var(--critical);font-weight:600':''}">${p.next?escH(p.next.dueDate):"Paid off"}</td>
+      <td>${p.last?escH(p.last.dueDate):"—"}</td>
+      <td>${p.billedTo?`<span class="pill muted">${escH(card)}</span>`:"Chase checking"}</td>
+    </tr>`;
+  };
+  body.innerHTML = [...fromChk.map(p=>row(p,"")), ...onCard.map(p=>row(p,"")),
+    ...(done.length?[`<tr><td colspan="7" style="background:var(--surface-2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-faint)">Paid off (${done.length})</td></tr>`]:[]),
+    ...done.map(p=>row(p,"inst-done"))].join("") || `<tr><td colspan="7" style="color:var(--ink-faint)">No installment plans yet.</td></tr>`;
+  document.getElementById("instPlansCount").textContent = `${active.length} active · ${done.length} paid off · ${money(sum(active))} left in total (incl. ${money(sum(onCard))} on the Chase Amazon card)`;
+  // month by month
+  const months = {};
+  active.forEach(p=> p.left.forEach(i=>{
+    const ym = i.dueDate.slice(0,7);
+    const m = months[ym] || (months[ym] = {chk:0, card:0, n:0, ending:[]});
+    if(p.billedTo) m.card += +i.amount||0; else m.chk += +i.amount||0;
+    m.n++;
+  }));
+  active.forEach(p=>{ const ym = p.left[p.left.length-1].dueDate.slice(0,7); if(months[ym]) months[ym].ending.push(p.name); });
+  document.getElementById("instMonths").innerHTML = Object.keys(months).sort().map(ym=>{
+    const m = months[ym];
+    const label = new Date(ym+"-02T00:00:00").toLocaleString("en-US",{month:"short",year:"numeric"});
+    return `<tr><td>${label}</td><td class="amt num">${money(m.chk)}</td><td class="amt num">${m.card?money(m.card):"—"}</td><td class="amt num">${m.n}</td><td style="font-size:12px;color:var(--ink-dim)">${m.ending.map(escH).join(", ")||"—"}</td></tr>`;
+  }).join("");
+}
+
 function renderAll(){
   _entriesCache = null; // fresh per pass - see allEntries()
   renderDueSoon();
@@ -1811,6 +1937,7 @@ function renderAll(){
   renderBills();
   renderMonthList();
   renderLoanSchedule();
+  renderInstallments();
   renderProjection();
   renderTransactions();
 }
