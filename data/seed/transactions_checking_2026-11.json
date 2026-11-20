@@ -1320,16 +1320,16 @@
       "source": "Loan schedule payment"
     },
     {
-      "amount": -190.07,
+      "amount": -104.61,
       "category": "NV Energy",
       "cleared": false,
       "confidence": "H",
-      "date": "2026-11-21",
-      "description": "NV Energy - checked off as paid",
+      "date": "2026-11-20",
+      "description": "NV Energy payment",
       "group": "Monthly Bills",
       "id": "bill_nv-energy_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Nov bill $104.61 paid 11/20 (due 11/21), per you - not in Chase yet",
+      "source": "User report"
     },
     {
       "amount": -220.95,
