@@ -1,0 +1,15 @@
+{
+  "name": "Macy's American Express",
+  "issuer": "Citibank",
+  "holder": "Christopher",
+  "last4": "0349",
+  "category": "CC - Macy's Amex",
+  "statementDate": "2026-11-15",
+  "balance": 170.72,
+  "minPayment": 30.0,
+  "dueDate": "2026-12-12",
+  "apr": 32.99,
+  "creditLimit": 2000,
+  "source": "Statement you sent (Nov 15, 2026)",
+  "note": "New card opened 11/13. Nov 15 statement: $170.72 (cologne $243.84 at Macy's Henderson minus $73.12 new-account discount), minimum $30 due 12/12, no interest yet. Pay $170.72 in full by 12/12 = $0 and no interest (32.99% APR). Limit $2,000. Next statement closes 12/16."
+}

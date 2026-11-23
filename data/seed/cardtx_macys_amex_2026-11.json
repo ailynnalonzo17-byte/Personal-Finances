@@ -1,0 +1,31 @@
+{
+  "account": "macys_amex",
+  "month": "2026-11",
+  "cardCategory": "CC - Macy's Amex",
+  "entries": [
+    {
+      "id": "macys_amex_2026-11_0",
+      "date": "2026-11-13",
+      "description": "MACY'S HENDERSON - L'Oreal Mens Polo 1967 $150 + Coty CK sampler $75 + tax $18.84",
+      "amount": 243.84,
+      "category": "Shop - Macy's",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "Cologne",
+      "type": "purchase",
+      "source": "Card statement you sent"
+    },
+    {
+      "id": "macys_amex_2026-11_1",
+      "date": "2026-11-13",
+      "description": "NEW ACCOUNT DISCOUNT",
+      "amount": -73.12,
+      "category": "Shop - Macy's",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "New-account savings",
+      "type": "credit",
+      "source": "Card statement you sent"
+    }
+  ]
+}

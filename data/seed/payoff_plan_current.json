@@ -26,6 +26,11 @@
       "note": "New $129 (Hims & Hers) - pay it in full by 12/4 so it never charges interest (30.74%)"
     },
     {
+      "id": "macys_amex",
+      "role": "pay_in_full",
+      "note": "New: $170.72 due 12/12 - pay it in full so it never charges interest (32.99%)"
+    },
+    {
       "id": "chase_amazon",
       "role": "no_interest",
       "note": "China Air + AirAsia Pay Over Time plans - pay the Interest Saving Balance ($295.33) = no interest"
