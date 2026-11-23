@@ -5,9 +5,10 @@
   "last4": "3035",
   "category": "CC - FPB",
   "statementDate": "2026-09-04",
-  "balance": 6.31,
-  "minPayment": 6.31,
+  "balance": 0,
+  "minPayment": 0,
   "dueDate": "2026-10-02",
   "apr": 36.0,
-  "source": "Statement PDF you uploaded (4 month(s) on file)"
+  "source": "Statement PDF you uploaded (4 month(s) on file)",
+  "note": "AutoPay paid the $6.31 on 11/3 - $0 as of Nov."
 }
