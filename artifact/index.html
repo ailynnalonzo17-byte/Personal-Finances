@@ -88,6 +88,7 @@
   /* ---------- generic panel ---------- */
   .panel{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 20px;
     box-shadow:var(--shadow); margin-bottom:18px;}
+  .panel{content-visibility:auto; contain-intrinsic-size:auto 500px;}
   .panel > h2{font-size:16.5px; font-weight:600; margin-bottom:2px;}
   .panel .sub{font-size:12.5px; color:var(--ink-faint); margin-bottom:14px;}
   .row2{display:grid; grid-template-columns:1.4fr 1fr; gap:18px; align-items:start;}
@@ -518,7 +519,8 @@ let renderScheduled = false;
 function scheduleRender(){
   if(renderScheduled) return;
   renderScheduled = true;
-  Promise.resolve().then(()=>{ renderScheduled = false; renderAll(); });
+  // Coalesce bursts (each collection's snapshot lands separately on load) into one redraw.
+  setTimeout(()=>{ renderScheduled = false; renderAll(); }, 40);
 }
 
 function catOptionsHTML(selected){
@@ -1461,7 +1463,7 @@ function renderTransactions(){
       <td>${ACCOUNT_NAMES[e.account]||e.account}</td>
       <td>
         <span class="conf-dot conf-${e.confidence}" title="confidence: ${e.confidence}"></span>
-        <select class="cat-select" data-entry="${e.docId}|${e.id}" data-sel="${e.group}||${e.category}">${catOptionsBase}</select>
+        <select class="cat-select" data-entry="${e.docId}|${e.id}" data-sel="${e.group}||${e.category}"><option value="${e.group}||${e.category}" selected>${e.category}</option></select>
       </td>
       <td class="amt num ${e.amount>0?'pos':''}">${money(e.amount)}</td>
       <td></td>
@@ -1469,7 +1471,15 @@ function renderTransactions(){
       ? `<tr><td colspan="6" style="text-align:center; padding:10px;"><button class="btn ghost" id="loadMoreTx" style="padding:6px 14px;">Show ${Math.min(TX_PAGE, remaining)} more (${remaining} left)</button></td></tr>`
       : "");
 
-  document.querySelectorAll(".cat-select").forEach(sel=>{ sel.value = sel.dataset.sel; });
+  // Each select starts with just its current category (cheap); the full ~170-option
+  // list is filled in the moment you reach for it, so 100 rows no longer build ~17k
+  // <option> elements on every redraw.
+  const fillCats = sel=>{ if(sel.dataset.filled) return; sel.dataset.filled="1"; sel.innerHTML = catOptionsBase; sel.value = sel.dataset.sel; };
+  document.querySelectorAll(".cat-select").forEach(sel=>{
+    sel.addEventListener("pointerdown", ()=> fillCats(sel));
+    sel.addEventListener("focus", ()=> fillCats(sel));
+    sel.addEventListener("keydown", ()=> fillCats(sel));
+  });
 
   document.getElementById("txCount").textContent =
     `Showing ${visible.length} of ${entries.length}${entries.length===500?"+ (narrow your filters for the rest)":""} transaction${entries.length===1?"":"s"}`;
@@ -1853,6 +1863,7 @@ function setupViewTabs(){
     document.getElementById("viewHousehold").hidden = view!=="household";
     document.getElementById("viewInstall").hidden = view!=="installments";
     try{ localStorage.setItem("ledgerView", view); }catch(e){}
+    if(db) renderAll();
   };
   btns.forEach(b=> b.addEventListener("click", ()=> show(b.dataset.view)));
   let saved = null;
@@ -1924,6 +1935,12 @@ function renderInstallments(){
 function renderAll(){
   _entriesCache = null; // fresh per pass - see allEntries()
   renderDueSoon();
+  // Only draw the tab that's showing - the other one is redrawn when you switch to it.
+  if(!document.getElementById("viewInstall").hidden){
+    renderLoanSchedule();
+    renderInstallments();
+    return;
+  }
   renderAccounts();
   renderCreditCards();
   renderPayoffPlan();
@@ -1936,8 +1953,6 @@ function renderAll(){
   renderCombinedCategory();
   renderBills();
   renderMonthList();
-  renderLoanSchedule();
-  renderInstallments();
   renderProjection();
   renderTransactions();
 }
