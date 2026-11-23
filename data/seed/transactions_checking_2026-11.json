@@ -1537,26 +1537,26 @@
     },
     {
       "amount": -40.03,
-      "category": "Remittance - others",
+      "category": "Remittance - Aron",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-23",
       "description": "Sendwave (...5438)",
       "group": "Expenses",
       "id": "chase_2026-11-23_02",
-      "note": "Sendwave - who is it for? confirm",
+      "note": "Sendwave for Aron",
       "source": "Chase screenshot"
     },
     {
       "amount": -20.32,
       "category": "Key Salary",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-23",
       "description": "Taptap Send (...5438)",
       "group": "Expenses",
       "id": "chase_2026-11-23_03",
-      "note": "Taptap Send = Key salary (your rule) - confirm it is not Prulife",
+      "note": "Key salary (per you)",
       "source": "Chase screenshot"
     },
     {
@@ -1575,12 +1575,12 @@
       "amount": -31.2,
       "category": "Others",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-23",
       "description": "ANCHOR NV RAILRD TRAI (...5851)",
       "group": "Expenses",
       "id": "chase_2026-11-23_05",
-      "note": "Nevada railroad / train ride? confirm",
+      "note": "Train ride (per you)",
       "source": "Chase screenshot"
     },
     {
@@ -1647,12 +1647,12 @@
       "amount": -33.72,
       "category": "Klarna",
       "cleared": true,
-      "confidence": "M",
+      "confidence": "H",
       "date": "2026-11-23",
-      "description": "Klarna (...5438) LACOSTE USA I",
+      "description": "Klarna (...5438) LACOSTE USA - payment 1/4",
       "group": "Debt",
-      "id": "chase_2026-11-23_11",
-      "note": "New Klarna plan for a Lacoste purchase? send the schedule",
+      "id": "loan_klarna-lacoste_1",
+      "note": "Klarna pay in 4 for Lacoste: 1/4 paid 11/23",
       "source": "Chase screenshot"
     },
     {
@@ -1704,7 +1704,7 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -14.0,
+      "amount": -14,
       "category": "Shop - Amazon",
       "cleared": true,
       "confidence": "H",
