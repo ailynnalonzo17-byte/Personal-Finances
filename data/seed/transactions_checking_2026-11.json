@@ -1332,16 +1332,16 @@
       "source": "User report"
     },
     {
-      "amount": -220.95,
+      "amount": -220.97,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-21",
-      "description": "Affirm - WRX - installment 6/6",
+      "date": "2026-11-23",
+      "description": "AFF WRXDAILY (...5851) Shop Pay - Affirm WRX 6/6 (last)",
       "group": "Debt",
       "id": "loan_affirm-wrx_6",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
+      "note": "Last WRX payment - pending in Chase 11/23 ($220.97)",
+      "source": "Chase screenshot"
     },
     {
       "amount": -29.99,
