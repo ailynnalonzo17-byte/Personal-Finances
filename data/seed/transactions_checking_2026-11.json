@@ -1288,12 +1288,12 @@
       "category": "Republic Services",
       "cleared": false,
       "confidence": "H",
-      "date": "2026-11-20",
-      "description": "Republic Services - checked off as paid",
+      "date": "2026-11-24",
+      "description": "Republic Services payment (Nov-Jan)",
       "group": "Monthly Bills",
       "id": "bill_republic-services_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Paid $64.90 from Chase 11/24 (due 11/20), per you - not in Chase yet. AutoPay from Chase now on for future bills.",
+      "source": "User report"
     },
     {
       "amount": -100,
