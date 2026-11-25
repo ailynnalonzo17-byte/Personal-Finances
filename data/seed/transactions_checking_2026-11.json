@@ -1284,16 +1284,16 @@
       "source": "Chase screenshot"
     },
     {
-      "amount": -64.9,
+      "amount": -64.91,
       "category": "Republic Services",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-24",
-      "description": "Republic Services payment (Nov-Jan)",
+      "date": "2026-11-25",
+      "description": "ORIG CO NAME:REPUBLICSERVICES CO ENTRY DESCR:BILLPAY",
       "group": "Monthly Bills",
       "id": "bill_republic-services_2026-11",
-      "note": "Paid $64.90 from Chase 11/24 (due 11/20), per you - not in Chase yet. AutoPay from Chase now on for future bills.",
-      "source": "User report"
+      "note": "Nov-Jan $64.91 paid 11/24, posted 11/25",
+      "source": "Chase screenshot"
     },
     {
       "amount": -100,
@@ -1778,14 +1778,14 @@
     {
       "amount": -49.17,
       "category": "Affirm",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-24",
-      "description": "Affirm - Amazon (12 mo) - installment 3/12",
+      "date": "2026-11-25",
+      "description": "ORIG CO NAME:AFFIRM.COM PAYME - Affirm Amazon (12 mo) 3/12",
       "group": "Debt",
       "id": "loan_affirm-amazon-12-mo_3",
-      "note": "From your Loan Payment Schedule - checked off by you",
-      "source": "Loan schedule payment"
+      "note": "Checked off by you; posted in Chase 11/25",
+      "source": "Chase screenshot"
     },
     {
       "amount": -33.17,
@@ -1812,16 +1812,16 @@
       "source": "Bill checklist payment"
     },
     {
-      "amount": -490,
+      "amount": -456.05,
       "category": "Verizon",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
       "date": "2026-11-25",
-      "description": "Verizon - checked off as paid",
+      "description": "ORIG CO NAME:VERIZON WIRELESS CO ENTRY DESCR:PAYMENTS",
       "group": "Monthly Bills",
       "id": "bill_verizon_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Verizon Nov $456.05 (AutoPay) - posted 11/25",
+      "source": "Chase screenshot"
     },
     {
       "amount": -15.99,
@@ -1850,14 +1850,14 @@
     {
       "amount": -13.99,
       "category": "Yesoulfitness",
-      "cleared": false,
+      "cleared": true,
       "confidence": "H",
-      "date": "2026-11-26",
-      "description": "Yesoulfitness - checked off as paid",
+      "date": "2026-11-24",
+      "description": "PAYPAL PURCHASE GOOGLE YESOULFI",
       "group": "Monthly Bills",
       "id": "bill_yesoulfitness_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Checked off by you; posted in Chase 11/24",
+      "source": "Chase screenshot"
     },
     {
       "amount": -177.82,
@@ -1965,6 +1965,66 @@
       "group": "Expenses",
       "id": "chase_2026-11-23_lvnpo",
       "note": "What is LVNPO $5? (parking?) confirm",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -85.99,
+      "category": "Groceries - Walmart",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-24",
+      "description": "Walmart (...5438)",
+      "group": "Expenses",
+      "id": "chase_2026-11-24_walmart",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -75.25,
+      "category": "Shop - Ross",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-24",
+      "description": "Ross Stores (...5438)",
+      "group": "Expenses",
+      "id": "chase_2026-11-24_ross",
+      "note": "",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 1000,
+      "category": "Transfer - SoFi Savings to Checking",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-24",
+      "description": "Zelle payment from Ailynn Perez 0PE0TBZ1RUQT",
+      "group": "Transfer",
+      "id": "chase_2026-11-24_zelle1000",
+      "note": "From SoFi by Zelle (like the 11/17 $177) - confirm",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": 3000,
+      "category": "Transfer - SoFi Savings to Checking",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-24",
+      "description": "SoFi Bank TRANSFER APerez WEB ID: 9039430511",
+      "group": "Transfer",
+      "id": "chase_2026-11-24_sofi3000",
+      "note": "From SoFi",
+      "source": "Chase screenshot"
+    },
+    {
+      "amount": -51.69,
+      "category": "Shop - Amazon",
+      "cleared": true,
+      "confidence": "H",
+      "date": "2026-11-25",
+      "description": "AMAZON MARKETPLA INTERNET 043000099463344",
+      "group": "Expenses",
+      "id": "chase_2026-11-25_amzn5169",
+      "note": "",
       "source": "Chase screenshot"
     }
   ],
