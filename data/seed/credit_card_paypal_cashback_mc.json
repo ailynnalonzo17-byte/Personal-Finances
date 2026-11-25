@@ -4,11 +4,12 @@
   "holder": "Christopher",
   "last4": "2682",
   "category": "CC - cashback MC",
-  "statementDate": "2026-10-25",
-  "balance": 50.57,
+  "statementDate": "2026-11-24",
+  "balance": 209.33,
   "minPayment": 40.0,
-  "dueDate": "2026-11-17",
-  "apr": 34.24,
-  "source": "Statement PDF you uploaded (5 month(s) on file)",
-  "note": "Oct 25 statement $90.57 (FloVitamins $20.58 + Microsoft $69.99). Paid the $40 minimum 11/17 (on time). $50.57 left - pay it off to stop 34.24% interest."
+  "dueDate": "2026-12-17",
+  "apr": 34.49,
+  "source": "Statement PDF you uploaded (Nov 24 statement)",
+  "note": "Nov 24 statement: $209.33 (Microsoft $19.99 x2, Amazon $88.72, Lean Labs $25.99, $4.07 interest; $40 paid 11/17), minimum $40 due 12/17. Pay $209.33 in full to stop 34.49% interest. Limit $1,100. Cashback balance $25.76 - redeem it to PayPal.",
+  "creditLimit": 1100
 }

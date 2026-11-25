@@ -2026,6 +2026,30 @@
       "id": "chase_2026-11-25_amzn5169",
       "note": "",
       "source": "Chase screenshot"
+    },
+    {
+      "amount": -304.01,
+      "category": "CC - Victoria's Secret",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-25",
+      "description": "Victoria's Secret card (...9614) payment - paid in full",
+      "group": "Debt",
+      "id": "user_2026-11-25_vs30401",
+      "note": "Paid in full 11/25 (due 12/2), per you - not in Chase yet",
+      "source": "User report"
+    },
+    {
+      "amount": -129,
+      "category": "CC - Ollo",
+      "cleared": false,
+      "confidence": "H",
+      "date": "2026-11-25",
+      "description": "Ollo card (...3450) payment - paid in full",
+      "group": "Debt",
+      "id": "user_2026-11-25_ollo129",
+      "note": "Paid in full 11/25 (due 12/4), per you - not in Chase yet",
+      "source": "User report"
     }
   ],
   "month": "2026-11"

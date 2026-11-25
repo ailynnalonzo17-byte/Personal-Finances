@@ -1,0 +1,79 @@
+{
+  "account": "paypal_cashback_mc",
+  "month": "2026-11",
+  "cardCategory": "CC - cashback MC",
+  "entries": [
+    {
+      "id": "paypal_cashback_mc_2026-11_0",
+      "date": "2026-10-26",
+      "description": "PAYPAL PURCHASE MICROSOFT SAN JOSE CA",
+      "amount": 19.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Microsoft subscription (monthly $19.99?)",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_1",
+      "date": "2026-11-07",
+      "description": "AMAZON MKTPL*D74SX5U53 SEATTLE WA",
+      "amount": 88.72,
+      "category": "Shop - Amazon",
+      "group": "Expenses",
+      "confidence": "H",
+      "note": "",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_2",
+      "date": "2026-11-07",
+      "description": "LEAN LABS LLC MILTON DE",
+      "amount": 25.99,
+      "category": "Health",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Lean Labs - supplement/app? confirm",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_3",
+      "date": "2026-11-21",
+      "description": "PAYPAL PURCHASE MICROSOFT SAN JOSE CA",
+      "amount": 19.99,
+      "category": "Others",
+      "group": "Expenses",
+      "confidence": "M",
+      "note": "Microsoft subscription again - 2 charges this cycle",
+      "type": "purchase",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_4",
+      "date": "2026-11-17",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -40,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "From Chase 11/17",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_5",
+      "date": "2026-11-24",
+      "description": "INTEREST CHARGE ON PURCHASES",
+      "amount": 4.07,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest charged by this card",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
+    }
+  ]
+}

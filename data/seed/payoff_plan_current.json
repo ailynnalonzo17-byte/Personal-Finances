@@ -23,7 +23,7 @@
     {
       "id": "ollo",
       "role": "pay_in_full",
-      "note": "New $129 (Hims & Hers) - pay it in full by 12/4 so it never charges interest (30.74%)"
+      "note": "PAID OFF 11/25"
     },
     {
       "id": "macys_amex",
@@ -38,17 +38,17 @@
     {
       "id": "victorias_secret",
       "role": "avalanche",
-      "note": "Smallest: $304.01 (35.99%). Pay it in full by 12/2 = $0 and no interest"
+      "note": "PAID OFF 11/25 - first card done!"
+    },
+    {
+      "id": "onepay",
+      "role": "avalanche",
+      "note": "Now the smallest ($754.41, 30.74%) - next target"
     },
     {
       "id": "credit1_4352",
       "role": "avalanche",
       "note": "~$852 of $950 limit (28.15%) - next after Victoria's Secret"
-    },
-    {
-      "id": "onepay",
-      "role": "avalanche",
-      "note": "30.74%"
     },
     {
       "id": "capital1_savor",
