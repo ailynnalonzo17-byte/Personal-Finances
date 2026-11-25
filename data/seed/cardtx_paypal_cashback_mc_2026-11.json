@@ -32,10 +32,10 @@
       "date": "2026-11-07",
       "description": "LEAN LABS LLC MILTON DE",
       "amount": 25.99,
-      "category": "Health",
+      "category": "Others",
       "group": "Expenses",
-      "confidence": "M",
-      "note": "Lean Labs - supplement/app? confirm",
+      "confidence": "H",
+      "note": "Lean Labs - app subscription (per you)",
       "type": "purchase",
       "source": "Card statement PDF you uploaded"
     },
@@ -74,6 +74,18 @@
       "note": "Interest charged by this card",
       "type": "interest",
       "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "paypal_cashback_mc_2026-11_6",
+      "date": "2026-11-25",
+      "description": "PAYMENT - cashback rewards",
+      "amount": -25.76,
+      "category": "CC - cashback MC",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Paid with $25.76 cashback rewards (per you)",
+      "type": "payment",
+      "source": "User report"
     }
   ]
 }

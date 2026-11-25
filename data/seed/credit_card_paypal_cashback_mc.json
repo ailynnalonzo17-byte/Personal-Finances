@@ -5,11 +5,11 @@
   "last4": "2682",
   "category": "CC - cashback MC",
   "statementDate": "2026-11-24",
-  "balance": 209.33,
+  "balance": 183.57,
   "minPayment": 40.0,
   "dueDate": "2026-12-17",
   "apr": 34.49,
   "source": "Statement PDF you uploaded (Nov 24 statement)",
-  "note": "Nov 24 statement: $209.33 (Microsoft $19.99 x2, Amazon $88.72, Lean Labs $25.99, $4.07 interest; $40 paid 11/17), minimum $40 due 12/17. Pay $209.33 in full to stop 34.49% interest. Limit $1,100. Cashback balance $25.76 - redeem it to PayPal.",
+  "note": "Nov 24 statement $209.33 (Microsoft $19.99 x2, Amazon $88.72, Lean Labs app $25.99, $4.07 interest). Paid $25.76 with cashback 11/25 -> $183.57 left, due 12/17 (min $40). Pay it in full to stop 34.49% interest. Limit $1,100.",
   "creditLimit": 1100
 }
