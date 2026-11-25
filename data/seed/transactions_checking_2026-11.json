@@ -1769,11 +1769,11 @@
       "cleared": false,
       "confidence": "H",
       "date": "2026-11-24",
-      "description": "SW Gas - checked off as paid",
+      "description": "SW Gas payment",
       "group": "Monthly Bills",
       "id": "bill_sw-gas_2026-11",
-      "note": "From This month's bills & loans - checked off by you",
-      "source": "Bill checklist payment"
+      "note": "Nov $19.39 paid 11/24 (due 11/24), per you - not in Chase yet. AutoPay now on.",
+      "source": "User report"
     },
     {
       "amount": -49.17,
@@ -2000,7 +2000,7 @@
       "description": "Zelle payment from Ailynn Perez 0PE0TBZ1RUQT",
       "group": "Transfer",
       "id": "chase_2026-11-24_zelle1000",
-      "note": "From SoFi by Zelle (like the 11/17 $177) - confirm",
+      "note": "From SoFi by Zelle (per you)",
       "source": "Chase screenshot"
     },
     {
