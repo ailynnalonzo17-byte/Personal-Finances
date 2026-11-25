@@ -4,11 +4,12 @@
   "holder": "Ailynn",
   "last4": "0461",
   "category": "CC - One Pay",
-  "statementDate": "2026-10-18",
-  "balance": 754.41,
-  "minPayment": 30,
-  "dueDate": "2026-11-10",
-  "apr": 30.74,
-  "source": "Statement PDF you uploaded (6 month(s) on file)",
-  "note": "Oct 18 statement: $784.41 (mostly mac.bid $313.70 and LillyDirect $304.42). Paid the $30 minimum 11/10 from the OnePay checking account (not Chase) -> about $754.41. Credit limit $1,000."
+  "statementDate": "2026-11-17",
+  "balance": 1106.57,
+  "minPayment": 35.0,
+  "dueDate": "2026-12-10",
+  "apr": 30.99,
+  "source": "Statement PDF you uploaded (Nov 17 statement)",
+  "note": "Nov 17 statement: $1,106.57 - OVER LIMIT by $106.57 ($1,000 limit). Minimum $35 due 12/10; pay at least $141.57 (min + over-limit) ASAP. $23.70 interest. Mostly subscriptions (Claude $20 x2, Airtable $92.02, ChatGPT $20, Fathom $20, Google One $12.98) + mac.bid $181.49. Stop using this card.",
+  "creditLimit": 1000
 }
