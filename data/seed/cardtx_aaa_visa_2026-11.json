@@ -37,6 +37,42 @@
       "note": "Cove home security equipment (confirmed by you)",
       "source": "Account screenshot you sent",
       "type": "purchase"
+    },
+    {
+      "id": "aaa_visa_2026-11_pay",
+      "date": "2026-11-07",
+      "description": "PAYMENT - THANK YOU",
+      "amount": -250.49,
+      "category": "CC - AAA Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Oct statement paid in full - but 1 day after the 11/6 due date",
+      "type": "payment",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "aaa_visa_2026-11_fee",
+      "date": "2026-11-06",
+      "description": "LATE FEE",
+      "amount": 30.0,
+      "category": "CC - AAA Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Late fee - payment arrived 11/7, due 11/6. Ask Comenity to waive it.",
+      "type": "fee",
+      "source": "Card statement PDF you uploaded"
+    },
+    {
+      "id": "aaa_visa_2026-11_int",
+      "date": "2026-11-11",
+      "description": "Interest Charge on Purchases",
+      "amount": 12.23,
+      "category": "CC - AAA Visa",
+      "group": "Debt",
+      "confidence": "H",
+      "note": "Interest charged because the Oct statement was paid late",
+      "type": "interest",
+      "source": "Card statement PDF you uploaded"
     }
   ],
   "month": "2026-11"
